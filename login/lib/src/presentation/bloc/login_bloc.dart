@@ -15,10 +15,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   LoginModel loginModel = const LoginModel();
 
-  LoginBloc(this._loginUseCase);
-
-  @override
-  LoginState get initialState => LoginState.initial();
+  LoginBloc(this._loginUseCase) : super(LoginState.initial());
 
   @override
   Stream<LoginState> mapEventToState(
