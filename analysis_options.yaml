@@ -1,0 +1,14 @@
+#refer for custom https://github.com/passsy/dart-lint/blob/master/lib/analysis_options.yaml
+include: package:lint/analysis_options.yaml
+
+linter:
+  rules:
+    parameter_assignments: true
+    prefer_function_declarations_over_variables: false
+    ambiguous_extension_member_access: false
+analyzer:
+  errors:
+    missing_required_param: warning
+    parameter_assignments: warning
+    missing_return: warning
+    argument_type_not_assignable: warning

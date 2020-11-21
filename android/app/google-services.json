@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "454129904902",
+    "firebase_url": "https://libertime-5fe0f.firebaseio.com",
+    "project_id": "libertime-5fe0f",
+    "storage_bucket": "libertime-5fe0f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454129904902:android:51357e85c27fec12b5c287",
+        "android_client_info": {
+          "package_name": "vn.libertime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454129904902-7lad31n52ibthv14cv7l42u84c54tlg5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc2QtL3UuyKpZATvV_wr-vbvUfDX3hZro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454129904902-7lad31n52ibthv14cv7l42u84c54tlg5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
