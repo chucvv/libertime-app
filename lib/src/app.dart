@@ -11,7 +11,7 @@ class LiberTimeApp extends StatelessWidget {
       title: Strings.appName,
       theme: themeData,
       routes: Routes.routes,
-      initialRoute: Routes.home,
+      initialRoute: Routes.initial,
     );
   }
 }

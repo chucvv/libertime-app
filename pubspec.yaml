@@ -51,6 +51,9 @@ dependencies:
   login:
     path: ./login
 
+  signin:
+    path: ./signin
+
   core_packages:
     path: ./core
 
