@@ -14,9 +14,6 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
 
-  # Google Firebase Store
-  cloud_firestore: ^0.13.5
-
   # Swap the connectivity package for this
   data_connection_checker: ^0.3.4
   # Service locator
@@ -26,7 +23,6 @@ dependencies:
   # Functional programming thingies
   dartz: ^0.9.2
   # Remote API
-  #connectivity: ^0.4.3+7
   chopper: ^3.0.1
   # Secure store cache
   flutter_secure_storage: ^3.3.1+1
@@ -47,9 +43,6 @@ dependencies:
 
   widget:
     path: ./widget
-
-  login:
-    path: ./login
 
   signin:
     path: ./signin
@@ -88,7 +81,6 @@ flutter:
   assets:
     - assets/materials/
     - assets/launcher/
-
   fonts:
     - family: Raleway
       fonts:
