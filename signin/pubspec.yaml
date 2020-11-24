@@ -15,6 +15,16 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
 
+  equatable: ^1.2.5
+
+  chopper: ^3.0.6
+
+  core_packages:
+    path: ../core
+
+  widget:
+    path: ../widget
+
   nb_utils: ^3.2.11+4
   cached_network_image: ^2.3.3
   flutter_statusbarcolor: ^0.2.3
@@ -22,6 +32,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: ^1.10.6 #-> flutter packages pub run build_runner watch --delete-conflicting-outputs
+  chopper_generator: ^3.0.6
 
 flutter:
   uses-material-design: true
