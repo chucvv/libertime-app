@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:libertime/src/features/home/presentation/pages/home_page.dart';
+import 'package:libertime/src/loading_page.dart';
 import 'package:signin/signin.dart';
 
 class Routes {
@@ -10,7 +11,15 @@ class Routes {
   static const String home = '/home';
 
   static final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
-    initial: (BuildContext context) => SigninSplashScreen(),
+    initial: (BuildContext context) => LoadingPage(),
+    login: (BuildContext context) => SigninSplashScreen(
+          successCallback: (credential) {
+            Navigator.pushNamed(
+              context,
+              Routes.home,
+            );
+          },
+        ),
     home: (BuildContext context) => HomePage(),
   };
 }

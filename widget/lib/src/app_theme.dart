@@ -68,13 +68,13 @@ final ThemeData themeData = ThemeData(
     accentColor: AppColors.primaryColor[500],
     accentColorBrightness: Brightness.light,
     textTheme: TextTheme(
-        headline: TextStyle(
+        headline5: TextStyle(
             fontSize: 18.0, fontWeight: FontWeight.w400, color: lTTextColor),
-        title: TextStyle(
+        headline6: TextStyle(
             fontSize: 16.0, fontWeight: FontWeight.w500, color: lTTextColor),
         caption: TextStyle(
             fontSize: 16.0, fontWeight: FontWeight.w500, color: lTTextColor),
-        subtitle: TextStyle(
+        subtitle2: TextStyle(
             fontSize: 16.0, fontWeight: FontWeight.w500, color: lTTextColor),
-        body1: const TextStyle(
+        bodyText2: const TextStyle(
             fontSize: 14.0, fontFamily: lTFontName, color: lTTextColor)));

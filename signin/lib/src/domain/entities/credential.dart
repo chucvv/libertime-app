@@ -2,11 +2,11 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
 @immutable
-class Credentials extends Equatable {
+class Credential extends Equatable {
   final String accessToken;
   final String refreshToken;
 
-  const Credentials(this.accessToken, this.refreshToken);
+  const Credential(this.accessToken, this.refreshToken);
 
   @override
   List<Object> get props => [accessToken, refreshToken];

@@ -17,10 +17,10 @@ class _$AuthService extends AuthService {
   final definitionType = AuthService;
 
   @override
-  Future<Response<dynamic>> authenticate(Map<String, dynamic> body) {
+  Future<Response<AuthResponse>> authenticate(Map<String, dynamic> body) {
     final $url = '/authenticate';
     final $body = body;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
-    return client.send<dynamic, dynamic>($request);
+    return client.send<AuthResponse, AuthResponse>($request);
   }
 }

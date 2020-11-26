@@ -1,41 +1,28 @@
-import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:core_packages/core.dart';
+import 'package:signin/src/domain/entities/credential.dart';
 import 'app_widget.dart';
+import 'auth_widget.dart';
 import 'string.dart';
 import 'color.dart';
 import 'size_constant.dart';
 import 'images.dart';
 import 'widgets.dart';
-import 'signup.dart';
+
+typedef LoginSuccessCallback = Function(Credential);
 
 class SigninSplashScreen extends StatefulWidget {
-  static String tag = '/GrocerySplashScreen';
+  final LoginSuccessCallback successCallback;
 
+  const SigninSplashScreen({Key key, this.successCallback}) : super(key: key);
   @override
   _SigninSplashScreenState createState() => _SigninSplashScreenState();
 }
 
 class _SigninSplashScreenState extends State<SigninSplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    startTime();
-  }
-
-  Future<Timer> startTime() async {
-    const _duration = Duration(seconds: 2);
-    return Timer(_duration, navigationPage);
-  }
-
-  void navigationPage() {
-    setState(() {
-//      GroceryDashBoardScreen().launch(context);
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -76,7 +63,7 @@ class _SigninSplashScreenState extends State<SigninSplashScreen> {
                     child: groceryButton1(
                       textContent: grocery_lbl_Sign_In,
                       onPressed: (() {
-                        GrocerySignUp(
+                        AuthWidget(
                           isSignIn: true,
                           isSignUp: false,
                         ).launch(context);
@@ -89,9 +76,10 @@ class _SigninSplashScreenState extends State<SigninSplashScreen> {
                     child: groceryButton(
                   textContent: grocery_lbl_Sign_Up,
                   onPressed: (() {
-                    GrocerySignUp(
+                    AuthWidget(
                       isSignUp: true,
                       isSignIn: false,
+                      successCallback: widget.successCallback,
                     ).launch(context);
                   }),
                 ))
