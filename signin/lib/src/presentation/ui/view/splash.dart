@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:core_packages/core.dart';
@@ -9,7 +7,6 @@ import 'auth_widget.dart';
 import 'string.dart';
 import 'color.dart';
 import 'size_constant.dart';
-import 'images.dart';
 import 'widgets.dart';
 
 typedef LoginSuccessCallback = Function(Credential);
@@ -35,12 +32,6 @@ class _SigninSplashScreenState extends State<SigninSplashScreen> {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Image.asset(
-            grocery_ic_logo,
-            width: width * 0.35,
-            height: width * 0.35,
-            fit: BoxFit.fill,
-          ).center(),
           Padding(
             padding: const EdgeInsets.all(spacing_standard_new),
             child: Column(

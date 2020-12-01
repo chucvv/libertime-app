@@ -1,3 +1,4 @@
+import 'package:fimber/fimber_base.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:libertime/src/app.dart';
@@ -11,6 +12,6 @@ void main() {
     DeviceOrientation.landscapeLeft,
   ]).then((_) async {
     runApp(LiberTimeApp());
-    //Fimber.plantTree(DebugTree.elapsed());
+    Fimber.plantTree(DebugTree.elapsed());
   });
 }

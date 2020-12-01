@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:core_packages/core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:signin/src/di/injection_container.dart';
 import 'package:signin/src/presentation/bloc/bloc.dart';
 import 'package:signin/src/presentation/ui/view/splash.dart';
 import '../../strings.dart';
@@ -24,17 +24,18 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   final _usernameEditingController = TextEditingController();
   final _passwordEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider<LoginBloc>(
-      create: (_) => GetIt.I<LoginBloc>(),
+      create: (_) => getIt<LoginBloc>(),
       child: _buildBody(context),
     );
   }
 
   Widget _buildBody(BuildContext context) {
     return BlocConsumer<LoginBloc, LoginState>(builder: (context, state) {
-      return buildSignInForm();
+      return buildSignInForm(context);
     }, listener: (context, state) {
       state.maybeWhen(
         success: (credential) {
@@ -54,7 +55,7 @@ class _SignInState extends State<SignIn> {
     });
   }
 
-  Widget buildSignInForm() {
+  Widget buildSignInForm(BuildContext context) {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
