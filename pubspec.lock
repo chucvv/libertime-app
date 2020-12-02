@@ -296,7 +296,7 @@ packages:
     source: hosted
     version: "5.2.1"
   fimber:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: fimber
       url: "https://pub.dartlang.org"
@@ -335,6 +335,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+  flutter_fimber:
+    dependency: "direct main"
+    description:
+      name: flutter_fimber
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.4"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
