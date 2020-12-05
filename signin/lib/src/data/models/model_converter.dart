@@ -5,7 +5,7 @@ import 'package:core_packages/core.dart';
 
 typedef Decoder<BodyType> = BodyType Function(Map<String, dynamic>);
 
-class ModelConverter<BodyType> extends Converter {
+class ModelConverter extends Converter {
   final Decoder decoder;
 
   ModelConverter(this.decoder);
@@ -26,7 +26,7 @@ class ModelConverter<BodyType> extends Converter {
     return response.decode<BodyType>(jsonHeaders, (bodyBytes) {
       final _body = utf8.decode(bodyBytes);
       final decodedBody = json.decode(_body);
-      return decoder(decodedBody);
+      return decoder(decodedBody as Map<String, dynamic>) as BodyType;
     });
   }
 }

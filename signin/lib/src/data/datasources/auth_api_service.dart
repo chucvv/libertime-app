@@ -15,10 +15,10 @@ abstract class AuthService extends ChopperService {
         baseUrl: "http://52.77.153.8",
         services: [_$AuthService()],
         interceptors: [HttpLoggingInterceptor()],
-        converter: ModelConverter<AuthResponse>((body) {
+        converter: ModelConverter((body) {
           return AuthResponse.fromJson(body);
         }),
-        errorConverter: JsonConverter());
+        errorConverter: const JsonConverter());
 
     return _$AuthService(client);
   }

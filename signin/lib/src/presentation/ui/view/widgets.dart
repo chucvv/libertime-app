@@ -21,11 +21,11 @@ Widget button(
     height: height,
     minWidth: width,
     padding: const EdgeInsets.all(0.0),
-    child:
-        Text(text, style: TextStyle(fontSize: 18), textAlign: TextAlign.center)
-            .cornerRadiusWithClipRRect(25),
     textColor: textColor,
     color: backgroundColor,
+    child: Text(text,
+            style: const TextStyle(fontSize: 18), textAlign: TextAlign.center)
+        .cornerRadiusWithClipRRect(25),
   ).cornerRadiusWithClipRRect(10).paddingOnly(left: 8, right: 8);
 }
 
@@ -439,11 +439,10 @@ class TopBarState extends State<TopBar> {
     return SafeArea(
       child: Container(
         color: grocery_colorPrimary,
-        padding: EdgeInsets.only(right: spacing_standard_new),
+        padding: const EdgeInsets.only(right: spacing_standard_new),
         height: 60,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Row(
               children: <Widget>[
@@ -455,7 +454,7 @@ class TopBarState extends State<TopBar> {
                   },
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                   child: Center(
                     child: text(widget.titleName,
                         fontFamily: fontBold,
@@ -476,10 +475,5 @@ class TopBarState extends State<TopBar> {
         ),
       ),
     );
-  }
-
-  @override
-  State<StatefulWidget> createState() {
-    return null;
   }
 }

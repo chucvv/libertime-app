@@ -55,9 +55,7 @@ void changeStatusColor(Color color) async {
     await FlutterStatusbarcolor.setStatusBarColor(color, animate: true);
     FlutterStatusbarcolor.setStatusBarWhiteForeground(
         useWhiteForeground(color));
-  } on Exception catch (e) {
-    print(e);
-  }
+  } on Exception catch (e) {}
 }
 
 Widget commonCacheImageWidget(String url, double height,
