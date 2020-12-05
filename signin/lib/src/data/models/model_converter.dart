@@ -1,9 +1,15 @@
 import 'dart:convert';
 
 import 'package:chopper/chopper.dart';
-import 'package:signin/src/data/models/auth_response.dart';
+import 'package:core_packages/core.dart';
 
-class ModelConverter extends Converter {
+typedef Decoder<BodyType> = BodyType Function(Map<String, dynamic>);
+
+class ModelConverter<BodyType> extends Converter {
+  final Decoder decoder;
+
+  ModelConverter(this.decoder);
+
   @override
   Request convertRequest(Request request) {
     final req = applyHeader(
@@ -12,35 +18,15 @@ class ModelConverter extends Converter {
       jsonHeaders,
       override: false,
     );
-    return encodeJson(req);
+    return req.encode(jsonHeaders, (body) => json.encode(body));
   }
 
   @override
   Response<BodyType> convertResponse<BodyType, InnerType>(Response response) {
-    return decodeJson<BodyType, InnerType>(response);
-  }
-
-  Request encodeJson(Request request) {
-    var contentType = request.headers[contentTypeKey];
-    if (contentType != null && contentType.contains(jsonHeaders)) {
-      return request.copyWith(body: json.encode(request.body));
-    }
-    return request;
-  }
-
-  Response decodeJson<BodyType, InnerType>(Response response) {
-    var contentType = response.headers[contentTypeKey];
-    var body = response.body;
-    if (contentType != null && contentType.contains(jsonHeaders)) {
-      body = utf8.decode(response.bodyBytes);
-    }
-    try {
-      var mapData = json.decode(body);
-      var popular = AuthResponse.fromJson(mapData);
-      return response.copyWith<BodyType>(body: popular as BodyType);
-    } catch (e) {
-      chopperLogger.warning(e);
-      return response.copyWith<BodyType>(body: body);
-    }
+    return response.decode<BodyType>(jsonHeaders, (bodyBytes) {
+      final _body = utf8.decode(bodyBytes);
+      final decodedBody = json.decode(_body);
+      return decoder(decodedBody);
+    });
   }
 }

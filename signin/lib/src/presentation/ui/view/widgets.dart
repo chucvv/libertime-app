@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
+
+import 'app_widget.dart';
 import 'color.dart';
 import 'size_constant.dart';
-import 'app_widget.dart';
 
 Widget button(
   BuildContext context,
@@ -379,7 +380,7 @@ class PinEntryTextFieldState extends State<PinEntryTextField> {
         decoration: InputDecoration(
             counterText: "",
             border: widget.showFieldAsBox
-                ? OutlineInputBorder(borderSide: BorderSide(width: 2.0))
+                ? const OutlineInputBorder(borderSide: BorderSide(width: 2.0))
                 : null),
         onChanged: (String str) {
           setState(() {

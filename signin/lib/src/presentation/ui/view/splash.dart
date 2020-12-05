@@ -57,6 +57,7 @@ class _SigninSplashScreenState extends State<SigninSplashScreen> {
                         AuthWidget(
                           isSignIn: true,
                           isSignUp: false,
+                          successCallback: widget.successCallback,
                         ).launch(context);
                       }),
                     )),

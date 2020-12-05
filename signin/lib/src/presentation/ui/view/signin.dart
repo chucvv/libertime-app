@@ -80,7 +80,6 @@ class _SignInState extends State<SignIn> {
           ).paddingAll(spacing_standard_new),
           EditText(
             text: Strings.passwordTitle,
-            isPassword: true,
             keyboardType: TextInputType.visiblePassword,
             mController: _passwordEditingController,
           ).paddingAll(spacing_standard_new),

@@ -15,7 +15,7 @@ BoxDecoration boxDecoration(
     color: bgColor,
     boxShadow: showShadow
         ? defaultBoxShadow(shadowColor: shadowColorGlobal)
-        : [BoxShadow(color: Colors.transparent)],
+        : [const BoxShadow(color: Colors.transparent)],
     border: Border.all(color: color),
     borderRadius: BorderRadius.all(Radius.circular(radius)),
   );
@@ -106,7 +106,7 @@ class ContainerX extends StatelessWidget {
     return LayoutBuilder(
       builder: (_, constraints) {
         if (constraints.device == DeviceSize.mobile) {
-          return mobile ?? SizedBox();
+          return mobile ?? const SizedBox();
         } else {
           return Container(
             alignment: Alignment.topCenter,
@@ -114,7 +114,7 @@ class ContainerX extends StatelessWidget {
               constraints: useFullWidth.validate()
                   ? null
                   : dynamicBoxConstraints(maxWidth: context.width() * 0.9),
-              child: web ?? SizedBox(),
+              child: web ?? const SizedBox(),
             ),
           );
         }

@@ -17,9 +17,9 @@ class _$AuthService extends AuthService {
   final definitionType = AuthService;
 
   @override
-  Future<Response<AuthResponse>> authenticate(Map<String, dynamic> body) {
+  Future<Response<AuthResponse>> authenticate(AuthRequest request) {
     final $url = '/authenticate';
-    final $body = body;
+    final $body = request;
     final $request = Request('POST', $url, client.baseUrl, body: $body);
     return client.send<AuthResponse, AuthResponse>($request);
   }
