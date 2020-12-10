@@ -22,7 +22,8 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:widget/awesome_widgets.dart';
+
+import 'animation/zoom_slideup_transition.dart';
 
 class AppColors {
   AppColors._(); // this basically makes it so you can instantiate this class

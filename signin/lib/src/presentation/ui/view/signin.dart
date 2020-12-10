@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:core_packages/core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:signin/src/di/injection_container.dart';
 import 'package:signin/src/presentation/bloc/bloc.dart';
 import 'package:signin/src/presentation/ui/view/splash.dart';
+import 'package:share_module/extensions.dart';
 import '../../strings.dart';
 import 'app_widget.dart';
 import 'color.dart';

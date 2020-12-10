@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:libertime/src/features/favorites/presentation/pages/favorites_page.dart';
 import 'package:libertime/src/features/home/presentation/widgets/bottom_navigator_bar.dart';
-import 'package:widget/awesome_widgets.dart';
+import 'package:common_ui/awesome_ui.dart';
 
 class HomePage extends StatefulWidget {
   @override

@@ -1,4 +1,4 @@
-library widget;
+library common_ui;
 
 export 'package:flutter_spinkit/flutter_spinkit.dart';
 

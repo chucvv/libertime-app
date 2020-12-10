@@ -1,5 +1,5 @@
-name: core_packages
-description: Share core package
+name: share_module
+description: Shared package
 version: 0.0.1
 author:
 homepage:

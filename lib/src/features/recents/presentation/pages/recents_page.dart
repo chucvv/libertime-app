@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:widget/src/app_theme.dart';
+import 'package:common_ui/awesome_ui.dart';
 
 class RecentProjectPage extends StatelessWidget {
   @override
@@ -9,7 +9,7 @@ class RecentProjectPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: lTPrimaryColor,
         appBar: AppBar(),
-        body: Center(
+        body: const Center(
           child: Text("RecentProjectPage"),
         ),
       ),

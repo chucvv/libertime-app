@@ -1,4 +1,4 @@
-import 'package:core_packages/core.dart';
+import '../error/failures.dart';
 
 String mapError(Failure e) {
   return e.when(

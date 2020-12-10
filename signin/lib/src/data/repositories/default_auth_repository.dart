@@ -1,6 +1,6 @@
-import 'package:signin/src/data/datasources/auth_api_service.dart';
 import 'package:dartz/dartz.dart';
-import 'package:core_packages/src/error/failures.dart';
+import 'package:signin/src/data/datasources/auth_api_service.dart';
+import 'package:share_module/common.dart';
 import 'package:signin/src/data/models/auth_request.dart';
 import 'package:signin/src/domain/entities/credential.dart';
 import 'package:signin/src/domain/repositories/auth_repository.dart';

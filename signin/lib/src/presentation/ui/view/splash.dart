@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
-import 'package:core_packages/core.dart';
+import 'package:share_module/extensions.dart';
 import 'package:signin/src/domain/entities/credential.dart';
 import 'app_widget.dart';
 import 'auth_widget.dart';

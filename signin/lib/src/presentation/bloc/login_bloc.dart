@@ -1,10 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:core_packages/core.dart';
 import 'package:signin/src/domain/usecases/login_usecase.dart';
 import 'package:verify/verify.dart';
-
+import 'package:share_module/utility.dart';
 import 'bloc.dart';
 import 'login_error.dart';
 import 'login_validation.dart';

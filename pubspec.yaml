@@ -40,14 +40,14 @@ dependencies:
   splash:
     path: ./splash
 
-  widget:
-    path: ./widget
+  common_ui:
+    path: ./common_ui
 
   signin:
     path: ./signin
 
-  core_packages:
-    path: ./core
+  share_module:
+    path: ./share_module
 
 dev_dependencies:
   lint: ^1.3.0
