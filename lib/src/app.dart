@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:libertime/constants/strings.dart';
 import 'package:libertime/src/configuration/routes.dart';
-import 'package:common_ui/awesome_ui.dart';
+import 'package:share_ui/awesome_ui.dart';
 
 class LiberTimeApp extends StatelessWidget {
   @override

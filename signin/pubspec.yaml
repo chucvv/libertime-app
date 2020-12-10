@@ -37,8 +37,8 @@ dependencies:
   share_module:
     path: ../share_module
 
-  common_ui:
-    path: ../common_ui
+  share_ui:
+    path: ../share_ui
   
   #Converters & built value integration chopper
   built_value: ^7.1.0

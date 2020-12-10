@@ -1,4 +1,4 @@
-import 'package:common_ui/awesome_ui.dart';
+import 'package:share_ui/awesome_ui.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

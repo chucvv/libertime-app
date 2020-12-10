@@ -1,7 +1,7 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:libertime/constants/strings.dart';
-import 'package:common_ui/awesome_ui.dart';
+import 'package:share_ui/awesome_ui.dart';
 
 enum TabItem { workspace, recents, favorites }
 

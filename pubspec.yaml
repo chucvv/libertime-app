@@ -40,8 +40,8 @@ dependencies:
   splash:
     path: ./splash
 
-  common_ui:
-    path: ./common_ui
+  share_ui:
+    path: ./share_ui
 
   signin:
     path: ./signin
