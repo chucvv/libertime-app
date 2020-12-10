@@ -1,16 +1,14 @@
-import 'package:json_annotation/json_annotation.dart';
-
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 part 'auth_request.g.dart';
 
-@JsonSerializable()
-class AuthRequest {
-  @JsonKey(name: "username")
-  final String username;
+abstract class AuthRequest implements Built<AuthRequest, AuthRequestBuilder> {
+  String get username;
+  String get password;
 
-  @JsonKey(name: "password")
-  final String password;
+  AuthRequest._();
 
-  AuthRequest(this.username, this.password);
+  factory AuthRequest([updates(AuthRequestBuilder builder)]) = _$AuthRequest;
 
-  Map<String, dynamic> toJson() => _$AuthRequestToJson(this);
+  static Serializer<AuthRequest> get serializer => _$authRequestSerializer;
 }

@@ -1,7 +1,7 @@
 import 'package:chopper/chopper.dart';
+import 'package:signin/src/data/datasources/built_value_converter.dart';
 import 'package:signin/src/data/models/auth_request.dart';
 import 'package:signin/src/data/models/auth_response.dart';
-import 'package:signin/src/data/models/model_converter.dart';
 
 part 'auth_api_service.chopper.dart';
 
@@ -15,9 +15,7 @@ abstract class AuthService extends ChopperService {
         baseUrl: "http://52.77.153.8",
         services: [_$AuthService()],
         interceptors: [HttpLoggingInterceptor()],
-        converter: ModelConverter((body) {
-          return AuthResponse.fromJson(body);
-        }),
+        converter: BuiltValueConverter(),
         errorConverter: const JsonConverter());
 
     return _$AuthService(client);

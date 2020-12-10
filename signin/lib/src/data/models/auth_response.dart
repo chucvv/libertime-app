@@ -1,38 +1,36 @@
 import 'package:json_annotation/json_annotation.dart';
-
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 part 'auth_response.g.dart';
 
-@JsonSerializable()
-class AuthResponse {
-  @JsonKey(name: "status")
-  final String status;
+abstract class AuthResponse
+    implements Built<AuthResponse, AuthResponseBuilder> {
+  String get status;
 
-  @JsonKey(name: "message")
-  final String message;
+  @nullable
+  String get message;
 
-  @JsonKey(name: "credential")
-  final CredentialResponse credential;
+  @nullable
+  CredentialResponse get credential;
 
-  AuthResponse(this.status, this.message, this.credential);
+  AuthResponse._();
 
-  Map<String, dynamic> toJson() => _$AuthResponseToJson(this);
+  factory AuthResponse([updates(AuthResponseBuilder builder)]) = _$AuthResponse;
 
-  factory AuthResponse.fromJson(Map<String, dynamic> json) =>
-      _$AuthResponseFromJson(json);
+  static Serializer<AuthResponse> get serializer => _$authResponseSerializer;
 }
 
-@JsonSerializable()
-@JsonKey(name: "accessToken")
-class CredentialResponse {
-  final String accessToken;
+abstract class CredentialResponse
+    implements Built<CredentialResponse, CredentialResponseBuilder> {
+  String get accessToken;
 
-  @JsonKey(name: "refreshToken")
-  final String refreshToken;
+  String get refreshToken;
 
-  CredentialResponse(this.accessToken, this.refreshToken);
+  CredentialResponse._();
 
-  Map<String, dynamic> toJson() => _$CredentialResponseToJson(this);
+  factory CredentialResponse([updates(CredentialResponseBuilder builder)]) =
+      _$CredentialResponse;
 
-  factory CredentialResponse.fromJson(Map<String, dynamic> json) =>
-      _$CredentialResponseFromJson(json);
+  static Serializer<CredentialResponse> get serializer =>
+      _$credentialResponseSerializer;
 }

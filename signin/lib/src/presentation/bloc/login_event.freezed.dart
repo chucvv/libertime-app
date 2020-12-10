@@ -32,22 +32,22 @@ mixin _$LoginEvent {
   String get password;
 
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult login(String username, String password),
+  Result when<Result extends Object>({
+    @required Result login(String username, String password),
   });
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult login(String username, String password),
-    @required TResult orElse(),
+  Result maybeWhen<Result extends Object>({
+    Result login(String username, String password),
+    @required Result orElse(),
   });
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult login(onLoginEvent value),
+  Result map<Result extends Object>({
+    @required Result login(onLoginEvent value),
   });
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult login(onLoginEvent value),
-    @required TResult orElse(),
+  Result maybeMap<Result extends Object>({
+    Result login(onLoginEvent value),
+    @required Result orElse(),
   });
 
   $LoginEventCopyWith<LoginEvent> get copyWith;
@@ -162,8 +162,8 @@ class _$onLoginEvent with DiagnosticableTreeMixin implements onLoginEvent {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult login(String username, String password),
+  Result when<Result extends Object>({
+    @required Result login(String username, String password),
   }) {
     assert(login != null);
     return login(username, password);
@@ -171,9 +171,9 @@ class _$onLoginEvent with DiagnosticableTreeMixin implements onLoginEvent {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult login(String username, String password),
-    @required TResult orElse(),
+  Result maybeWhen<Result extends Object>({
+    Result login(String username, String password),
+    @required Result orElse(),
   }) {
     assert(orElse != null);
     if (login != null) {
@@ -184,8 +184,8 @@ class _$onLoginEvent with DiagnosticableTreeMixin implements onLoginEvent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult login(onLoginEvent value),
+  Result map<Result extends Object>({
+    @required Result login(onLoginEvent value),
   }) {
     assert(login != null);
     return login(this);
@@ -193,9 +193,9 @@ class _$onLoginEvent with DiagnosticableTreeMixin implements onLoginEvent {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult login(onLoginEvent value),
-    @required TResult orElse(),
+  Result maybeMap<Result extends Object>({
+    Result login(onLoginEvent value),
+    @required Result orElse(),
   }) {
     assert(orElse != null);
     if (login != null) {

@@ -15,7 +15,9 @@ class DefaultAuthRepository extends AuthRepository {
       String username, String password) async {
     try {
       final authResonse =
-          await _authService.authenticate(AuthRequest(username, password));
+          await _authService.authenticate(AuthRequest((builder) => builder
+            ..username = username
+            ..password = password));
       return Right(authResonse.body.credential.toCredential());
     } catch (e) {
       return Left(Failure.serverFailure(e));

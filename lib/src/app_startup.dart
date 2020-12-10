@@ -12,7 +12,7 @@ class AppStartup {
     _setupLogging();
     Fimber.plantTree(FimberTree(useColors: true));
     Fimber.plantTree(DebugBufferTree.elapsed());
-    Bloc.observer = BlocLoggingObserver();
+    //Bloc.observer = BlocLoggingObserver();
     await app_di.setup();
     await sign.setup();
   }
