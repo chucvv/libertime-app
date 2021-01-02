@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:share_ui/awesome_ui.dart';
+import '../../strings.dart';
 import 'app_widget.dart';
 import 'color.dart';
-import 'size_constant.dart';
-import 'string.dart';
 import 'widgets.dart';
 
 class SignUp extends StatefulWidget {
@@ -20,36 +20,35 @@ class _SignUpState extends State<SignUp> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          text(grocery_lbl_Welcome_app,
-                  fontSize: textSizeLarge, fontFamily: fontBold)
+          text(Strings.lbWelcome, fontSize: textSizeLarge, fontFamily: fontBold)
               .paddingOnly(
                   top: spacing_standard_new,
                   left: spacing_standard_new,
                   right: spacing_standard_new),
-          text(grocery_lbl_let_Started,
+          text(Strings.lbLetStarted,
                   textColor: grocery_textColorSecondary,
                   fontSize: textSizeLargeMedium,
                   fontFamily: fontRegular)
               .paddingOnly(
                   left: spacing_standard_new, right: spacing_standard_new),
           EditText(
-            text: grocery_lbl_UserName,
+            text: Strings.edtUserNameTitle,
             isPassword: false,
           ).paddingAll(spacing_standard_new),
           EditText(
-            text: grocery_lbl_Email_Address,
+            text: Strings.edtEmailAddressTitle,
             isPassword: false,
             keyboardType: TextInputType.emailAddress,
           ).paddingAll(spacing_standard_new),
           EditText(
-            text: grocery_lbl_Password,
+            text: Strings.edtPasswordTitle,
             isPassword: true,
           ).paddingAll(spacing_standard_new),
           Align(
             alignment: Alignment.centerRight,
             child: FittedBox(
               child: groceryButton(
-                textContent: grocery_lbl_Next,
+                textContent: Strings.btnSignupText,
                 onPressed: (() {
                   //GroceryAddNumber().launch(context);
                 }),

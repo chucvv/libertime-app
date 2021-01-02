@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import 'app_colors.dart';
@@ -48,14 +47,6 @@ Widget text(
           lineThrough ? TextDecoration.lineThrough : TextDecoration.none,
     ),
   );
-}
-
-void changeStatusColor(Color color) async {
-  try {
-    await FlutterStatusbarcolor.setStatusBarColor(color, animate: true);
-    FlutterStatusbarcolor.setStatusBarWhiteForeground(
-        useWhiteForeground(color));
-  } on Exception catch (e) {}
 }
 
 Widget commonCacheImageWidget(String url, double height,

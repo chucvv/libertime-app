@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:share_ui/awesome_ui.dart';
 import 'package:signin/src/di/injection_container.dart';
 import 'package:signin/src/presentation/bloc/bloc.dart';
-import 'package:signin/src/presentation/ui/view/splash.dart';
 import 'package:share_module/extensions.dart';
+import 'package:signin/src/presentation/ui/widget/auth_widget.dart';
 import '../../strings.dart';
 import 'app_widget.dart';
 import 'color.dart';
 import 'forgot_password.dart';
-import 'size_constant.dart';
-import 'string.dart';
 import 'widgets.dart';
 
 class SignIn extends StatefulWidget {
@@ -60,26 +59,25 @@ class _SignInState extends State<SignIn> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          text(grocery_lbl_sigIn_App,
-                  fontSize: textSizeLarge, fontFamily: fontBold)
+          text(Strings.lbSigIn, fontSize: textSizeLarge, fontFamily: fontBold)
               .paddingOnly(
                   top: spacing_standard_new,
                   left: spacing_standard_new,
                   right: spacing_standard_new),
           text(
-            grocery_lbl_Enter_email_password_to_continue,
+            Strings.lbEnterEmailPasswordToContinue,
             textColor: grocery_textColorSecondary,
             fontSize: textSizeLargeMedium,
           ).paddingOnly(
               left: spacing_standard_new, right: spacing_standard_new),
           EditText(
-            text: Strings.userNameTitle,
+            text: Strings.edtUserNameTitle,
             isPassword: false,
             keyboardType: TextInputType.name,
             mController: _usernameEditingController,
           ).paddingAll(spacing_standard_new),
           EditText(
-            text: Strings.passwordTitle,
+            text: Strings.edtPasswordTitle,
             keyboardType: TextInputType.visiblePassword,
             mController: _passwordEditingController,
           ).paddingAll(spacing_standard_new),
@@ -87,7 +85,7 @@ class _SignInState extends State<SignIn> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               text(
-                "$grocery_lbl_Forgot_password?",
+                Strings.btnForgotPassword,
                 fontSize: textSizeLargeMedium,
                 fontFamily: fontMedium,
               )
@@ -99,7 +97,7 @@ class _SignInState extends State<SignIn> {
                 GroceryForgotPassword().launch(context);
               }),
               groceryButton(
-                textContent: Strings.signinText,
+                textContent: Strings.btnSigninText,
                 onPressed: (() {
                   final bloc = BlocProvider.of<LoginBloc>(context);
                   bloc.add(LoginEvent.login(_usernameEditingController.text,

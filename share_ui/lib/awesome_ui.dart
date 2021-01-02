@@ -9,3 +9,4 @@ export 'src/argon_buttons_flutter.dart';
 export 'src/dimens.dart';
 export 'src/iconfont.dart';
 export 'src/text_style.dart';
+export 'src/size_constant.dart';

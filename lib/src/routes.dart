@@ -12,7 +12,9 @@ class Routes {
 
   static final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
     initial: (BuildContext context) => LoadingPage(),
-    login: (BuildContext context) => SigninSplashScreen(
+    login: (BuildContext context) => AuthWidget(
+          isSignIn: true,
+          isSignUp: false,
           successCallback: (credential) {
             Navigator.pushNamed(
               context,

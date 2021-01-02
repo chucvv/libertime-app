@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
-import 'string.dart';
+import 'package:share_ui/awesome_ui.dart';
+import '../../strings.dart';
 import 'color.dart';
-import 'size_constant.dart';
 import 'widgets.dart';
 import 'app_widget.dart';
+import 'package:share_module/utility.dart';
 
 class GroceryForgotPassword extends StatefulWidget {
   static String tag = '/GroceryForgotPassword';
@@ -17,13 +18,13 @@ class _GroceryForgotPasswordState extends State<GroceryForgotPassword> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    changeStatusColor(grocery_colorPrimary);
+    changeStatusColor(clWhite);
 
     return Scaffold(
       backgroundColor: grocery_app_background,
       appBar: PreferredSize(
         preferredSize: Size(double.infinity, 70),
-        child: title(grocery_lbl_Forgot_password, grocery_colorPrimary,
+        child: title(Strings.btnForgotPassword, grocery_colorPrimary,
             grocery_color_white, context),
       ),
       body: SingleChildScrollView(
@@ -46,21 +47,21 @@ class _GroceryForgotPasswordState extends State<GroceryForgotPassword> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               SizedBox(height: spacing_standard),
-              text(grocery_lbl_Reset_Password,
+              text(Strings.btnResetPassword,
                       fontSize: textSizeLarge, fontFamily: fontBold)
                   .paddingOnly(
                       top: spacing_standard_new,
                       left: spacing_standard_new,
                       right: spacing_standard_new),
               text(
-                grocery_lbl_enter_email_for_reset_password,
+                Strings.lbEnterEmailForResetPassword,
                 textColor: grocery_textColorSecondary,
                 fontSize: textSizeLargeMedium,
               ).paddingOnly(
                   left: spacing_standard_new, right: spacing_standard_new),
               SizedBox(height: spacing_standard_new),
               EditText(
-                text: grocery_lbl_Email_Address,
+                text: Strings.edtEmailAddressTitle,
                 isPassword: false,
                 keyboardType: TextInputType.emailAddress,
               ).paddingAll(spacing_standard_new),
@@ -68,7 +69,7 @@ class _GroceryForgotPasswordState extends State<GroceryForgotPassword> {
                 alignment: Alignment.centerRight,
                 child: FittedBox(
                   child: groceryButton(
-                    textContent: grocery_lbl_send,
+                    textContent: Strings.btnSendText,
                     onPressed: (() {
                       //GroceryVerifyNumber().launch(context);
                     }),

@@ -1,14 +1,27 @@
 class Strings {
   Strings._();
 
-  static const String userNameTitle = "Tên đăng nhập của bạn";
-  static const String userNameHint = "Cần nhập tên của mình";
-  static const String invalidEmail = "Ví dụ: nguyenvana";
+  static const String edtUserNameTitle = "Enter user name";
+  static const String invalidEmail = "Invalid email";
 
-  static const String passwordTitle = "Mật khẩu";
-  static const String passwordHint = "Cần nhập mật khẩu";
-  static const String invalidPassword = "Cần tối thiểu 8 kí tự";
+  static const String edtPasswordTitle = "Enter password";
+  static const String invalidPassword = "Password is minimum 8 character";
 
-  static const String signinText = "ĐĂNG NHẬP NGAY";
-  static const String signupText = "ĐĂNG KÍ NGAY";
+  static const edtEmailAddressTitle = "Enter email address";
+
+  static const String btnSigninText = "SIGN IN";
+  static const String btnSignupText = "SIGN UP";
+
+  static const String btnSendText = "SEND";
+
+  static const lbWelcome = "Find and meet new people with Liber Me";
+  static const lbLetStarted = "Let's get started";
+
+  static const lbSigIn = "Pair and talk with people";
+  static const lbEnterEmailPasswordToContinue =
+      "Enter email & Password to Continue";
+  static const btnForgotPassword = "Forgot Password";
+  static const btnResetPassword = "Password reset";
+  static const lbEnterEmailForResetPassword =
+      "Enter email address to send reset code";
 }

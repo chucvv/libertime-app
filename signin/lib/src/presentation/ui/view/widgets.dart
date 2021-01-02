@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:share_ui/awesome_ui.dart';
 
 import 'app_widget.dart';
 import 'color.dart';
-import 'size_constant.dart';
 
 Widget button(
   BuildContext context,

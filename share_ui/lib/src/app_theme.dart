@@ -45,7 +45,7 @@ class AppColors {
 class TextColors {
   TextColors._();
 
-  static const textColorPrimary = Color(0xFF8F8F8F);
+  static const textColorPrimary = Color(0xFF333333);
   static const textColorSecondary = Color(0xFFC4C4C4);
   static const textColorThird = Color(0xFFDCDCDC);
   static const textColorGrey = Color(0xFFB4BBC2);
@@ -58,6 +58,7 @@ const clNavigatorBar = Color(0xAAFFFFFF);
 const clNavigatorBarBorder = Color(0x1AFFFFFF);
 const lTFontName = "Raleway";
 const lTOrangeColor = Colors.amberAccent;
+const clWhite = Color(0xFFFFFFFF);
 
 final ThemeData themeData = ThemeData(
     pageTransitionsTheme: const PageTransitionsTheme(builders: {
