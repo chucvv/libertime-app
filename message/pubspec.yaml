@@ -1,5 +1,5 @@
-name: chatting
-description: chatting module
+name: message
+description: message module
 publish_to: 'none' 
 
 version: 1.0.0+1

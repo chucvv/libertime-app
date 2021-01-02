@@ -44,8 +44,8 @@ dependencies:
     path: ./home
   explore:
     path: ./explore
-  chatting:
-    path: ./chatting
+  message:
+    path: ./message
   setting:
     path: ./setting
   notification:

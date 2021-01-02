@@ -1,26 +1,27 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:libertime/constants/strings.dart';
 import 'package:share_ui/awesome_ui.dart';
 
-enum TabItem { workspace, recents, favorites }
+import 'strings.dart';
+
+enum TabItem { home, explore, message }
 
 Map<TabItem, String> tabName = {
-  TabItem.workspace: Strings.bottom_navigator_bar_workspace,
-  TabItem.recents: Strings.bottom_navigator_bar_recent,
-  TabItem.favorites: Strings.bottom_navigator_bar_favorite,
+  TabItem.home: Strings.navigatorHomeTitle,
+  TabItem.explore: Strings.navigatorExploreTitle,
+  TabItem.message: Strings.navigatorMessageTitle,
 };
 
 Map<TabItem, MaterialColor> activeTabColor = {
-  TabItem.workspace: Colors.amber,
-  TabItem.recents: Colors.amber,
-  TabItem.favorites: Colors.amber,
+  TabItem.home: Colors.amber,
+  TabItem.explore: Colors.amber,
+  TabItem.message: Colors.amber,
 };
 
 Map<TabItem, IconData> tabIcons = {
-  TabItem.workspace: Iconfont.a_z,
-  TabItem.recents: Iconfont.recents,
-  TabItem.favorites: Iconfont.favorite,
+  TabItem.home: Iconfont.a_z,
+  TabItem.explore: Iconfont.recents,
+  TabItem.message: Iconfont.favorite,
 };
 
 class BottomNavigatorBar extends StatelessWidget {
@@ -34,12 +35,11 @@ class BottomNavigatorBar extends StatelessWidget {
     return BottomNavyBar(
       backgroundColor: Theme.of(context).primaryColor,
       selectedIndex: currentTab.index,
-      showElevation: true,
       // use this to remove appBar's elevation
       items: [
-        _buildItem(tabItem: TabItem.workspace),
-        _buildItem(tabItem: TabItem.recents),
-        _buildItem(tabItem: TabItem.favorites),
+        _buildItem(tabItem: TabItem.home),
+        _buildItem(tabItem: TabItem.explore),
+        _buildItem(tabItem: TabItem.message),
       ],
       onItemSelected: (index) => onSelectTab(TabItem.values[index]),
     );
@@ -53,7 +53,7 @@ class BottomNavigatorBar extends StatelessWidget {
         ),
         title: Text(
           tabName[tabItem],
-          style: TextStyle(
+          style: const TextStyle(
             color: lTBgColorContrast,
           ),
         ),

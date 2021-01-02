@@ -1,8 +1,9 @@
-import 'package:share_ui/awesome_ui.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:share_ui/awesome_ui.dart';
 
-class FavoriteProjectPage extends StatelessWidget {
+class ExploreWidget extends StatelessWidget {
+  const ExploreWidget({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -10,7 +11,7 @@ class FavoriteProjectPage extends StatelessWidget {
         backgroundColor: lTPrimaryColor,
         appBar: AppBar(),
         body: const Center(
-          child: Text("FavoriteWorkspacePage"),
+          child: Text("Explore Page"),
         ),
       ),
     );

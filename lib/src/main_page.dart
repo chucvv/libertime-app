@@ -1,23 +1,32 @@
+import 'package:message/message_module.dart';
+import 'package:explore/explore_module.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:libertime/src/features/favorites/presentation/pages/favorites_page.dart';
-import 'package:libertime/src/features/home/presentation/widgets/bottom_navigator_bar.dart';
+import 'package:home/home_module.dart';
 import 'package:share_ui/awesome_ui.dart';
 
-class HomePage extends StatefulWidget {
+import 'bottom_bar.dart';
+
+class MainPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _HomePageState();
+  State<StatefulWidget> createState() => _MainPageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  var _currentTab = TabItem.workspace;
+class _MainPageState extends State<MainPage> {
+  var _currentTab = TabItem.home;
 
   final PageController _pageController = PageController();
   final Map<int, TabItem> _indexToTab = {
-    0: TabItem.workspace,
-    1: TabItem.recents,
-    2: TabItem.favorites
+    0: TabItem.home,
+    1: TabItem.explore,
+    2: TabItem.message
   };
+
+  final List<Widget> _widgePage = [
+    const HomeWidget(),
+    const ExploreWidget(),
+    const MessageWidget()
+  ];
 
   void _selectTab(TabItem tabItem) {
     setState(() => _currentTab = tabItem);
@@ -40,11 +49,7 @@ class _HomePageState extends State<HomePage> {
             onPageChanged: (index) {
               _selectTab(_indexToTab[index]);
             },
-            children: <Widget>[
-              FavoriteProjectPage(),
-              FavoriteProjectPage(),
-              FavoriteProjectPage(),
-            ],
+            children: _widgePage,
           ),
         ),
         bottomNavigationBar: BottomNavigatorBar(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:libertime/src/features/home/presentation/pages/home_page.dart';
 import 'package:libertime/src/loading_page.dart';
-import 'package:signin/signin.dart';
+import 'package:libertime/src/main_page.dart';
+import 'package:signin/signin_module.dart';
 
 class Routes {
   Routes._();
@@ -20,6 +20,6 @@ class Routes {
             );
           },
         ),
-    home: (BuildContext context) => HomePage(),
+    home: (BuildContext context) => MainPage(),
   };
 }

@@ -141,13 +141,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0-nullsafety.1"
-  chatting:
-    dependency: "direct main"
-    description:
-      path: chatting
-      relative: true
-    source: path
-    version: "1.0.0+1"
   checked_yaml:
     dependency: transitive
     description:
@@ -513,6 +506,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.12.10-nullsafety.1"
+  message:
+    dependency: "direct main"
+    description:
+      path: message
+      relative: true
+    source: path
+    version: "1.0.0+1"
   meta:
     dependency: transitive
     description:
