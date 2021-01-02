@@ -36,12 +36,20 @@ dependencies:
 
   splash:
     path: ./splash
-
   share_ui:
     path: ./share_ui
-
   signin:
     path: ./signin
+  home:
+    path: ./home
+  explore:
+    path: ./explore
+  chatting:
+    path: ./chatting
+  setting:
+    path: ./setting
+  notification:
+    path: ./notification
 
   share_module:
     path: ./share_module
