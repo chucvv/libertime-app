@@ -4,15 +4,15 @@ import 'app_theme.dart';
 
 class CustomTextStyle {
   static TextStyle formField(BuildContext context) {
-    return Theme.of(context).textTheme.title.copyWith(
+    return Theme.of(context).textTheme.headline6.copyWith(
         fontSize: 16.0,
         fontWeight: FontWeight.normal,
         fontFamily: lTFontName,
-        color: lTTextColor);
+        color: TextColors.textColorPrimary);
   }
 
   static TextStyle title(BuildContext context) {
-    return Theme.of(context).textTheme.title.copyWith(
+    return Theme.of(context).textTheme.headline6.copyWith(
         fontSize: 34,
         fontWeight: FontWeight.bold,
         fontFamily: lTFontName,
@@ -20,15 +20,15 @@ class CustomTextStyle {
   }
 
   static TextStyle subTitle(BuildContext context) {
-    return Theme.of(context).textTheme.title.copyWith(
+    return Theme.of(context).textTheme.headline6.copyWith(
         fontSize: 14,
         fontWeight: FontWeight.normal,
         fontFamily: lTFontName,
-        color: lTPrimaryColor);
+        color: clPrimary);
   }
 
   static TextStyle button(BuildContext context) {
-    return Theme.of(context).textTheme.title.copyWith(
+    return Theme.of(context).textTheme.headline6.copyWith(
         fontSize: 18,
         fontWeight: FontWeight.normal,
         fontFamily: lTFontName,
@@ -36,7 +36,7 @@ class CustomTextStyle {
   }
 
   static TextStyle body(BuildContext context) {
-    return Theme.of(context).textTheme.title.copyWith(
+    return Theme.of(context).textTheme.headline6.copyWith(
         fontSize: 14,
         fontWeight: FontWeight.normal,
         fontFamily: lTFontName,
@@ -44,7 +44,7 @@ class CustomTextStyle {
   }
 
   static TextStyle errorTitle(BuildContext context) {
-    return Theme.of(context).textTheme.title.copyWith(
+    return Theme.of(context).textTheme.headline6.copyWith(
         fontSize: 16,
         fontWeight: FontWeight.normal,
         fontFamily: lTFontName,

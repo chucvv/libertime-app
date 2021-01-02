@@ -42,7 +42,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: lTPrimaryColor,
+        backgroundColor: clWhiteBackgroud,
         body: SizedBox.expand(
           child: PageView(
             controller: _pageController,

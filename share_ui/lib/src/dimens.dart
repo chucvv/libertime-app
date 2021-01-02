@@ -6,7 +6,7 @@ class Dimens {
   static const double horizontal_padding = 12.0;
   static const double vertical_padding = 12.0;
 
-  static const double bottom_navigator_bar_ico_size = 20.0;
+  static const double NavigatorBarIcoSize = 30.0;
   static const double bottom_navigator_bar_ico__zoom_size = 24.0;
 
   static const double lt_medium_font_size = 18.0;

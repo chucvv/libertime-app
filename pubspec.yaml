@@ -19,8 +19,6 @@ dependencies:
   equatable: ^1.2.5
   # Functional programming thingies
   dartz: ^0.9.2
-  # Secure store cache
-  flutter_secure_storage: ^3.3.1+1
   # timber log
   flutter_fimber: ^0.4.4
   logging: ^0.11.4
@@ -83,7 +81,6 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/materials/
     - assets/launcher/
   fonts:
     - family: Raleway
@@ -92,6 +89,6 @@ flutter:
        - asset: assets/fonts/Raleway-Thin.ttf
          style: normal
 
-    - family:  Iconfont
+    - family:  LiberMe
       fonts:
-       - asset: assets/fonts/Iconfont.ttf
+       - asset: assets/fonts/IconFonts.ttf

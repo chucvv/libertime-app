@@ -12,16 +12,16 @@ Map<TabItem, String> tabName = {
   TabItem.message: Strings.navigatorMessageTitle,
 };
 
-Map<TabItem, MaterialColor> activeTabColor = {
-  TabItem.home: Colors.amber,
-  TabItem.explore: Colors.amber,
-  TabItem.message: Colors.amber,
+Map<TabItem, Color> activeTabColor = {
+  TabItem.home: AppColors.primaryColor[900],
+  TabItem.explore: AppColors.primaryColor[900],
+  TabItem.message: AppColors.primaryColor[900],
 };
 
 Map<TabItem, IconData> tabIcons = {
-  TabItem.home: Iconfont.a_z,
-  TabItem.explore: Iconfont.recents,
-  TabItem.message: Iconfont.favorite,
+  TabItem.home: IconFonts.home,
+  TabItem.explore: IconFonts.explore,
+  TabItem.message: IconFonts.wechat,
 };
 
 class BottomNavigatorBar extends StatelessWidget {
@@ -33,7 +33,9 @@ class BottomNavigatorBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavyBar(
-      backgroundColor: Theme.of(context).primaryColor,
+      itemCornerRadius: 24,
+      curve: Curves.easeIn,
+      //backgroundColor: clNavigatorBar,
       selectedIndex: currentTab.index,
       // use this to remove appBar's elevation
       items: [
@@ -48,15 +50,12 @@ class BottomNavigatorBar extends StatelessWidget {
   BottomNavyBarItem _buildItem({TabItem tabItem}) => BottomNavyBarItem(
         icon: Icon(
           tabIcons[tabItem],
-          size: Dimens.bottom_navigator_bar_ico_size,
-          color: lTBgColorContrast,
+          size: Dimens.NavigatorBarIcoSize,
         ),
         title: Text(
           tabName[tabItem],
-          style: const TextStyle(
-            color: lTBgColorContrast,
-          ),
         ),
         activeColor: activeTabColor[tabItem],
+        textAlign: TextAlign.center,
       );
 }
