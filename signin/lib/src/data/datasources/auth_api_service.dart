@@ -12,7 +12,7 @@ abstract class AuthService extends ChopperService {
 
   static AuthService create() {
     final client = ChopperClient(
-        baseUrl: "http://52.77.153.8",
+        baseUrl: "http://localhost",
         services: [_$AuthService()],
         interceptors: [HttpLoggingInterceptor()],
         converter: BuiltValueConverter(),

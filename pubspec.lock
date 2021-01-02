@@ -254,7 +254,7 @@ packages:
     source: hosted
     version: "0.9.2"
   data_connection_checker:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: data_connection_checker
       url: "https://pub.dartlang.org"

@@ -10,7 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  
+  # Networking checking
+  data_connection_checker: ^0.3.4
   # Value equality
   equatable: ^1.2.5
   # Functional programming thingies
