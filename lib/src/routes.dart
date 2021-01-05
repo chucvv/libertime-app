@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:libertime/src/loading_page.dart';
 import 'package:libertime/src/main_page.dart';
-import 'package:signin/signin_module.dart';
+import 'package:auth/auth_module.dart';
 
 class Routes {
   Routes._();

@@ -1,7 +1,7 @@
 import 'package:fimber/fimber.dart';
 import 'package:flutter_fimber/flutter_fimber.dart';
 import 'package:logging/logging.dart';
-import 'package:signin/signin_module.dart' as sign;
+import 'package:auth/auth_module.dart' as sign;
 import 'package:splash/splash_module.dart';
 
 class AppStartup {

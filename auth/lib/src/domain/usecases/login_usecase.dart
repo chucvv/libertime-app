@@ -1,0 +1,23 @@
+import 'package:dartz/dartz.dart';
+import 'package:share_module/common.dart';
+import 'package:share_module/utility.dart';
+import 'package:auth/src/domain/entities/credential.dart';
+import 'package:auth/src/domain/repositories/auth_repository.dart';
+
+class LoginUseCase extends UseCase<Credential, LoginParams> {
+  final AuthRepository _authRepository;
+
+  LoginUseCase(this._authRepository);
+
+  @override
+  Future<Either<Failure, Credential>> call(LoginParams params) {
+    return _authRepository.authenticate(params._username, params._password);
+  }
+}
+
+class LoginParams {
+  final String _username;
+  final String _password;
+
+  LoginParams(this._username, this._password);
+}

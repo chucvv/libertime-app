@@ -36,8 +36,8 @@ dependencies:
     path: ./splash
   share_ui:
     path: ./share_ui
-  signin:
-    path: ./signin
+  auth:
+    path: ./auth
   home:
     path: ./home
   explore:
