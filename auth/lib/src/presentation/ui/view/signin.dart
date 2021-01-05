@@ -43,7 +43,7 @@ class _SignInState extends State<SignIn> {
         unSuccess: (error) {
           Scaffold.of(context).showSnackBar(
             SnackBar(
-              content: Text('$error'),
+              content: Text(error),
               backgroundColor: Colors.red,
             ),
           );
@@ -55,63 +55,60 @@ class _SignInState extends State<SignIn> {
   }
 
   Widget buildSignInForm(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          text(Strings.lbSigIn, fontSize: textSizeLarge, fontFamily: fontBold)
-              .paddingOnly(
-                  top: spacing_standard_new,
-                  left: spacing_standard_new,
-                  right: spacing_standard_new),
-          text(
-            Strings.lbEnterEmailPasswordToContinue,
-            textColor: grocery_textColorSecondary,
-            fontSize: textSizeLargeMedium,
-          ).paddingOnly(
-              left: spacing_standard_new, right: spacing_standard_new),
-          EditText(
-            text: Strings.edtUserNameTitle,
-            isPassword: false,
-            keyboardType: TextInputType.name,
-            mController: _usernameEditingController,
-          ).paddingAll(spacing_standard_new),
-          EditText(
-            text: Strings.edtPasswordTitle,
-            keyboardType: TextInputType.visiblePassword,
-            mController: _passwordEditingController,
-          ).paddingAll(spacing_standard_new),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              text(
-                Strings.btnForgotPassword,
-                fontSize: textSizeLargeMedium,
-                fontFamily: fontMedium,
-              )
-                  .paddingOnly(
-                      left: spacing_standard_new,
-                      right: spacing_standard_new,
-                      bottom: spacing_standard_new)
-                  .onTap(() {
-                GroceryForgotPassword().launch(context);
-              }),
-              LiberButton(
-                textContent: Strings.btnSigninText,
-                onPressed: (() {
-                  final bloc = BlocProvider.of<LoginBloc>(context);
-                  bloc.add(LoginEvent.login(_usernameEditingController.text,
-                      _passwordEditingController.text));
-                }),
-              )
-                  .paddingOnly(
-                      right: spacing_standard_new, bottom: spacing_standard_new)
-                  .paddingOnly(
-                      top: spacing_standard_new, bottom: spacing_standard_new)
-            ],
-          )
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        text(Strings.lbSigIn, fontSize: textSizeLarge, fontFamily: fontBold)
+            .paddingOnly(
+                top: spacing_standard_new,
+                left: spacing_standard_new,
+                right: spacing_standard_new),
+        text(
+          Strings.lbEnterEmailPasswordToContinue,
+          textColor: grocery_textColorSecondary,
+          fontSize: textSizeLargeMedium,
+        ).paddingOnly(left: spacing_standard_new, right: spacing_standard_new),
+        EditText(
+          text: Strings.edtUserNameTitle,
+          isPassword: false,
+          keyboardType: TextInputType.name,
+          mController: _usernameEditingController,
+        ).paddingAll(spacing_standard_new),
+        EditText(
+          text: Strings.edtPasswordTitle,
+          keyboardType: TextInputType.visiblePassword,
+          mController: _passwordEditingController,
+        ).paddingAll(spacing_standard_new),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            text(
+              Strings.btnForgotPassword,
+              fontSize: textSizeLargeMedium,
+              fontFamily: fontMedium,
+            )
+                .paddingOnly(
+                    left: spacing_standard_new,
+                    right: spacing_standard_new,
+                    bottom: spacing_standard_new)
+                .onTap(() {
+              ForgotPassword().launch(context);
+            }),
+            LiberButton(
+              textContent: Strings.btnSigninText,
+              onPressed: () {
+                final bloc = BlocProvider.of<LoginBloc>(context);
+                bloc.add(LoginEvent.login(_usernameEditingController.text,
+                    _passwordEditingController.text));
+              },
+            )
+                .paddingOnly(
+                    right: spacing_standard_new, bottom: spacing_standard_new)
+                .paddingOnly(
+                    top: spacing_standard_new, bottom: spacing_standard_new)
+          ],
+        )
+      ],
     );
   }
 }

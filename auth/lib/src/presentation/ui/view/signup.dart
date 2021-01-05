@@ -7,7 +7,7 @@ import 'color.dart';
 import 'widgets.dart';
 
 class SignUp extends StatefulWidget {
-  SignUp({Key key}) : super(key: key);
+  const SignUp({Key key}) : super(key: key);
 
   @override
   _SignUpState createState() => _SignUpState();
@@ -16,49 +16,42 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          text(Strings.lbWelcome, fontSize: textSizeLarge, fontFamily: fontBold)
-              .paddingOnly(
-                  top: spacing_standard_new,
-                  left: spacing_standard_new,
-                  right: spacing_standard_new),
-          text(Strings.lbLetStarted,
-                  textColor: grocery_textColorSecondary,
-                  fontSize: textSizeLargeMedium,
-                  fontFamily: fontRegular)
-              .paddingOnly(
-                  left: spacing_standard_new, right: spacing_standard_new),
-          EditText(
-            text: Strings.edtUserNameTitle,
-            isPassword: false,
-          ).paddingAll(spacing_standard_new),
-          EditText(
-            text: Strings.edtEmailAddressTitle,
-            isPassword: false,
-            keyboardType: TextInputType.emailAddress,
-          ).paddingAll(spacing_standard_new),
-          EditText(
-            text: Strings.edtPasswordTitle,
-            isPassword: true,
-          ).paddingAll(spacing_standard_new),
-          Align(
-            alignment: Alignment.centerRight,
-            child: FittedBox(
-              child: LiberButton(
-                textContent: Strings.btnSignupText,
-                onPressed: (() {
-                  //GroceryAddNumber().launch(context);
-                }),
-              ).paddingOnly(
-                  right: spacing_standard_new, bottom: spacing_standard_new),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        text(Strings.lbWelcome, fontSize: textSizeLarge, fontFamily: fontBold)
+            .paddingOnly(
+                top: spacing_standard_new,
+                left: spacing_standard_new,
+                right: spacing_standard_new),
+        text(Strings.lbLetStarted,
+                textColor: grocery_textColorSecondary, fontFamily: fontRegular)
+            .paddingOnly(
+                left: spacing_standard_new, right: spacing_standard_new),
+        EditText(
+          text: Strings.edtUserNameTitle,
+          isPassword: false,
+        ).paddingAll(spacing_standard_new),
+        EditText(
+          text: Strings.edtEmailAddressTitle,
+          isPassword: false,
+          keyboardType: TextInputType.emailAddress,
+        ).paddingAll(spacing_standard_new),
+        EditText(
+          text: Strings.edtPasswordTitle,
+        ).paddingAll(spacing_standard_new),
+        Align(
+          alignment: Alignment.centerRight,
+          child: FittedBox(
+            child: LiberButton(
+              textContent: Strings.btnSignupText,
+              onPressed: () {},
             ).paddingOnly(
-                top: spacing_standard_new, bottom: spacing_standard_new),
-          )
-        ],
-      ),
+                right: spacing_standard_new, bottom: spacing_standard_new),
+          ).paddingOnly(
+              top: spacing_standard_new, bottom: spacing_standard_new),
+        )
+      ],
     );
   }
 }

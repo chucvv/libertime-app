@@ -24,7 +24,7 @@ class AuthWidget extends StatefulWidget {
 class _AuthWidgetState extends State<AuthWidget> {
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
+    final width = MediaQuery.of(context).size.width;
     changeStatusColor(clWhite);
 
     return SafeArea(
@@ -33,11 +33,11 @@ class _AuthWidgetState extends State<AuthWidget> {
         body: SingleChildScrollView(
           child: Container(
             width: width,
-            decoration: BoxDecoration(
-              color: grocery_color_white,
+            decoration: const BoxDecoration(
+              color: clWhite,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(10.0),
-                bottomRight: const Radius.circular(10.0),
+                bottomRight: Radius.circular(10.0),
               ),
               boxShadow: <BoxShadow>[
                 BoxShadow(
@@ -56,7 +56,6 @@ class _AuthWidgetState extends State<AuthWidget> {
                             textColor: widget.isSignIn == true
                                 ? AppColors.primaryColor[900]
                                 : TextColors.textColorPrimary,
-                            fontSize: textSizeLargeMedium,
                             fontFamily: fontBold)
                         .paddingAll(spacing_standard_new)
                         .onTap(() {
@@ -68,7 +67,6 @@ class _AuthWidgetState extends State<AuthWidget> {
                             textColor: widget.isSignUp == true
                                 ? AppColors.primaryColor[900]
                                 : TextColors.textColorPrimary,
-                            fontSize: textSizeLargeMedium,
                             fontFamily: fontBold)
                         .paddingAll(spacing_standard_new)
                         .onTap(() {
@@ -78,11 +76,12 @@ class _AuthWidgetState extends State<AuthWidget> {
                     })
                   ],
                 ),
-                widget.isSignUp
-                    ? SignUp()
-                    : SignIn(
-                        successCallback: widget.successCallback,
-                      )
+                if (widget.isSignUp)
+                  SignUp()
+                else
+                  SignIn(
+                    successCallback: widget.successCallback,
+                  )
               ],
             ),
           ),
