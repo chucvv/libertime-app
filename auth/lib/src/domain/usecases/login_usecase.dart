@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:share_module/common.dart';
-import 'package:share_module/utility.dart';
 import 'package:auth/src/domain/entities/credential.dart';
 import 'package:auth/src/domain/repositories/auth_repository.dart';
 

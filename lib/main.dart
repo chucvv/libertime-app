@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_fimber/flutter_fimber.dart';
 import 'package:libertime/src/app.dart';
+import 'package:logging/logging.dart';
+import 'package:auth/auth_module.dart' as sign;
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-    DeviceOrientation.landscapeRight,
-    DeviceOrientation.landscapeLeft,
-  ]).then((_) async {
-    runApp(LiberTimeApp());
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  _setupLogging();
+  Fimber.plantTree(FimberTree(useColors: true));
+  Fimber.plantTree(DebugBufferTree.elapsed());
+  //Bloc.observer = BlocLoggingObserver();
+  await sign.setup();
+  runApp(LiberMeApp());
+}
+
+void _setupLogging() {
+  Logger.root.level = Level.ALL;
+  Logger.root.onRecord.listen((rec) {
+    Fimber.d('${rec.level.name}: ${rec.time}: ${rec.message}');
   });
 }

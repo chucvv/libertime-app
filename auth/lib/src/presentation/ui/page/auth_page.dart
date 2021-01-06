@@ -2,26 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:share_module/utility.dart';
 import 'package:share_ui/awesome_ui.dart';
-import 'package:auth/src/domain/entities/credential.dart';
-import 'package:auth/src/presentation/ui/view/app_widget.dart';
-import 'package:auth/src/presentation/ui/view/color.dart';
-import 'package:auth/src/presentation/ui/view/signin.dart';
-import 'package:auth/src/presentation/ui/view/signup.dart';
+import 'package:auth/src/presentation/ui/widget/app_widget.dart';
+import 'package:auth/src/presentation/ui/widget/color.dart';
+import 'package:auth/src/presentation/ui/widget/signin.dart';
+import 'package:auth/src/presentation/ui/widget/signup.dart';
 import '../../strings.dart';
 
-typedef LoginSuccessCallback = Function(Credential);
-
-class AuthWidget extends StatefulWidget {
-  bool isSignIn;
-  bool isSignUp;
-  final LoginSuccessCallback successCallback;
-  AuthWidget({this.isSignIn, this.isSignUp, this.successCallback});
-
+class AuthPage extends StatefulWidget {
+  bool isSignIn = true;
+  bool isSignUp = false;
   @override
-  _AuthWidgetState createState() => _AuthWidgetState();
+  _AuthPageState createState() => _AuthPageState();
 }
 
-class _AuthWidgetState extends State<AuthWidget> {
+class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -76,12 +70,7 @@ class _AuthWidgetState extends State<AuthWidget> {
                     })
                   ],
                 ),
-                if (widget.isSignUp)
-                  SignUp()
-                else
-                  SignIn(
-                    successCallback: widget.successCallback,
-                  )
+                if (widget.isSignUp) SignUp() else SignIn()
               ],
             ),
           ),

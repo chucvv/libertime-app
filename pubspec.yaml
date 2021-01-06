@@ -31,9 +31,6 @@ dependencies:
   bloc: ^6.1.0
   flutter_bloc: ^6.1.0
 
-
-  splash:
-    path: ./splash
   share_ui:
     path: ./share_ui
   auth:
@@ -85,8 +82,8 @@ flutter:
   fonts:
     - family: Raleway
       fonts:
-       - asset: assets/fonts/Raleway-Regular.ttf
-       - asset: assets/fonts/Raleway-Thin.ttf
+       - asset: assets/fonts/Roboto-Regular.ttf
+       - asset: assets/fonts/Roboto-Medium.ttf
          style: normal
 
     - family:  LiberMe

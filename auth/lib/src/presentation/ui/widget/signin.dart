@@ -5,7 +5,6 @@ import 'package:share_ui/awesome_ui.dart';
 import 'package:auth/src/di/injection_container.dart';
 import 'package:auth/src/presentation/bloc/bloc.dart';
 import 'package:share_module/extensions.dart';
-import 'package:auth/src/presentation/ui/widget/auth_widget.dart';
 import '../../strings.dart';
 import 'app_widget.dart';
 import 'color.dart';
@@ -13,9 +12,6 @@ import 'forgot_password.dart';
 import 'widgets.dart';
 
 class SignIn extends StatefulWidget {
-  final LoginSuccessCallback successCallback;
-
-  const SignIn({Key key, this.successCallback}) : super(key: key);
   @override
   _SignInState createState() => _SignInState();
 }
@@ -38,7 +34,7 @@ class _SignInState extends State<SignIn> {
     }, listener: (context, state) {
       state.maybeWhen(
         success: (credential) {
-          widget.successCallback(credential);
+          Navigator.popAndPushNamed(context, "/main");
         },
         unSuccess: (error) {
           Scaffold.of(context).showSnackBar(

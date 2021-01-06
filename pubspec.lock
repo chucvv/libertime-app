@@ -819,13 +819,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0-nullsafety.2"
-  splash:
-    dependency: "direct main"
-    description:
-      path: splash
-      relative: true
-    source: path
-    version: "0.0.1"
   sqflite:
     dependency: transitive
     description:

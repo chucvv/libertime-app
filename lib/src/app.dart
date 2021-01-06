@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:share_ui/awesome_ui.dart';
 
-import 'routes.dart';
+import 'app_router.dart';
 import 'strings.dart';
 
-class LiberTimeApp extends StatelessWidget {
+class LiberMeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: Strings.appName,
-      theme: themeData,
-      routes: Routes.routes,
-      initialRoute: Routes.initial,
+      theme: theme,
+      onGenerateRoute: AppRouter.generateRoutes,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

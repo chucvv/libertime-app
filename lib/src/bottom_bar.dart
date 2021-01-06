@@ -50,7 +50,7 @@ class BottomNavigatorBar extends StatelessWidget {
   BottomNavyBarItem _buildItem({TabItem tabItem}) => BottomNavyBarItem(
         icon: Icon(
           tabIcons[tabItem],
-          size: Dimens.NavigatorBarIcoSize,
+          size: Sizes.NavigatorBarIcoSize,
         ),
         title: Text(
           tabName[tabItem],

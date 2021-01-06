@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'app_theme.dart';
+import 'colors.dart';
 
 class CustomTextStyle {
   static TextStyle formField(BuildContext context) {
