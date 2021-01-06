@@ -5,6 +5,6 @@ import 'package:auth/src/data/models/auth_response.dart';
 
 part 'serializers.g.dart';
 
-@SerializersFor(const [AuthRequest, CredentialResponse, AuthResponse])
+@SerializersFor([AuthRequest, CredentialResponse, AuthResponse])
 final Serializers serializers =
     (_$serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();

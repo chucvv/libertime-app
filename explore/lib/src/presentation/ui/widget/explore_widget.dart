@@ -7,7 +7,7 @@ class ExploreWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SafeArea(
       child: Center(
-        child: Text("Explore Page"),
+        child: Text('Explore Page'),
       ),
     );
   }

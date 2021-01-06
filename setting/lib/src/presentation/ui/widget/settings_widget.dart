@@ -9,7 +9,7 @@ class SettingsWidget extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(),
         body: const Center(
-          child: Text("Settings Page"),
+          child: Text('Settings Page'),
         ),
       ),
     );

@@ -137,7 +137,7 @@ class EditText extends StatefulWidget {
       var this.fontFamily = fontRegular,
       var this.isPassword = true,
       var this.isSecure = false,
-      var this.text = "",
+      var this.text = '',
       var this.mController,
       var this.keyboardType,
       var this.maxLine = 1});
@@ -180,13 +180,13 @@ class EditTextState extends State<EditText> {
         obscureText: widget.isPassword,
         cursorColor: grocery_colorPrimary,
         decoration: InputDecoration(
-          suffixIcon: new GestureDetector(
+          suffixIcon: GestureDetector(
             onTap: () {
               setState(() {
                 widget.isPassword = !widget.isPassword;
               });
             },
-            child: new Icon(
+            child: Icon(
                 widget.isPassword ? Icons.visibility : Icons.visibility_off),
           ),
           contentPadding: EdgeInsets.fromLTRB(16, 8, 4, 8),
@@ -326,7 +326,7 @@ class PinEntryTextFieldState extends State<PinEntryTextField> {
   }
 
   Widget generateTextFields(BuildContext context) {
-    List<Widget> textFields = List.generate(widget.fields, (int i) {
+    final textFields = List.generate(widget.fields, (int i) {
       return buildTextField(i, context);
     });
 
@@ -361,7 +361,7 @@ class PinEntryTextFieldState extends State<PinEntryTextField> {
       if (_focusNodes[i].hasFocus) {}
     });
 
-    final String lastDigit = _textControllers[i].text;
+    final lastDigit = _textControllers[i].text;
 
     return Container(
       width: widget.fieldWidth,
@@ -378,7 +378,7 @@ class PinEntryTextFieldState extends State<PinEntryTextField> {
         focusNode: _focusNodes[i],
         obscureText: widget.isTextObscure,
         decoration: InputDecoration(
-            counterText: "",
+            counterText: '',
             border: widget.showFieldAsBox
                 ? const OutlineInputBorder(borderSide: BorderSide(width: 2.0))
                 : null),

@@ -14,7 +14,8 @@ abstract class AuthResponse
 
   AuthResponse._();
 
-  factory AuthResponse([updates(AuthResponseBuilder builder)]) = _$AuthResponse;
+  factory AuthResponse([Function(AuthResponseBuilder builder) updates]) =
+      _$AuthResponse;
 
   static Serializer<AuthResponse> get serializer => _$authResponseSerializer;
 }
@@ -27,7 +28,8 @@ abstract class CredentialResponse
 
   CredentialResponse._();
 
-  factory CredentialResponse([updates(CredentialResponseBuilder builder)]) =
+  factory CredentialResponse(
+          [Function(CredentialResponseBuilder builder) updates]) =
       _$CredentialResponse;
 
   static Serializer<CredentialResponse> get serializer =>

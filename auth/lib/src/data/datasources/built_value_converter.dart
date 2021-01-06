@@ -18,7 +18,7 @@ class BuiltValueConverter extends JsonConverter {
   @override
   Response<BodyType> convertResponse<BodyType, SingleItemType>(
       Response response) {
-    final Response dynamicResponse = super.convertResponse(response);
+    final dynamicResponse = super.convertResponse(response);
     final customBody =
         _convertToCustomObject<SingleItemType>(dynamicResponse.body);
     return dynamicResponse.copyWith<BodyType>(body: customBody);

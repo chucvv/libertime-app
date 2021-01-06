@@ -34,7 +34,7 @@ class _SignInState extends State<SignIn> {
     }, listener: (context, state) {
       state.maybeWhen(
         success: (credential) {
-          Navigator.popAndPushNamed(context, "/main");
+          Navigator.popAndPushNamed(context, '/main');
         },
         unSuccess: (error) {
           Scaffold.of(context).showSnackBar(

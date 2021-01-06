@@ -33,5 +33,3 @@ const clNavigatorBar = Color(0xAAFFFFFF);
 const clNavigatorBarBorder = Color(0x1AFFFFFF);
 const lTOrangeColor = Colors.amberAccent;
 const clWhite = Color(0xFFFFFFFF);
-
-const lTFontName = "Raleway";

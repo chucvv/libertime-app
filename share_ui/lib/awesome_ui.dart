@@ -8,7 +8,6 @@ export 'src/theme.dart';
 export 'src/argon_buttons_flutter.dart';
 export 'src/colors.dart';
 export 'src/iconfont.dart';
-export 'src/text_style.dart';
 export 'src/size_constant.dart';
 export 'src/layout_dimen.dart';
 export 'src/layout_size.dart';

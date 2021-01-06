@@ -41,11 +41,11 @@ class ArgonButton extends StatefulWidget {
   ArgonButton(
       {@required this.height,
       @required this.width,
-      this.minWidth: 0,
+      this.minWidth = 0,
       this.loader,
-      this.animationDuration: const Duration(milliseconds: 450),
-      this.curve: Curves.easeInOutCirc,
-      this.reverseCurve: Curves.easeInOutCirc,
+      this.animationDuration = const Duration(milliseconds: 450),
+      this.curve = Curves.easeInOutCirc,
+      this.reverseCurve = Curves.easeInOutCirc,
       @required this.child,
       this.onTap,
       this.color,
@@ -58,13 +58,13 @@ class ArgonButton extends StatefulWidget {
       this.focusElevation,
       this.hoverElevation,
       this.highlightElevation,
-      this.padding: const EdgeInsets.all(0),
-      this.borderRadius: 0.0,
-      this.clipBehavior: Clip.none,
+      this.padding = const EdgeInsets.all(0),
+      this.borderRadius = 0.0,
+      this.clipBehavior = Clip.none,
       this.focusNode,
       this.materialTapTargetSize,
-      this.roundLoadingShape: true,
-      this.borderSide: const BorderSide(color: Colors.transparent, width: 0),
+      this.roundLoadingShape = true,
+      this.borderSide = const BorderSide(color: Colors.transparent, width: 0),
       this.disabledElevation,
       this.disabledColor,
       this.disabledTextColor,
@@ -239,11 +239,11 @@ class ArgonTimerButton extends StatefulWidget {
   ArgonTimerButton(
       {@required this.height,
       @required this.width,
-      this.minWidth: 0,
+      this.minWidth = 0,
       this.loader,
-      this.animationDuration: const Duration(milliseconds: 450),
-      this.curve: Curves.easeInOutCirc,
-      this.reverseCurve: Curves.easeInOutCirc,
+      this.animationDuration = const Duration(milliseconds: 450),
+      this.curve = Curves.easeInOutCirc,
+      this.reverseCurve = Curves.easeInOutCirc,
       @required this.child,
       this.onTap,
       this.color,
@@ -256,17 +256,17 @@ class ArgonTimerButton extends StatefulWidget {
       this.focusElevation,
       this.hoverElevation,
       this.highlightElevation,
-      this.padding: const EdgeInsets.all(0),
-      this.borderRadius: 0.0,
-      this.clipBehavior: Clip.none,
+      this.padding = const EdgeInsets.all(0),
+      this.borderRadius = 0.0,
+      this.clipBehavior = Clip.none,
       this.focusNode,
       this.materialTapTargetSize,
-      this.roundLoadingShape: true,
-      this.borderSide: const BorderSide(color: Colors.transparent, width: 0),
+      this.roundLoadingShape = true,
+      this.borderSide = const BorderSide(color: Colors.transparent, width: 0),
       this.disabledElevation,
       this.disabledColor,
       this.disabledTextColor,
-      this.initialTimer: 0})
+      this.initialTimer = 0})
       : assert(elevation == null || elevation >= 0.0),
         assert(focusElevation == null || focusElevation >= 0.0),
         assert(hoverElevation == null || hoverElevation >= 0.0),
@@ -351,7 +351,7 @@ class _ArgonTimerButtonState extends State<ArgonTimerButton>
 
   void startTimer(int newTime) {
     if (newTime == 0) {
-      throw ("Count Down Time can not be null");
+      throw ('Count Down Time can not be null');
     }
 
     animateForward();
