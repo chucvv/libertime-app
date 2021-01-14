@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_fimber/flutter_fimber.dart';
 import 'package:libertime/src/app.dart';
 import 'package:logging/logging.dart';
-import 'package:auth/auth_module.dart' as sign;
+import 'package:features/modules.dart' as sign;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

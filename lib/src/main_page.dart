@@ -1,9 +1,7 @@
-import 'package:message/message_module.dart';
-import 'package:explore/explore_module.dart';
+import 'package:features/modules.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:home/home_module.dart';
-import 'package:share_module/utility.dart';
+import 'package:common/utility.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 import 'bottom_bar.dart';

@@ -1,6 +1,6 @@
+import 'package:features/modules.dart';
 import 'package:flutter/material.dart';
 import 'package:libertime/src/main_page.dart';
-import 'package:auth/auth_module.dart';
 
 class AppRouter {
   static const String main = '/main';
