@@ -10,7 +10,7 @@ class AppRouter {
       case main:
         return MaterialPageRoute(builder: (_) => MainPage());
       default:
-        return MaterialPageRoute(builder: (_) => AuthPage());
+        return MaterialPageRoute(builder: (_) => MainPage());
     }
   }
 }

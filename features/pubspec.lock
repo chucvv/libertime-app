@@ -253,6 +253,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  dart_nats:
+    dependency: "direct main"
+    description:
+      name: dart_nats
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.8"
   dart_style:
     dependency: transitive
     description:

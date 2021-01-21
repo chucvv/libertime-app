@@ -19,6 +19,7 @@ dependencies:
   freezed_annotation: ^0.12.0
   get_it: ^5.0.1
   built_value: ^7.1.0
+  dart_nats: ^0.1.8
 
   common:
     path: ../libraries/common
