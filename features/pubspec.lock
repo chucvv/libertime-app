@@ -281,6 +281,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.4"
+  database:
+    dependency: "direct main"
+    description:
+      path: "../infrastructure/database"
+      relative: true
+    source: path
+    version: "1.0.0+1"
   equatable:
     dependency: "direct main"
     description:
@@ -499,6 +506,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.7"
+  moor:
+    dependency: transitive
+    description:
+      name: moor
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.4.0"
   nb_utils:
     dependency: transitive
     description:
@@ -756,6 +770,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2+1"
+  sqlite3:
+    dependency: transitive
+    description:
+      name: sqlite3
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.8"
+  sqlite3_flutter_libs:
+    dependency: transitive
+    description:
+      name: sqlite3_flutter_libs
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.0"
   stack_trace:
     dependency: transitive
     description:

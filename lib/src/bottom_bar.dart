@@ -36,7 +36,7 @@ class BottomNavigatorBar extends StatelessWidget {
       itemCornerRadius: 24,
       curve: Curves.easeIn,
       //backgroundColor: clNavigatorBar,
-      selectedIndex: currentTab.index,
+      selectedIndex: currentTab?.index ?? 0,
       // use this to remove appBar's elevation
       items: [
         _buildItem(tabItem: TabItem.home),
@@ -53,9 +53,9 @@ class BottomNavigatorBar extends StatelessWidget {
           size: Sizes.NavigatorBarIcoSize,
         ),
         title: Text(
-          tabName[tabItem],
+          tabName[tabItem] ?? '',
         ),
-        activeColor: activeTabColor[tabItem],
+        activeColor: activeTabColor[tabItem] ?? clPrimary,
         textAlign: TextAlign.center,
       );
 }

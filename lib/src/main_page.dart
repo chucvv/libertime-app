@@ -12,7 +12,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  var _currentTab = TabItem.home;
+  TabItem _currentTab = TabItem.home;
 
   final PageController _pageController = PageController();
   final Map<int, TabItem> _indexToTab = {
@@ -22,14 +22,14 @@ class _MainPageState extends State<MainPage> {
   };
 
   final List<Widget> _widgePage = [
-    const HomeWidget(),
+    HomeWidget(),
     const ExploreWidget(),
     MessageWidget()
   ];
 
   void _selectTab(TabItem tabItem) {
     setState(() => _currentTab = tabItem);
-    _pageController.jumpToPage(tabItem.index);
+    _pageController.jumpToPage(tabItem?.index ?? 0);
   }
 
   @override

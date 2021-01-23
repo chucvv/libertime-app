@@ -25,6 +25,8 @@ dependencies:
     path: ../libraries/common
   share_ui:
     path: ../libraries/share_ui
+  database:
+    path: ../infrastructure/database
 
 dev_dependencies:
   pedantic: ^1.9.2
