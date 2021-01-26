@@ -53,38 +53,39 @@ const $LoginState = _$LoginStateTearOff();
 /// @nodoc
 mixin _$LoginState {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loading(),
-    @required Result success(Credential credential),
-    @required Result unSuccess(String error),
-    @required Result invalidFormField(Map<LoginFormField, List<String>> errors),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loading(),
+    @required TResult success(Credential credential),
+    @required TResult unSuccess(String error),
+    @required
+        TResult invalidFormField(Map<LoginFormField, List<String>> errors),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loading(),
-    Result success(Credential credential),
-    Result unSuccess(String error),
-    Result invalidFormField(Map<LoginFormField, List<String>> errors),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loading(),
+    TResult success(Credential credential),
+    TResult unSuccess(String error),
+    TResult invalidFormField(Map<LoginFormField, List<String>> errors),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(Initial value),
-    @required Result loading(Loading value),
-    @required Result success(Success value),
-    @required Result unSuccess(UnSuccess value),
-    @required Result invalidFormField(InvalidFormField value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(Initial value),
+    @required TResult loading(Loading value),
+    @required TResult success(Success value),
+    @required TResult unSuccess(UnSuccess value),
+    @required TResult invalidFormField(InvalidFormField value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(Initial value),
-    Result loading(Loading value),
-    Result success(Success value),
-    Result unSuccess(UnSuccess value),
-    Result invalidFormField(InvalidFormField value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(Initial value),
+    TResult loading(Loading value),
+    TResult success(Success value),
+    TResult unSuccess(UnSuccess value),
+    TResult invalidFormField(InvalidFormField value),
+    @required TResult orElse(),
   });
 }
 
@@ -145,12 +146,13 @@ class _$Initial with DiagnosticableTreeMixin implements Initial {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loading(),
-    @required Result success(Credential credential),
-    @required Result unSuccess(String error),
-    @required Result invalidFormField(Map<LoginFormField, List<String>> errors),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loading(),
+    @required TResult success(Credential credential),
+    @required TResult unSuccess(String error),
+    @required
+        TResult invalidFormField(Map<LoginFormField, List<String>> errors),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -162,13 +164,13 @@ class _$Initial with DiagnosticableTreeMixin implements Initial {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loading(),
-    Result success(Credential credential),
-    Result unSuccess(String error),
-    Result invalidFormField(Map<LoginFormField, List<String>> errors),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loading(),
+    TResult success(Credential credential),
+    TResult unSuccess(String error),
+    TResult invalidFormField(Map<LoginFormField, List<String>> errors),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initial != null) {
@@ -179,12 +181,12 @@ class _$Initial with DiagnosticableTreeMixin implements Initial {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(Initial value),
-    @required Result loading(Loading value),
-    @required Result success(Success value),
-    @required Result unSuccess(UnSuccess value),
-    @required Result invalidFormField(InvalidFormField value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(Initial value),
+    @required TResult loading(Loading value),
+    @required TResult success(Success value),
+    @required TResult unSuccess(UnSuccess value),
+    @required TResult invalidFormField(InvalidFormField value),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -196,13 +198,13 @@ class _$Initial with DiagnosticableTreeMixin implements Initial {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(Initial value),
-    Result loading(Loading value),
-    Result success(Success value),
-    Result unSuccess(UnSuccess value),
-    Result invalidFormField(InvalidFormField value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(Initial value),
+    TResult loading(Loading value),
+    TResult success(Success value),
+    TResult unSuccess(UnSuccess value),
+    TResult invalidFormField(InvalidFormField value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initial != null) {
@@ -257,12 +259,13 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loading(),
-    @required Result success(Credential credential),
-    @required Result unSuccess(String error),
-    @required Result invalidFormField(Map<LoginFormField, List<String>> errors),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loading(),
+    @required TResult success(Credential credential),
+    @required TResult unSuccess(String error),
+    @required
+        TResult invalidFormField(Map<LoginFormField, List<String>> errors),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -274,13 +277,13 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loading(),
-    Result success(Credential credential),
-    Result unSuccess(String error),
-    Result invalidFormField(Map<LoginFormField, List<String>> errors),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loading(),
+    TResult success(Credential credential),
+    TResult unSuccess(String error),
+    TResult invalidFormField(Map<LoginFormField, List<String>> errors),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loading != null) {
@@ -291,12 +294,12 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(Initial value),
-    @required Result loading(Loading value),
-    @required Result success(Success value),
-    @required Result unSuccess(UnSuccess value),
-    @required Result invalidFormField(InvalidFormField value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(Initial value),
+    @required TResult loading(Loading value),
+    @required TResult success(Success value),
+    @required TResult unSuccess(UnSuccess value),
+    @required TResult invalidFormField(InvalidFormField value),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -308,13 +311,13 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(Initial value),
-    Result loading(Loading value),
-    Result success(Success value),
-    Result unSuccess(UnSuccess value),
-    Result invalidFormField(InvalidFormField value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(Initial value),
+    TResult loading(Loading value),
+    TResult success(Success value),
+    TResult unSuccess(UnSuccess value),
+    TResult invalidFormField(InvalidFormField value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loading != null) {
@@ -387,18 +390,20 @@ class _$Success with DiagnosticableTreeMixin implements Success {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(credential);
 
+  @JsonKey(ignore: true)
   @override
   $SuccessCopyWith<Success> get copyWith =>
       _$SuccessCopyWithImpl<Success>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loading(),
-    @required Result success(Credential credential),
-    @required Result unSuccess(String error),
-    @required Result invalidFormField(Map<LoginFormField, List<String>> errors),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loading(),
+    @required TResult success(Credential credential),
+    @required TResult unSuccess(String error),
+    @required
+        TResult invalidFormField(Map<LoginFormField, List<String>> errors),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -410,13 +415,13 @@ class _$Success with DiagnosticableTreeMixin implements Success {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loading(),
-    Result success(Credential credential),
-    Result unSuccess(String error),
-    Result invalidFormField(Map<LoginFormField, List<String>> errors),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loading(),
+    TResult success(Credential credential),
+    TResult unSuccess(String error),
+    TResult invalidFormField(Map<LoginFormField, List<String>> errors),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (success != null) {
@@ -427,12 +432,12 @@ class _$Success with DiagnosticableTreeMixin implements Success {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(Initial value),
-    @required Result loading(Loading value),
-    @required Result success(Success value),
-    @required Result unSuccess(UnSuccess value),
-    @required Result invalidFormField(InvalidFormField value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(Initial value),
+    @required TResult loading(Loading value),
+    @required TResult success(Success value),
+    @required TResult unSuccess(UnSuccess value),
+    @required TResult invalidFormField(InvalidFormField value),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -444,13 +449,13 @@ class _$Success with DiagnosticableTreeMixin implements Success {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(Initial value),
-    Result loading(Loading value),
-    Result success(Success value),
-    Result unSuccess(UnSuccess value),
-    Result invalidFormField(InvalidFormField value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(Initial value),
+    TResult loading(Loading value),
+    TResult success(Success value),
+    TResult unSuccess(UnSuccess value),
+    TResult invalidFormField(InvalidFormField value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (success != null) {
@@ -464,6 +469,7 @@ abstract class Success implements LoginState {
   const factory Success(Credential credential) = _$Success;
 
   Credential get credential;
+  @JsonKey(ignore: true)
   $SuccessCopyWith<Success> get copyWith;
 }
 
@@ -525,18 +531,20 @@ class _$UnSuccess with DiagnosticableTreeMixin implements UnSuccess {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   $UnSuccessCopyWith<UnSuccess> get copyWith =>
       _$UnSuccessCopyWithImpl<UnSuccess>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loading(),
-    @required Result success(Credential credential),
-    @required Result unSuccess(String error),
-    @required Result invalidFormField(Map<LoginFormField, List<String>> errors),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loading(),
+    @required TResult success(Credential credential),
+    @required TResult unSuccess(String error),
+    @required
+        TResult invalidFormField(Map<LoginFormField, List<String>> errors),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -548,13 +556,13 @@ class _$UnSuccess with DiagnosticableTreeMixin implements UnSuccess {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loading(),
-    Result success(Credential credential),
-    Result unSuccess(String error),
-    Result invalidFormField(Map<LoginFormField, List<String>> errors),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loading(),
+    TResult success(Credential credential),
+    TResult unSuccess(String error),
+    TResult invalidFormField(Map<LoginFormField, List<String>> errors),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (unSuccess != null) {
@@ -565,12 +573,12 @@ class _$UnSuccess with DiagnosticableTreeMixin implements UnSuccess {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(Initial value),
-    @required Result loading(Loading value),
-    @required Result success(Success value),
-    @required Result unSuccess(UnSuccess value),
-    @required Result invalidFormField(InvalidFormField value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(Initial value),
+    @required TResult loading(Loading value),
+    @required TResult success(Success value),
+    @required TResult unSuccess(UnSuccess value),
+    @required TResult invalidFormField(InvalidFormField value),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -582,13 +590,13 @@ class _$UnSuccess with DiagnosticableTreeMixin implements UnSuccess {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(Initial value),
-    Result loading(Loading value),
-    Result success(Success value),
-    Result unSuccess(UnSuccess value),
-    Result invalidFormField(InvalidFormField value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(Initial value),
+    TResult loading(Loading value),
+    TResult success(Success value),
+    TResult unSuccess(UnSuccess value),
+    TResult invalidFormField(InvalidFormField value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (unSuccess != null) {
@@ -602,6 +610,7 @@ abstract class UnSuccess implements LoginState {
   const factory UnSuccess(String error) = _$UnSuccess;
 
   String get error;
+  @JsonKey(ignore: true)
   $UnSuccessCopyWith<UnSuccess> get copyWith;
 }
 
@@ -670,18 +679,20 @@ class _$InvalidFormField
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(errors);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidFormFieldCopyWith<InvalidFormField> get copyWith =>
       _$InvalidFormFieldCopyWithImpl<InvalidFormField>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loading(),
-    @required Result success(Credential credential),
-    @required Result unSuccess(String error),
-    @required Result invalidFormField(Map<LoginFormField, List<String>> errors),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loading(),
+    @required TResult success(Credential credential),
+    @required TResult unSuccess(String error),
+    @required
+        TResult invalidFormField(Map<LoginFormField, List<String>> errors),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -693,13 +704,13 @@ class _$InvalidFormField
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loading(),
-    Result success(Credential credential),
-    Result unSuccess(String error),
-    Result invalidFormField(Map<LoginFormField, List<String>> errors),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loading(),
+    TResult success(Credential credential),
+    TResult unSuccess(String error),
+    TResult invalidFormField(Map<LoginFormField, List<String>> errors),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidFormField != null) {
@@ -710,12 +721,12 @@ class _$InvalidFormField
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(Initial value),
-    @required Result loading(Loading value),
-    @required Result success(Success value),
-    @required Result unSuccess(UnSuccess value),
-    @required Result invalidFormField(InvalidFormField value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(Initial value),
+    @required TResult loading(Loading value),
+    @required TResult success(Success value),
+    @required TResult unSuccess(UnSuccess value),
+    @required TResult invalidFormField(InvalidFormField value),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -727,13 +738,13 @@ class _$InvalidFormField
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(Initial value),
-    Result loading(Loading value),
-    Result success(Success value),
-    Result unSuccess(UnSuccess value),
-    Result invalidFormField(InvalidFormField value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(Initial value),
+    TResult loading(Loading value),
+    TResult success(Success value),
+    TResult unSuccess(UnSuccess value),
+    TResult invalidFormField(InvalidFormField value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidFormField != null) {
@@ -748,5 +759,6 @@ abstract class InvalidFormField implements LoginState {
       _$InvalidFormField;
 
   Map<LoginFormField, List<String>> get errors;
+  @JsonKey(ignore: true)
   $InvalidFormFieldCopyWith<InvalidFormField> get copyWith;
 }

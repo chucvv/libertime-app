@@ -28,12 +28,15 @@ dependencies:
   database:
     path: ../infrastructure/database
 
+dependency_overrides:
+  analyzer: ^0.41.2
+
 dev_dependencies:
   pedantic: ^1.9.2
   flutter_test:
     sdk: flutter
   built_value_generator: ^7.1.0
-  build_runner: ^1.10.2
+  build_runner:
   chopper_generator: ^3.0.3
   freezed: ^0.12.2
 

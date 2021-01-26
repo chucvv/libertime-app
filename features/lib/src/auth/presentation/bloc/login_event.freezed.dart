@@ -32,24 +32,25 @@ mixin _$LoginEvent {
   String get password;
 
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result login(String username, String password),
+  TResult when<TResult extends Object>({
+    @required TResult login(String username, String password),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result login(String username, String password),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult login(String username, String password),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result login(onLoginEvent value),
+  TResult map<TResult extends Object>({
+    @required TResult login(onLoginEvent value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result login(onLoginEvent value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult login(onLoginEvent value),
+    @required TResult orElse(),
   });
 
+  @JsonKey(ignore: true)
   $LoginEventCopyWith<LoginEvent> get copyWith;
 }
 
@@ -156,14 +157,15 @@ class _$onLoginEvent with DiagnosticableTreeMixin implements onLoginEvent {
       const DeepCollectionEquality().hash(username) ^
       const DeepCollectionEquality().hash(password);
 
+  @JsonKey(ignore: true)
   @override
   $onLoginEventCopyWith<onLoginEvent> get copyWith =>
       _$onLoginEventCopyWithImpl<onLoginEvent>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result login(String username, String password),
+  TResult when<TResult extends Object>({
+    @required TResult login(String username, String password),
   }) {
     assert(login != null);
     return login(username, password);
@@ -171,9 +173,9 @@ class _$onLoginEvent with DiagnosticableTreeMixin implements onLoginEvent {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result login(String username, String password),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult login(String username, String password),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (login != null) {
@@ -184,8 +186,8 @@ class _$onLoginEvent with DiagnosticableTreeMixin implements onLoginEvent {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result login(onLoginEvent value),
+  TResult map<TResult extends Object>({
+    @required TResult login(onLoginEvent value),
   }) {
     assert(login != null);
     return login(this);
@@ -193,9 +195,9 @@ class _$onLoginEvent with DiagnosticableTreeMixin implements onLoginEvent {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result login(onLoginEvent value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult login(onLoginEvent value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (login != null) {
@@ -213,5 +215,6 @@ abstract class onLoginEvent implements LoginEvent {
   @override
   String get password;
   @override
+  @JsonKey(ignore: true)
   $onLoginEventCopyWith<onLoginEvent> get copyWith;
 }
