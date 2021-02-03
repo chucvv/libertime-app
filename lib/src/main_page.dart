@@ -24,7 +24,7 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> _widgePage = [
     HomeWidget(),
     const ExploreWidget(),
-    MessageWidget()
+    MessageHistoryScreen()
   ];
 
   void _selectTab(TabItem tabItem) {
