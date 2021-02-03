@@ -19,7 +19,7 @@ dependencies:
     path: ../../libraries/common
 
 dev_dependencies:
-  pedantic: ^1.9.2
+  effective_dart: ^1.3.0
   moor_generator: # use the latest version
   build_runner: 
   flutter_test:
