@@ -36,7 +36,7 @@ class _SignInState extends State<SignIn> {
           Navigator.popAndPushNamed(context, '/main');
         },
         unSuccess: (error) {
-          Scaffold.of(context).showSnackBar(
+          ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(error),
               backgroundColor: Colors.red,

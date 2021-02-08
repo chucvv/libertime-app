@@ -12,8 +12,6 @@ class _MessageHistoryScreenState extends State<MessageHistoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        textTheme: Theme.of(context).textTheme.apply(bodyColor: Colors.black45),
-        iconTheme: IconThemeData(color: Colors.black45),
         title: Text('Messenger'),
         actions: <Widget>[
           IconButton(

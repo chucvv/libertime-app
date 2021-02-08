@@ -1,8 +1,6 @@
 import 'package:features/modules.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:common/utility.dart';
-import 'package:share_ui/awesome_ui.dart';
 
 import 'bottom_bar.dart';
 
@@ -22,8 +20,8 @@ class _MainPageState extends State<MainPage> {
   };
 
   final List<Widget> _widgePage = [
-    HomeWidget(),
-    const ExploreWidget(),
+    HomeScreen(),
+    ExploreWidget(),
     MessageHistoryScreen()
   ];
 
@@ -40,9 +38,7 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    changeStatusColor(clWhiteBackgroud);
     return Scaffold(
-        backgroundColor: clWhiteBackgroud,
         body: SizedBox.expand(
           child: PageView(
             controller: _pageController,

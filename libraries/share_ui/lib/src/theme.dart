@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:share_ui/awesome_ui.dart';
 
 import 'animation/zoom_slideup_transition.dart';
 
 final ThemeData theme = ThemeData(
+  primaryColor: clPrimary,
+  secondaryHeaderColor: AppColors.primaryColor[400],
+  accentColor: AppColors.primaryColor[100],
   pageTransitionsTheme: _pageTransitionsTheme,
   appBarTheme: _appBarTheme,
   scaffoldBackgroundColor: Colors.white.withOpacity(0.95),
@@ -18,11 +22,11 @@ const PageTransitionsTheme _pageTransitionsTheme =
 });
 
 final AppBarTheme _appBarTheme = AppBarTheme(
-  color: Colors.white,
   elevation: 0.0,
-  iconTheme: IconThemeData(color: Colors.black),
+  color: Colors.white,
+  iconTheme: IconThemeData(color: Colors.black54),
   textTheme: TextTheme(
-    headline6: _TextStyles.headline6.copyWith(color: Colors.black87),
+    headline6: _TextStyles.headline6.copyWith(color: Colors.black54),
   ),
 );
 
@@ -37,6 +41,7 @@ final TextTheme _textTheme = TextTheme(
 );
 
 class _TextStyles {
+  _TextStyles._();
   static final TextStyle headline4 = TextStyle(
     fontFamily: 'RobotoMedium',
     fontSize: 34.0,

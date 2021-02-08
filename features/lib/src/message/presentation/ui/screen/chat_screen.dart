@@ -17,8 +17,6 @@ class _ChattingState extends State<Chatting> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        iconTheme: IconThemeData(color: Colors.black54),
         title: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
