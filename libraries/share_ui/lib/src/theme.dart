@@ -5,11 +5,8 @@ import 'animation/zoom_slideup_transition.dart';
 
 final ThemeData theme = ThemeData(
   primaryColor: clPrimary,
-  secondaryHeaderColor: AppColors.primaryColor[400],
-  accentColor: AppColors.primaryColor[100],
   pageTransitionsTheme: _pageTransitionsTheme,
   appBarTheme: _appBarTheme,
-  scaffoldBackgroundColor: Colors.white.withOpacity(0.95),
   textTheme: _textTheme,
   typography: Typography.material2018(),
   visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -23,10 +20,10 @@ const PageTransitionsTheme _pageTransitionsTheme =
 
 final AppBarTheme _appBarTheme = AppBarTheme(
   elevation: 0.0,
-  color: Colors.white,
-  iconTheme: IconThemeData(color: Colors.black54),
+  iconTheme: IconThemeData(color: Colors.white),
   textTheme: TextTheme(
-    headline6: _TextStyles.headline6.copyWith(color: Colors.black54),
+    headline6:
+        _TextStyles.headline6.copyWith(color: AppColors.primaryColor[900]),
   ),
 );
 
