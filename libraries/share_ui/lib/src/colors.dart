@@ -35,7 +35,7 @@ class TextColors {
 
 const clPrimary = Color(0xFF0D76ED);
 const lTNormalColor = Color(0xFF4E342E);
-const clWhiteBackgroud = Color(0xFFF6F7FA);
+const clBackgroud = Color(0xFFF6F7FA);
 const clNavigatorBar = Color(0xAAFFFFFF);
 const clNavigatorBarBorder = Color(0x1AFFFFFF);
 const lTOrangeColor = Colors.amberAccent;

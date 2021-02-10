@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:share_ui/awesome_ui.dart';
-
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_screenutil/screenutil_init.dart';
 import 'app_router.dart';
 import 'strings.dart';
 
@@ -13,7 +12,7 @@ class LiberMeApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: false,
-      child: MaterialApp(
+      builder: () => MaterialApp(
         title: Strings.appName,
         theme: theme,
         onGenerateRoute: AppRouter.generateRoutes,

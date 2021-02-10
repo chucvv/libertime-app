@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/screenutil.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MatchCard extends StatefulWidget {
   final String name;
@@ -7,7 +7,7 @@ class MatchCard extends StatefulWidget {
   final int age;
   final String bio;
 
-  const MatchCard(this.name, this.imageURL, this.age, this.bio);
+  MatchCard(this.name, this.imageURL, this.age, this.bio);
 
   @override
   _MatchCardState createState() => _MatchCardState();
@@ -17,15 +17,17 @@ class _MatchCardState extends State<MatchCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration:
-          BoxDecoration(borderRadius: BorderRadius.circular(100), boxShadow: [
-        BoxShadow(
-            color: Colors.grey.shade700,
-            offset: Offset(0.0, 5.0),
-            blurRadius: 20.0)
-      ]),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+              color: Colors.grey.shade700,
+              offset: Offset(0.0, 5.0),
+              blurRadius: 20.0)
+        ],
+        borderRadius: BorderRadius.circular(100.0),
+      ),
       child: Stack(
-        children: [
+        children: <Widget>[
           Container(
             decoration: BoxDecoration(
               boxShadow: [
@@ -45,63 +47,81 @@ class _MatchCardState extends State<MatchCard> {
             ),
           ),
           Positioned(
+            bottom: ScreenUtil().setHeight(20.0),
+            left: ScreenUtil().setWidth(20.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: <Widget>[
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
+                  children: <Widget>[
                     Text(
                       widget.name,
-                      style: Theme.of(context).textTheme.headline5.copyWith(
-                        color: Colors.white,
-                        shadows: [
-                          Shadow(
-                              color: Colors.black54,
-                              offset: Offset(1.0, 2.0),
-                              blurRadius: 10.0)
-                        ],
-                      ),
+                      style: TextStyle(
+                          shadows: [
+                            Shadow(
+                                color: Colors.black54,
+                                offset: Offset(1.0, 2.0),
+                                blurRadius: 10.0)
+                          ],
+                          color: Colors.white,
+                          fontSize: ScreenUtil().setSp(20.0),
+                          fontWeight: FontWeight.w600),
                     ),
                     SizedBox(
-                      width: ScreenUtil().setWidth(40.0),
+                      width: ScreenUtil().setWidth(10.0),
                     ),
                     Text(
                       widget.age.toString(),
-                      style: Theme.of(context).textTheme.subtitle2.copyWith(
-                        color: Colors.white,
-                        shadows: [
-                          Shadow(
-                              color: Colors.black54,
-                              offset: Offset(1.0, 2.0),
-                              blurRadius: 10.0)
-                        ],
-                      ),
+                      style: TextStyle(
+                          shadows: [
+                            Shadow(
+                                color: Colors.black54,
+                                offset: Offset(1.0, 2.0),
+                                blurRadius: 10.0)
+                          ],
+                          color: Colors.white,
+                          fontSize: ScreenUtil().setSp(40.0),
+                          fontWeight: FontWeight.w300),
                     ),
                   ],
                 ),
                 SizedBox(
-                  height: ScreenUtil().setHeight(10.0),
+                  height: ScreenUtil().setHeight(5.0),
                 ),
                 Text(
                   widget.bio,
-                  style: Theme.of(context).textTheme.subtitle1.copyWith(
-                    color: Colors.white,
-                    shadows: [
-                      Shadow(
-                          color: Colors.black54,
-                          offset: Offset(1.0, 2.0),
-                          blurRadius: 10.0)
-                    ],
-                  ),
+                  style: TextStyle(
+                      color: Colors.white,
+                      shadows: [
+                        Shadow(
+                            color: Colors.black54,
+                            offset: Offset(1.0, 2.0),
+                            blurRadius: 10.0)
+                      ],
+                      fontSize: ScreenUtil().setSp(18.0),
+                      fontWeight: FontWeight.w400),
                 ),
               ],
             ),
-            bottom: ScreenUtil().setHeight(40),
-            left: ScreenUtil().setWidth(40),
           ),
+          Positioned(
+            bottom: 1.0,
+            right: -1.0,
+            child: Container(
+              width: MediaQuery.of(context).size.width - 22.0,
+              height: MediaQuery.of(context).size.height * 0.15,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  gradient: LinearGradient(
+                      colors: [Colors.transparent, Colors.black26],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: [0.0, 1.0])),
+            ),
+          )
         ],
       ),
     );

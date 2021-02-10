@@ -1,5 +1,6 @@
 import 'package:features/src/message/data/repositories/data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_fimber/flutter_fimber.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 class MessageHistoryScreen extends StatefulWidget {
@@ -7,9 +8,20 @@ class MessageHistoryScreen extends StatefulWidget {
   _MessageHistoryScreenState createState() => _MessageHistoryScreenState();
 }
 
-class _MessageHistoryScreenState extends State<MessageHistoryScreen> {
+class _MessageHistoryScreenState extends State<MessageHistoryScreen>
+    with AutomaticKeepAliveClientMixin<MessageHistoryScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Fimber.d("initState");
+  }
+
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Messenger'),

@@ -23,7 +23,7 @@ class _AuthPageState extends State<AuthPage> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: clWhiteBackgroud,
+        backgroundColor: clBackgroud,
         body: SingleChildScrollView(
           child: Container(
             width: width,

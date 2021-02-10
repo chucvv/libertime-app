@@ -7,6 +7,7 @@ final ThemeData theme = ThemeData(
   primaryColor: clPrimary,
   pageTransitionsTheme: _pageTransitionsTheme,
   appBarTheme: _appBarTheme,
+  bottomAppBarTheme: _bottomBarTheme,
   textTheme: _textTheme,
   typography: Typography.material2018(),
   visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -18,16 +19,18 @@ const PageTransitionsTheme _pageTransitionsTheme =
   TargetPlatform.android: ZoomSlideUpTransitionsBuilder(),
 });
 
-final AppBarTheme _appBarTheme = AppBarTheme(
+final _bottomBarTheme = BottomAppBarTheme(color: clBackgroud, elevation: 0.0);
+
+final _appBarTheme = AppBarTheme(
+  color: clBackgroud,
   elevation: 0.0,
-  iconTheme: IconThemeData(color: Colors.white),
+  iconTheme: IconThemeData(color: Colors.black26),
   textTheme: TextTheme(
-    headline6:
-        _TextStyles.headline6.copyWith(color: AppColors.primaryColor[900]),
+    headline6: _TextStyles.headline6.copyWith(color: Colors.black54),
   ),
 );
 
-final TextTheme _textTheme = TextTheme(
+final _textTheme = TextTheme(
   headline4: _TextStyles.headline4,
   headline5: _TextStyles.headline5,
   headline6: _TextStyles.headline6,
