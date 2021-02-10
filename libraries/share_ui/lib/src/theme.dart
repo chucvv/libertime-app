@@ -9,6 +9,7 @@ final ThemeData theme = ThemeData(
   appBarTheme: _appBarTheme,
   bottomAppBarTheme: _bottomBarTheme,
   textTheme: _textTheme,
+  iconTheme: _iconTheme,
   typography: Typography.material2018(),
   visualDensity: VisualDensity.adaptivePlatformDensity,
 );
@@ -18,7 +19,7 @@ const PageTransitionsTheme _pageTransitionsTheme =
   TargetPlatform.iOS: ZoomPageTransitionsBuilder(),
   TargetPlatform.android: ZoomSlideUpTransitionsBuilder(),
 });
-
+final _iconTheme = IconThemeData(color: Colors.grey);
 final _bottomBarTheme = BottomAppBarTheme(color: clBackgroud, elevation: 0.0);
 
 final _appBarTheme = AppBarTheme(

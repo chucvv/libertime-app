@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -48,32 +47,6 @@ Widget text(
     ),
   );
 }
-
-Widget commonCacheImageWidget(String url, double height,
-    {double width, BoxFit fit}) {
-  if (isMobile) {
-    return CachedNetworkImage(
-      placeholder: placeholderWidgetFn(),
-      imageUrl: url,
-      height: height,
-      width: width,
-      fit: fit,
-    );
-  } else {
-    return Image.network(
-      url,
-      height: height,
-      width: width,
-      fit: fit,
-    );
-  }
-}
-
-Function(BuildContext, String) placeholderWidgetFn() =>
-    (_, s) => placeholderWidget();
-
-Widget placeholderWidget() =>
-    Image.asset('images/LikeButton/image/grey.jpg', fit: BoxFit.cover);
 
 BoxConstraints dynamicBoxConstraints({double maxWidth}) {
   return BoxConstraints(maxWidth: maxWidth ?? applicationMaxWidth);

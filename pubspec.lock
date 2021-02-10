@@ -371,7 +371,7 @@ packages:
     source: hosted
     version: "0.7.5"
   flutter_screenutil:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: flutter_screenutil
       url: "https://pub.dartlang.org"

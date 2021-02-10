@@ -36,14 +36,14 @@
 ///         Author:    John Caserta
 ///         License:   SIL (http://scripts.sil.org/OFL)
 ///         Homepage:  http://thedesignoffice.org/project/modern-pictograms/
-/// * Linearicons Free, Copyright (C) Linearicons.com
-///         Author:    Perxis
-///         License:   CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
-///         Homepage:  https://linearicons.com
 /// * Material Design Icons, Copyright (C) Google, Inc
 ///         Author:    Google
 ///         License:   Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
 ///         Homepage:  https://design.google.com/icons/
+/// * Linearicons Free, Copyright (C) Linearicons.com
+///         Author:    Perxis
+///         License:   CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+///         Homepage:  https://linearicons.com
 /// * RPG Awesome, Copyright (c) 2014, Daniela Howe
 ///         Author:    Daniela Howe & Ivan Montiel
 ///         License:   SIL (http://scripts.sil.org/OFL)
@@ -91,6 +91,14 @@ class IconFonts {
       IconData(0xe80d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData pencil =
       IconData(0xe80e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData arrows_cw =
+      IconData(0xe80f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData cancel_circled =
+      IconData(0xe810, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData more_vert =
+      IconData(0xe811, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData sad =
+      IconData(0xe855, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData plus_circle =
       IconData(0xe881, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData circle_minus =
@@ -109,6 +117,8 @@ class IconFonts {
       IconData(0xf09a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData filter =
       IconData(0xf0b0, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData suitcase =
+      IconData(0xf0f2, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData bell_alt =
       IconData(0xf0f3, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData thumbs_up_alt =

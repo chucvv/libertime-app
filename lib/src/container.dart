@@ -62,11 +62,23 @@ class _MainContainerState extends State<MainContainer> {
         appBar: AppBar(
           leading: Container(
             margin: EdgeInsetsDirectional.only(start: 10),
-            child: Icon(
-              IconFonts.heartbeat,
-              size: ScreenUtil().setHeight(40),
-              color: Colors.redAccent,
-            ),
+            child: ShaderMask(
+                child: Icon(
+                  IconFonts.bleeding_hearts,
+                  size: ScreenUtil().setHeight(45),
+                  color: Colors.redAccent,
+                ),
+                blendMode: BlendMode.srcATop,
+                shaderCallback: (bounds) {
+                  return LinearGradient(
+                      colors: [
+                        Colors.redAccent,
+                        Colors.deepPurpleAccent,
+                      ],
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      stops: [0.0, 1.0]).createShader(bounds);
+                }),
           ),
           title: Text(
             Strings.appName,
@@ -79,7 +91,11 @@ class _MainContainerState extends State<MainContainer> {
                   ).createShader(Rect.fromLTWH(0.0, 0.0, 300.0, 100.0))),
           ),
           actions: [
-            IconButton(icon: Icon(IconFonts.bell_alt), onPressed: () {})
+            IconButton(
+                icon: Icon(IconFonts.bell_alt),
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/notification');
+                })
           ],
         ),
         bottomNavigationBar: Container(

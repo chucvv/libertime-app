@@ -19,7 +19,6 @@ dependencies:
   moor_flutter: ^3.1.0
   bloc: ^6.1.0
   flutter_bloc: ^6.1.0
-  flutter_screenutil: ^4.0.2+8
 
   share_ui:
     path: ./libraries/share_ui
@@ -54,7 +53,6 @@ flutter:
   uses-material-design: true
   assets:
     - assets/launcher/
-    - assets/images/
   fonts:
     - family: Raleway
       fonts:
