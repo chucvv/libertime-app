@@ -139,25 +139,14 @@ class _HomeScreenState extends State<HomeScreen>
             : Container(),
       ),
     );
-    final controls = Positioned(
-      bottom: 20.0,
-      left: 5.0,
-      right: 5.0,
+    final emotionWidget = Align(
+      alignment: Alignment.topCenter,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Container(
-            decoration: BoxDecoration(boxShadow: [
-              BoxShadow(offset: Offset(0.0, 0.0), color: Colors.grey.shade400),
-              BoxShadow(
-                  offset: Offset(1.0, 1.0),
-                  color: Colors.grey.shade400,
-                  blurRadius: 5.0),
-              BoxShadow(
-                  offset: Offset(-1.0, -1.0),
-                  color: Colors.white,
-                  blurRadius: 10.0)
-            ], borderRadius: BorderRadius.circular(60.0)),
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(60.0)),
             child: ShaderMask(
                 child: Icon(
                   IconFonts.sad,
@@ -176,38 +165,8 @@ class _HomeScreenState extends State<HomeScreen>
                 }),
           ),
           Container(
-            padding: EdgeInsets.all(ScreenUtil().setWidth(10.0)),
             decoration: BoxDecoration(
-                color: Colors.grey.shade200,
-                borderRadius: BorderRadius.circular(60.0)),
-            child: ShaderMask(
-                child: Icon(
-                  IconFonts.arrows_cw,
-                ),
-                blendMode: BlendMode.srcATop,
-                shaderCallback: (bounds) {
-                  return LinearGradient(
-                      colors: [
-                        Colors.amber.shade700,
-                        Colors.amber.shade400,
-                      ],
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      stops: [0.0, 1.0]).createShader(bounds);
-                }),
-          ),
-          Container(
-            decoration: BoxDecoration(boxShadow: [
-              BoxShadow(offset: Offset(0.0, 0.0), color: Colors.grey),
-              BoxShadow(
-                  offset: Offset(1.0, 1.0),
-                  color: Colors.grey,
-                  blurRadius: 5.0),
-              BoxShadow(
-                  offset: Offset(-1.0, -1.0),
-                  color: Colors.white,
-                  blurRadius: 10.0)
-            ], borderRadius: BorderRadius.circular(60.0)),
+                color: Colors.white, borderRadius: BorderRadius.circular(60.0)),
             child: ShaderMask(
                 child: Icon(
                   IconFonts.grin_hearts,
@@ -228,11 +187,47 @@ class _HomeScreenState extends State<HomeScreen>
         ],
       ),
     );
+    final refreshWidget = Positioned(
+        bottom: 10.0,
+        left: 5.0,
+        right: 5.0,
+        child: InkWell(
+          onTap: () {
+            Fimber.d("On refresh here");
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                padding: EdgeInsets.all(ScreenUtil().setWidth(6.0)),
+                decoration: BoxDecoration(
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(60.0)),
+                child: ShaderMask(
+                    child: Icon(
+                      IconFonts.arrows_cw,
+                    ),
+                    blendMode: BlendMode.srcATop,
+                    shaderCallback: (bounds) {
+                      return LinearGradient(
+                          colors: [
+                            Theme.of(context).secondaryHeaderColor,
+                            Theme.of(context).primaryColor,
+                          ],
+                          begin: Alignment.topRight,
+                          end: Alignment.bottomLeft,
+                          stops: [0.0, 1.0]).createShader(bounds);
+                    }),
+              ),
+            ],
+          ),
+        ));
     return Stack(
       children: <Widget>[
         backgroundAnimatedWidget,
-        controls,
         peopleAvatarWidget,
+        emotionWidget,
+        refreshWidget,
       ],
     );
   }

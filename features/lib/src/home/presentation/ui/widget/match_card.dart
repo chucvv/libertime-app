@@ -23,10 +23,12 @@ class _MatchCardState extends State<MatchCard> {
       left: 0.0,
       right: 0.0,
       child: Container(
-        padding: EdgeInsets.all(ScreenUtil().setHeight(6.0)),
+        padding: EdgeInsets.all(ScreenUtil().setHeight(5.0)),
         decoration: BoxDecoration(
-          color: Colors.white12,
-        ),
+            color: Theme.of(context).primaryColor.withOpacity(0.6),
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(10),
+                bottomRight: Radius.circular(10))),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +47,7 @@ class _MatchCardState extends State<MatchCard> {
                             blurRadius: 10.0)
                       ],
                       color: Colors.white,
-                      fontSize: ScreenUtil().setSp(20.0),
+                      fontSize: ScreenUtil().setSp(18.0),
                       fontWeight: FontWeight.w600),
                 ),
                 SizedBox(
@@ -61,13 +63,13 @@ class _MatchCardState extends State<MatchCard> {
                             blurRadius: 10.0)
                       ],
                       color: Colors.white,
-                      fontSize: ScreenUtil().setSp(30.0),
+                      fontSize: ScreenUtil().setSp(26.0),
                       fontWeight: FontWeight.w300),
                 ),
               ],
             ),
             SizedBox(
-              height: ScreenUtil().setHeight(5.0),
+              height: ScreenUtil().setHeight(3.0),
             ),
             Row(
               children: [
@@ -110,7 +112,7 @@ class _MatchCardState extends State<MatchCard> {
                 ),
                 IconButton(
                     icon: Icon(IconFonts.more_vert),
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).iconTheme.color,
                     onPressed: () {
                       Navigator.of(context).pushNamed("/person_info");
                     }),

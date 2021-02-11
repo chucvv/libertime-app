@@ -24,7 +24,9 @@ class _MainContainerState extends State<MainContainer> {
         child: Column(
           children: [
             Icon(IconFonts.home),
-            Text(Strings.navigatorHomeTitle),
+            Text(
+              Strings.navigatorHomeTitle,
+            ),
           ],
         ),
       ),
@@ -60,30 +62,33 @@ class _MainContainerState extends State<MainContainer> {
       child: Scaffold(
         backgroundColor: clBackgroud,
         appBar: AppBar(
-          leading: Container(
-            margin: EdgeInsetsDirectional.only(start: 10),
-            child: ShaderMask(
-                child: Icon(
-                  IconFonts.bleeding_hearts,
-                  size: ScreenUtil().setHeight(45),
-                  color: Colors.redAccent,
-                ),
-                blendMode: BlendMode.srcATop,
-                shaderCallback: (bounds) {
-                  return LinearGradient(
-                      colors: [
-                        Colors.redAccent,
-                        Colors.deepPurpleAccent,
-                      ],
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      stops: [0.0, 1.0]).createShader(bounds);
-                }),
+          leading: InkWell(
+            onTap: () {},
+            child: Container(
+              margin: EdgeInsetsDirectional.only(start: 10),
+              child: ShaderMask(
+                  child: Icon(
+                    IconFonts.bleeding_hearts,
+                    size: ScreenUtil().setHeight(46),
+                    color: Colors.redAccent,
+                  ),
+                  blendMode: BlendMode.srcATop,
+                  shaderCallback: (bounds) {
+                    return LinearGradient(
+                        colors: [
+                          Colors.redAccent,
+                          Colors.deepPurpleAccent,
+                        ],
+                        begin: Alignment.topRight,
+                        end: Alignment.bottomLeft,
+                        stops: [0.0, 1.0]).createShader(bounds);
+                  }),
+            ),
           ),
           title: Text(
             Strings.appName,
             style: TextStyle(
-                fontSize: ScreenUtil().setSp(22),
+                fontSize: ScreenUtil().setSp(20),
                 fontWeight: FontWeight.bold,
                 foreground: Paint()
                   ..shader = LinearGradient(
@@ -109,7 +114,7 @@ class _MainContainerState extends State<MainContainer> {
             ],
           ),
           child: TabBar(
-            labelPadding: EdgeInsetsDirectional.only(top: 5),
+            labelPadding: EdgeInsetsDirectional.only(top: 3),
             indicatorSize: TabBarIndicatorSize.tab,
             indicatorColor: Theme.of(context).primaryColor,
             indicator: BoxDecoration(

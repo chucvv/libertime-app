@@ -5,6 +5,7 @@ import 'animation/zoom_slideup_transition.dart';
 
 final ThemeData theme = ThemeData(
   primaryColor: clPrimary,
+  secondaryHeaderColor: clPrimary.withOpacity(0.5),
   pageTransitionsTheme: _pageTransitionsTheme,
   appBarTheme: _appBarTheme,
   bottomAppBarTheme: _bottomBarTheme,
@@ -19,11 +20,12 @@ const PageTransitionsTheme _pageTransitionsTheme =
   TargetPlatform.iOS: ZoomPageTransitionsBuilder(),
   TargetPlatform.android: ZoomSlideUpTransitionsBuilder(),
 });
-final _iconTheme = IconThemeData(color: Colors.grey);
+final _iconTheme = IconThemeData(color: Colors.white);
 final _bottomBarTheme = BottomAppBarTheme(color: clBackgroud, elevation: 0.0);
 
 final _appBarTheme = AppBarTheme(
   color: clBackgroud,
+  brightness: Brightness.light,
   elevation: 0.0,
   iconTheme: IconThemeData(color: Colors.black26),
   textTheme: TextTheme(
