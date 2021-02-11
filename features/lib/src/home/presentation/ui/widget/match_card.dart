@@ -99,7 +99,7 @@ class _MatchCardState extends State<MatchCard> {
                   children: [
                     Icon(
                       Icons.location_pin,
-                      color: Theme.of(context).iconTheme.color,
+                      color: Colors.red.shade300,
                     ),
                     Text(
                       widget.location,

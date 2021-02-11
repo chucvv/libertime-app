@@ -14,11 +14,12 @@ class _HomeScreenState extends State<HomeScreen>
     with
         SingleTickerProviderStateMixin,
         AutomaticKeepAliveClientMixin<HomeScreen> {
-  bool chng = true;
+  bool isLiked = false;
   bool atCenter = true;
   bool _triggerNotFound = false;
   bool _timeout = false;
-  CardController _cardController;
+  final _cardController = CardController();
+  final _likeFireworkController = FireworkController();
 
   @override
   bool get wantKeepAlive => true;
@@ -53,19 +54,26 @@ class _HomeScreenState extends State<HomeScreen>
             if (align.x < 0) {
               //Card is LEFT swiping
               setState(() {
-                if (align.x < -1) atCenter = false;
-                chng = true;
+                if (align.x < -1) {
+                  atCenter = false;
+                }
+                isLiked = false;
               });
             } else if (align.x > 0) {
               //Card is RIGHT swiping
               setState(() {
-                if (align.x > 1) atCenter = false;
-                chng = false;
+                if (align.x > 1) {
+                  atCenter = false;
+                }
+                isLiked = true;
               });
             }
           },
           swipeCompleteCallback: (orientation, index) {
             /// Get orientation & index of swiped card!
+            if (isLiked) {
+              _likeFireworkController.fire();
+            }
             setState(() {
               atCenter = true;
               if (index == peoples.length - 1) {
@@ -78,13 +86,13 @@ class _HomeScreenState extends State<HomeScreen>
             });
           },
         ));
-    final backgroundAnimatedWidget = AnimatedContainer(
+    final animationWidget = AnimatedContainer(
       duration: Duration(milliseconds: 600),
       curve: Curves.fastLinearToSlowEaseIn,
       color: !atCenter
-          ? chng
-              ? Colors.blueGrey.shade100
-              : Colors.pinkAccent.shade100
+          ? isLiked
+              ? Colors.pinkAccent.shade100
+              : Colors.blueAccent.shade100
           : clBackgroud,
       child: Center(
         child: _triggerNotFound
@@ -139,95 +147,109 @@ class _HomeScreenState extends State<HomeScreen>
             : Container(),
       ),
     );
-    final emotionWidget = Align(
-      alignment: Alignment.topCenter,
+    final controlsWidget = Positioned(
+      bottom: 0.0,
+      left: ScreenUtil().setHeight(10.0),
+      right: ScreenUtil().setHeight(10.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-            decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(60.0)),
-            child: ShaderMask(
-                child: Icon(
-                  IconFonts.sad,
-                  size: ScreenUtil().setHeight(40),
-                ),
-                blendMode: BlendMode.srcATop,
-                shaderCallback: (bounds) {
-                  return LinearGradient(
-                      colors: [
-                        Colors.lightGreenAccent.shade400,
-                        Colors.lightGreenAccent.shade700,
-                      ],
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      stops: [0.0, 1.0]).createShader(bounds);
-                }),
+          FireworkButton(
+            onTap: () {
+              _cardController.triggerLeft();
+            },
+            size: ScreenUtil().setHeight(50.0),
+            circleColor: CircleColor(
+                start: Colors.lightGreenAccent.shade400,
+                end: Colors.lightGreenAccent.shade700),
+            bubblesColor: BubblesColor(
+              dotPrimaryColor: Colors.lightGreenAccent,
+              dotSecondaryColor: Theme.of(context).backgroundColor,
+            ),
+            fireworkBuilder: () {
+              return ShaderMask(
+                  child: Icon(
+                    IconFonts.sad,
+                    size: ScreenUtil().setHeight(40),
+                  ),
+                  blendMode: BlendMode.srcATop,
+                  shaderCallback: (bounds) {
+                    return LinearGradient(
+                        colors: [
+                          Colors.lightGreenAccent.shade400,
+                          Colors.lightGreenAccent.shade700,
+                        ],
+                        begin: Alignment.topRight,
+                        end: Alignment.bottomLeft,
+                        stops: [0.0, 1.0]).createShader(bounds);
+                  });
+            },
           ),
-          Container(
-            decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(60.0)),
-            child: ShaderMask(
-                child: Icon(
-                  IconFonts.grin_hearts,
-                  size: ScreenUtil().setHeight(40),
-                ),
-                blendMode: BlendMode.srcATop,
-                shaderCallback: (bounds) {
-                  return LinearGradient(
-                      colors: [
-                        Colors.redAccent,
-                        Colors.red,
-                      ],
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      stops: [0.0, 1.0]).createShader(bounds);
-                }),
+          InkWell(
+            onTap: () {
+              Fimber.d("On refresh here");
+            },
+            child: Container(
+              padding: EdgeInsets.all(ScreenUtil().setWidth(6.0)),
+              decoration: BoxDecoration(
+                  color: Colors.grey.shade200,
+                  borderRadius: BorderRadius.circular(60.0)),
+              child: ShaderMask(
+                  child: Icon(
+                    IconFonts.arrows_cw,
+                  ),
+                  blendMode: BlendMode.srcATop,
+                  shaderCallback: (bounds) {
+                    return LinearGradient(
+                        colors: [
+                          Theme.of(context).secondaryHeaderColor,
+                          Theme.of(context).primaryColor,
+                        ],
+                        begin: Alignment.topRight,
+                        end: Alignment.bottomLeft,
+                        stops: [0.0, 1.0]).createShader(bounds);
+                  }),
+            ),
+          ),
+          FireworkButton(
+            fireworkController: _likeFireworkController,
+            onTap: () {
+              _cardController.triggerRight();
+            },
+            size: ScreenUtil().setHeight(50.0),
+            circleColor: CircleColor(start: Colors.red, end: Colors.redAccent),
+            bubblesColor: BubblesColor(
+              dotPrimaryColor: Colors.red,
+              dotSecondaryColor: Theme.of(context).primaryColor,
+            ),
+            fireworkBuilder: () {
+              return ShaderMask(
+                  child: Icon(
+                    IconFonts.grin_hearts,
+                    size: ScreenUtil().setHeight(40),
+                  ),
+                  blendMode: BlendMode.srcATop,
+                  shaderCallback: (bounds) {
+                    return LinearGradient(
+                        colors: [
+                          Colors.redAccent,
+                          Colors.red,
+                        ],
+                        begin: Alignment.topRight,
+                        end: Alignment.bottomLeft,
+                        stops: [0.0, 1.0]).createShader(bounds);
+                  });
+            },
           ),
         ],
       ),
     );
-    final refreshWidget = Positioned(
-        bottom: 10.0,
-        left: 5.0,
-        right: 5.0,
-        child: InkWell(
-          onTap: () {
-            Fimber.d("On refresh here");
-          },
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                padding: EdgeInsets.all(ScreenUtil().setWidth(6.0)),
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade200,
-                    borderRadius: BorderRadius.circular(60.0)),
-                child: ShaderMask(
-                    child: Icon(
-                      IconFonts.arrows_cw,
-                    ),
-                    blendMode: BlendMode.srcATop,
-                    shaderCallback: (bounds) {
-                      return LinearGradient(
-                          colors: [
-                            Theme.of(context).secondaryHeaderColor,
-                            Theme.of(context).primaryColor,
-                          ],
-                          begin: Alignment.topRight,
-                          end: Alignment.bottomLeft,
-                          stops: [0.0, 1.0]).createShader(bounds);
-                    }),
-              ),
-            ],
-          ),
-        ));
+
     return Stack(
       children: <Widget>[
-        backgroundAnimatedWidget,
+        animationWidget,
         peopleAvatarWidget,
-        emotionWidget,
-        refreshWidget,
+        controlsWidget,
       ],
     );
   }
