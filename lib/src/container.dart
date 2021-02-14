@@ -61,48 +61,6 @@ class _MainContainerState extends State<MainContainer> {
       length: _tabs.length,
       child: Scaffold(
         backgroundColor: clBackgroud,
-        appBar: AppBar(
-          leading: InkWell(
-            onTap: () {},
-            child: Container(
-              margin: EdgeInsetsDirectional.only(start: 10),
-              child: ShaderMask(
-                  child: Icon(
-                    IconFonts.bleeding_hearts,
-                    size: ScreenUtil().setHeight(46),
-                    color: Colors.redAccent,
-                  ),
-                  blendMode: BlendMode.srcATop,
-                  shaderCallback: (bounds) {
-                    return LinearGradient(
-                        colors: [
-                          Colors.redAccent,
-                          Colors.deepPurpleAccent,
-                        ],
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft,
-                        stops: [0.0, 1.0]).createShader(bounds);
-                  }),
-            ),
-          ),
-          title: Text(
-            Strings.appName,
-            style: TextStyle(
-                fontSize: ScreenUtil().setSp(20),
-                fontWeight: FontWeight.bold,
-                foreground: Paint()
-                  ..shader = LinearGradient(
-                    colors: [Colors.redAccent, Theme.of(context).primaryColor],
-                  ).createShader(Rect.fromLTWH(0.0, 0.0, 300.0, 100.0))),
-          ),
-          actions: [
-            IconButton(
-                icon: Icon(IconFonts.bell_alt),
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/notification');
-                })
-          ],
-        ),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
             color: clBackgroud,
