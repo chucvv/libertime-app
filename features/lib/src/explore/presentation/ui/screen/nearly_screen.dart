@@ -6,7 +6,8 @@ class NearlyScreen extends StatefulWidget {
   _NearlyScreenState createState() => _NearlyScreenState();
 }
 
-class _NearlyScreenState extends State<NearlyScreen> {
+class _NearlyScreenState extends State<NearlyScreen>
+    with AutomaticKeepAliveClientMixin<NearlyScreen> {
   @override
   void initState() {
     super.initState();
@@ -14,7 +15,11 @@ class _NearlyScreenState extends State<NearlyScreen> {
   }
 
   @override
+  bool get wantKeepAlive => true;
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Container(
       alignment: Alignment.center,
       child: Text('Nearly'),

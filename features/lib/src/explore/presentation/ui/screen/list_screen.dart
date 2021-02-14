@@ -6,7 +6,10 @@ class ListScreen extends StatefulWidget {
   _ListScreenState createState() => _ListScreenState();
 }
 
-class _ListScreenState extends State<ListScreen> {
+class _ListScreenState extends State<ListScreen>
+    with AutomaticKeepAliveClientMixin<ListScreen> {
+  @override
+  bool get wantKeepAlive => true;
   @override
   void initState() {
     super.initState();
@@ -15,6 +18,7 @@ class _ListScreenState extends State<ListScreen> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Container(alignment: Alignment.center, child: Text('list'));
   }
 }
