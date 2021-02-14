@@ -24,6 +24,7 @@ dependencies:
   flutter_tindercard: ^0.2.0
   flutter_fimber: ^0.4.4
   rive: ^0.6.7
+  google_maps_flutter: ^1.2.0
 
   common:
     path: ../libraries/common
