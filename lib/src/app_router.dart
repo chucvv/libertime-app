@@ -8,6 +8,7 @@ class AppRouter {
   static const String chat = '/chat';
   static const String personInfo = '/person_info';
   static const String notification = '/notification';
+  static const String filterSettings = '/filter_settings';
 
   static Route<dynamic> generateRoutes(RouteSettings settings) {
     switch (settings.name) {
@@ -21,6 +22,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => Chatting());
       case index:
         return MaterialPageRoute(builder: (_) => SplashScreen());
+      case filterSettings:
+        return MaterialPageRoute(builder: (_) => FilterScreen());
       default:
         return MaterialPageRoute(builder: (_) => SplashScreen());
     }

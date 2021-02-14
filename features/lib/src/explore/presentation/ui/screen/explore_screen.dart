@@ -1,5 +1,9 @@
+import 'package:features/src/explore/presentation/ui/screen/list_screen.dart';
+import 'package:features/src/explore/presentation/ui/screen/nearly_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fimber/flutter_fimber.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:share_ui/awesome_ui.dart';
 
 class ExploreScreen extends StatefulWidget {
   const ExploreScreen({Key key}) : super(key: key);
@@ -10,6 +14,15 @@ class ExploreScreen extends StatefulWidget {
 
 class _ExploreScreenState extends State<ExploreScreen>
     with AutomaticKeepAliveClientMixin<ExploreScreen> {
+  final List<Widget> _widgePage = [NearlyScreen(), ListScreen()];
+  final List<Widget> _tabs = [
+    Tab(
+      child: Text('Nearly'),
+    ),
+    Tab(
+      child: Text('List'),
+    ),
+  ];
   @override
   void initState() {
     super.initState();
@@ -22,9 +35,34 @@ class _ExploreScreenState extends State<ExploreScreen>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return const SafeArea(
-      child: Center(
-        child: Text('Explore Page'),
+    return DefaultTabController(
+      length: _tabs.length,
+      child: Scaffold(
+        appBar: AppBar(
+          title: TabBar(
+            //labelPadding: EdgeInsetsDirectional.only(top: 3),
+            indicatorSize: TabBarIndicatorSize.tab,
+            indicatorColor: Colors.redAccent,
+            labelColor: Colors.redAccent,
+            unselectedLabelColor: Colors.black26,
+            tabs: _tabs,
+            labelStyle: Theme.of(context).textTheme.headline6,
+          ),
+          actions: [
+            IconButton(
+                icon: Icon(
+                  IconFonts.filter,
+                  size: ScreenUtil().setHeight(25),
+                ),
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/filter_settings');
+                }),
+          ],
+        ),
+        body: TabBarView(
+          physics: NeverScrollableScrollPhysics(),
+          children: _widgePage,
+        ),
       ),
     );
   }

@@ -1,7 +1,6 @@
 import 'package:features/modules.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 import 'strings.dart';
