@@ -8,7 +8,8 @@ abstract class AuthRequest implements Built<AuthRequest, AuthRequestBuilder> {
 
   AuthRequest._();
 
-  factory AuthRequest([Function(AuthRequestBuilder builder) updates]) = _$AuthRequest;
+  factory AuthRequest([Function(AuthRequestBuilder builder) updates]) =
+      _$AuthRequest;
 
   static Serializer<AuthRequest> get serializer => _$authRequestSerializer;
 }
