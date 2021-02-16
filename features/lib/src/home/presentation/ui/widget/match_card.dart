@@ -25,7 +25,22 @@ class _MatchCardState extends State<MatchCard> {
       child: Container(
         padding: EdgeInsets.all(ScreenUtil().setHeight(5.0)),
         decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor.withOpacity(0.6),
+            gradient: LinearGradient(
+                begin: Alignment.bottomCenter,
+                end: Alignment.topCenter,
+                tileMode: TileMode.mirror,
+                stops: [
+                  0.1,
+                  0.4,
+                  0.6,
+                  0.9
+                ],
+                colors: [
+                  Colors.black54,
+                  Colors.black45,
+                  Colors.black38,
+                  Colors.black12,
+                ]),
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(10),
                 bottomRight: Radius.circular(10))),
@@ -63,7 +78,7 @@ class _MatchCardState extends State<MatchCard> {
                             blurRadius: 10.0)
                       ],
                       color: Colors.white,
-                      fontSize: ScreenUtil().setSp(26.0),
+                      fontSize: ScreenUtil().setSp(24.0),
                       fontWeight: FontWeight.w300),
                 ),
               ],
@@ -98,8 +113,11 @@ class _MatchCardState extends State<MatchCard> {
                 Row(
                   children: [
                     Icon(
-                      Icons.location_pin,
-                      color: Colors.red.shade300,
+                      IconFonts.direction_1,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: ScreenUtil().setWidth(5.0),
                     ),
                     Text(
                       widget.location,

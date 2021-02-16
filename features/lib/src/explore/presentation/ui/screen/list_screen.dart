@@ -51,13 +51,28 @@ class _ListScreenState extends State<ListScreen>
       child: Container(
         padding: EdgeInsets.all(ScreenUtil().setHeight(3.0)),
         decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor.withOpacity(0.6),
+            gradient: LinearGradient(
+                begin: Alignment.bottomCenter,
+                end: Alignment.topCenter,
+                tileMode: TileMode.mirror,
+                stops: [
+                  0.1,
+                  0.4,
+                  0.6,
+                  0.9
+                ],
+                colors: [
+                  Colors.black54,
+                  Colors.black45,
+                  Colors.black38,
+                  Colors.black12,
+                ]),
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(10),
                 bottomRight: Radius.circular(10))),
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Row(
               mainAxisSize: MainAxisSize.min,
@@ -89,7 +104,7 @@ class _ListScreenState extends State<ListScreen>
                             blurRadius: 10.0)
                       ],
                       color: Colors.white,
-                      fontSize: ScreenUtil().setSp(16.0),
+                      fontSize: ScreenUtil().setSp(14.0),
                       fontWeight: FontWeight.w300),
                 ),
               ],
@@ -98,10 +113,16 @@ class _ListScreenState extends State<ListScreen>
               height: ScreenUtil().setHeight(3.0),
             ),
             Row(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.location_pin,
-                  color: Colors.red.shade300,
+                  IconFonts.direction_1,
+                  size: ScreenUtil().setHeight(12.0),
+                  color: Colors.white,
+                ),
+                SizedBox(
+                  width: ScreenUtil().setWidth(5.0),
                 ),
                 Text(
                   distance,
@@ -121,8 +142,8 @@ class _ListScreenState extends State<ListScreen>
       borderRadius: BorderRadius.circular(10.0),
       child: NetworkingImage(
           url: image,
-          height: MediaQuery.of(context).size.height * 0.75,
-          width: MediaQuery.of(context).size.width - 30.0,
+          height: MediaQuery.of(context).size.height / 2,
+          width: MediaQuery.of(context).size.width / 2,
           boxFit: BoxFit.cover),
     );
     return GestureDetector(

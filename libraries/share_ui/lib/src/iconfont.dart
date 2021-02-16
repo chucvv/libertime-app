@@ -24,6 +24,10 @@
 ///         Author:    P.J. Onori
 ///         License:   SIL (http://scripts.sil.org/OFL)
 ///         Homepage:  http://somerandomdude.com/work/iconic/
+/// * Entypo, Copyright (C) 2012 by Daniel Bruce
+///         Author:    Daniel Bruce
+///         License:   SIL (http://scripts.sil.org/OFL)
+///         Homepage:  http://www.entypo.com
 /// * Elusive, Copyright (C) 2013 by Aristeides Stathopoulos
 ///         Author:    Aristeides Stathopoulos
 ///         License:   SIL (http://scripts.sil.org/OFL)
@@ -75,7 +79,7 @@ class IconFonts {
       IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData cog =
       IconData(0xe806, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData location =
+  static const IconData direction_1 =
       IconData(0xe807, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData user =
       IconData(0xe808, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -121,6 +125,8 @@ class IconFonts {
       IconData(0xf0f2, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData bell_alt =
       IconData(0xf0f3, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData direction =
+      IconData(0xf124, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData thumbs_up_alt =
       IconData(0xf164, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData thumbs_down_alt =
