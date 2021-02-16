@@ -1,4 +1,4 @@
-import 'package:features/src/explore/presentation/ui/screen/list_screen.dart';
+import 'package:features/src/explore/presentation/ui/screen/user_list_screen.dart';
 import 'package:features/src/explore/presentation/ui/screen/nearly_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fimber/flutter_fimber.dart';
@@ -14,7 +14,7 @@ class ExploreScreen extends StatefulWidget {
 
 class _ExploreScreenState extends State<ExploreScreen>
     with AutomaticKeepAliveClientMixin<ExploreScreen> {
-  final List<Widget> _widgePage = [NearlyScreen(), ListScreen()];
+  final List<Widget> _widgePage = [NearlyScreen(), UserListScreen()];
   final List<Widget> _tabs = [
     Tab(
       child: Text('Nearly'),

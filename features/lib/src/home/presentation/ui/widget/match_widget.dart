@@ -1,21 +1,21 @@
+import 'package:features/src/information/presentation/model/user_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:share_ui/awesome_ui.dart';
 
-class MatchCard extends StatefulWidget {
-  final String name;
-  final String imageURL;
-  final int age;
-  final String bio;
-  final String location;
+typedef MatchWidgetClicked = void Function(String userId);
 
-  MatchCard(this.name, this.imageURL, this.age, this.bio, this.location);
+class MatchWidget extends StatefulWidget {
+  final UserInfo userInfo;
+  final MatchWidgetClicked onTap;
+
+  const MatchWidget({Key key, this.userInfo, this.onTap}) : super(key: key);
 
   @override
-  _MatchCardState createState() => _MatchCardState();
+  _MatchWidgetState createState() => _MatchWidgetState();
 }
 
-class _MatchCardState extends State<MatchCard> {
+class _MatchWidgetState extends State<MatchWidget> {
   @override
   Widget build(BuildContext context) {
     final personalInfoWidget = Positioned(
@@ -53,7 +53,7 @@ class _MatchCardState extends State<MatchCard> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  widget.name,
+                  widget.userInfo.name,
                   style: TextStyle(
                       shadows: [
                         Shadow(
@@ -69,7 +69,7 @@ class _MatchCardState extends State<MatchCard> {
                   width: ScreenUtil().setWidth(10.0),
                 ),
                 Text(
-                  widget.age.toString(),
+                  widget.userInfo.age.toString(),
                   style: TextStyle(
                       shadows: [
                         Shadow(
@@ -96,7 +96,7 @@ class _MatchCardState extends State<MatchCard> {
                   width: ScreenUtil().setWidth(5.0),
                 ),
                 Text(
-                  widget.bio,
+                  widget.userInfo.occupation,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: ScreenUtil().setSp(16.0),
@@ -120,7 +120,7 @@ class _MatchCardState extends State<MatchCard> {
                       width: ScreenUtil().setWidth(5.0),
                     ),
                     Text(
-                      widget.location,
+                      widget.userInfo.distance,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: ScreenUtil().setSp(16.0),
@@ -128,12 +128,15 @@ class _MatchCardState extends State<MatchCard> {
                     ),
                   ],
                 ),
-                IconButton(
-                    icon: Icon(IconFonts.more_vert),
-                    color: Theme.of(context).iconTheme.color,
-                    onPressed: () {
-                      Navigator.of(context).pushNamed("/person_info");
-                    }),
+                Hero(
+                  tag: 'info_1_${widget.userInfo.id}',
+                  child: IconButton(
+                      icon: Icon(IconFonts.more_vert),
+                      color: Theme.of(context).iconTheme.color,
+                      onPressed: () {
+                        widget.onTap(widget.userInfo.id);
+                      }),
+                ),
               ],
             ),
           ],
@@ -154,7 +157,7 @@ class _MatchCardState extends State<MatchCard> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10.0),
         child: NetworkingImage(
-            url: widget.imageURL,
+            url: widget.userInfo.imageUrl,
             height: MediaQuery.of(context).size.height * 0.75,
             width: MediaQuery.of(context).size.width - 30.0,
             boxFit: BoxFit.cover),

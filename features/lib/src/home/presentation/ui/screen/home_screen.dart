@@ -1,4 +1,6 @@
 import 'package:features/src/home/data/repositories/data.dart';
+import 'package:features/src/home/presentation/ui/widget/match_widget.dart';
+import 'package:features/src/information/presentation/model/user_info_argument.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
@@ -48,7 +50,13 @@ class _HomeScreenState extends State<HomeScreen>
           minWidth: MediaQuery.of(context).size.width - 50.0,
           minHeight: MediaQuery.of(context).size.height * 0.5,
           cardBuilder: (context, index) {
-            return peoples[index];
+            return MatchWidget(
+              userInfo: peoples[index],
+              onTap: (userId) {
+                Navigator.of(context).pushNamed("/person_info",
+                    arguments: UserInfoArgument(userId, 1));
+              },
+            );
           },
           cardController: _cardController,
           swipeUpdateCallback: (details, align) {

@@ -24,15 +24,6 @@ class AppColors {
   };
 }
 
-class TextColors {
-  TextColors._();
-
-  static const textColorPrimary = Color(0xFF333333);
-  static const textColorSecondary = Color(0xFFC4C4C4);
-  static const textColorThird = Color(0xFFDCDCDC);
-  static const textColorGrey = Color(0xFFB4BBC2);
-}
-
 const clPrimary = Color(0xFF0D76ED);
 const lTNormalColor = Color(0xFF4E342E);
 const clBackgroud = Color(0xFFF6F7FA);

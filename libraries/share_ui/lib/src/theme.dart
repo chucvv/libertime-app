@@ -46,20 +46,20 @@ final _textTheme = TextTheme(
 class _TextStyles {
   _TextStyles._();
   static final TextStyle headline4 = TextStyle(
-    fontFamily: 'RobotoMedium',
-    fontSize: 34.0,
-    color: Colors.black.withOpacity(0.75),
-  );
+      fontFamily: 'RobotoMedium',
+      fontSize: 24.0,
+      color: Colors.black.withOpacity(0.75),
+      fontWeight: FontWeight.w600);
   static final TextStyle headline5 = TextStyle(
-    fontFamily: 'Roboto',
-    fontSize: 24.0,
-    color: Colors.black.withOpacity(0.65),
-  );
+      fontFamily: 'Roboto',
+      fontSize: 22.0,
+      color: Colors.black.withOpacity(0.65),
+      fontWeight: FontWeight.w500);
   static final TextStyle headline6 = TextStyle(
-    fontFamily: 'RobotoMedium',
-    fontSize: 20.0,
-    color: Colors.black.withOpacity(0.65),
-  );
+      fontFamily: 'RobotoMedium',
+      fontSize: 20.0,
+      color: Colors.grey,
+      fontWeight: FontWeight.w400);
   static final TextStyle subtitle1 = TextStyle(
     fontFamily: 'RobotoMedium',
     fontSize: 16.0,

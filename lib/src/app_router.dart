@@ -15,7 +15,10 @@ class AppRouter {
       case notification:
         return MaterialPageRoute(builder: (_) => NotificationScreen());
       case personInfo:
-        return MaterialPageRoute(builder: (_) => PersonInfoScreen());
+        return MaterialPageRoute(
+            builder: (_) => PersonalInfoScreen(
+                  userInfoArgument: settings.arguments,
+                ));
       case main:
         return MaterialPageRoute(builder: (_) => MainContainer());
       case chat:

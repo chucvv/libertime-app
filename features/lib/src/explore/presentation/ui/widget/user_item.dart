@@ -1,49 +1,17 @@
-import 'package:features/src/home/data/repositories/data.dart';
+import 'package:features/src/information/presentation/model/user_info.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_fimber/flutter_fimber.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:share_ui/awesome_ui.dart';
 
-class ListScreen extends StatefulWidget {
-  @override
-  _ListScreenState createState() => _ListScreenState();
-}
+typedef UserItemClicked = void Function(String userId);
 
-class _ListScreenState extends State<ListScreen>
-    with AutomaticKeepAliveClientMixin<ListScreen> {
-  @override
-  bool get wantKeepAlive => true;
-  @override
-  void initState() {
-    super.initState();
-    Fimber.d("initState");
-  }
+class UserItem extends StatelessWidget {
+  final UserInfo userInfo;
+  final UserItemClicked onTap;
 
+  const UserItem({Key key, this.userInfo, this.onTap}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    super.build(context);
-    return Container(
-      padding: EdgeInsets.all(15.0),
-      child: GridView.builder(
-          itemCount: peoples.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 15.0,
-            mainAxisSpacing: 15.0,
-          ),
-          itemBuilder: (context, index) {
-            return _buildItem(
-                index,
-                peoples[index].name,
-                peoples[index].imageURL,
-                peoples[index].age,
-                peoples[index].location);
-          }),
-    );
-  }
-
-  Widget _buildItem(
-      int index, String name, String image, int age, String distance) {
     final personalInfoWidget = Positioned(
       bottom: 0.0,
       left: 0.0,
@@ -79,7 +47,7 @@ class _ListScreenState extends State<ListScreen>
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  name,
+                  userInfo.name,
                   style: TextStyle(
                       shadows: [
                         Shadow(
@@ -95,7 +63,7 @@ class _ListScreenState extends State<ListScreen>
                   width: ScreenUtil().setWidth(5.0),
                 ),
                 Text(
-                  age.toString(),
+                  userInfo.age.toString(),
                   style: TextStyle(
                       shadows: [
                         Shadow(
@@ -125,7 +93,7 @@ class _ListScreenState extends State<ListScreen>
                   width: ScreenUtil().setWidth(5.0),
                 ),
                 Text(
-                  distance,
+                  userInfo.distance,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: ScreenUtil().setSp(14.0),
@@ -138,17 +106,19 @@ class _ListScreenState extends State<ListScreen>
       ),
     );
 
-    final avatarWidget = ClipRRect(
-      borderRadius: BorderRadius.circular(10.0),
-      child: NetworkingImage(
-          url: image,
-          height: MediaQuery.of(context).size.height / 2,
-          width: MediaQuery.of(context).size.width / 2,
-          boxFit: BoxFit.cover),
-    );
-    return GestureDetector(
+    final avatarWidget = Hero(
+        tag: 'info_2_${userInfo.id}}',
+        child: AspectRatio(
+          aspectRatio: 1 / 1,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10.0),
+            child:
+                NetworkingImage(url: userInfo.imageUrl, boxFit: BoxFit.cover),
+          ),
+        ));
+    return InkWell(
       onTap: () {
-        print('you selected $index');
+        onTap(userInfo.id);
       },
       child: Stack(
         children: [avatarWidget, personalInfoWidget],

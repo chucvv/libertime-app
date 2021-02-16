@@ -49,7 +49,7 @@ class _AuthPageState extends State<AuthPage> {
                     text(Strings.btnSigninText,
                             textColor: widget.isSignIn == true
                                 ? AppColors.primaryColor[900]
-                                : TextColors.textColorPrimary,
+                                : Theme.of(context).textTheme.button.color,
                             fontFamily: fontBold)
                         .paddingAll(spacing_standard_new)
                         .onTap(() {
@@ -60,7 +60,7 @@ class _AuthPageState extends State<AuthPage> {
                     text(Strings.btnSignupText,
                             textColor: widget.isSignUp == true
                                 ? AppColors.primaryColor[900]
-                                : TextColors.textColorPrimary,
+                                : Theme.of(context).textTheme.button.color,
                             fontFamily: fontBold)
                         .paddingAll(spacing_standard_new)
                         .onTap(() {
