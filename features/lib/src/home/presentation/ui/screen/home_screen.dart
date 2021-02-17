@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'package:flutter_fimber/flutter_fimber.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 import '../../strings.dart';
@@ -270,13 +271,14 @@ class _HomeScreenState extends State<HomeScreen>
                 blendMode: BlendMode.srcATop,
                 shaderCallback: (bounds) {
                   return LinearGradient(
-                      colors: [
+                          colors: [
                         Colors.redAccent,
                         Colors.deepPurpleAccent,
                       ],
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      stops: [0.0, 1.0]).createShader(bounds);
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                          tileMode: TileMode.repeated)
+                      .createShader(bounds);
                 }),
           ),
         ),
@@ -288,6 +290,8 @@ class _HomeScreenState extends State<HomeScreen>
               foreground: Paint()
                 ..shader = LinearGradient(
                   colors: [Colors.redAccent, Theme.of(context).primaryColor],
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
                 ).createShader(Rect.fromLTWH(0.0, 0.0, 300.0, 100.0))),
         ),
         actions: [

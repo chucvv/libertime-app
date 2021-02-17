@@ -14,7 +14,8 @@ class _MainContainerState extends State<MainContainer> {
   final List<Widget> _widgePage = [
     HomeScreen(),
     ExploreScreen(),
-    MessageHistoryScreen()
+    MessageHistoryScreen(),
+    SettingScreen()
   ];
   final List<Widget> _tabs = [
     Tab(
@@ -52,6 +53,17 @@ class _MainContainerState extends State<MainContainer> {
         ),
       ),
     ),
+    Tab(
+      child: Align(
+        alignment: Alignment.center,
+        child: Column(
+          children: [
+            Icon(IconFonts.cog),
+            Text(Strings.navigatorSettingTitle),
+          ],
+        ),
+      ),
+    ),
   ];
 
   @override
@@ -71,19 +83,12 @@ class _MainContainerState extends State<MainContainer> {
             ],
           ),
           child: TabBar(
-            labelPadding: EdgeInsetsDirectional.only(top: 3),
+            labelPadding: EdgeInsetsDirectional.only(top: 6),
             indicatorSize: TabBarIndicatorSize.tab,
             indicatorColor: Theme.of(context).primaryColor,
-            indicator: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                    colors: [Colors.redAccent, Theme.of(context).primaryColor]),
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(10),
-                    bottomRight: Radius.circular(10))),
-            labelColor: Colors.white,
-            unselectedLabelColor: Theme.of(context).primaryColor,
+            labelStyle: Theme.of(context).textTheme.bodyText1,
+            labelColor: Colors.redAccent,
+            unselectedLabelColor: Theme.of(context).disabledColor,
             tabs: _tabs,
           ),
         ),

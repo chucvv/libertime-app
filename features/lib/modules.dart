@@ -9,5 +9,5 @@ export 'src/information/presentation/ui/screen/personal_info_screen.dart';
 export 'src/message/presentation/ui/screen/chat_history_screen.dart';
 export 'src/message/presentation/ui/screen/chat_screen.dart';
 export 'src/notification/presentation/ui/screen/notification_screen.dart';
-export 'src/setting/presentation/ui/widget/settings_widget.dart';
+export 'src/setting/presentation/ui/screen/settings_screen.dart';
 export 'src/splash/presentation/ui/screen/splash_screen.dart';
