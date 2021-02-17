@@ -14,7 +14,7 @@ class _MainContainerState extends State<MainContainer> {
   final List<Widget> _widgePage = [
     HomeScreen(),
     ExploreScreen(),
-    MessageHistoryScreen(),
+    MessageScreen(),
     SettingScreen()
   ];
   final List<Widget> _tabs = [

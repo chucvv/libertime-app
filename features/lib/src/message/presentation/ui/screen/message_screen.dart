@@ -1,26 +1,22 @@
-import 'package:features/src/explore/presentation/ui/screen/user_list_screen.dart';
-import 'package:features/src/explore/presentation/ui/screen/nearly_screen.dart';
+import 'package:features/src/message/presentation/ui/screen/chat_history_screen.dart';
+import 'package:features/src/message/presentation/ui/screen/match_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fimber/flutter_fimber.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:share_ui/awesome_ui.dart';
 
-class ExploreScreen extends StatefulWidget {
-  const ExploreScreen({Key key}) : super(key: key);
-
+class MessageScreen extends StatefulWidget {
   @override
-  _ExploreScreenState createState() => _ExploreScreenState();
+  _MessageScreenState createState() => _MessageScreenState();
 }
 
-class _ExploreScreenState extends State<ExploreScreen>
-    with AutomaticKeepAliveClientMixin<ExploreScreen> {
-  final List<Widget> _widgePage = [NearlyScreen(), UserListScreen()];
+class _MessageScreenState extends State<MessageScreen>
+    with AutomaticKeepAliveClientMixin<MessageScreen> {
+  final List<Widget> _widgePage = [MessageHistoryScreen(), MatchScreen()];
   final List<Widget> _tabs = [
     Tab(
-      child: Text('Nearly'),
+      child: Text('All'),
     ),
     Tab(
-      child: Text('List'),
+      child: Text('Matches'),
     ),
   ];
   @override
@@ -51,16 +47,6 @@ class _ExploreScreenState extends State<ExploreScreen>
                 .headline5
                 .copyWith(fontWeight: FontWeight.bold),
           ),
-          actions: [
-            IconButton(
-                icon: Icon(
-                  IconFonts.filter,
-                  size: ScreenUtil().setHeight(25),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/filter_settings');
-                }),
-          ],
         ),
         body: TabBarView(
           physics: NeverScrollableScrollPhysics(),
