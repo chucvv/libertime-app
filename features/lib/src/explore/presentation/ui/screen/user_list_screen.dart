@@ -38,7 +38,7 @@ class _UserListScreenState extends State<UserListScreen>
                 onTap: (userId) {
                   print('you selected $userId');
                   Navigator.of(context).pushNamed("/person_info",
-                      arguments: UserInfoArgument(userId, 2));
+                      arguments: UserInfoArgument(userId));
                 });
           }),
     );

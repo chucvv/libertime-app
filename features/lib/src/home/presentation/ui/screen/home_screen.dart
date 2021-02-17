@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen>
               userInfo: peoples[index],
               onTap: (userId) {
                 Navigator.of(context).pushNamed("/person_info",
-                    arguments: UserInfoArgument(userId, 1));
+                    arguments: UserInfoArgument(userId));
               },
             );
           },

@@ -107,7 +107,7 @@ class UserItem extends StatelessWidget {
     );
 
     final avatarWidget = Hero(
-        tag: 'info_2_${userInfo.id}}',
+        tag: 'info_${userInfo.id}',
         child: AspectRatio(
           aspectRatio: 1 / 1,
           child: ClipRRect(

@@ -5,17 +5,11 @@ import 'package:share_ui/awesome_ui.dart';
 
 typedef MatchWidgetClicked = void Function(String userId);
 
-class MatchWidget extends StatefulWidget {
+class MatchWidget extends StatelessWidget {
   final UserInfo userInfo;
   final MatchWidgetClicked onTap;
 
   const MatchWidget({Key key, this.userInfo, this.onTap}) : super(key: key);
-
-  @override
-  _MatchWidgetState createState() => _MatchWidgetState();
-}
-
-class _MatchWidgetState extends State<MatchWidget> {
   @override
   Widget build(BuildContext context) {
     final personalInfoWidget = Positioned(
@@ -53,7 +47,7 @@ class _MatchWidgetState extends State<MatchWidget> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  widget.userInfo.name,
+                  userInfo.name,
                   style: TextStyle(
                       shadows: [
                         Shadow(
@@ -69,7 +63,7 @@ class _MatchWidgetState extends State<MatchWidget> {
                   width: ScreenUtil().setWidth(10.0),
                 ),
                 Text(
-                  widget.userInfo.age.toString(),
+                  userInfo.age.toString(),
                   style: TextStyle(
                       shadows: [
                         Shadow(
@@ -96,7 +90,7 @@ class _MatchWidgetState extends State<MatchWidget> {
                   width: ScreenUtil().setWidth(5.0),
                 ),
                 Text(
-                  widget.userInfo.occupation,
+                  userInfo.occupation,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: ScreenUtil().setSp(16.0),
@@ -120,7 +114,7 @@ class _MatchWidgetState extends State<MatchWidget> {
                       width: ScreenUtil().setWidth(5.0),
                     ),
                     Text(
-                      widget.userInfo.distance,
+                      userInfo.distance,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: ScreenUtil().setSp(16.0),
@@ -128,15 +122,12 @@ class _MatchWidgetState extends State<MatchWidget> {
                     ),
                   ],
                 ),
-                Hero(
-                  tag: 'info_1_${widget.userInfo.id}',
-                  child: IconButton(
-                      icon: Icon(IconFonts.more_vert),
-                      color: Theme.of(context).iconTheme.color,
-                      onPressed: () {
-                        widget.onTap(widget.userInfo.id);
-                      }),
-                ),
+                IconButton(
+                    icon: Icon(IconFonts.more_vert),
+                    color: Theme.of(context).iconTheme.color,
+                    onPressed: () {
+                      onTap(userInfo.id);
+                    }),
               ],
             ),
           ],
@@ -157,7 +148,7 @@ class _MatchWidgetState extends State<MatchWidget> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10.0),
         child: NetworkingImage(
-            url: widget.userInfo.imageUrl,
+            url: userInfo.imageUrl,
             height: MediaQuery.of(context).size.height * 0.75,
             width: MediaQuery.of(context).size.width - 30.0,
             boxFit: BoxFit.cover),

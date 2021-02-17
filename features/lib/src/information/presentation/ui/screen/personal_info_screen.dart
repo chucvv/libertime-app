@@ -82,7 +82,7 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
               children: [
                 Positioned(
                   child: Hero(
-                    tag: 'info_${argument.source}_${argument.userId}',
+                    tag: 'info_${argument.userId}',
                     child: AspectRatio(
                       aspectRatio: 3 / 4,
                       child: NetworkingImage(
