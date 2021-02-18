@@ -296,7 +296,7 @@ class _HomeScreenState extends State<HomeScreen>
         ),
         actions: [
           IconButton(
-              icon: Icon(IconFonts.bell_alt),
+              icon: Icon(IconFonts.bell),
               onPressed: () {
                 Navigator.of(context).pushNamed('/notification');
               })

@@ -3,7 +3,7 @@ import 'package:features/src/information/presentation/model/user_info.dart';
 List<UserInfo> peoples = [
   UserInfo(
       "0",
-      "Adam Livene",
+      "Adam Livene Adam Livene Adam Livene Adam Livene",
       'https://c1.wallpaperflare.com/preview/575/637/231/fashion-style-boys-fashion-pose.jpg',
       21,
       'Software Developer',

@@ -1,4 +1,4 @@
-import 'package:features/src/message/presentation/ui/screen/chat_history_screen.dart';
+import 'package:features/src/message/presentation/ui/screen/message_history_screen.dart';
 import 'package:features/src/message/presentation/ui/screen/match_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fimber/flutter_fimber.dart';

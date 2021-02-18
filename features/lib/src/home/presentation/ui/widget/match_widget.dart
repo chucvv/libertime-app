@@ -39,25 +39,30 @@ class MatchWidget extends StatelessWidget {
                 bottomLeft: Radius.circular(10),
                 bottomRight: Radius.circular(10))),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Row(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Text(
-                  userInfo.name,
-                  style: TextStyle(
-                      shadows: [
-                        Shadow(
-                            color: Colors.black54,
-                            offset: Offset(1.0, 2.0),
-                            blurRadius: 10.0)
-                      ],
-                      color: Colors.white,
-                      fontSize: ScreenUtil().setSp(18.0),
-                      fontWeight: FontWeight.w600),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 3 * 2,
+                  child: Text(
+                    userInfo.name,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                        shadows: [
+                          Shadow(
+                              color: Colors.black54,
+                              offset: Offset(1.0, 2.0),
+                              blurRadius: 10.0)
+                        ],
+                        color: Colors.white,
+                        fontSize: ScreenUtil().setSp(18.0),
+                        fontWeight: FontWeight.w600),
+                  ),
                 ),
                 SizedBox(
                   width: ScreenUtil().setWidth(10.0),

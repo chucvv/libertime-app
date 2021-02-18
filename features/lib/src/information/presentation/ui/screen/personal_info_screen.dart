@@ -27,12 +27,17 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text(
-              person.name,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6
-                  .copyWith(color: Colors.redAccent),
+            SizedBox(
+              width: MediaQuery.of(context).size.width / 6 * 5,
+              child: Text(
+                person.name,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6
+                    .copyWith(color: Colors.redAccent),
+              ),
             ),
             SizedBox(
               width: ScreenUtil().setWidth(10.0),
