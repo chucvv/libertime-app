@@ -19,7 +19,7 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    changeStatusColor(clWhite);
+    changeStatusColor(clBackgroud);
 
     return SafeArea(
       child: Scaffold(
@@ -28,7 +28,7 @@ class _AuthPageState extends State<AuthPage> {
           child: Container(
             width: width,
             decoration: const BoxDecoration(
-              color: clWhite,
+              color: clBackgroud,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(10.0),
                 bottomRight: Radius.circular(10.0),

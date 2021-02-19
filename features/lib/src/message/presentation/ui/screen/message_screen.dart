@@ -43,9 +43,10 @@ class _MessageScreenState extends State<MessageScreen>
             unselectedLabelColor: Theme.of(context).disabledColor,
             tabs: _tabs,
             labelStyle: Theme.of(context)
+                .appBarTheme
                 .textTheme
-                .headline5
-                .copyWith(fontWeight: FontWeight.bold),
+                .headline4
+                .copyWith(letterSpacing: 2, fontWeight: FontWeight.w300),
           ),
         ),
         body: TabBarView(

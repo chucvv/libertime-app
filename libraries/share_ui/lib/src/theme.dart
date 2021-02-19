@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 import 'animation/zoom_slideup_transition.dart';
@@ -24,14 +25,11 @@ final _iconTheme = IconThemeData(color: Colors.white);
 final _bottomBarTheme = BottomAppBarTheme(color: clBackgroud, elevation: 0.0);
 
 final _appBarTheme = AppBarTheme(
-  color: clBackgroud,
-  brightness: Brightness.light,
-  elevation: 0.0,
-  iconTheme: IconThemeData(color: Colors.black26),
-  textTheme: TextTheme(
-    headline6: _TextStyles.headline6.copyWith(color: Colors.black54),
-  ),
-);
+    color: clBackgroud,
+    brightness: Brightness.light,
+    elevation: 0.0,
+    iconTheme: IconThemeData(color: Colors.black26),
+    textTheme: _textTheme);
 
 final _textTheme = TextTheme(
   headline4: _TextStyles.headline4,
@@ -45,38 +43,29 @@ final _textTheme = TextTheme(
 
 class _TextStyles {
   _TextStyles._();
-  static final TextStyle headline4 = TextStyle(
-      fontFamily: 'RobotoMedium',
+  static final TextStyle headline4 = GoogleFonts.roboto(
       fontSize: 24.0,
       color: Colors.black.withOpacity(0.75),
       fontWeight: FontWeight.w600);
-  static final TextStyle headline5 = TextStyle(
-      fontFamily: 'Roboto',
+  static final TextStyle headline5 = GoogleFonts.roboto(
       fontSize: 22.0,
       color: Colors.black.withOpacity(0.65),
       fontWeight: FontWeight.w500);
-  static final TextStyle headline6 = TextStyle(
-      fontFamily: 'RobotoMedium',
-      fontSize: 20.0,
-      color: Colors.grey,
-      fontWeight: FontWeight.w400);
-  static final TextStyle subtitle1 = TextStyle(
-    fontFamily: 'RobotoMedium',
+  static final TextStyle headline6 = GoogleFonts.roboto(
+      fontSize: 20.0, color: Colors.grey, fontWeight: FontWeight.w400);
+  static final TextStyle subtitle1 = GoogleFonts.roboto(
     fontSize: 16.0,
     color: Colors.black.withOpacity(0.65),
   );
-  static final TextStyle subtitle2 = TextStyle(
-    fontFamily: 'Roboto',
+  static final TextStyle subtitle2 = GoogleFonts.roboto(
     fontSize: 16.0,
     color: Colors.black.withOpacity(0.65),
   );
-  static final TextStyle bodyText1 = TextStyle(
-    fontFamily: 'RobotoMedium',
+  static final TextStyle bodyText1 = GoogleFonts.roboto(
     fontSize: 14.0,
     color: Colors.black.withOpacity(0.65),
   );
-  static final TextStyle bodyText2 = TextStyle(
-    fontFamily: 'Roboto',
+  static final TextStyle bodyText2 = GoogleFonts.roboto(
     fontSize: 14.0,
     color: Colors.black.withOpacity(0.65),
   );

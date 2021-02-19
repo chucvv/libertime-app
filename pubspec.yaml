@@ -55,11 +55,6 @@ flutter:
     - assets/launcher/
     - assets/heart.riv
   fonts:
-    - family: Raleway
-      fonts:
-       - asset: assets/fonts/Roboto-Regular.ttf
-       - asset: assets/fonts/Roboto-Medium.ttf
-         style: normal
 
     - family:  LiberMe
       fonts:

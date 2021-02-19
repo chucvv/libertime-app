@@ -19,7 +19,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    changeStatusColor(clWhite);
+    changeStatusColor(clBackgroud);
 
     return Scaffold(
       backgroundColor: grocery_app_background,
