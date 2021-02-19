@@ -2,6 +2,7 @@ import 'package:features/src/message/presentation/ui/screen/message_history_scre
 import 'package:features/src/message/presentation/ui/screen/match_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fimber/flutter_fimber.dart';
+import 'package:share_ui/awesome_ui.dart';
 
 class MessageScreen extends StatefulWidget {
   @override
@@ -35,6 +36,15 @@ class _MessageScreenState extends State<MessageScreen>
       length: _tabs.length,
       child: Scaffold(
         appBar: AppBar(
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: <Color>[Colors.white, kAccentColor.withOpacity(0.1)],
+              ),
+            ),
+          ),
           title: TabBar(
             isScrollable: true,
             indicatorSize: TabBarIndicatorSize.tab,

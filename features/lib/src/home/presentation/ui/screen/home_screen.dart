@@ -100,11 +100,20 @@ class _HomeScreenState extends State<HomeScreen>
     final animationWidget = AnimatedContainer(
       duration: Duration(milliseconds: 600),
       curve: Curves.fastLinearToSlowEaseIn,
-      color: !atCenter
+      decoration: !atCenter
           ? isLiked
-              ? Colors.pinkAccent.shade100
-              : clBackgroud
-          : clBackgroud,
+              ? BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: <Color>[
+                      Colors.white,
+                      kAccentColor.withOpacity(0.5)
+                    ],
+                  ),
+                )
+              : null
+          : null,
       child: Center(
         child: _triggerNotFound
             ? !_timeout
@@ -258,6 +267,15 @@ class _HomeScreenState extends State<HomeScreen>
 
     return Scaffold(
       appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: <Color>[Colors.white, kAccentColor.withOpacity(0.1)],
+            ),
+          ),
+        ),
         leading: InkWell(
           onTap: () {},
           child: Container(
