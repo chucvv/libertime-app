@@ -26,7 +26,7 @@ class _ChatHistoryScreenState extends State<ChatHistoryScreen> {
           );
         },
         itemCount: friendsList.length,
-      ).topRound(40, clBackgroud, clBackgroud),
+      ).topRound(radius: 40.0, background: clBackgroud, border: clBackgroud),
     );
   }
 

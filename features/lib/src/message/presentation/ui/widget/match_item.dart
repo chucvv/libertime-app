@@ -14,42 +14,39 @@ class MatchItem extends StatelessWidget {
       : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final iconWidget = Align(
+      alignment: Alignment.bottomRight,
+      child: Icon(IconFonts.wechat).centerLinearGradient(
+          shape: BoxShape.circle,
+          padding: EdgeInsets.all(ScreenUtil().setWidth(6.0))),
+    );
     final roundedAvatarWidget = Align(
       alignment: Alignment(-1, -1 + offset),
       child: AspectRatio(
         aspectRatio: 1 / 1,
-        child: StyledCacheImage(
-          url: userInfo.imageUrl,
-          isRound: true,
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: StyledCacheImage(
+                url: userInfo.imageUrl,
+                isRound: true,
+              ),
+            ),
+            iconWidget
+          ],
         ),
       ),
     );
-    final chattingIconWidget = Align(
-        alignment: Alignment(0.6, 0.1 + offset * 2 / 3),
-        child: Container(
-          padding: EdgeInsets.all(ScreenUtil().setWidth(8.0)),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            gradient: LinearGradient(
-                colors: [
-                  Colors.redAccent,
-                  Colors.deepPurpleAccent,
-                ],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                tileMode: TileMode.mirror),
-          ),
-          child: Icon(IconFonts.wechat),
-        ));
+
     final infoWidget = Align(
-      alignment: Alignment(0, 0.8 + offset * 2 / 3),
+      alignment: Alignment(0, 0.5 + offset / 2),
       child: Text(
         userInfo.name,
-        maxLines: 2,
+        maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
             color: Colors.black45,
-            fontSize: ScreenUtil().setSp(14.0),
+            fontSize: ScreenUtil().setSp(12.0),
             fontWeight: FontWeight.w600),
       ),
     );
@@ -58,7 +55,7 @@ class MatchItem extends StatelessWidget {
         onTap(userInfo.id);
       },
       child: Stack(
-        children: [roundedAvatarWidget, infoWidget, chattingIconWidget],
+        children: [roundedAvatarWidget, infoWidget],
       ),
     );
   }
