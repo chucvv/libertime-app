@@ -23,17 +23,9 @@ class _UserListScreenState extends State<UserListScreen>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          colors: <Color>[Colors.white, kLowOpacityAccentColor],
-        ),
-      ),
-      padding: EdgeInsets.only(top: 10.0, right: 10.0, left: 10.0),
+    return Padding(
+      padding: EdgeInsets.only(left: 10.0, top: 20.0, right: 10.0),
       child: GridView.builder(
-          clipBehavior: Clip.antiAlias,
           itemCount: peoples.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
@@ -49,6 +41,6 @@ class _UserListScreenState extends State<UserListScreen>
                       arguments: UserInfoArgument(userId));
                 });
           }),
-    );
+    ).topRound(40, Colors.white, Colors.white);
   }
 }

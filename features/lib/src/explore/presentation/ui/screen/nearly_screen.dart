@@ -3,6 +3,7 @@ import 'package:flutter_fimber/flutter_fimber.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
+import 'package:share_ui/awesome_ui.dart';
 
 class NearlyScreen extends StatefulWidget {
   @override
@@ -44,38 +45,36 @@ class _NearlyScreenState extends State<NearlyScreen>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return Scaffold(
-      body: Stack(
-        children: [
-          GoogleMap(
-            mapType: _currentMapType,
-            onMapCreated: _onMapCreated,
-            myLocationButtonEnabled: true,
-            myLocationEnabled: true,
-            initialCameraPosition: CameraPosition(
-              target: _center,
-              zoom: 11.0,
-            ),
+    return Stack(
+      children: [
+        GoogleMap(
+          mapType: _currentMapType,
+          onMapCreated: _onMapCreated,
+          myLocationButtonEnabled: true,
+          myLocationEnabled: true,
+          initialCameraPosition: CameraPosition(
+            target: _center,
+            zoom: 11.0,
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 60.0, right: 10.0),
-            child: Align(
-              alignment: Alignment.topRight,
-              child: FloatingActionButton(
-                mini: true,
-                onPressed: () => {_onMapTypeButtonPressed()},
-                materialTapTargetSize: MaterialTapTargetSize.padded,
-                backgroundColor: Colors.white60,
-                child: Icon(
-                  Icons.map_outlined,
-                  size: ScreenUtil().setWidth(20),
-                  color: Colors.black87.withOpacity(0.7),
-                ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 60.0, right: 10.0),
+          child: Align(
+            alignment: Alignment.topRight,
+            child: FloatingActionButton(
+              mini: true,
+              onPressed: () => {_onMapTypeButtonPressed()},
+              materialTapTargetSize: MaterialTapTargetSize.padded,
+              backgroundColor: Colors.white60,
+              child: Icon(
+                Icons.map_outlined,
+                size: ScreenUtil().setWidth(20),
+                color: Colors.black87.withOpacity(0.7),
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

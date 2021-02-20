@@ -23,19 +23,6 @@ class _MessageHistoryScreenState extends State<MessageHistoryScreen>
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Messenger'),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: Icon(Icons.add_box),
-            onPressed: () {},
-          ),
-        ],
-      ),
       body: ListView.builder(
         itemBuilder: (ctx, i) {
           return Column(
