@@ -38,16 +38,8 @@ class _ExploreScreenState extends State<ExploreScreen>
     return DefaultTabController(
       length: _tabs.length,
       child: Scaffold(
-        appBar: AppBar(
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                colors: <Color>[Colors.white, kAccentColor.withOpacity(0.1)],
-              ),
-            ),
-          ),
+        appBar: StyleAppBar(
+          height: ScreenUtil().setHeight(40),
           title: TabBar(
             isScrollable: true,
             indicatorSize: TabBarIndicatorSize.tab,

@@ -22,7 +22,7 @@ class AppRouter {
       case main:
         return MaterialPageRoute(builder: (_) => MainContainer());
       case chat:
-        return MaterialPageRoute(builder: (_) => Chatting());
+        return MaterialPageRoute(builder: (_) => PersonalChatScreen());
       case index:
         return MaterialPageRoute(builder: (_) => SplashScreen());
       case filterSettings:

@@ -1,5 +1,4 @@
 import 'package:features/src/home/data/repositories/data.dart';
-import 'package:features/src/information/presentation/model/user_info_argument.dart';
 import 'package:features/src/message/presentation/ui/widget/match_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

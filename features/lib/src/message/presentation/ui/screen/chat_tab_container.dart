@@ -1,7 +1,8 @@
-import 'package:features/src/message/presentation/ui/screen/message_history_screen.dart';
-import 'package:features/src/message/presentation/ui/screen/match_screen.dart';
+import 'package:features/src/message/presentation/ui/screen/history_tab.dart';
+import 'package:features/src/message/presentation/ui/screen/match_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fimber/flutter_fimber.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 class MessageScreen extends StatefulWidget {
@@ -11,7 +12,7 @@ class MessageScreen extends StatefulWidget {
 
 class _MessageScreenState extends State<MessageScreen>
     with AutomaticKeepAliveClientMixin<MessageScreen> {
-  final List<Widget> _widgePage = [MessageHistoryScreen(), MatchScreen()];
+  final List<Widget> _widgePage = [ChatHistoryScreen(), MatchScreen()];
   final List<Widget> _tabs = [
     Tab(
       child: Text('All'),
@@ -35,16 +36,8 @@ class _MessageScreenState extends State<MessageScreen>
     return DefaultTabController(
       length: _tabs.length,
       child: Scaffold(
-        appBar: AppBar(
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                colors: <Color>[Colors.white, kAccentColor.withOpacity(0.1)],
-              ),
-            ),
-          ),
+        appBar: StyleAppBar(
+          height: ScreenUtil().setHeight(40),
           title: TabBar(
             isScrollable: true,
             indicatorSize: TabBarIndicatorSize.tab,

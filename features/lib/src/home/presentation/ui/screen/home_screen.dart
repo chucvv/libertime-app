@@ -266,16 +266,8 @@ class _HomeScreenState extends State<HomeScreen>
     );
 
     return Scaffold(
-      appBar: AppBar(
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: <Color>[Colors.white, kAccentColor.withOpacity(0.1)],
-            ),
-          ),
-        ),
+      appBar: StyleAppBar(
+        height: ScreenUtil().setHeight(45),
         leading: InkWell(
           onTap: () {},
           child: Container(
@@ -320,12 +312,21 @@ class _HomeScreenState extends State<HomeScreen>
               })
         ],
       ),
-      body: Stack(
-        children: <Widget>[
-          animationWidget,
-          peopleAvatarWidget,
-          controlsWidget,
-        ],
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            colors: <Color>[Colors.white, kLowOpacityAccentColor],
+          ),
+        ),
+        child: Stack(
+          children: <Widget>[
+            animationWidget,
+            peopleAvatarWidget,
+            controlsWidget,
+          ],
+        ),
       ),
     );
   }

@@ -31,3 +31,4 @@ const kPrimaryColor = Color(0xff7C7B9B);
 const kPrimaryColorVariant = Color(0xff686795);
 const kAccentColor = Color(0xffFCAAAB);
 const kAccentColorVariant = Color(0xffF7A3A2);
+const kLowOpacityAccentColor = Color(0xF9BFBE);
