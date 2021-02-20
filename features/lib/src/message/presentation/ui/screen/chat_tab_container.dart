@@ -48,7 +48,7 @@ class _MessageScreenState extends State<MessageScreen>
             labelStyle: Theme.of(context)
                 .appBarTheme
                 .textTheme
-                .headline4
+                .headline6
                 .copyWith(letterSpacing: 2, fontWeight: FontWeight.w300),
           ),
         ),

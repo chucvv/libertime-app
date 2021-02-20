@@ -10,12 +10,12 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    systemNavigationBarColor: clPrimary, // navigation bar color
-    statusBarColor: clBackgroud, // status bar color
+    systemNavigationBarColor: kLowOpacityAccentColor, // navigation bar color
+    statusBarColor: kLowOpacityAccentColor, // status bar color
     statusBarBrightness: Brightness.dark, //status bar brigtness
     statusBarIconBrightness: Brightness.dark, //status barIcon Brightness
     systemNavigationBarDividerColor:
-        Colors.greenAccent, //Navigation bar divider color
+        kLowOpacityAccentColor, //Navigation bar divider color
     systemNavigationBarIconBrightness: Brightness.light, //navigation bar icon
   ));
   _setupLogging();
