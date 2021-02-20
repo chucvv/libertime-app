@@ -90,8 +90,7 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                     tag: 'info_${argument.userId}',
                     child: AspectRatio(
                       aspectRatio: 3 / 4,
-                      child: NetworkingImage(
-                          url: person.imageUrl, boxFit: BoxFit.cover),
+                      child: StyledCacheImage(url: person.imageUrl),
                     ),
                   ),
                 ),

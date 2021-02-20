@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share_ui/awesome_ui.dart';
-
+import 'package:flutter/widgets.dart';
 import 'animation/zoom_slideup_transition.dart';
 
 final ThemeData theme = ThemeData(
@@ -12,6 +12,17 @@ final ThemeData theme = ThemeData(
   bottomAppBarTheme: _bottomBarTheme,
   textTheme: _textTheme,
   iconTheme: _iconTheme,
+  buttonTheme: ButtonThemeData(
+    buttonColor: kAccentColorVariant,
+    disabledColor: kAccentColorVariant.withOpacity(0.5),
+    splashColor: kAccentColorVariant,
+    textTheme: ButtonTextTheme.primary,
+  ),
+  hintColor: kPrimaryColorVariant,
+  inputDecorationTheme: const InputDecorationTheme(
+    fillColor: Color.fromRGBO(37, 37, 37, 1),
+    filled: true,
+  ),
   typography: Typography.material2018(),
   visualDensity: VisualDensity.adaptivePlatformDensity,
 );

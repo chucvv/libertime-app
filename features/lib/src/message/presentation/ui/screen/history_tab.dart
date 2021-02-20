@@ -1,5 +1,6 @@
 import 'package:features/src/message/data/repositories/data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 class ChatHistoryScreen extends StatefulWidget {
@@ -25,7 +26,7 @@ class _ChatHistoryScreenState extends State<ChatHistoryScreen> {
           );
         },
         itemCount: friendsList.length,
-      ).topRound(40, Colors.white, Colors.white),
+      ).topRound(40, clBackgroud, clBackgroud),
     );
   }
 
@@ -35,26 +36,28 @@ class _ChatHistoryScreenState extends State<ChatHistoryScreen> {
       onLongPress: () {},
       onTap: () => Navigator.pushNamed(context, '/chat'),
       leading: Container(
-        width: 50,
-        height: 50,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(
-            color: Colors.white,
-            width: 3,
-          ),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.grey.withOpacity(.3),
-                offset: Offset(0, 5),
-                blurRadius: 25)
-          ],
-        ),
+        width: ScreenUtil().setWidth(50.0),
+        height: ScreenUtil().setHeight(50.0),
         child: Stack(
           children: <Widget>[
             Positioned.fill(
-              child: CircleAvatar(
-                backgroundImage: NetworkImage(friendsList[i]['imgUrl']),
+              child: StyledCacheImage(
+                url: friendsList[i]['imgUrl'],
+                defaultIcon: Icon(
+                  IconFonts.bleeding_hearts,
+                  color: kAccentColor,
+                ),
+                isRound: true,
+                boxBorder: Border.all(
+                  color: Colors.white,
+                  width: 3,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey.withOpacity(.3),
+                      offset: Offset(0, 5),
+                      blurRadius: 25)
+                ],
               ),
             ),
             friendsList[i]['isOnline']

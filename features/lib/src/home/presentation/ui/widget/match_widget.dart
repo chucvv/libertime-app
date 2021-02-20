@@ -150,13 +150,11 @@ class MatchWidget extends StatelessWidget {
         ],
         borderRadius: BorderRadius.circular(10.0),
       ),
-      child: ClipRRect(
+      child: StyledCacheImage(
+        url: userInfo.imageUrl,
+        height: MediaQuery.of(context).size.height * 0.75,
+        width: MediaQuery.of(context).size.width - 30.0,
         borderRadius: BorderRadius.circular(10.0),
-        child: NetworkingImage(
-            url: userInfo.imageUrl,
-            height: MediaQuery.of(context).size.height * 0.75,
-            width: MediaQuery.of(context).size.width - 30.0,
-            boxFit: BoxFit.cover),
       ),
     );
     return Stack(

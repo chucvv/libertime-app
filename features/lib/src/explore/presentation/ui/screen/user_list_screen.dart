@@ -41,6 +41,6 @@ class _UserListScreenState extends State<UserListScreen>
                       arguments: UserInfoArgument(userId));
                 });
           }),
-    ).topRound(40, Colors.white, Colors.white);
+    ).topRound(40, clBackgroud, clBackgroud);
   }
 }

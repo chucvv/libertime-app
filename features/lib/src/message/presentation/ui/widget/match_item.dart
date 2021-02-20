@@ -18,9 +18,9 @@ class MatchItem extends StatelessWidget {
       alignment: Alignment(-1, -1 + offset),
       child: AspectRatio(
         aspectRatio: 1 / 1,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(60.0),
-          child: NetworkingImage(url: userInfo.imageUrl, boxFit: BoxFit.cover),
+        child: StyledCacheImage(
+          url: userInfo.imageUrl,
+          isRound: true,
         ),
       ),
     );
@@ -29,7 +29,7 @@ class MatchItem extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.all(ScreenUtil().setWidth(8.0)),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(60.0)),
+            shape: BoxShape.circle,
             gradient: LinearGradient(
                 colors: [
                   Colors.redAccent,

@@ -212,8 +212,7 @@ class _HomeScreenState extends State<HomeScreen>
             child: Container(
               padding: EdgeInsets.all(ScreenUtil().setWidth(6.0)),
               decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
-                  borderRadius: BorderRadius.circular(60.0)),
+                  color: Colors.grey.shade200, shape: BoxShape.circle),
               child: ShaderMask(
                   child: Icon(
                     IconFonts.arrows_cw,

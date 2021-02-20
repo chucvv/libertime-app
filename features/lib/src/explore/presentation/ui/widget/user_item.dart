@@ -115,10 +115,9 @@ class UserItem extends StatelessWidget {
         tag: 'info_${userInfo.id}',
         child: AspectRatio(
           aspectRatio: 1 / 1,
-          child: ClipRRect(
+          child: StyledCacheImage(
+            url: userInfo.imageUrl,
             borderRadius: BorderRadius.circular(10.0),
-            child:
-                NetworkingImage(url: userInfo.imageUrl, boxFit: BoxFit.cover),
           ),
         ));
     return InkWell(

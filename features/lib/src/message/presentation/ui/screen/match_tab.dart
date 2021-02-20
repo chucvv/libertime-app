@@ -84,7 +84,7 @@ class _ChatScreenState extends State<MatchScreen>
           )
         ],
       ),
-    ).topRound(40, Colors.white, Colors.white);
+    ).topRound(40, clBackgroud, clBackgroud);
   }
 
   @override
