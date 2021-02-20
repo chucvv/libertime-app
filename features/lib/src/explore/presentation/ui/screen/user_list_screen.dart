@@ -28,6 +28,7 @@ class _UserListScreenState extends State<UserListScreen>
       child: GridView.builder(
           itemCount: peoples.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            childAspectRatio: 0.8,
             crossAxisCount: 2,
             crossAxisSpacing: 15.0,
             mainAxisSpacing: 15.0,

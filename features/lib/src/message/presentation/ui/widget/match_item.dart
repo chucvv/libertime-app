@@ -39,7 +39,7 @@ class MatchItem extends StatelessWidget {
     );
 
     final infoWidget = Align(
-      alignment: Alignment(0, 0.5 + offset / 2),
+      alignment: Alignment(0, 0.6 + offset / 2),
       child: Text(
         userInfo.name,
         maxLines: 1,

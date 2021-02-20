@@ -112,14 +112,12 @@ class UserItem extends StatelessWidget {
     );
 
     final avatarWidget = Hero(
-        tag: 'info_${userInfo.id}',
-        child: AspectRatio(
-          aspectRatio: 1 / 1,
-          child: StyledCacheImage(
-            url: userInfo.imageUrl,
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-        ));
+      tag: 'info_${userInfo.id}',
+      child: StyledCacheImage(
+        url: userInfo.imageUrl,
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+    );
     return InkWell(
       onTap: () {
         onTap(userInfo.id);

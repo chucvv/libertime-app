@@ -55,7 +55,7 @@ class _ChatScreenState extends State<MatchScreen>
                 scrollDirection: Axis.vertical,
                 itemCount: peoples.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: 0.6,
+                  childAspectRatio: 0.7,
                   crossAxisCount: 3,
                   crossAxisSpacing: 30.0,
                   mainAxisSpacing: 20.0,
@@ -67,7 +67,7 @@ class _ChatScreenState extends State<MatchScreen>
                       print('you selected $userId');
                       Navigator.pushNamed(context, '/chat');
                     },
-                    offset: (index + 1) % 3 == 2 ? 0.5 : 0,
+                    offset: (index + 1) % 3 == 2 ? 0.7 : 0,
                   );
                 }),
           )
