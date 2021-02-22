@@ -63,6 +63,8 @@ class HistoryItem extends StatelessWidget {
       ),
       subtitle: Text(
         "${item['lastMsg']}",
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
         style: !item['seen']
             ? Theme.of(context).textTheme.subtitle2
             : Theme.of(context)
