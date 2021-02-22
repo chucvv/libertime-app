@@ -53,6 +53,7 @@ final _textTheme = TextTheme(
   subtitle2: _TextStyles.subtitle2,
   bodyText1: _TextStyles.bodyText1,
   bodyText2: _TextStyles.bodyText2,
+  button: _TextStyles.button,
 );
 
 class _TextStyles {
@@ -114,6 +115,12 @@ class _TextStyles {
   static final TextStyle bodyText2 = GoogleFonts.roboto(
       color: Color(0xffAEABC9),
       fontSize: 14,
+      letterSpacing: 1.2,
+      fontWeight: FontWeight.w500);
+
+  static final TextStyle button = GoogleFonts.roboto(
+      color: Color(0xff686795),
+      fontSize: 20,
       letterSpacing: 1.2,
       fontWeight: FontWeight.w500);
 }
