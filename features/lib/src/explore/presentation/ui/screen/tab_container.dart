@@ -50,8 +50,8 @@ class _ExploreScreenState extends State<ExploreScreen>
             labelStyle: Theme.of(context)
                 .appBarTheme
                 .textTheme
-                .headline6
-                .copyWith(letterSpacing: 2, fontWeight: FontWeight.w300),
+                .headline3
+                .copyWith(letterSpacing: 2),
           ),
           actions: [
             IconButton(

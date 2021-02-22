@@ -293,9 +293,7 @@ class _HomeScreenState extends State<HomeScreen>
         ),
         title: Text(
           Strings.appName,
-          style: Theme.of(context).appBarTheme.textTheme.headline4.copyWith(
-              letterSpacing: 2,
-              fontWeight: FontWeight.w600,
+          style: Theme.of(context).appBarTheme.textTheme.headline6.copyWith(
               foreground: Paint()
                 ..shader = LinearGradient(
                   colors: [Colors.redAccent, Theme.of(context).primaryColor],
