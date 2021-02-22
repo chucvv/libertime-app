@@ -1,5 +1,5 @@
-import 'package:features/src/explore/presentation/ui/screen/user_list_screen.dart';
-import 'package:features/src/explore/presentation/ui/screen/nearly_screen.dart';
+import 'package:features/src/explore/presentation/ui/screen/match_users_tab.dart';
+import 'package:features/src/explore/presentation/ui/screen/nearly_map_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fimber/flutter_fimber.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
