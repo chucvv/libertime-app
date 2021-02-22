@@ -1,4 +1,5 @@
 import 'package:features/src/message/data/repositories/data.dart';
+import 'package:features/src/message/presentation/ui/model/room_chat_args.dart';
 import 'package:features/src/message/presentation/ui/widget/history_item.dart';
 import 'package:flutter/material.dart';
 
@@ -28,8 +29,9 @@ class RecentChat extends StatelessWidget {
           itemBuilder: (ctx, i) {
             return HistoryItem(
               item: _friendChats[i],
-              onTap: (imageUrl) {
-                Navigator.pushNamed(context, '/chat');
+              onTap: (userName, imageUrl) {
+                Navigator.pushNamed(context, '/room_chat',
+                    arguments: RoomChatArgument(userName, imageUrl));
               },
             );
           },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:share_ui/awesome_ui.dart';
 
 class PhotoHero extends StatelessWidget {
   const PhotoHero({Key key, this.photo, this.onTap, this.width})
@@ -32,16 +33,17 @@ class NotificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: StyleAppBar(
+        height: 60.0,
         leading: IconButton(
-          color: Colors.black87,
-          icon: Icon(Icons.arrow_back),
+          color: Colors.grey,
+          icon: Icon(Icons.arrow_back_ios_outlined),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
       ),
-      body: Center(),
+      body: Center().topRound(),
     );
   }
 }

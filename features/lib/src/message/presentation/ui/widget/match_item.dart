@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:share_ui/awesome_ui.dart';
 
-typedef MatchItemClicked = void Function(String userId);
+typedef MatchItemClicked = void Function(String userName, String imageUrl);
 
 class MatchItem extends StatelessWidget {
   final double offset;
@@ -52,7 +52,7 @@ class MatchItem extends StatelessWidget {
     );
     return InkWell(
       onTap: () {
-        onTap(userInfo.id);
+        onTap(userInfo.name, userInfo.imageUrl);
       },
       child: Stack(
         children: [roundedAvatarWidget, infoWidget],

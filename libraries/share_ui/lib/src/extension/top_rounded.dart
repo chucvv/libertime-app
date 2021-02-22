@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 extension RoundContainer on Widget {
-  Widget topRound({double radius, Color background, Color border}) {
+  Widget topRound(
+      {double radius = 40.0,
+      Color background = Colors.white,
+      Color border = Colors.white}) {
     return Container(
       margin: EdgeInsets.only(top: 8.0),
       child: this,

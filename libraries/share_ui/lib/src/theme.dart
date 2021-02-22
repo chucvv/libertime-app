@@ -87,7 +87,7 @@ class _TextStyles {
       fontWeight: FontWeight.w500,
       letterSpacing: 1.5);
 
-  static final TextStyle headline6 = GoogleFonts.grandHotel(
+  static final TextStyle headline6 = GoogleFonts.roboto(
       fontSize: 28.0,
       color: Color(0xff686795),
       fontWeight: FontWeight.w400,

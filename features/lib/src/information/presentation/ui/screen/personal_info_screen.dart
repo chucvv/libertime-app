@@ -97,8 +97,8 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                 Align(
                   alignment: Alignment.topLeft,
                   child: IconButton(
-                    color: Colors.black87,
-                    icon: Icon(Icons.arrow_back),
+                    color: Colors.grey,
+                    icon: Icon(Icons.arrow_back_ios_outlined),
                     onPressed: () {
                       Navigator.of(context).pop();
                     },

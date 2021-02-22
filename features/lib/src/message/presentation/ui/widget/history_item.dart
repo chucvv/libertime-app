@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:share_ui/awesome_ui.dart';
 
-typedef onTapItem = void Function(String imageUrl);
+typedef onTapItem = void Function(String name, String imageUrl);
 
 class HistoryItem extends StatelessWidget {
   final Map<String, dynamic> item;
@@ -15,7 +15,7 @@ class HistoryItem extends StatelessWidget {
     return ListTile(
       isThreeLine: true,
       onLongPress: () {},
-      onTap: () => {onTap(item['imgUrl'])},
+      onTap: () => {onTap(item['username'], item['imgUrl'])},
       leading: Container(
         width: ScreenUtil().setWidth(50.0),
         height: ScreenUtil().setHeight(50.0),

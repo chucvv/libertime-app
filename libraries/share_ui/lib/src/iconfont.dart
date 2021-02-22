@@ -101,6 +101,8 @@ class IconFonts {
       IconData(0xe810, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData more_vert =
       IconData(0xe811, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData calendar_full =
+      IconData(0xe836, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData sad =
       IconData(0xe855, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData plus_circle =

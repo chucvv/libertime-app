@@ -14,6 +14,7 @@ class StyleAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+        toolbarHeight: height,
         title: title,
         actions: actions,
         leading: leading,

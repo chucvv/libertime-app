@@ -1,8 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/screen_util.dart';
 import 'package:nb_utils/nb_utils.dart';
-import 'package:share_ui/awesome_ui.dart';
 
 class StyledCacheImage extends StatelessWidget {
   final String url;

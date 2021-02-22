@@ -1,4 +1,5 @@
 import 'package:features/src/home/data/repositories/data.dart';
+import 'package:features/src/message/presentation/ui/model/room_chat_args.dart';
 import 'package:features/src/message/presentation/ui/widget/match_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -63,9 +64,10 @@ class _ChatScreenState extends State<MatchScreen>
                 itemBuilder: (context, index) {
                   return MatchItem(
                     userInfo: peoples[index],
-                    onTap: (userId) {
-                      print('you selected $userId');
-                      Navigator.pushNamed(context, '/chat');
+                    onTap: (userName, imageUrl) {
+                      print('you selected $userName');
+                      Navigator.pushNamed(context, '/room_chat',
+                          arguments: RoomChatArgument(userName, imageUrl));
                     },
                     offset: (index + 1) % 3 == 2 ? 0.7 : 0,
                   );
@@ -73,7 +75,7 @@ class _ChatScreenState extends State<MatchScreen>
           )
         ],
       ),
-    ).topRound(radius: 40.0, background: clBackgroud, border: clBackgroud);
+    ).topRound();
   }
 
   @override
