@@ -1,6 +1,7 @@
 import 'package:features/modules.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 import 'strings.dart';
@@ -23,7 +24,7 @@ class _MainContainerState extends State<MainContainer> {
         alignment: Alignment.center,
         child: Column(
           children: [
-            Icon(IconFonts.home),
+            FaIcon(FontAwesomeIcons.home),
             Text(
               Strings.navigatorHomeTitle,
             ),
@@ -36,7 +37,7 @@ class _MainContainerState extends State<MainContainer> {
         alignment: Alignment.center,
         child: Column(
           children: [
-            Icon(IconFonts.explore),
+            FaIcon(FontAwesomeIcons.mapPin),
             Text(Strings.navigatorExploreTitle),
           ],
         ),
@@ -47,7 +48,7 @@ class _MainContainerState extends State<MainContainer> {
         alignment: Alignment.center,
         child: Column(
           children: [
-            Icon(IconFonts.wechat),
+            FaIcon(FontAwesomeIcons.solidCommentDots),
             Text(Strings.navigatorMessageTitle),
           ],
         ),
@@ -58,7 +59,7 @@ class _MainContainerState extends State<MainContainer> {
         alignment: Alignment.center,
         child: Column(
           children: [
-            Icon(IconFonts.cog),
+            FaIcon(FontAwesomeIcons.cogs),
             Text(Strings.navigatorSettingTitle),
           ],
         ),
