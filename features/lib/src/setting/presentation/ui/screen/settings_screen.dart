@@ -2,6 +2,7 @@ import 'package:features/src/home/data/repositories/data.dart';
 import 'package:features/src/setting/presentation/ui/widget/profile_header.dart';
 import 'package:features/src/setting/presentation/ui/widget/profile_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -84,7 +85,9 @@ class SettingScreen extends StatelessWidget {
             Column(
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    _logOut(context);
+                  },
                   child: Text(
                     'Logout',
                     style: Theme.of(context).textTheme.button,
@@ -116,5 +119,10 @@ class SettingScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _logOut(BuildContext context) async {
+    await FacebookAuth.instance.logOut();
+    Navigator.popAndPushNamed(context, '/login');
   }
 }

@@ -2,7 +2,21 @@ PODS:
   - connectivity (0.0.1):
     - Flutter
     - Reachability
+  - FBSDKCoreKit (9.0.1):
+    - FBSDKCoreKit/Basics (= 9.0.1)
+    - FBSDKCoreKit/Core (= 9.0.1)
+  - FBSDKCoreKit/Basics (9.0.1)
+  - FBSDKCoreKit/Core (9.0.1):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (9.0.1):
+    - FBSDKLoginKit/Login (= 9.0.1)
+  - FBSDKLoginKit/Login (9.0.1):
+    - FBSDKCoreKit (~> 9.0.1)
   - Flutter (1.0.0)
+  - flutter_facebook_auth (1.0.0):
+    - FBSDKCoreKit (~> 9.0.0)
+    - FBSDKLoginKit (~> 9.0.0)
+    - Flutter
   - flutter_fimber (0.0.1):
     - Flutter
   - flutter_statusbarcolor (0.0.1):
@@ -36,6 +50,7 @@ PODS:
 DEPENDENCIES:
   - connectivity (from `.symlinks/plugins/connectivity/ios`)
   - Flutter (from `Flutter`)
+  - flutter_facebook_auth (from `.symlinks/plugins/flutter_facebook_auth/ios`)
   - flutter_fimber (from `.symlinks/plugins/flutter_fimber/ios`)
   - flutter_statusbarcolor (from `.symlinks/plugins/flutter_statusbarcolor/ios`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
@@ -47,6 +62,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - FBSDKCoreKit
+    - FBSDKLoginKit
     - FMDB
     - GoogleMaps
     - Reachability
@@ -57,6 +74,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/connectivity/ios"
   Flutter:
     :path: Flutter
+  flutter_facebook_auth:
+    :path: ".symlinks/plugins/flutter_facebook_auth/ios"
   flutter_fimber:
     :path: ".symlinks/plugins/flutter_fimber/ios"
   flutter_statusbarcolor:
@@ -76,7 +95,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   connectivity: c4130b2985d4ef6fd26f9702e886bd5260681467
+  FBSDKCoreKit: fada1a6a0076724678993ff05a633848765ff18c
+  FBSDKLoginKit: d5ffe6d808897019ccf16feb6f0a7ab260bc5cd6
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  flutter_facebook_auth: d952ca599c6a76439c54472b0b225004e1b880c4
   flutter_fimber: 4a6b342666fecb329fca23143f4b72c46cdd8022
   flutter_statusbarcolor: 8afb1071ed8c58be929f1e32b36c629771fd2259
   fluttertoast: 6122fa75143e992b1d3470f61000f591a798cc58

@@ -4,7 +4,8 @@ import 'package:libertime/src/container.dart';
 
 class AppRouter {
   static const String index = '/splash';
-  static const String main = '/main';
+  static const String login = '/login';
+  static const String home = '/home';
   static const String chat = '/room_chat';
   static const String personInfo = '/person_info';
   static const String notification = '/notification';
@@ -20,7 +21,9 @@ class AppRouter {
             builder: (_) => PersonalInfoScreen(
                   userInfoArgument: settings.arguments,
                 ));
-      case main:
+      case login:
+        return MaterialPageRoute(builder: (_) => SocialLogin());
+      case home:
         return MaterialPageRoute(builder: (_) => MainContainer());
       case chat:
         return MaterialPageRoute(

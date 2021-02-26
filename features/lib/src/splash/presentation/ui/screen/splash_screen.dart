@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:rive/rive.dart';
 import 'package:share_ui/awesome_ui.dart';
 
@@ -28,9 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () {
-      Navigator.popAndPushNamed(context, '/main');
-    });
+    Timer(Duration(seconds: 3), _checkIfIsLogged);
     // Load the animation file from the bundle, note that you could also
     // download this. The RiveFile just expects a list of bytes.
     rootBundle.load('assets/heart.riv').then(
@@ -49,5 +48,17 @@ class _SplashScreenState extends State<SplashScreen> {
         }
       },
     );
+  }
+
+  /// uses the facebook SDK to check if a user has an active session
+  Future<void> _checkIfIsLogged() async {
+    final accessToken = await FacebookAuth.instance.isLogged;
+    if (accessToken == null) {
+      Navigator.popAndPushNamed(context, '/login');
+      return;
+    }
+    // now you can call to  FacebookAuth.instance.getUserData();
+    final userData = await FacebookAuth.instance.getUserData();
+    Navigator.popAndPushNamed(context, '/home');
   }
 }
