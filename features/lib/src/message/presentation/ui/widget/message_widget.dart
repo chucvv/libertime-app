@@ -39,22 +39,24 @@ class _MessageWidgetState extends State<MessageWidget> {
           Text('foo message:'),
           StreamBuilder(
             stream: fooSub.stream,
-            builder: (context, AsyncSnapshot<Message> snapshot) {
+            builder: (context, snapshot) {
               return Text(snapshot.hasData ? '${snapshot.data.string}' : '');
             },
           ),
           Text('bar message:'),
           StreamBuilder(
             stream: barSub.stream,
-            builder: (context, AsyncSnapshot<Message> snapshot) {
+            builder: (context, snapshot) {
               return Text(snapshot.hasData ? '${snapshot.data.string}' : '');
             },
           ),
           Row(
             children: <Widget>[
+              // ignore: deprecated_member_use
               RaisedButton(
                   child: Text('pub to foo'),
                   onPressed: () => _publishMessage('foo')),
+              // ignore: deprecated_member_use
               RaisedButton(
                   child: Text('pub to bar'),
                   onPressed: () => _publishMessage('bar')),

@@ -58,7 +58,8 @@ class _SplashScreenState extends State<SplashScreen> {
       return;
     }
     // now you can call to  FacebookAuth.instance.getUserData();
-    final userData = await FacebookAuth.instance.getUserData();
+    //final userData =
+    await FacebookAuth.instance.getUserData();
     Navigator.popAndPushNamed(context, '/home');
   }
 }

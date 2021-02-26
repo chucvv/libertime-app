@@ -20,6 +20,7 @@ class BubblesColor {
   Color get dotLastColorReal => dotLastColor ?? dotSecondaryColor;
 }
 
+@immutable
 class CircleColor {
   const CircleColor({
     @required this.start,

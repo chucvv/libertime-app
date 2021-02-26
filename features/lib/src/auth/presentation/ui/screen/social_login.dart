@@ -33,8 +33,9 @@ class _SocialLogin extends State<SocialLogin> {
       // if the user is logged
       print("is Logged:::: ${prettyPrint(accessToken.toJson())}");
       // now you can call to  FacebookAuth.instance.getUserData();
-      final userData = await FacebookAuth.instance.getUserData();
-      // final userData = await FacebookAuth.instance.getUserData(fields: "email,birthday,friends,gender,link");
+      //final userData = await FacebookAuth.instance.getUserData();
+      // final userData = await FacebookAuth.instance.getUserData(
+      //fields: "email,birthday,friends,gender,link");
 
     }
   }
@@ -45,20 +46,26 @@ class _SocialLogin extends State<SocialLogin> {
       setState(() {
         _checking = true;
       });
-      final _accessToken = await FacebookAuth.instance
+      //final _accessToken =
+      await FacebookAuth.instance
           .login(); // by the fault we request the email and the public profile
 
-      // loginBehavior is only supported for Android devices, for ios it will be ignored
+      // loginBehavior is only supported
+      //for Android devices, for ios it will be ignored
       // _accessToken = await FacebookAuth.instance.login(
-      //   permissions: ['email', 'public_profile', 'user_birthday', 'user_friends', 'user_gender', 'user_link'],
+      //   permissions: ['email', 'public_profile', 'user_birthday',
+      //'user_friends', 'user_gender', 'user_link'],
       //   loginBehavior:
-      //       LoginBehavior.DIALOG_ONLY, // (only android) show an authentication dialog instead of redirecting to facebook app
+      //       LoginBehavior.DIALOG_ONLY, // (only android) show
+      //an authentication dialog instead of redirecting to facebook app
       // );
 
       // get the user data
       // by default we get the userId, email,name and picture
-      final userData = await FacebookAuth.instance.getUserData();
-      // final userData = await FacebookAuth.instance.getUserData(fields: "email,birthday,friends,gender,link");
+      //final userData =
+      await FacebookAuth.instance.getUserData();
+      // final userData = await FacebookAuth.instance.getUserData(
+      //fields: "email,birthday,friends,gender,link");
       Navigator.popAndPushNamed(context, '/home');
     } on FacebookAuthException catch (e) {
       // if the facebook login fails
@@ -75,11 +82,7 @@ class _SocialLogin extends State<SocialLogin> {
           print("login failed");
           break;
       }
-    } catch (e, s) {
-      // print in the logs the unknown errors
-      print(e);
-      print(s);
-    } finally {
+    } on Exception {} finally {
       // update the view
       setState(() {
         _checking = false;

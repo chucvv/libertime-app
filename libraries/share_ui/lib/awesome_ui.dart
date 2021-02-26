@@ -11,7 +11,5 @@ export 'src/extension/top_rounded.dart';
 export 'src/firework_button.dart';
 export 'src/iconfont.dart';
 export 'src/layout_dimen.dart';
-export 'src/layout_size.dart';
-export 'src/size_constant.dart';
 export 'src/style_image.dart';
 export 'src/theme.dart';

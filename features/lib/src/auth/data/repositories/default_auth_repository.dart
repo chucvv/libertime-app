@@ -19,8 +19,8 @@ class DefaultAuthRepository extends AuthRepository {
             ..username = username
             ..password = password));
       return Right(authResonse.body.credential.toCredential());
-    } catch (e) {
-      return Left(Failure.serverFailure(e));
+    } on Exception catch (ex) {
+      return Left(Failure.serverFailure(ex));
     }
   }
 }

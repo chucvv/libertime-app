@@ -25,3 +25,4 @@ analyzer:
   exclude:
     - '**/*.g.dart'
     - '**/*.freezed.dart'
+    - '**/iconfont.dart'

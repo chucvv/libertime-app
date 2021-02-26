@@ -96,8 +96,8 @@ List<Map<String, dynamic>> messages = [
   },
   {
     'status': MessageType.sent,
-    'message':
-        'Please share with me the details of your project, as well as your time and budgets constraints.',
+    'message': 'Please share with me the details of your project, '
+        'as well as your time and budgets constraints.',
     'time': '08:45 AM'
   },
   {

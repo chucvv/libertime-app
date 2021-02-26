@@ -3,7 +3,7 @@ import 'dart:ui' show lerpDouble;
 
 import 'package:flutter/material.dart';
 
-enum ButtonState { Busy, Idle, Disable }
+enum ButtonState { busy, idle, disable }
 
 class ArgonButton extends StatefulWidget {
   final double height;
@@ -68,7 +68,7 @@ class ArgonButton extends StatefulWidget {
       this.disabledElevation,
       this.disabledColor,
       this.disabledTextColor,
-      this.state = ButtonState.Idle})
+      this.state = ButtonState.idle})
       : assert(elevation == null || elevation >= 0.0),
         assert(focusElevation == null || focusElevation >= 0.0),
         assert(hoverElevation == null || hoverElevation >= 0.0),
@@ -86,7 +86,7 @@ class _ArgonButtonState extends State<ArgonButton>
 
   Animation<double> _animation;
   AnimationController _controller;
-  ButtonState btn = ButtonState.Idle;
+  ButtonState btn = ButtonState.idle;
 
   final GlobalKey _buttonKey = GlobalKey();
   double _minWidth = 0;
@@ -106,7 +106,7 @@ class _ArgonButtonState extends State<ArgonButton>
     _animation.addStatusListener((status) {
       if (status == AnimationStatus.dismissed) {
         setState(() {
-          btn = ButtonState.Idle;
+          btn = ButtonState.idle;
         });
       }
     });
@@ -114,7 +114,7 @@ class _ArgonButtonState extends State<ArgonButton>
     minWidth = widget.height;
     loaderWidth = widget.height;
 
-    if (widget.state == ButtonState.Busy) {
+    if (widget.state == ButtonState.busy) {
       animateForward();
     } else {
       animateReverse();
@@ -123,7 +123,7 @@ class _ArgonButtonState extends State<ArgonButton>
 
   void animateForward() {
     setState(() {
-      btn = ButtonState.Busy;
+      btn = ButtonState.busy;
     });
     _controller.forward();
   }
@@ -132,9 +132,9 @@ class _ArgonButtonState extends State<ArgonButton>
     _controller.reverse();
   }
 
-  lerpWidth(a, b, t) {
+  double lerpWidth(double a, double b, double t) {
     if (a == 0.0 || b == 0.0) {
-      return null;
+      return 0;
     } else {
       return a + (b - a) * t;
     }
@@ -172,6 +172,7 @@ class _ArgonButtonState extends State<ArgonButton>
                   widget.borderRadius, widget.height / 2, _animation.value)
               : widget.borderRadius),
         ),
+        // ignore: deprecated_member_use
         child: RaisedButton(
             key: _buttonKey,
             color: widget.color,
@@ -191,14 +192,13 @@ class _ArgonButtonState extends State<ArgonButton>
             disabledElevation: widget.disabledElevation,
             disabledColor: widget.disabledColor,
             disabledTextColor: widget.disabledTextColor,
-            onPressed: widget.state == ButtonState.Disable
+            onPressed: widget.state == ButtonState.disable
                 ? null
                 : () {
-                    widget.onTap(
-                        () => animateForward(), () => animateReverse(), btn);
+                    widget.onTap(animateForward, animateReverse, btn);
                     // btnClicked();
                   },
-            child: btn == ButtonState.Idle ? widget.child : widget.loader),
+            child: btn == ButtonState.idle ? widget.child : widget.loader),
       ),
     );
   }
@@ -305,16 +305,16 @@ class _ArgonTimerButtonState extends State<ArgonTimerButton>
     _animation.addStatusListener((status) {
       if (status == AnimationStatus.dismissed) {
         setState(() {
-          btn = ButtonState.Idle;
+          btn = ButtonState.idle;
         });
       }
     });
 
     if (widget.initialTimer == 0) {
-      btn = ButtonState.Idle;
+      btn = ButtonState.idle;
     } else {
       startTimer(widget.initialTimer);
-      btn = ButtonState.Busy;
+      btn = ButtonState.busy;
     }
 
     minWidth = widget.height;
@@ -323,7 +323,7 @@ class _ArgonTimerButtonState extends State<ArgonTimerButton>
 
   void animateForward() {
     setState(() {
-      btn = ButtonState.Busy;
+      btn = ButtonState.busy;
     });
     _controller.forward();
   }
@@ -332,9 +332,9 @@ class _ArgonTimerButtonState extends State<ArgonTimerButton>
     _controller.reverse();
   }
 
-  lerpWidth(a, b, t) {
+  double lerpWidth(double a, double b, double t) {
     if (a == 0.0 || b == 0.0) {
-      return null;
+      return 0;
     } else {
       return a + (b - a) * t;
     }
@@ -367,7 +367,7 @@ class _ArgonTimerButtonState extends State<ArgonTimerButton>
     const oneSec = Duration(seconds: 1);
     _timer = Timer.periodic(
       oneSec,
-      (Timer timer) => setState(
+      (timer) => setState(
         () {
           if (secondsLeft < 1) {
             timer.cancel();
@@ -402,6 +402,7 @@ class _ArgonTimerButtonState extends State<ArgonTimerButton>
                   widget.borderRadius, widget.height / 2, _animation.value)
               : widget.borderRadius),
         ),
+        // ignore: deprecated_member_use
         child: RaisedButton(
             color: widget.color,
             focusColor: widget.focusColor,
@@ -421,9 +422,9 @@ class _ArgonTimerButtonState extends State<ArgonTimerButton>
             disabledColor: widget.disabledColor,
             disabledTextColor: widget.disabledTextColor,
             onPressed: () {
-              widget.onTap((newCounter) => startTimer(newCounter), btn);
+              widget.onTap(startTimer, btn);
             },
-            child: btn == ButtonState.Idle
+            child: btn == ButtonState.idle
                 ? widget.child
                 : StreamBuilder(
                     stream: emptyStream,

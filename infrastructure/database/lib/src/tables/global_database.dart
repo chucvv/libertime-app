@@ -19,10 +19,10 @@ class GlobalDatabase extends _$GlobalDatabase {
   @override
   MigrationStrategy get migration {
     return MigrationStrategy(
-        onCreate: (Migrator m) {
+        onCreate: (m) {
           return m.createAll();
         },
-        onUpgrade: (Migrator m, int from, int to) async {},
+        onUpgrade: (m, from, to) async {},
         beforeOpen: (details) async {
           if (details.wasCreated) {}
         });

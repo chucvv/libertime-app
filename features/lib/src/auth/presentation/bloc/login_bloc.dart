@@ -18,7 +18,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     LoginEvent event,
   ) async* {
     yield* event.when(
-        login: (userName, password) => doLogin(userName, password));
+        login: doLogin);
   }
 
   Stream<LoginState> doLogin(String username, String password) async* {

@@ -1,3 +1,4 @@
+// ignore: implementation_imports
 import 'package:moor/src/runtime/executor/executor.dart';
 
 import 'abstract_executor.dart';

@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'package:flutter_fimber/flutter_fimber.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 import '../../strings.dart';

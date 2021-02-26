@@ -7,7 +7,7 @@ import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
 Future<void> setup() async {
-  getIt.registerLazySingleton<AuthService>(() => AuthService.create());
+  getIt.registerLazySingleton<AuthService>(AuthService.create);
   getIt.registerLazySingleton<AuthRepository>(
       () => DefaultAuthRepository(getIt()));
   getIt.registerLazySingleton<LoginUseCase>(() => LoginUseCase(getIt()));
