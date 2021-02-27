@@ -24,7 +24,7 @@ class AppColors {
   };
 }
 
-const clPrimary = Color(0xFF0D76ED);
+const clPrimary = Color(0xFF0963E8);
 const clBackgroud = Color(0xFFF6F7FA);
 
 const kPrimaryColor = Color(0xff7C7B9B);

@@ -22,7 +22,7 @@ class AppRouter {
                   userInfoArgument: settings.arguments,
                 ));
       case login:
-        return MaterialPageRoute(builder: (_) => SocialLogin());
+        return MaterialPageRoute(builder: (_) => LoginScreen());
       case home:
         return MaterialPageRoute(builder: (_) => MainContainer());
       case chat:

@@ -95,25 +95,19 @@ class _TextStyles {
       letterSpacing: 2.0);
 
   static final TextStyle subtitle1 = GoogleFonts.roboto(
-      fontSize: 16.0,
-      color: Color(0xff686795),
-      fontWeight: FontWeight.w200,
-      letterSpacing: 1.5);
+      fontSize: 16.0, color: Color(0xff686795), letterSpacing: 1.5);
 
   static final TextStyle subtitle2 = GoogleFonts.roboto(
-      fontSize: 12.0,
-      color: Color(0xffAEABC9),
-      letterSpacing: 1.2,
-      fontWeight: FontWeight.w500);
+      fontSize: 12.0, color: Color(0xffAEABC9), letterSpacing: 1.2);
 
   static final TextStyle bodyText1 = GoogleFonts.roboto(
-      color: Color(0xffAEABC9),
+      color: Color(0xff686795),
       fontSize: 14,
       letterSpacing: 1.2,
       fontWeight: FontWeight.w500);
 
   static final TextStyle bodyText2 = GoogleFonts.roboto(
-      color: Color(0xffAEABC9),
+      color: Color(0xff686795),
       fontSize: 14,
       letterSpacing: 1.2,
       fontWeight: FontWeight.w500);

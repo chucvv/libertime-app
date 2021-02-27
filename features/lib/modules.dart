@@ -1,7 +1,7 @@
 library features;
 
 export 'src/auth/di/injection_container.dart';
-export 'src/auth/presentation/ui/screen/social_login.dart';
+export 'src/auth/presentation/ui/screen/login.dart';
 export 'src/explore/presentation/ui/screen/filter_screen.dart';
 export 'src/explore/presentation/ui/screen/tab_container.dart';
 export 'src/home/presentation/ui/screen/home_screen.dart';
