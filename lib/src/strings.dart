@@ -2,7 +2,7 @@ class Strings {
   Strings._();
 
   //General
-  static const String appName = 'PairMe';
+  static const String appName = 'LiberLove';
 
   //Bottom Navigator Bar
   static const String navigatorHomeTitle = 'Home';

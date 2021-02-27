@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">PairMe</string>
+    <string name="app_name">LiberLove</string>
     <string name="facebook_app_id">442830907030653</string>
     <string name="fb_login_protocol_scheme">fb442830907030653</string>
 </resources>
