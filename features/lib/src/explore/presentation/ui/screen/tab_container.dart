@@ -40,6 +40,7 @@ class _ExploreScreenState extends State<ExploreScreen>
       child: Scaffold(
         backgroundColor: AppColors.primaryColor[500],
         appBar: StyleAppBar(
+          backgroundColor: AppColors.primaryColor[500],
           height: ScreenUtil().setHeight(40),
           title: TabBar(
             isScrollable: true,

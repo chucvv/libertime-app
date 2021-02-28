@@ -37,7 +37,7 @@ class _MainContainerState extends State<MainContainer> {
         alignment: Alignment.center,
         child: Column(
           children: [
-            FaIcon(FontAwesomeIcons.mapPin),
+            FaIcon(FontAwesomeIcons.searchLocation),
             Text(Strings.navigatorExploreTitle),
           ],
         ),
@@ -59,7 +59,7 @@ class _MainContainerState extends State<MainContainer> {
         alignment: Alignment.center,
         child: Column(
           children: [
-            FaIcon(FontAwesomeIcons.cogs),
+            FaIcon(FontAwesomeIcons.userAlt),
             Text(Strings.navigatorSettingTitle),
           ],
         ),
@@ -75,18 +75,19 @@ class _MainContainerState extends State<MainContainer> {
         backgroundColor: kBackgroudColor,
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
-            color: kBackgroudColor,
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(12)),
             boxShadow: [
               BoxShadow(
                   color: Colors.grey.shade400,
                   offset: Offset(0.0, 0.5),
-                  blurRadius: 20.0)
+                  blurRadius: 10.0)
             ],
           ),
           child: TabBar(
-            labelPadding: EdgeInsetsDirectional.only(top: 6),
-            indicatorSize: TabBarIndicatorSize.tab,
-            indicatorColor: Theme.of(context).primaryColor,
+            labelPadding: EdgeInsetsDirectional.only(top: 12),
+            indicator:
+                CircleTabIndicator(color: kAccentColorVariant, radius: 4.0),
             labelStyle: Theme.of(context).textTheme.bodyText1,
             labelColor: AppColors.primaryColor[900],
             unselectedLabelColor: AppColors.primaryColor[100],

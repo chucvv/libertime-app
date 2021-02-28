@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:share_ui/src/colors.dart';
 
 class StyleAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double height;
   final Widget leading;
   final Widget title;
   final List<Widget> actions;
+  final Color backgroundColor;
 
   const StyleAppBar(
-      {Key key, this.height, this.leading, this.title, this.actions})
+      {Key key,
+      this.height,
+      this.leading,
+      this.title,
+      this.actions,
+      this.backgroundColor = Colors.white})
       : super(key: key);
 
   @override
@@ -20,7 +25,7 @@ class StyleAppBar extends StatelessWidget implements PreferredSizeWidget {
         leading: leading,
         flexibleSpace: Container(
           decoration: BoxDecoration(
-            color: AppColors.primaryColor[500],
+            color: backgroundColor,
           ),
         ));
   }

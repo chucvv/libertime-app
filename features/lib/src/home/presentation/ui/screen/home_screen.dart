@@ -264,8 +264,9 @@ class _HomeScreenState extends State<HomeScreen>
     );
 
     return Scaffold(
-      backgroundColor: AppColors.primaryColor[500],
+      backgroundColor: kBackgroudColor,
       appBar: StyleAppBar(
+        backgroundColor: kBackgroudColor,
         height: ScreenUtil().setHeight(45),
         leading: InkWell(
           onTap: () {},

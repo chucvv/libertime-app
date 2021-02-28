@@ -29,6 +29,7 @@ class _RoomChatScreenState extends State<RoomChatScreen> {
   @override
   Widget build(BuildContext context) {
     final appBar = StyleAppBar(
+      backgroundColor: AppColors.primaryColor[500],
       height: 100.0,
       leading: IconButton(
         color: Colors.grey,

@@ -38,6 +38,7 @@ class _MessageScreenState extends State<MessageScreen>
       child: Scaffold(
         backgroundColor: AppColors.primaryColor[500],
         appBar: StyleAppBar(
+          backgroundColor: AppColors.primaryColor[500],
           height: ScreenUtil().setHeight(40),
           title: TabBar(
             isScrollable: true,
