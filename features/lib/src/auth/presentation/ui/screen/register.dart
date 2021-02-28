@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:share_ui/awesome_ui.dart';
 
-class LoginScreen extends StatefulWidget {
+class RegisterScreen extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _RegisterScreenState createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final FocusNode nodeOne = FocusNode();
@@ -27,9 +27,9 @@ class _LoginScreenState extends State<LoginScreen> {
       onTap: _loginFacebook,
     );
 
-    final foginBtn = RoundedButton(
-      text: 'Login',
-      icon: FontAwesomeIcons.signInAlt,
+    final registerBtn = RoundedButton(
+      text: 'Register',
+      icon: FontAwesomeIcons.userPlus,
       backgroundColor: kPrimaryColor,
       borderRadius: BorderRadius.all(Radius.circular(24.0)),
       padding:
@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
               style: Theme.of(context).textTheme.headline1,
             ),
             Text(
-              'Login to connect your friends',
+              'Create an account to connect your friends',
               style: Theme.of(context).textTheme.subtitle2,
             ),
           ],
@@ -90,25 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
         SizedBox(height: 30.0),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [foginBtn],
-        ),
-        SizedBox(height: 10.0),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'New user?',
-              style: Theme.of(context).textTheme.bodyText1,
-            ),
-            SizedBox(height: 6.0),
-            TextButton(
-                onPressed: () {
-                  Navigator.of(context).popAndPushNamed('/register');
-                },
-                child: Text(
-                  'Signup now',
-                )),
-          ],
+          children: [registerBtn],
         ),
         SizedBox(height: 20.0),
         Row(

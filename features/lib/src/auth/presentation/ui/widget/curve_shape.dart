@@ -33,9 +33,10 @@ class _CurvedPainter extends CustomPainter {
 
     var path = Path()
       ..moveTo(0, 0)
-      ..lineTo(0, height * 0.8)
-      ..quadraticBezierTo(width * 0.3, height * 0.9, width * 0.5, height * 0.7)
-      ..quadraticBezierTo(width * 0.7, height * 0.5, width, height * 0.6)
+      ..lineTo(0, height)
+      ..quadraticBezierTo(
+          width * 0.25, height * 0.95, width * 0.5, height * 0.7)
+      ..quadraticBezierTo(width * 0.75, height * 0.95, width, height)
       ..lineTo(size.width, 0)
       ..close();
 

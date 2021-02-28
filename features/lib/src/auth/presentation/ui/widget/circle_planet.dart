@@ -81,15 +81,7 @@ class _CirclePainter extends CustomPainter {
         solidCirclePaint
           ..color = Colors.white12
           ..strokeWidth = 1);
-
-    /*for (var i = 0; i < 4; i++) {
-      canvas.drawImage(
-          Image.asset('name'),
-          Offset(Random().nextInt(width.toInt()).toDouble(),
-              Random().nextInt(height.toInt()).toDouble()),
-          solidCirclePaint);
-    }*/
-
+    /*
     for (var i = 0; i < 10; i++) {
       canvas.drawCircle(
           Offset(Random().nextInt(width.toInt()).toDouble(),
@@ -98,7 +90,7 @@ class _CirclePainter extends CustomPainter {
           solidCirclePaint
             ..color = colors[Random().nextInt(colors.length)]
             ..strokeWidth = 1);
-    }
+    }*/
   }
 
   @override
