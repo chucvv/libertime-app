@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:share_ui/awesome_external_widgets.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 class ProfileHeader extends StatelessWidget {
@@ -36,8 +37,9 @@ class ProfileHeader extends StatelessWidget {
         SizedBox(
           height: 6.0,
         ),
-        Text(
+        AutoSizeText(
           userName,
+          maxLines: 2,
           style: Theme.of(context)
               .textTheme
               .headline3

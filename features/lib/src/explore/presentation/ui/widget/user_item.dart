@@ -1,6 +1,7 @@
 import 'package:features/src/information/presentation/model/user_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:share_ui/awesome_external_widgets.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 typedef UserItemClicked = void Function(String userId);
@@ -46,11 +47,10 @@ class UserItem extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 3,
-                  child: Text(
+                Expanded(
+                  child: AutoSizeText(
                     userInfo.name,
-                    maxLines: 2,
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                         shadows: [

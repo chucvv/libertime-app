@@ -3,6 +3,7 @@ import 'package:features/src/message/presentation/ui/model/room_chat_args.dart';
 import 'package:features/src/message/presentation/ui/widget/match_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:share_ui/awesome_external_widgets.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 class MatchScreen extends StatefulWidget {
@@ -28,7 +29,7 @@ class _ChatScreenState extends State<MatchScreen>
               ),
               SizedBox(width: 40.0),
               Expanded(
-                child: Text(
+                child: AutoSizeText(
                   '35 People expressed interested in you',
                   style: TextStyle(
                       shadows: [

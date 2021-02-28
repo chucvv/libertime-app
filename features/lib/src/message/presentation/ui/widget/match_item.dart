@@ -1,6 +1,7 @@
 import 'package:features/src/information/presentation/model/user_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:share_ui/awesome_external_widgets.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 typedef MatchItemClicked = void Function(String userName, String imageUrl);
@@ -40,7 +41,7 @@ class MatchItem extends StatelessWidget {
 
     final infoWidget = Align(
       alignment: Alignment(0, 0.6 + offset / 2),
-      child: Text(
+      child: AutoSizeText(
         userInfo.name,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
