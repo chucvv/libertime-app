@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:share_ui/awesome_external_widgets.dart';
+import 'package:share_ui/awesome_ui.dart';
 
 typedef onTapItem = void Function();
 
@@ -23,22 +25,22 @@ class ProfileItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Icon(headerIcon),
+          Icon(
+            headerIcon,
+            color: AppColors.primaryColor[500],
+          ),
           SizedBox(
-            width: 6.0,
+            width: 12.0,
           ),
           Text(
             headerText,
-            style: Theme.of(context)
-                .textTheme
-                .headline3
-                .apply(color: Colors.black45),
+            style: Theme.of(context).textTheme.headline3,
           ),
         ],
       ),
-      trailing: Icon(
+      trailing: FaIcon(
         trailIcon,
-        size: 15.0,
+        size: 8.0,
         color: Colors.grey,
       ),
     );

@@ -90,24 +90,6 @@ class _LoginScreenState extends State<LoginScreen>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [foginBtn],
         ),
-        SizedBox(height: 10.0),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'New user?',
-              style: Theme.of(context).textTheme.bodyText1,
-            ),
-            SizedBox(height: 6.0),
-            TextButton(
-                onPressed: () {
-                  Navigator.of(context).popAndPushNamed('/register');
-                },
-                child: Text(
-                  'Signup now',
-                )),
-          ],
-        ),
         SizedBox(height: 20.0),
         Row(
           mainAxisSize: MainAxisSize.max,

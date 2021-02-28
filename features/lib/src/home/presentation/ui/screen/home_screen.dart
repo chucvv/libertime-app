@@ -264,6 +264,7 @@ class _HomeScreenState extends State<HomeScreen>
     );
 
     return Scaffold(
+      backgroundColor: AppColors.primaryColor[500],
       appBar: StyleAppBar(
         height: ScreenUtil().setHeight(45),
         leading: InkWell(
@@ -308,21 +309,12 @@ class _HomeScreenState extends State<HomeScreen>
               })
         ],
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: <Color>[Colors.white, kLowOpacityAccentColor],
-          ),
-        ),
-        child: Stack(
-          children: <Widget>[
-            animationWidget,
-            peopleAvatarWidget,
-            controlsWidget,
-          ],
-        ),
+      body: Stack(
+        children: <Widget>[
+          animationWidget,
+          peopleAvatarWidget,
+          controlsWidget,
+        ],
       ),
     );
   }

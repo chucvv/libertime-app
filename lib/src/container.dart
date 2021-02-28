@@ -72,10 +72,10 @@ class _MainContainerState extends State<MainContainer> {
     return DefaultTabController(
       length: _tabs.length,
       child: Scaffold(
-        backgroundColor: clBackgroud,
+        backgroundColor: kBackgroudColor,
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
-            color: clBackgroud,
+            color: kBackgroudColor,
             boxShadow: [
               BoxShadow(
                   color: Colors.grey.shade400,
@@ -88,8 +88,8 @@ class _MainContainerState extends State<MainContainer> {
             indicatorSize: TabBarIndicatorSize.tab,
             indicatorColor: Theme.of(context).primaryColor,
             labelStyle: Theme.of(context).textTheme.bodyText1,
-            labelColor: Colors.redAccent,
-            unselectedLabelColor: Theme.of(context).disabledColor,
+            labelColor: AppColors.primaryColor[900],
+            unselectedLabelColor: AppColors.primaryColor[100],
             tabs: _tabs,
           ),
         ),

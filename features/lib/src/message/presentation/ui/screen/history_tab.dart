@@ -12,13 +12,6 @@ class _ChatHistoryScreenState extends State<ChatHistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          colors: <Color>[Colors.white, kLowOpacityAccentColor],
-        ),
-      ),
       child: SingleChildScrollView(
         child: Column(
           children: [

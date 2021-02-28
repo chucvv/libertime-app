@@ -40,10 +40,7 @@ class ProfileHeader extends StatelessWidget {
         AutoSizeText(
           userName,
           maxLines: 2,
-          style: Theme.of(context)
-              .textTheme
-              .headline3
-              .apply(color: Colors.redAccent),
+          style: Theme.of(context).textTheme.headline3.apply(color: kBlueColor),
         )
       ],
     );

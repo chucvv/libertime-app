@@ -4,31 +4,38 @@ class AppColors {
   AppColors._(); // this basically makes it so you can instantiate this class
 
   static const Map<int, Color> primaryColor = <int, Color>{
-    50: Color(0xFFE2EFFD),
-    100: Color(0xFFB6D6FA),
-    200: Color(0xFF86BBF6),
-    300: Color(0xFF569FF2),
-    400: Color(0xFF318BF0),
-    500: Color(0xFF0D76ED),
-    600: Color(0xFF0B6EEB),
-    700: Color(0xFF0963E8),
-    800: Color(0xFF0759E5),
-    900: Color(0xFF0346E0),
+    50: Color(0xFFEDEDF2),
+    100: Color(0xFFD2D1DF),
+    200: Color(0xFFB4B3CA),
+    300: Color(0xFF9595B5),
+    400: Color(0xFF7F7EA5),
+    500: Color(0xFF686795),
+    600: Color(0xFF605F8D),
+    700: Color(0xFF555482),
+    800: Color(0xFF4B4A78),
+    900: Color(0xFF3A3967),
   };
 
   static const Map<int, Color> primaryColorAccent = <int, Color>{
-    100: Color(0xFFFFFFFF),
-    200: Color(0xFFD4DFFF),
-    400: Color(0xFFA1B8FF),
-    700: Color(0xFF88A5FF),
+    100: Color(0xFFBBB9FF),
+    200: Color(0xFF8986FF),
+    400: Color(0xFF5753FF),
+    700: Color(0xFF3E3AFF),
   };
 }
 
-const clPrimary = Color(0xFF0963E8);
-const clBackgroud = Color(0xFFF6F7FA);
+const kBackgroudColor = Color(0xFFF8F7F8);
 
 const kPrimaryColor = Color(0xff7C7B9B);
 const kPrimaryColorVariant = Color(0xff686795);
-const kAccentColor = Color(0xffFCAAAB);
+const kAccentColor = Color(0xFFFFAEAF);
+const kAccentLightColor = Color(0xFFF9BFBE);
+
 const kAccentColorVariant = Color(0xffF7A3A2);
-const kLowOpacityAccentColor = Color(0xF9BFBE);
+const kBlueColor = Color(0xFF679AD0);
+const kOceanColor = Color(0xFFAEC5CF);
+const kBrownColor = Color(0xFF6D5358);
+const kYellowColor = Color(0xFFEECD9B);
+const kDarkYellowColor = Color(0xFFB88A58);
+const kPurpleColor = Color(0xFFB291C0);
+const kGreyColor = Color(0xFFE0E3E8);

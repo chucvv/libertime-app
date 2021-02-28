@@ -3,6 +3,7 @@ import 'package:features/src/setting/presentation/ui/widget/profile_header.dart'
 import 'package:features/src/setting/presentation/ui/widget/profile_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:share_ui/awesome_external_widgets.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -40,7 +41,7 @@ class SettingScreen extends StatelessWidget {
                     color: Colors.grey.withOpacity(.8),
                   ),
                   ProfileItem(
-                    headerIcon: Icons.lock,
+                    headerIcon: FontAwesomeIcons.lockOpen,
                     headerText: 'Security',
                     trailIcon: Icons.arrow_forward_ios_outlined,
                     onTap: () {},
@@ -70,7 +71,7 @@ class SettingScreen extends StatelessWidget {
                     color: Colors.grey.withOpacity(.8),
                   ),
                   ProfileItem(
-                    headerIcon: Icons.phone,
+                    headerIcon: FontAwesomeIcons.phoneSquareAlt,
                     headerText: 'Support',
                     trailIcon: Icons.arrow_forward_ios_outlined,
                     onTap: () {},
@@ -110,7 +111,7 @@ class SettingScreen extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .button
-                        .apply(color: Colors.redAccent),
+                        .apply(color: kOceanColor),
                   ),
                 ),
               ],

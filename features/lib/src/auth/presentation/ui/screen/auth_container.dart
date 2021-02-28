@@ -3,6 +3,7 @@ import 'package:features/src/auth/presentation/ui/screen/register.dart';
 import 'package:features/src/auth/presentation/ui/widget/circle_planet.dart';
 import 'package:features/src/auth/presentation/ui/widget/curve_shape.dart';
 import 'package:flutter/material.dart';
+import 'package:share_ui/awesome_ui.dart';
 
 class AuthContainer extends StatelessWidget {
   final List<Widget> _widgePage = [LoginScreen(), RegisterScreen()];
@@ -54,8 +55,8 @@ class AuthContainer extends StatelessWidget {
                   backgroundColor: Colors.white,
                   title: TabBar(
                     indicatorColor: Colors.transparent,
-                    labelColor: Colors.redAccent,
-                    unselectedLabelColor: Theme.of(context).disabledColor,
+                    labelColor: kAccentColorVariant,
+                    unselectedLabelColor: AppColors.primaryColor[100],
                     tabs: _tabs,
                     labelStyle: Theme.of(context)
                         .appBarTheme

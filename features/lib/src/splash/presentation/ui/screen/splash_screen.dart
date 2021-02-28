@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: clBackgroud,
+        backgroundColor: kBackgroudColor,
         body: Center(
           child: Rive(artboard: _riveArtboard),
         ),

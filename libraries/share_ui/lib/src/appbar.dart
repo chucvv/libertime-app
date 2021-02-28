@@ -20,14 +20,7 @@ class StyleAppBar extends StatelessWidget implements PreferredSizeWidget {
         leading: leading,
         flexibleSpace: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: <Color>[
-                Colors.white,
-                kLowOpacityAccentColor,
-              ],
-            ),
+            color: AppColors.primaryColor[500],
           ),
         ));
   }

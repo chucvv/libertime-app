@@ -36,14 +36,15 @@ class _MessageScreenState extends State<MessageScreen>
     return DefaultTabController(
       length: _tabs.length,
       child: Scaffold(
+        backgroundColor: AppColors.primaryColor[500],
         appBar: StyleAppBar(
           height: ScreenUtil().setHeight(40),
           title: TabBar(
             isScrollable: true,
             indicatorSize: TabBarIndicatorSize.tab,
-            indicatorColor: Colors.redAccent,
-            labelColor: Colors.redAccent,
-            unselectedLabelColor: Theme.of(context).disabledColor,
+            indicatorColor: kAccentColorVariant,
+            labelColor: kAccentColorVariant,
+            unselectedLabelColor: Colors.white,
             tabs: _tabs,
             labelStyle: Theme.of(context)
                 .appBarTheme

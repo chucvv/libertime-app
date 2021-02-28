@@ -120,12 +120,12 @@ class _RoomChatScreenState extends State<RoomChatScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   color: Colors.grey[200],
-                  border: Border.all(color: clPrimary, width: 2),
+                  border: Border.all(color: kPrimaryColor, width: 2),
                 ),
                 child: IconButton(
                   icon: Icon(
                     icons[i],
-                    color: clPrimary,
+                    color: kPrimaryColor,
                   ),
                   onPressed: () {},
                 ),
@@ -137,6 +137,7 @@ class _RoomChatScreenState extends State<RoomChatScreen> {
     );
 
     return Scaffold(
+      backgroundColor: AppColors.primaryColor[500],
       appBar: appBar,
       body: Stack(
         children: [

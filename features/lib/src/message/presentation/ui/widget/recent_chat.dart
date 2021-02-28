@@ -2,6 +2,7 @@ import 'package:features/src/message/data/repositories/data.dart';
 import 'package:features/src/message/presentation/ui/model/room_chat_args.dart';
 import 'package:features/src/message/presentation/ui/widget/history_item.dart';
 import 'package:flutter/material.dart';
+import 'package:share_ui/awesome_ui.dart';
 
 class RecentChat extends StatelessWidget {
   final _friendChats = friendsList.take(4).toList();
@@ -18,7 +19,7 @@ class RecentChat extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .headline4
-                .apply(color: Colors.redAccent.withOpacity(0.8)),
+                .apply(color: kAccentColorVariant),
           ),
         ),
         SizedBox(
