@@ -1,5 +1,3 @@
-import 'package:features/src/auth/presentation/ui/widget/circle_planet.dart';
-import 'package:features/src/auth/presentation/ui/widget/curve_shape.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:share_ui/awesome_ui.dart';
@@ -9,13 +7,19 @@ class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<LoginScreen>
+    with AutomaticKeepAliveClientMixin<LoginScreen> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final FocusNode nodeOne = FocusNode();
   final FocusNode nodeTwo = FocusNode();
+
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     final fbLoginBtn = RoundedButton(
       text: 'connect with Facebook',
       icon: FontAwesomeIcons.facebookSquare,
@@ -73,19 +77,12 @@ class _LoginScreenState extends State<LoginScreen> {
               border: OutlineInputBorder()),
         ),
         SizedBox(height: 10.0),
-        TextField(
+        ToglePasswordTextField(
           controller: _passwordController,
           focusNode: nodeTwo,
-          keyboardType: TextInputType.visiblePassword,
-          obscureText: true,
           textInputAction: TextInputAction.send,
-          textAlign: TextAlign.center,
           maxLength: 16,
-          decoration: InputDecoration(
-              fillColor: Colors.white,
-              hintText: "Password",
-              helperText: "Minimum is 6 character",
-              border: OutlineInputBorder()),
+          helperText: "Minimum is 6 character",
         ),
         SizedBox(height: 30.0),
         Row(

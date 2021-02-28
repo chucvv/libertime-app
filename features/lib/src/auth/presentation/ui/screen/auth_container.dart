@@ -3,8 +3,6 @@ import 'package:features/src/auth/presentation/ui/screen/register.dart';
 import 'package:features/src/auth/presentation/ui/widget/circle_planet.dart';
 import 'package:features/src/auth/presentation/ui/widget/curve_shape.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:share_ui/awesome_ui.dart';
 
 class AuthContainer extends StatelessWidget {
   final List<Widget> _widgePage = [LoginScreen(), RegisterScreen()];
