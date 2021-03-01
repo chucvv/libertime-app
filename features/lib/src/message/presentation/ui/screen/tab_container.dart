@@ -41,9 +41,7 @@ class _MessageScreenState extends State<MessageScreen>
           backgroundColor: AppColors.primaryColor[500],
           height: ScreenUtil().setHeight(40),
           title: TabBar(
-            isScrollable: true,
-            indicatorSize: TabBarIndicatorSize.tab,
-            indicatorColor: kAccentColorVariant,
+            indicatorColor: Colors.transparent,
             labelColor: kAccentColorVariant,
             unselectedLabelColor: Colors.white,
             tabs: _tabs,

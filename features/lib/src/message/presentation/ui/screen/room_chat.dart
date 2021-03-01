@@ -6,6 +6,7 @@ import 'package:features/src/message/presentation/ui/widget/received_message_ite
 import 'package:features/src/message/presentation/ui/widget/sent_message_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:share_ui/awesome_external_widgets.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 class RoomChatScreen extends StatefulWidget {
@@ -30,14 +31,20 @@ class _RoomChatScreenState extends State<RoomChatScreen> {
   Widget build(BuildContext context) {
     final appBar = StyleAppBar(
       backgroundColor: AppColors.primaryColor[500],
-      height: 100.0,
-      leading: IconButton(
-        color: Colors.grey,
-        icon: Icon(Icons.arrow_back_ios_outlined),
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
+      height: 80.0,
+      leading: Transform.translate(
+        offset: Offset(15, 0),
+        child: CircleButton(
+          icon: FontAwesomeIcons.chevronLeft,
+          iconSize: 18,
+          width: ScreenUtil().setWidth(30.0),
+          height: ScreenUtil().setHeight(30.0),
+          onTap: () {
+            Navigator.of(context).pop();
+          },
+        ),
       ),
+      leadingWidth: ScreenUtil().setWidth(30.0),
       actions: [
         IconButton(
             icon: Icon(IconFonts.calendar_full),
@@ -77,18 +84,21 @@ class _RoomChatScreenState extends State<RoomChatScreen> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 2,
-                  child: Text(
-                    widget.roomChatArgument.userName,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                    style: Theme.of(context).textTheme.headline4,
-                  ),
+                AutoSizeText(
+                  widget.roomChatArgument.userName,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle1
+                      .apply(color: Colors.white),
                 ),
                 Text(
                   'online',
-                  style: Theme.of(context).textTheme.subtitle2,
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle2
+                      .apply(color: Colors.white),
                 ),
               ],
             ),

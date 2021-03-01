@@ -2,6 +2,7 @@ import 'package:features/src/home/data/repositories/data.dart';
 import 'package:features/src/information/presentation/model/user_info_argument.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:share_ui/awesome_external_widgets.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 class PersonalInfoScreen extends StatefulWidget {
@@ -27,17 +28,14 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SizedBox(
-              width: MediaQuery.of(context).size.width / 6 * 5,
-              child: Text(
-                person.name,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: Theme.of(context)
-                    .textTheme
-                    .headline6
-                    .copyWith(color: Colors.redAccent),
-              ),
+            AutoSizeText(
+              person.name,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context)
+                  .textTheme
+                  .headline6
+                  .copyWith(color: kBlueColor),
             ),
             SizedBox(
               width: ScreenUtil().setWidth(10.0),
@@ -57,8 +55,10 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
             SizedBox(
               width: ScreenUtil().setWidth(5.0),
             ),
-            Text(
+            AutoSizeText(
               person.occupation,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: Theme.of(context).textTheme.bodyText2,
             ),
           ],
@@ -96,12 +96,17 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                 ),
                 Align(
                   alignment: Alignment.topLeft,
-                  child: IconButton(
-                    color: Colors.grey,
-                    icon: Icon(Icons.arrow_back_ios_outlined),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
+                  child: Padding(
+                    child: CircleButton(
+                      icon: FontAwesomeIcons.chevronLeft,
+                      iconSize: 18,
+                      width: ScreenUtil().setWidth(30.0),
+                      height: ScreenUtil().setHeight(30.0),
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    padding: EdgeInsets.all(6.0),
                   ),
                 ),
               ],

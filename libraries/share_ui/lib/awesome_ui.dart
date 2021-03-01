@@ -4,6 +4,7 @@ export 'src/animation/rotation_fade_transition.dart';
 export 'src/animation/zoom_slideup_transition.dart';
 export 'src/appbar.dart';
 export 'src/argon_buttons_flutter.dart';
+export 'src/circle_button.dart';
 export 'src/circle_tab_indicator.dart';
 export 'src/colors.dart';
 export 'src/extension/gradient.dart';

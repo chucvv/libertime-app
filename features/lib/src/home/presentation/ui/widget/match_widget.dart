@@ -94,8 +94,10 @@ class MatchWidget extends StatelessWidget {
                 SizedBox(
                   width: ScreenUtil().setWidth(5.0),
                 ),
-                Text(
+                AutoSizeText(
                   userInfo.occupation,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: ScreenUtil().setSp(16.0),
