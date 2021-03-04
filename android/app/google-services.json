@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "454129904902-mqbqmittbqq0gui0c4jsmposba757h86.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vn.libertime",
+            "certificate_hash": "c5e77d9c6c7d7bafe45ccaa9c3d77bd7bafc4276"
+          }
+        },
+        {
+          "client_id": "454129904902-pnup19cuuo4ufj30nbr0lo6hnqe5ngha.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vn.libertime",
+            "certificate_hash": "f165c67609927e5610671eeb6af8de14025ba027"
+          }
+        },
+        {
           "client_id": "454129904902-7lad31n52ibthv14cv7l42u84c54tlg5.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -30,6 +46,13 @@
             {
               "client_id": "454129904902-7lad31n52ibthv14cv7l42u84c54tlg5.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "454129904902-u4tv3bl8vndfnj85da2gvtb0m1ls4usq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "vn.libertime"
+              }
             }
           ]
         }

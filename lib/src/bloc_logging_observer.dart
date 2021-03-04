@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:logging/logging.dart';
 
 class BlocLoggingObserver extends BlocObserver {
-  static final _log = Logger('SiteInfoService');
+  static final _log = Logger('BlocLoggingObserver');
   @override
   void onCreate(Cubit cubit) {
     super.onCreate(cubit);

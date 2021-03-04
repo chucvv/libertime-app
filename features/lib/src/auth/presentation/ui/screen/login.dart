@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:logging/logging.dart';
 import 'package:share_ui/awesome_external_widgets.dart';
 import 'package:share_ui/awesome_ui.dart';
 
@@ -10,6 +13,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen>
     with AutomaticKeepAliveClientMixin<LoginScreen> {
+  final _logger = Logger('LoginScreen');
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final FocusNode nodeOne = FocusNode();
@@ -21,25 +25,24 @@ class _LoginScreenState extends State<LoginScreen>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    final fbLoginBtn = RoundedButton(
-      text: 'connect with Facebook',
-      icon: FontAwesomeIcons.facebookSquare,
-      backgroundColor: kPrimaryColor,
-      borderRadius: BorderRadius.all(Radius.circular(24.0)),
-      padding:
-          EdgeInsets.only(left: 20.0, top: 12.0, right: 20.0, bottom: 12.0),
-      elevation: 3.0,
+
+    final fbLoginBtn = CircleButton(
+      icon: FontAwesomeIcons.facebookF,
+      iconSize: ScreenUtil().setHeight(20),
+      width: ScreenUtil().setHeight(40),
+      height: ScreenUtil().setHeight(40),
+      backgroundColor: Colors.blue,
+      iconColor: Colors.white,
       onTap: _loginFacebook,
     );
 
-    final googleLoginBtn = RoundedButton(
-      text: 'connect with Google',
+    final googleLoginBtn = CircleButton(
       icon: FontAwesomeIcons.google,
-      backgroundColor: kPrimaryColor,
-      borderRadius: BorderRadius.all(Radius.circular(24.0)),
-      padding:
-          EdgeInsets.only(left: 20.0, top: 12.0, right: 20.0, bottom: 12.0),
-      elevation: 3.0,
+      iconSize: ScreenUtil().setHeight(20),
+      width: ScreenUtil().setHeight(40),
+      height: ScreenUtil().setHeight(40),
+      backgroundColor: Colors.redAccent,
+      iconColor: Colors.white,
       onTap: () {},
     );
 
@@ -101,34 +104,15 @@ class _LoginScreenState extends State<LoginScreen>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [loginBtn],
         ),
-        SizedBox(height: 20.0),
+        SizedBox(height: 36.0),
         Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Expanded(
-                child: Divider(
-              indent: 20,
-              endIndent: 20,
-              height: .5,
-              color: Colors.grey.withOpacity(.8),
-            )),
-            Text(
-              'Socials',
-            ),
-            Expanded(
-                child: Divider(
-              indent: 20,
-              endIndent: 20,
-              height: .5,
-              color: Colors.grey.withOpacity(.8),
-            )),
-          ],
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Text('Or Sign Up Using')],
         ),
         SizedBox(height: 20.0),
-        Column(
+        Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [fbLoginBtn, SizedBox(height: 20.0), googleLoginBtn],
+          children: [fbLoginBtn, SizedBox(width: 20.0), googleLoginBtn],
         ),
       ],
     );
@@ -138,10 +122,15 @@ class _LoginScreenState extends State<LoginScreen>
 
   Future<void> _loginFacebook() async {
     try {
-      //final _accessToken =
-      await FacebookAuth.instance
+      final _accessToken = await FacebookAuth.instance
           .login(); // by the fault we request the email and the public profile
 
+      _logger.fine(_accessToken.token);
+      final credential = FacebookAuthProvider.credential(_accessToken.token);
+      final userCredential =
+          await FirebaseAuth.instance.signInWithCredential(credential);
+      _logger.fine(userCredential.toString());
+// Create a credential from the access token
       // loginBehavior is only supported
       //for Android devices, for ios it will be ignored
       // _accessToken = await FacebookAuth.instance.login(
@@ -155,7 +144,7 @@ class _LoginScreenState extends State<LoginScreen>
       // get the user data
       // by default we get the userId, email,name and picture
       //final userData =
-      await FacebookAuth.instance.getUserData();
+      //await FacebookAuth.instance.getUserData();
       // final userData = await FacebookAuth.instance.getUserData(
       //fields: "email,birthday,friends,gender,link");
       Navigator.popAndPushNamed(context, '/home');

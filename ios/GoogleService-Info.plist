@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>454129904902-u4tv3bl8vndfnj85da2gvtb0m1ls4usq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.454129904902-u4tv3bl8vndfnj85da2gvtb0m1ls4usq</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>454129904902-mqbqmittbqq0gui0c4jsmposba757h86.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAaS1Pb48PYB-lV1RC-R7zWG37QSfNnxtQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>454129904902</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>vn.libertime</string>
+	<key>PROJECT_ID</key>
+	<string>libertime-5fe0f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>libertime-5fe0f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:454129904902:ios:47ac3f3d7241d866b5c287</string>
+	<key>DATABASE_URL</key>
+	<string>https://libertime-5fe0f.firebaseio.com</string>
+</dict>
+</plist>
