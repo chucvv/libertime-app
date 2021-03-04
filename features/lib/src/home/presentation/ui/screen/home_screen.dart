@@ -1,6 +1,7 @@
 import 'package:features/src/home/data/repositories/data.dart';
 import 'package:features/src/home/presentation/ui/widget/match_widget.dart';
 import 'package:features/src/information/presentation/model/user_info_argument.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
@@ -254,60 +255,72 @@ class _HomeScreenState extends State<HomeScreen>
       ),
     );
 
-    return Scaffold(
-      backgroundColor: kBackgroudColor,
-      appBar: StyleAppBar(
-        backgroundColor: kBackgroudColor,
-        height: ScreenUtil().setHeight(45),
-        leading: InkWell(
-          onTap: () {},
-          child: Container(
-            margin: EdgeInsetsDirectional.only(start: 5),
-            child: ShaderMask(
-                child: Icon(
-                  IconFonts.bleeding_hearts,
-                  size: ScreenUtil().setHeight(42),
-                  color: Colors.redAccent,
+    return kIsWeb
+        ? Scaffold(
+            body: Center(),
+          )
+        : Scaffold(
+            backgroundColor: kBackgroudColor,
+            appBar: StyleAppBar(
+              backgroundColor: kBackgroudColor,
+              height: ScreenUtil().setHeight(45),
+              leading: InkWell(
+                onTap: () {},
+                child: Container(
+                  margin: EdgeInsetsDirectional.only(start: 5),
+                  child: ShaderMask(
+                      child: Icon(
+                        IconFonts.bleeding_hearts,
+                        size: ScreenUtil().setHeight(42),
+                        color: Colors.redAccent,
+                      ),
+                      blendMode: BlendMode.srcATop,
+                      shaderCallback: (bounds) {
+                        return LinearGradient(
+                                colors: [
+                              Colors.redAccent,
+                              Colors.deepPurpleAccent,
+                            ],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment.topCenter,
+                                tileMode: TileMode.repeated)
+                            .createShader(bounds);
+                      }),
                 ),
-                blendMode: BlendMode.srcATop,
-                shaderCallback: (bounds) {
-                  return LinearGradient(
-                          colors: [
-                        Colors.redAccent,
-                        Colors.deepPurpleAccent,
-                      ],
-                          begin: Alignment.bottomCenter,
-                          end: Alignment.topCenter,
-                          tileMode: TileMode.repeated)
-                      .createShader(bounds);
-                }),
-          ),
-        ),
-        title: Text(
-          Strings.appName,
-          style: Theme.of(context).appBarTheme.textTheme.headline6.copyWith(
-              foreground: Paint()
-                ..shader = LinearGradient(
-                  colors: [Colors.redAccent, Theme.of(context).primaryColor],
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                ).createShader(Rect.fromLTWH(0.0, 0.0, 300.0, 100.0))),
-        ),
-        actions: [
-          IconButton(
-              icon: Icon(IconFonts.bell),
-              onPressed: () {
-                Navigator.of(context).pushNamed('/notification');
-              })
-        ],
-      ),
-      body: Stack(
-        children: <Widget>[
-          animationWidget,
-          peopleAvatarWidget,
-          controlsWidget,
-        ],
-      ),
-    );
+              ),
+              title: Text(
+                Strings.appName,
+                style: Theme.of(context)
+                    .appBarTheme
+                    .textTheme
+                    .headline6
+                    .copyWith(
+                        foreground: Paint()
+                          ..shader = LinearGradient(
+                            colors: [
+                              Colors.redAccent,
+                              Theme.of(context).primaryColor
+                            ],
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
+                          ).createShader(
+                              Rect.fromLTWH(0.0, 0.0, 300.0, 100.0))),
+              ),
+              actions: [
+                IconButton(
+                    icon: Icon(IconFonts.bell),
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/notification');
+                    })
+              ],
+            ),
+            body: Stack(
+              children: <Widget>[
+                animationWidget,
+                peopleAvatarWidget,
+                controlsWidget,
+              ],
+            ),
+          );
   }
 }
