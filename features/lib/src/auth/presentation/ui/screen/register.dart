@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:share_ui/awesome_external_widgets.dart';
 import 'package:share_ui/awesome_ui.dart';
 
@@ -21,16 +20,6 @@ class _RegisterScreenState extends State<RegisterScreen>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    final fbLoginBtn = RoundedButton(
-      text: 'connect with Facebook',
-      icon: FontAwesomeIcons.facebookSquare,
-      backgroundColor: kPrimaryColor,
-      borderRadius: BorderRadius.all(Radius.circular(24.0)),
-      padding:
-          EdgeInsets.only(left: 20.0, top: 12.0, right: 20.0, bottom: 12.0),
-      elevation: 3.0,
-      onTap: _loginFacebook,
-    );
 
     final registerBtn = RoundedButton(
       text: 'Register',
@@ -45,7 +34,7 @@ class _RegisterScreenState extends State<RegisterScreen>
       },
     );
 
-    final loginForm = ListView(
+    final registerForm = ListView(
       padding: EdgeInsets.only(bottom: 20.0, left: 20.0, right: 20.0),
       shrinkWrap: true,
       children: [
@@ -73,7 +62,7 @@ class _RegisterScreenState extends State<RegisterScreen>
           maxLength: 25,
           decoration: InputDecoration(
               fillColor: Colors.white,
-              hintText: "User name/Email/Phone",
+              hintText: "Phone",
               helperText: "",
               border: OutlineInputBorder()),
         ),
@@ -90,89 +79,9 @@ class _RegisterScreenState extends State<RegisterScreen>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [registerBtn],
         ),
-        SizedBox(height: 20.0),
-        Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Expanded(
-                child: Divider(
-              indent: 20,
-              endIndent: 20,
-              height: .5,
-              color: Colors.grey.withOpacity(.8),
-            )),
-            Text(
-              'OR',
-            ),
-            Expanded(
-                child: Divider(
-              indent: 20,
-              endIndent: 20,
-              height: .5,
-              color: Colors.grey.withOpacity(.8),
-            )),
-          ],
-        ),
-        SizedBox(height: 20.0),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [fbLoginBtn],
-        ),
       ],
     );
 
-    return GestureDetector(
-      onTap: () {
-        final currentFocus = FocusScope.of(context);
-        if (!currentFocus.hasPrimaryFocus) {
-          currentFocus.unfocus();
-        }
-      },
-      child: loginForm,
-    );
-  }
-
-  Future<void> _loginFacebook() async {
-    try {
-      //final _accessToken =
-      await FacebookAuth.instance
-          .login(); // by the fault we request the email and the public profile
-
-      // loginBehavior is only supported
-      //for Android devices, for ios it will be ignored
-      // _accessToken = await FacebookAuth.instance.login(
-      //   permissions: ['email', 'public_profile', 'user_birthday',
-      //'user_friends', 'user_gender', 'user_link'],
-      //   loginBehavior:
-      //       LoginBehavior.DIALOG_ONLY, // (only android) show
-      //an authentication dialog instead of redirecting to facebook app
-      // );
-
-      // get the user data
-      // by default we get the userId, email,name and picture
-      //final userData =
-      await FacebookAuth.instance.getUserData();
-      // final userData = await FacebookAuth.instance.getUserData(
-      //fields: "email,birthday,friends,gender,link");
-      Navigator.popAndPushNamed(context, '/home');
-    } on FacebookAuthException catch (e) {
-      // if the facebook login fails
-      print(e.message); // print the error message in console
-      // check the error type
-      switch (e.errorCode) {
-        case FacebookAuthErrorCode.OPERATION_IN_PROGRESS:
-          print("You have a previous login operation in progress");
-          break;
-        case FacebookAuthErrorCode.CANCELLED:
-          print("login cancelled");
-          break;
-        case FacebookAuthErrorCode.FAILED:
-          print("login failed");
-          break;
-      }
-    } on Exception {} finally {
-      // update the view
-    }
+    return registerForm;
   }
 }

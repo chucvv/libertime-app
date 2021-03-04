@@ -22,58 +22,66 @@ class AuthContainer extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(children: [
-        Stack(
-          children: [
-            Positioned(
-              child: CurvedShape(
-                height: MediaQuery.of(context).size.height / 3,
-              ),
-            ),
-            Positioned(
-                bottom: 0,
-                left: 0,
-                right: 0,
-                child: CirclePlanet(
-                  width: 240,
-                  height: 240,
-                  centerRadius: 35,
-                ))
-          ],
-        ),
-        Expanded(
-          child: DefaultTabController(
-            length: _tabs.length,
-            child: Scaffold(
-              backgroundColor: Colors.white,
-              appBar: PreferredSize(
-                preferredSize: Size.fromHeight(50.0),
-                child: AppBar(
-                  elevation: 0,
-                  backgroundColor: Colors.white,
-                  title: TabBar(
-                    indicatorColor: Colors.transparent,
-                    labelColor: kAccentColorVariant,
-                    unselectedLabelColor: AppColors.primaryColor[100],
-                    tabs: _tabs,
-                    labelStyle: Theme.of(context)
-                        .appBarTheme
-                        .textTheme
-                        .headline3
-                        .copyWith(letterSpacing: 2),
-                  ),
+    return GestureDetector(
+      onTap: () {
+        final currentFocus = FocusScope.of(context);
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+      },
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Column(children: [
+          Stack(
+            children: [
+              Positioned(
+                child: CurvedShape(
+                  height: MediaQuery.of(context).size.height / 4,
                 ),
               ),
-              body: TabBarView(
-                physics: NeverScrollableScrollPhysics(),
-                children: _widgePage,
+              Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: CirclePlanet(
+                    width: 200,
+                    height: 200,
+                    centerRadius: 35,
+                  ))
+            ],
+          ),
+          Expanded(
+            child: DefaultTabController(
+              length: _tabs.length,
+              child: Scaffold(
+                backgroundColor: Colors.white,
+                appBar: PreferredSize(
+                  preferredSize: Size.fromHeight(50.0),
+                  child: AppBar(
+                    elevation: 0,
+                    backgroundColor: Colors.white,
+                    title: TabBar(
+                      indicatorColor: Colors.transparent,
+                      labelColor: Colors.redAccent,
+                      unselectedLabelColor: AppColors.primaryColor[300],
+                      tabs: _tabs,
+                      labelStyle: Theme.of(context)
+                          .appBarTheme
+                          .textTheme
+                          .headline3
+                          .copyWith(letterSpacing: 2),
+                    ),
+                  ),
+                ),
+                body: TabBarView(
+                  physics: NeverScrollableScrollPhysics(),
+                  children: _widgePage,
+                ),
               ),
             ),
           ),
-        ),
-      ]),
+        ]),
+      ),
     );
   }
 }

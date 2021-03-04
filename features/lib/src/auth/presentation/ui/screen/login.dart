@@ -32,7 +32,18 @@ class _LoginScreenState extends State<LoginScreen>
       onTap: _loginFacebook,
     );
 
-    final foginBtn = RoundedButton(
+    final googleLoginBtn = RoundedButton(
+      text: 'connect with Google',
+      icon: FontAwesomeIcons.google,
+      backgroundColor: kPrimaryColor,
+      borderRadius: BorderRadius.all(Radius.circular(24.0)),
+      padding:
+          EdgeInsets.only(left: 20.0, top: 12.0, right: 20.0, bottom: 12.0),
+      elevation: 3.0,
+      onTap: () {},
+    );
+
+    final loginBtn = RoundedButton(
       text: 'Login',
       icon: FontAwesomeIcons.signInAlt,
       backgroundColor: kPrimaryColor,
@@ -73,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen>
           maxLength: 25,
           decoration: InputDecoration(
               fillColor: Colors.white,
-              hintText: "User name/Email/Phone",
+              hintText: "Phone",
               helperText: "",
               border: OutlineInputBorder()),
         ),
@@ -88,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen>
         SizedBox(height: 30.0),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [foginBtn],
+          children: [loginBtn],
         ),
         SizedBox(height: 20.0),
         Row(
@@ -103,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen>
               color: Colors.grey.withOpacity(.8),
             )),
             Text(
-              'OR',
+              'Socials',
             ),
             Expanded(
                 child: Divider(
@@ -115,22 +126,14 @@ class _LoginScreenState extends State<LoginScreen>
           ],
         ),
         SizedBox(height: 20.0),
-        Row(
+        Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [fbLoginBtn],
+          children: [fbLoginBtn, SizedBox(height: 20.0), googleLoginBtn],
         ),
       ],
     );
 
-    return GestureDetector(
-      onTap: () {
-        final currentFocus = FocusScope.of(context);
-        if (!currentFocus.hasPrimaryFocus) {
-          currentFocus.unfocus();
-        }
-      },
-      child: loginForm,
-    );
+    return loginForm;
   }
 
   Future<void> _loginFacebook() async {
