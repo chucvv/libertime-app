@@ -4,7 +4,6 @@ import 'package:features/src/information/presentation/model/user_info_argument.d
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
-import 'package:flutter_fimber/flutter_fimber.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 import '../../strings.dart';
@@ -27,12 +26,6 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   bool get wantKeepAlive => true;
-
-  @override
-  void initState() {
-    Fimber.d("initState");
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -205,9 +198,7 @@ class _HomeScreenState extends State<HomeScreen>
             },
           ),
           InkWell(
-            onTap: () {
-              Fimber.d("On refresh here");
-            },
+            onTap: () {},
             child: Container(
               padding: EdgeInsets.all(ScreenUtil().setWidth(6.0)),
               decoration: BoxDecoration(

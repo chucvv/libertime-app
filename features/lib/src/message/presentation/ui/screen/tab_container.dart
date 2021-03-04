@@ -1,7 +1,6 @@
 import 'package:features/src/message/presentation/ui/screen/history_tab.dart';
 import 'package:features/src/message/presentation/ui/screen/match_tab.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_fimber/flutter_fimber.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:share_ui/awesome_ui.dart';
 
@@ -21,11 +20,6 @@ class _MessageScreenState extends State<MessageScreen>
       child: Text('Matches'),
     ),
   ];
-  @override
-  void initState() {
-    super.initState();
-    Fimber.d("initState");
-  }
 
   @override
   bool get wantKeepAlive => true;

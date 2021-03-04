@@ -2,7 +2,6 @@ import 'package:features/src/explore/presentation/ui/widget/user_item.dart';
 import 'package:features/src/home/data/repositories/data.dart';
 import 'package:features/src/information/presentation/model/user_info_argument.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_fimber/flutter_fimber.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 class UserListScreen extends StatefulWidget {
@@ -14,11 +13,6 @@ class _UserListScreenState extends State<UserListScreen>
     with AutomaticKeepAliveClientMixin<UserListScreen> {
   @override
   bool get wantKeepAlive => true;
-  @override
-  void initState() {
-    super.initState();
-    Fimber.d("initState");
-  }
 
   @override
   Widget build(BuildContext context) {

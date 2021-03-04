@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fimber/flutter_fimber.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
@@ -22,7 +21,6 @@ class _NearlyScreenState extends State<NearlyScreen>
   void _onMapCreated(GoogleMapController controller) {
     _mapController = controller;
     _location.onLocationChanged.listen((event) {
-      Fimber.d('onLocationChanged (${event.latitude}, ${event.longitude})');
       _mapController.animateCamera(
         CameraUpdate.newCameraPosition(
           CameraPosition(
@@ -30,12 +28,6 @@ class _NearlyScreenState extends State<NearlyScreen>
         ),
       );
     });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    Fimber.d("initState");
   }
 
   @override

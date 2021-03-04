@@ -1,10 +1,13 @@
+import 'dart:developer' as developer;
+
+import 'package:features/modules.dart' as sign;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_fimber/flutter_fimber.dart';
 import 'package:libertime/src/app.dart';
 import 'package:logging/logging.dart';
-import 'package:features/modules.dart' as sign;
 import 'package:share_ui/awesome_ui.dart';
+
+import 'src/config.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,16 +23,50 @@ Future<void> main() async {
     systemNavigationBarIconBrightness: Brightness.light, //navigation bar icon
   ));
   _setupLogging();
-  Fimber.plantTree(FimberTree(useColors: true));
-  Fimber.plantTree(DebugBufferTree.elapsed());
   //Bloc.observer = BlocLoggingObserver();
   await sign.setup();
   runApp(LiberMeApp());
 }
 
 void _setupLogging() {
-  Logger.root.level = Level.ALL;
-  Logger.root.onRecord.listen((rec) {
-    Fimber.d('${rec.level.name}: ${rec.time}: ${rec.message}');
+  // only enable logging for debug mode
+  if (Config.isRelease) {
+    Logger.root.level = Level.OFF;
+  } else {
+    Logger.root.level = Level.ALL;
+  }
+  hierarchicalLoggingEnabled = true;
+  Logger.root.onRecord.listen((record) {
+    if (Config.isRelease) {
+      return;
+    }
+
+    var start = '\x1b[90m';
+    const end = '\x1b[0m';
+    const white = '\x1b[37m';
+
+    switch (record.level.name) {
+      case 'INFO':
+        start = '\x1b[37m';
+        break;
+      case 'WARNING':
+        start = '\x1b[93m';
+        break;
+      case 'SEVERE':
+        start = '\x1b[103m\x1b[31m';
+        break;
+      case 'SHOUT':
+        start = '\x1b[41m\x1b[93m';
+        break;
+    }
+
+    final message = '$white${record.time}'
+        ':$end$start${record.level.name}: ${record.message}$end';
+    developer.log(
+      message,
+      name: record.loggerName.padRight(25),
+      level: record.level.value,
+      time: record.time,
+    );
   });
 }

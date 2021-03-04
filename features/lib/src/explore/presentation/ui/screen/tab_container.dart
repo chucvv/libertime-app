@@ -1,7 +1,6 @@
 import 'package:features/src/explore/presentation/ui/screen/match_users_tab.dart';
 import 'package:features/src/explore/presentation/ui/screen/nearly_map_tab.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_fimber/flutter_fimber.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:share_ui/awesome_ui.dart';
 
@@ -23,11 +22,6 @@ class _ExploreScreenState extends State<ExploreScreen>
       child: Text('List'),
     ),
   ];
-  @override
-  void initState() {
-    super.initState();
-    Fimber.d("initState");
-  }
 
   @override
   bool get wantKeepAlive => true;

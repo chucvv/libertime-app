@@ -316,13 +316,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.2.1"
-  fimber:
-    dependency: transitive
-    description:
-      name: fimber
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.4.4"
   fixnum:
     dependency: transitive
     description:
@@ -377,13 +370,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.6"
-  flutter_fimber:
-    dependency: "direct main"
-    description:
-      name: flutter_fimber
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.4.4"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -577,7 +563,7 @@ packages:
     source: hosted
     version: "1.0.1"
   logging:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: logging
       url: "https://pub.dartlang.org"
