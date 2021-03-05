@@ -1,6 +1,5 @@
 library features;
 
-export 'src/auth/di/injection_container.dart';
 export 'src/auth/presentation/ui/screen/auth_container.dart';
 export 'src/explore/presentation/ui/screen/filter_screen.dart';
 export 'src/explore/presentation/ui/screen/tab_container.dart';

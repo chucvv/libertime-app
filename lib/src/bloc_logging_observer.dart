@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:logging/logging.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BlocLoggingObserver extends BlocObserver {
   static final _log = Logger('BlocLoggingObserver');

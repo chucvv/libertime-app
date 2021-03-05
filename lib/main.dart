@@ -1,12 +1,13 @@
 import 'dart:developer' as developer;
 
-import 'package:features/modules.dart' as sign;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:libertime/src/app.dart';
 import 'package:logging/logging.dart';
 import 'package:share_ui/awesome_ui.dart';
 
+import 'src/bloc_logging_observer.dart';
 import 'src/config.dart';
 
 Future<void> main() async {
@@ -23,8 +24,7 @@ Future<void> main() async {
     systemNavigationBarIconBrightness: Brightness.light, //navigation bar icon
   ));
   _setupLogging();
-  //Bloc.observer = BlocLoggingObserver();
-  await sign.setup();
+  Bloc.observer = BlocLoggingObserver();
   runApp(LiberMeApp());
 }
 

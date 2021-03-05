@@ -10,14 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.0
-  get_it: ^5.0.1
-  equatable: ^1.2.5
-  dartz: ^0.9.2
   logging: ^0.11.4
-  freezed_annotation: ^0.12.0
-  moor_flutter: ^3.1.0
-  bloc: ^6.1.0
-  flutter_bloc: ^6.1.0
+  flutter_bloc: ^6.1.3
   firebase_core: ^0.7.0
 
   share_ui:
@@ -41,8 +35,6 @@ dev_dependencies:
   # flutter pub upgrade
   # flutter packages pub run build_runner build (--delete-conflicting-outputs)
   chopper_generator: ^3.0.6
-  freezed: ^0.12.3
-  moor_generator: ^3.4.0
 
 flutter_icons:
   image_path: "assets/launcher/ic_launcher.png"
