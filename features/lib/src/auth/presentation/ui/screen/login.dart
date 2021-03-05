@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:logging/logging.dart';
 import 'package:share_ui/awesome_external_widgets.dart';
 import 'package:share_ui/awesome_ui.dart';
@@ -43,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen>
       height: ScreenUtil().setHeight(40),
       backgroundColor: Colors.redAccent,
       iconColor: Colors.white,
-      onTap: () {},
+      onTap: _signInWithGoogle,
     );
 
     final loginBtn = RoundedButton(
@@ -124,29 +125,10 @@ class _LoginScreenState extends State<LoginScreen>
     try {
       final _accessToken = await FacebookAuth.instance
           .login(); // by the fault we request the email and the public profile
-
-      _logger.fine(_accessToken.token);
       final credential = FacebookAuthProvider.credential(_accessToken.token);
       final userCredential =
           await FirebaseAuth.instance.signInWithCredential(credential);
       _logger.fine(userCredential.toString());
-// Create a credential from the access token
-      // loginBehavior is only supported
-      //for Android devices, for ios it will be ignored
-      // _accessToken = await FacebookAuth.instance.login(
-      //   permissions: ['email', 'public_profile', 'user_birthday',
-      //'user_friends', 'user_gender', 'user_link'],
-      //   loginBehavior:
-      //       LoginBehavior.DIALOG_ONLY, // (only android) show
-      //an authentication dialog instead of redirecting to facebook app
-      // );
-
-      // get the user data
-      // by default we get the userId, email,name and picture
-      //final userData =
-      //await FacebookAuth.instance.getUserData();
-      // final userData = await FacebookAuth.instance.getUserData(
-      //fields: "email,birthday,friends,gender,link");
       Navigator.popAndPushNamed(context, '/home');
     } on FacebookAuthException catch (e) {
       // if the facebook login fails
@@ -166,5 +148,25 @@ class _LoginScreenState extends State<LoginScreen>
     } on Exception {} finally {
       // update the view
     }
+  }
+
+  Future<void> _signInWithGoogle() async {
+    // Trigger the authentication flow
+    final googleUser = await GoogleSignIn().signIn();
+
+    // Obtain the auth details from the request
+    final googleAuth = await googleUser.authentication;
+
+    // Create a new credential
+    final GoogleAuthCredential credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+
+    // Once signed in, return the UserCredential
+    final userCredential =
+        await FirebaseAuth.instance.signInWithCredential(credential);
+    _logger.fine(userCredential.toString());
+    Navigator.popAndPushNamed(context, '/home');
   }
 }

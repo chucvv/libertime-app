@@ -3,6 +3,7 @@ import 'package:features/src/setting/presentation/ui/widget/profile_header.dart'
 import 'package:features/src/setting/presentation/ui/widget/profile_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:share_ui/awesome_external_widgets.dart';
 import 'package:share_ui/awesome_ui.dart';
 
@@ -124,6 +125,7 @@ class SettingScreen extends StatelessWidget {
 
   Future<void> _logOut(BuildContext context) async {
     await FacebookAuth.instance.logOut();
+    await GoogleSignIn().disconnect();
     Navigator.popAndPushNamed(context, '/login');
   }
 }
