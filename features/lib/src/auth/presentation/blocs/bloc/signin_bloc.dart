@@ -14,6 +14,7 @@ class SigninBloc extends Bloc<SigninEvent, SigninState> {
   Stream<SigninState> mapEventToState(
     SigninEvent event,
   ) async* {
+    // ignore: todo
     // TODO: implement mapEventToState
   }
 }
