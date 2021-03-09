@@ -421,6 +421,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  flushbar:
+    dependency: transitive
+    description:
+      name: flushbar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.10.4"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -468,13 +475,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.6"
-  flutter_hooks:
-    dependency: transitive
-    description:
-      name: flutter_hooks
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.16.0"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -604,13 +604,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.7.1"
-  hooks_riverpod:
-    dependency: transitive
-    description:
-      name: hooks_riverpod
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.12.4"
   http:
     dependency: transitive
     description:

@@ -26,7 +26,15 @@ class SigninBloc extends Bloc<SigninEvent, SigninState> {
     SigninEvent event,
   ) async* {
     yield* event.when(
-        onSigninFacebook: _signFacebook, onSigninGoogle: _signGoogle);
+        onSigninFacebook: _signFacebook,
+        onSigninGoogle: _signGoogle,
+        onSignInPhone: _signWithPhoneNumber);
+  }
+
+  Stream<SigninState> _signWithPhoneNumber(
+      String phoneNumber, String rawPassword) async* {
+    yield Loading();
+    yield PhoneSigninFailure("Account not found");
   }
 
   Stream<SigninState> _signFacebook() async* {

@@ -9,5 +9,5 @@ class GoogleSigninUseCase extends UseCase<UserEntity, NoParams> {
   GoogleSigninUseCase(this.authRepository);
   @override
   Future<Either<UserEntity, Failure>> call(NoParams params) =>
-      authRepository.signinFacebook();
+      authRepository.signinGoogle();
 }

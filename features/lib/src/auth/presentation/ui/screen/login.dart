@@ -22,7 +22,7 @@ final signInBloc = Provider((ref) =>
     SigninBloc(ref.read(facebookSignInUseCase), ref.read(googleSignInUseCase)));
 
 class LoginScreen extends ConsumerWidget {
-  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final FocusNode nodeOne = FocusNode();
   final FocusNode nodeTwo = FocusNode();
@@ -52,7 +52,7 @@ class LoginScreen extends ConsumerWidget {
               ),
               SizedBox(height: 10.0),
               TextField(
-                controller: _usernameController,
+                controller: _phoneNumberController,
                 autofocus: true,
                 focusNode: nodeOne,
                 keyboardType: TextInputType.text,
@@ -105,6 +105,13 @@ class LoginScreen extends ConsumerWidget {
                 Navigator.popAndPushNamed(context, '/home');
               },
               gooogleSiginFailure: (error) {},
+              phoneSigninFailure: (error) {
+                Flushbar(
+                  title: "Hey Ninja",
+                  message: error,
+                  duration: Duration(seconds: 3),
+                )..show(context);
+              },
               orElse: () {});
         },
       ),
@@ -121,7 +128,8 @@ class LoginScreen extends ConsumerWidget {
           EdgeInsets.only(left: 20.0, top: 12.0, right: 20.0, bottom: 12.0),
       elevation: 3.0,
       onTap: () {
-        FocusScope.of(context).requestFocus(nodeOne);
+        BlocProvider.of<SigninBloc>(context).add(SigninEvent.onSignInPhone(
+            _phoneNumberController.text, _passwordController.text));
       },
     );
   }
