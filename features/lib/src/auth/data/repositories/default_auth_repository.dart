@@ -1,22 +1,30 @@
 import 'package:dartz/dartz.dart';
-import 'package:features/src/auth/domain/entities/credential.dart';
+import 'package:features/src/auth/domain/entities/user_info.dart';
 import 'package:features/src/auth/domain/repositories/auth_repository.dart';
 import 'package:common/common.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class DefaultAuthRepository extends AuthRepository {
   DefaultAuthRepository();
+
   @override
-  // ignore: missing_return
-  Future<Either<Failure, Credential>> authenticate(
-      String username, String password) async {
-    /*try {
-      final authResonse =
-          await _authService.authenticate(AuthRequest((builder) => builder
-            ..username = username
-            ..password = password));
-      return Right(authResonse.body.credential.toCredential());
-    } on Exception catch (ex) {
-      return Left(Failure.serverFailure(ex));
-    }*/
+  Future<Either<UserEntity, Failure>> signinFacebook() async {
+    try {
+      final _accessToken = await FacebookAuth.instance.login();
+      final credential = FacebookAuthProvider.credential(_accessToken.token);
+      final userCredential =
+          await FirebaseAuth.instance.signInWithCredential(credential);
+      return Left(UserEntity(userCredential));
+    } on Exception catch (e) {
+      return Right(Failure.serverFailure(e));
+    }
+  }
+
+  @override
+  Future<Either<UserEntity, Failure>> signinGoogle() {
+    // ignore: todo
+    // TODO: implement signinGoogle
+    throw UnimplementedError();
   }
 }

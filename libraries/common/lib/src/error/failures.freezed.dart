@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'failures.dart';
 
@@ -9,84 +9,95 @@ part of 'failures.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$FailureTearOff {
   const _$FailureTearOff();
 
-  _ServerFailure serverFailure(dynamic error) {
+// ignore: unused_element
+  _ServerFailure serverFailure(dynamic exception) {
     return _ServerFailure(
-      error,
+      exception,
     );
   }
 
-  _UserNotFound userNotFound() {
-    return const _UserNotFound();
-  }
-
-  _CacheFailure cacheFailure() {
-    return const _CacheFailure();
-  }
-
-  _EmptyResponse emptyResponse() {
-    return const _EmptyResponse();
+// ignore: unused_element
+  _ClientFailure clientFailture(dynamic exception) {
+    return _ClientFailure(
+      exception,
+    );
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Failure = _$FailureTearOff();
 
+/// @nodoc
 mixin _$Failure {
+  dynamic get exception;
+
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result serverFailure(dynamic error),
-    @required Result userNotFound(),
-    @required Result cacheFailure(),
-    @required Result emptyResponse(),
+  TResult when<TResult extends Object>({
+    @required TResult serverFailure(dynamic exception),
+    @required TResult clientFailture(dynamic exception),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result serverFailure(dynamic error),
-    Result userNotFound(),
-    Result cacheFailure(),
-    Result emptyResponse(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult serverFailure(dynamic exception),
+    TResult clientFailture(dynamic exception),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result serverFailure(_ServerFailure value),
-    @required Result userNotFound(_UserNotFound value),
-    @required Result cacheFailure(_CacheFailure value),
-    @required Result emptyResponse(_EmptyResponse value),
+  TResult map<TResult extends Object>({
+    @required TResult serverFailure(_ServerFailure value),
+    @required TResult clientFailture(_ClientFailure value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result serverFailure(_ServerFailure value),
-    Result userNotFound(_UserNotFound value),
-    Result cacheFailure(_CacheFailure value),
-    Result emptyResponse(_EmptyResponse value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult serverFailure(_ServerFailure value),
+    TResult clientFailture(_ClientFailure value),
+    @required TResult orElse(),
   });
+
+  @JsonKey(ignore: true)
+  $FailureCopyWith<Failure> get copyWith;
 }
 
+/// @nodoc
 abstract class $FailureCopyWith<$Res> {
   factory $FailureCopyWith(Failure value, $Res Function(Failure) then) =
       _$FailureCopyWithImpl<$Res>;
+  $Res call({dynamic exception});
 }
 
+/// @nodoc
 class _$FailureCopyWithImpl<$Res> implements $FailureCopyWith<$Res> {
   _$FailureCopyWithImpl(this._value, this._then);
 
   final Failure _value;
   // ignore: unused_field
   final $Res Function(Failure) _then;
+
+  @override
+  $Res call({
+    Object exception = freezed,
+  }) {
+    return _then(_value.copyWith(
+      exception: exception == freezed ? _value.exception : exception as dynamic,
+    ));
+  }
 }
 
-abstract class _$ServerFailureCopyWith<$Res> {
+/// @nodoc
+abstract class _$ServerFailureCopyWith<$Res> implements $FailureCopyWith<$Res> {
   factory _$ServerFailureCopyWith(
           _ServerFailure value, $Res Function(_ServerFailure) then) =
       __$ServerFailureCopyWithImpl<$Res>;
-  $Res call({dynamic error});
+  @override
+  $Res call({dynamic exception});
 }
 
+/// @nodoc
 class __$ServerFailureCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
     implements _$ServerFailureCopyWith<$Res> {
   __$ServerFailureCopyWithImpl(
@@ -98,23 +109,24 @@ class __$ServerFailureCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
+    Object exception = freezed,
   }) {
     return _then(_ServerFailure(
-      error == freezed ? _value.error : error as dynamic,
+      exception == freezed ? _value.exception : exception as dynamic,
     ));
   }
 }
 
+/// @nodoc
 class _$_ServerFailure with DiagnosticableTreeMixin implements _ServerFailure {
-  const _$_ServerFailure(this.error) : assert(error != null);
+  const _$_ServerFailure(this.exception) : assert(exception != null);
 
   @override
-  final dynamic error;
+  final dynamic exception;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Failure.serverFailure(error: $error)';
+    return 'Failure.serverFailure(exception: $exception)';
   }
 
   @override
@@ -122,79 +134,69 @@ class _$_ServerFailure with DiagnosticableTreeMixin implements _ServerFailure {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'Failure.serverFailure'))
-      ..add(DiagnosticsProperty('error', error));
+      ..add(DiagnosticsProperty('exception', exception));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _ServerFailure &&
-            (identical(other.error, error) ||
-                const DeepCollectionEquality().equals(other.error, error)));
+            (identical(other.exception, exception) ||
+                const DeepCollectionEquality()
+                    .equals(other.exception, exception)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(exception);
 
+  @JsonKey(ignore: true)
   @override
   _$ServerFailureCopyWith<_ServerFailure> get copyWith =>
       __$ServerFailureCopyWithImpl<_ServerFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result serverFailure(dynamic error),
-    @required Result userNotFound(),
-    @required Result cacheFailure(),
-    @required Result emptyResponse(),
+  TResult when<TResult extends Object>({
+    @required TResult serverFailure(dynamic exception),
+    @required TResult clientFailture(dynamic exception),
   }) {
     assert(serverFailure != null);
-    assert(userNotFound != null);
-    assert(cacheFailure != null);
-    assert(emptyResponse != null);
-    return serverFailure(error);
+    assert(clientFailture != null);
+    return serverFailure(exception);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result serverFailure(dynamic error),
-    Result userNotFound(),
-    Result cacheFailure(),
-    Result emptyResponse(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult serverFailure(dynamic exception),
+    TResult clientFailture(dynamic exception),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (serverFailure != null) {
-      return serverFailure(error);
+      return serverFailure(exception);
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result serverFailure(_ServerFailure value),
-    @required Result userNotFound(_UserNotFound value),
-    @required Result cacheFailure(_CacheFailure value),
-    @required Result emptyResponse(_EmptyResponse value),
+  TResult map<TResult extends Object>({
+    @required TResult serverFailure(_ServerFailure value),
+    @required TResult clientFailture(_ClientFailure value),
   }) {
     assert(serverFailure != null);
-    assert(userNotFound != null);
-    assert(cacheFailure != null);
-    assert(emptyResponse != null);
+    assert(clientFailture != null);
     return serverFailure(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result serverFailure(_ServerFailure value),
-    Result userNotFound(_UserNotFound value),
-    Result cacheFailure(_CacheFailure value),
-    Result emptyResponse(_EmptyResponse value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult serverFailure(_ServerFailure value),
+    TResult clientFailture(_ClientFailure value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (serverFailure != null) {
@@ -205,323 +207,139 @@ class _$_ServerFailure with DiagnosticableTreeMixin implements _ServerFailure {
 }
 
 abstract class _ServerFailure implements Failure {
-  const factory _ServerFailure(dynamic error) = _$_ServerFailure;
+  const factory _ServerFailure(dynamic exception) = _$_ServerFailure;
 
-  dynamic get error;
+  @override
+  dynamic get exception;
+  @override
+  @JsonKey(ignore: true)
   _$ServerFailureCopyWith<_ServerFailure> get copyWith;
 }
 
-abstract class _$UserNotFoundCopyWith<$Res> {
-  factory _$UserNotFoundCopyWith(
-          _UserNotFound value, $Res Function(_UserNotFound) then) =
-      __$UserNotFoundCopyWithImpl<$Res>;
+/// @nodoc
+abstract class _$ClientFailureCopyWith<$Res> implements $FailureCopyWith<$Res> {
+  factory _$ClientFailureCopyWith(
+          _ClientFailure value, $Res Function(_ClientFailure) then) =
+      __$ClientFailureCopyWithImpl<$Res>;
+  @override
+  $Res call({dynamic exception});
 }
 
-class __$UserNotFoundCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
-    implements _$UserNotFoundCopyWith<$Res> {
-  __$UserNotFoundCopyWithImpl(
-      _UserNotFound _value, $Res Function(_UserNotFound) _then)
-      : super(_value, (v) => _then(v as _UserNotFound));
+/// @nodoc
+class __$ClientFailureCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
+    implements _$ClientFailureCopyWith<$Res> {
+  __$ClientFailureCopyWithImpl(
+      _ClientFailure _value, $Res Function(_ClientFailure) _then)
+      : super(_value, (v) => _then(v as _ClientFailure));
 
   @override
-  _UserNotFound get _value => super._value as _UserNotFound;
+  _ClientFailure get _value => super._value as _ClientFailure;
+
+  @override
+  $Res call({
+    Object exception = freezed,
+  }) {
+    return _then(_ClientFailure(
+      exception == freezed ? _value.exception : exception as dynamic,
+    ));
+  }
 }
 
-class _$_UserNotFound with DiagnosticableTreeMixin implements _UserNotFound {
-  const _$_UserNotFound();
+/// @nodoc
+class _$_ClientFailure with DiagnosticableTreeMixin implements _ClientFailure {
+  const _$_ClientFailure(this.exception) : assert(exception != null);
+
+  @override
+  final dynamic exception;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Failure.userNotFound()';
+    return 'Failure.clientFailture(exception: $exception)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'Failure.userNotFound'));
+    properties
+      ..add(DiagnosticsProperty('type', 'Failure.clientFailture'))
+      ..add(DiagnosticsProperty('exception', exception));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _UserNotFound);
+    return identical(this, other) ||
+        (other is _ClientFailure &&
+            (identical(other.exception, exception) ||
+                const DeepCollectionEquality()
+                    .equals(other.exception, exception)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(exception);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ClientFailureCopyWith<_ClientFailure> get copyWith =>
+      __$ClientFailureCopyWithImpl<_ClientFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result serverFailure(dynamic error),
-    @required Result userNotFound(),
-    @required Result cacheFailure(),
-    @required Result emptyResponse(),
+  TResult when<TResult extends Object>({
+    @required TResult serverFailure(dynamic exception),
+    @required TResult clientFailture(dynamic exception),
   }) {
     assert(serverFailure != null);
-    assert(userNotFound != null);
-    assert(cacheFailure != null);
-    assert(emptyResponse != null);
-    return userNotFound();
+    assert(clientFailture != null);
+    return clientFailture(exception);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result serverFailure(dynamic error),
-    Result userNotFound(),
-    Result cacheFailure(),
-    Result emptyResponse(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult serverFailure(dynamic exception),
+    TResult clientFailture(dynamic exception),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (userNotFound != null) {
-      return userNotFound();
+    if (clientFailture != null) {
+      return clientFailture(exception);
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result serverFailure(_ServerFailure value),
-    @required Result userNotFound(_UserNotFound value),
-    @required Result cacheFailure(_CacheFailure value),
-    @required Result emptyResponse(_EmptyResponse value),
+  TResult map<TResult extends Object>({
+    @required TResult serverFailure(_ServerFailure value),
+    @required TResult clientFailture(_ClientFailure value),
   }) {
     assert(serverFailure != null);
-    assert(userNotFound != null);
-    assert(cacheFailure != null);
-    assert(emptyResponse != null);
-    return userNotFound(this);
+    assert(clientFailture != null);
+    return clientFailture(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result serverFailure(_ServerFailure value),
-    Result userNotFound(_UserNotFound value),
-    Result cacheFailure(_CacheFailure value),
-    Result emptyResponse(_EmptyResponse value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult serverFailure(_ServerFailure value),
+    TResult clientFailture(_ClientFailure value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (userNotFound != null) {
-      return userNotFound(this);
+    if (clientFailture != null) {
+      return clientFailture(this);
     }
     return orElse();
   }
 }
 
-abstract class _UserNotFound implements Failure {
-  const factory _UserNotFound() = _$_UserNotFound;
-}
-
-abstract class _$CacheFailureCopyWith<$Res> {
-  factory _$CacheFailureCopyWith(
-          _CacheFailure value, $Res Function(_CacheFailure) then) =
-      __$CacheFailureCopyWithImpl<$Res>;
-}
-
-class __$CacheFailureCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
-    implements _$CacheFailureCopyWith<$Res> {
-  __$CacheFailureCopyWithImpl(
-      _CacheFailure _value, $Res Function(_CacheFailure) _then)
-      : super(_value, (v) => _then(v as _CacheFailure));
+abstract class _ClientFailure implements Failure {
+  const factory _ClientFailure(dynamic exception) = _$_ClientFailure;
 
   @override
-  _CacheFailure get _value => super._value as _CacheFailure;
-}
-
-class _$_CacheFailure with DiagnosticableTreeMixin implements _CacheFailure {
-  const _$_CacheFailure();
-
+  dynamic get exception;
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Failure.cacheFailure()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'Failure.cacheFailure'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _CacheFailure);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result serverFailure(dynamic error),
-    @required Result userNotFound(),
-    @required Result cacheFailure(),
-    @required Result emptyResponse(),
-  }) {
-    assert(serverFailure != null);
-    assert(userNotFound != null);
-    assert(cacheFailure != null);
-    assert(emptyResponse != null);
-    return cacheFailure();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result serverFailure(dynamic error),
-    Result userNotFound(),
-    Result cacheFailure(),
-    Result emptyResponse(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (cacheFailure != null) {
-      return cacheFailure();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result serverFailure(_ServerFailure value),
-    @required Result userNotFound(_UserNotFound value),
-    @required Result cacheFailure(_CacheFailure value),
-    @required Result emptyResponse(_EmptyResponse value),
-  }) {
-    assert(serverFailure != null);
-    assert(userNotFound != null);
-    assert(cacheFailure != null);
-    assert(emptyResponse != null);
-    return cacheFailure(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result serverFailure(_ServerFailure value),
-    Result userNotFound(_UserNotFound value),
-    Result cacheFailure(_CacheFailure value),
-    Result emptyResponse(_EmptyResponse value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (cacheFailure != null) {
-      return cacheFailure(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _CacheFailure implements Failure {
-  const factory _CacheFailure() = _$_CacheFailure;
-}
-
-abstract class _$EmptyResponseCopyWith<$Res> {
-  factory _$EmptyResponseCopyWith(
-          _EmptyResponse value, $Res Function(_EmptyResponse) then) =
-      __$EmptyResponseCopyWithImpl<$Res>;
-}
-
-class __$EmptyResponseCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
-    implements _$EmptyResponseCopyWith<$Res> {
-  __$EmptyResponseCopyWithImpl(
-      _EmptyResponse _value, $Res Function(_EmptyResponse) _then)
-      : super(_value, (v) => _then(v as _EmptyResponse));
-
-  @override
-  _EmptyResponse get _value => super._value as _EmptyResponse;
-}
-
-class _$_EmptyResponse with DiagnosticableTreeMixin implements _EmptyResponse {
-  const _$_EmptyResponse();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Failure.emptyResponse()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'Failure.emptyResponse'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _EmptyResponse);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result serverFailure(dynamic error),
-    @required Result userNotFound(),
-    @required Result cacheFailure(),
-    @required Result emptyResponse(),
-  }) {
-    assert(serverFailure != null);
-    assert(userNotFound != null);
-    assert(cacheFailure != null);
-    assert(emptyResponse != null);
-    return emptyResponse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result serverFailure(dynamic error),
-    Result userNotFound(),
-    Result cacheFailure(),
-    Result emptyResponse(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (emptyResponse != null) {
-      return emptyResponse();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result serverFailure(_ServerFailure value),
-    @required Result userNotFound(_UserNotFound value),
-    @required Result cacheFailure(_CacheFailure value),
-    @required Result emptyResponse(_EmptyResponse value),
-  }) {
-    assert(serverFailure != null);
-    assert(userNotFound != null);
-    assert(cacheFailure != null);
-    assert(emptyResponse != null);
-    return emptyResponse(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result serverFailure(_ServerFailure value),
-    Result userNotFound(_UserNotFound value),
-    Result cacheFailure(_CacheFailure value),
-    Result emptyResponse(_EmptyResponse value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (emptyResponse != null) {
-      return emptyResponse(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _EmptyResponse implements Failure {
-  const factory _EmptyResponse() = _$_EmptyResponse;
+  @JsonKey(ignore: true)
+  _$ClientFailureCopyWith<_ClientFailure> get copyWith;
 }

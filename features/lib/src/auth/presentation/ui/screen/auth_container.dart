@@ -1,3 +1,4 @@
+import 'package:features/src/auth/presentation/strings.dart';
 import 'package:features/src/auth/presentation/ui/screen/login.dart';
 import 'package:features/src/auth/presentation/ui/screen/register.dart';
 import 'package:features/src/auth/presentation/ui/widget/circle_planet.dart';
@@ -10,13 +11,13 @@ class AuthContainer extends StatelessWidget {
   final List<Widget> _tabs = [
     Tab(
       child: Row(
-        children: [Text('Login')],
+        children: [Text(Strings.lbLoginTab)],
       ),
     ),
     Tab(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
-        children: [Text('Register')],
+        children: [Text(Strings.lbRegisterTab)],
       ),
     ),
   ];

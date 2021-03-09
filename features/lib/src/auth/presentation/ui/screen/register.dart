@@ -1,3 +1,4 @@
+import 'package:features/src/auth/presentation/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:share_ui/awesome_external_widgets.dart';
 import 'package:share_ui/awesome_ui.dart';
@@ -22,7 +23,7 @@ class _RegisterScreenState extends State<RegisterScreen>
     super.build(context);
 
     final registerBtn = RoundedButton(
-      text: 'Register',
+      text: Strings.btnRegister,
       icon: FontAwesomeIcons.userPlus,
       backgroundColor: kPrimaryColor,
       borderRadius: BorderRadius.all(Radius.circular(24.0)),

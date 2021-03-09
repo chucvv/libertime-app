@@ -5,11 +5,6 @@ part 'failures.freezed.dart';
 
 @freezed
 abstract class Failure with _$Failure {
-  const factory Failure.serverFailure(dynamic error) = _ServerFailure;
-
-  const factory Failure.userNotFound() = _UserNotFound;
-
-  const factory Failure.cacheFailure() = _CacheFailure;
-
-  const factory Failure.emptyResponse() = _EmptyResponse;
+  const factory Failure.serverFailure(dynamic exception) = _ServerFailure;
+  const factory Failure.clientFailture(dynamic exception) = _ClientFailure;
 }

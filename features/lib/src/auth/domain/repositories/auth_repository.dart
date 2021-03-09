@@ -1,9 +1,8 @@
-import 'package:features/src/auth/domain/entities/credential.dart';
 import 'package:common/common.dart';
 import 'package:dartz/dartz.dart';
+import 'package:features/src/auth/domain/entities/user_info.dart';
 
-// ignore: one_member_abstracts
 abstract class AuthRepository {
-  Future<Either<Failure, Credential>> authenticate(
-      String username, String password);
+  Future<Either<UserEntity, Failure>> signinFacebook();
+  Future<Either<UserEntity, Failure>> signinGoogle();
 }

@@ -3,12 +3,14 @@ import 'dart:developer' as developer;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:libertime/src/app.dart';
 import 'package:logging/logging.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 import 'src/bloc_logging_observer.dart';
 import 'src/config.dart';
+import 'src/provider_logger.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +27,7 @@ Future<void> main() async {
   ));
   _setupLogging();
   Bloc.observer = BlocLoggingObserver();
-  runApp(LiberMeApp());
+  runApp(ProviderScope(observers: [ProviderLogger()], child: LiberMeApp()));
 }
 
 void _setupLogging() {
