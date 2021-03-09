@@ -1,25 +1,27 @@
 import 'package:features/src/auth/data/repositories/default_auth_repository.dart';
 import 'package:features/src/auth/domain/usecases/login_facebook.dart';
+import 'package:features/src/auth/domain/usecases/login_google.dart';
 import 'package:features/src/auth/presentation/blocs/signin/signin_bloc.dart';
 import 'package:features/src/auth/presentation/strings.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:logging/logging.dart';
 import 'package:share_ui/awesome_external_widgets.dart';
 import 'package:share_ui/awesome_ui.dart';
 
-final authRepository = Provider((ref) => DefaultAuthRepository());
+final authRepository = Provider(
+    (ref) => DefaultAuthRepository(FacebookAuth.instance, GoogleSignIn()));
 final facebookSignInUseCase =
     Provider((ref) => FacebookSigninUseCase(ref.read(authRepository)));
-final signInBloc =
-    Provider((ref) => SigninBloc(ref.read(facebookSignInUseCase)));
+final googleSignInUseCase =
+    Provider((ref) => GoogleSigninUseCase(ref.read(authRepository)));
+final signInBloc = Provider((ref) =>
+    SigninBloc(ref.read(facebookSignInUseCase), ref.read(googleSignInUseCase)));
 
 class LoginScreen extends ConsumerWidget {
-  final _logger = Logger('LoginScreen');
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final FocusNode nodeOne = FocusNode();
@@ -132,7 +134,9 @@ class LoginScreen extends ConsumerWidget {
       height: ScreenUtil().setHeight(40),
       backgroundColor: Colors.redAccent,
       iconColor: Colors.white,
-      onTap: _signInWithGoogle,
+      onTap: () {
+        BlocProvider.of<SigninBloc>(context).add(SigninEvent.onSigninGoogle());
+      },
     );
   }
 
@@ -148,24 +152,5 @@ class LoginScreen extends ConsumerWidget {
           BlocProvider.of<SigninBloc>(context)
               .add(SigninEvent.onSigninFacebook());
         });
-  }
-
-  Future<void> _signInWithGoogle() async {
-    // Trigger the authentication flow
-    final googleUser = await GoogleSignIn().signIn();
-
-    // Obtain the auth details from the request
-    final googleAuth = await googleUser.authentication;
-
-    // Create a new credential
-    final GoogleAuthCredential credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
-
-    // Once signed in, return the UserCredential
-    final userCredential =
-        await FirebaseAuth.instance.signInWithCredential(credential);
-    _logger.fine(userCredential.toString());
   }
 }
