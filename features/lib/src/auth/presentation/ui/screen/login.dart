@@ -13,6 +13,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:share_ui/awesome_external_widgets.dart';
 import 'package:share_ui/awesome_ui.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
 final authRepository = Provider<AuthRepository>((ref) => SocialAuthRepository(
     FacebookAuth.instance, GoogleSignIn(), FirebaseAuth.instance));
@@ -138,6 +139,9 @@ class LoginScreen extends ConsumerWidget {
           EdgeInsets.only(left: 20.0, top: 12.0, right: 20.0, bottom: 12.0),
       elevation: 3.0,
       onTap: () {
+        // Use FirebaseCrashlytics to throw an error. Use this for
+        // confirmation that errors are being correctly reported.
+        FirebaseCrashlytics.instance.crash();
         BlocProvider.of<SigninBloc>(context).add(SigninEvent.onSignInPhone(
             _phoneNumberController.text, _passwordController.text));
       },

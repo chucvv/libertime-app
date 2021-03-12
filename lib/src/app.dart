@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:share_ui/awesome_ui.dart';
 import 'package:flutter_screenutil/screenutil_init.dart';
@@ -6,7 +7,19 @@ import 'app_router.dart';
 import 'strings.dart';
 
 class LiberMeApp extends StatelessWidget {
-  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+  Future<void> _initializeFlutterFire() async {
+    // Firebase
+    await Firebase.initializeApp();
+    // Crashlytics
+    await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+
+    Function originalOnError = FlutterError.onError;
+    FlutterError.onError = (errorDetails) async {
+      await FirebaseCrashlytics.instance.recordFlutterError(errorDetails);
+      originalOnError(errorDetails);
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
     //Set the fit size (fill in the screen size of the device in the design)
@@ -23,7 +36,7 @@ class LiberMeApp extends StatelessWidget {
     );
     return FutureBuilder(
       // Initialize FlutterFire:
-      future: _initialization,
+      future: _initializeFlutterFire(),
       builder: (context, snapshot) {
         // Once complete, show your application
         if (snapshot.connectionState == ConnectionState.done) {
@@ -43,7 +56,7 @@ class LiberMeApp extends StatelessWidget {
         return MaterialApp(
           home: Scaffold(
             body: Center(
-              child: Text('Loading....'),
+              child: Text('Loading...'),
             ),
           ),
         );

@@ -1,5 +1,8 @@
+import 'dart:async';
 import 'dart:developer' as developer;
 
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,7 +12,6 @@ import 'package:logging/logging.dart';
 import 'package:share_ui/awesome_ui.dart';
 
 import 'src/bloc_logging_observer.dart';
-import 'src/config.dart';
 import 'src/provider_logger.dart';
 
 Future<void> main() async {
@@ -27,19 +29,27 @@ Future<void> main() async {
   ));
   _setupLogging();
   Bloc.observer = BlocLoggingObserver();
-  runApp(ProviderScope(observers: [ProviderLogger()], child: LiberMeApp()));
+  if (kReleaseMode) {
+    debugPrint = (message, {wrapWidth}) {};
+  }
+
+  runZonedGuarded(() {
+    runApp(ProviderScope(observers: [ProviderLogger()], child: LiberMeApp()));
+  }, (error, stackTrace) {
+    FirebaseCrashlytics.instance.recordError(error, stackTrace);
+  });
 }
 
 void _setupLogging() {
   // only enable logging for debug mode
-  if (Config.isRelease) {
+  if (kReleaseMode) {
     Logger.root.level = Level.OFF;
   } else {
     Logger.root.level = Level.ALL;
   }
   hierarchicalLoggingEnabled = true;
   Logger.root.onRecord.listen((record) {
-    if (Config.isRelease) {
+    if (kReleaseMode) {
       return;
     }
 
