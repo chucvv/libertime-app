@@ -41,7 +41,7 @@ class SigninBloc extends Bloc<SigninEvent, SigninState> {
     yield Loading();
     final signin = await _facebookSigninUseCase(NoParams());
     yield signin.fold((user) {
-      _logger.fine(user.info);
+      _logger.fine(user);
       return FacebookSiginSuccess();
     }, (failure) {
       _logger.severe(failure.exception);
@@ -53,7 +53,7 @@ class SigninBloc extends Bloc<SigninEvent, SigninState> {
     yield Loading();
     final signin = await _googleSigninUseCase(NoParams());
     yield signin.fold((user) {
-      _logger.fine(user.info);
+      _logger.fine(user);
       return GoogleSiginSuccess();
     }, (failure) {
       _logger.severe(failure.exception);

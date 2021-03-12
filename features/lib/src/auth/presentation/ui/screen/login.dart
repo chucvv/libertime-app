@@ -1,8 +1,10 @@
-import 'package:features/src/auth/data/repositories/default_auth_repository.dart';
+import 'package:features/src/auth/data/repositories/social_auth_repository.dart';
+import 'package:features/src/auth/domain/repositories/auth_repository.dart';
 import 'package:features/src/auth/domain/usecases/login_facebook.dart';
 import 'package:features/src/auth/domain/usecases/login_google.dart';
 import 'package:features/src/auth/presentation/blocs/signin/signin_bloc.dart';
 import 'package:features/src/auth/presentation/strings.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -12,8 +14,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:share_ui/awesome_external_widgets.dart';
 import 'package:share_ui/awesome_ui.dart';
 
-final authRepository = Provider(
-    (ref) => DefaultAuthRepository(FacebookAuth.instance, GoogleSignIn()));
+final authRepository = Provider<AuthRepository>((ref) => SocialAuthRepository(
+    FacebookAuth.instance, GoogleSignIn(), FirebaseAuth.instance));
 final facebookSignInUseCase =
     Provider((ref) => FacebookSigninUseCase(ref.read(authRepository)));
 final googleSignInUseCase =
@@ -100,22 +102,30 @@ class LoginScreen extends ConsumerWidget {
               facebookSiginSuccess: () {
                 Navigator.popAndPushNamed(context, '/home');
               },
-              facebookSiginFailure: (error) {},
+              facebookSiginFailure: (error) {
+                showError(context, 'Facebook', error);
+              },
               googleSiginSuccess: () {
                 Navigator.popAndPushNamed(context, '/home');
               },
-              gooogleSiginFailure: (error) {},
+              gooogleSiginFailure: (error) {
+                showError(context, 'Google', error);
+              },
               phoneSigninFailure: (error) {
-                Flushbar(
-                  title: "Hey Ninja",
-                  message: error,
-                  duration: Duration(seconds: 3),
-                )..show(context);
+                showError(context, 'Google', error);
               },
               orElse: () {});
         },
       ),
     );
+  }
+
+  void showError(BuildContext context, String title, String message) {
+    Flushbar(
+      title: title,
+      message: message,
+      duration: Duration(seconds: 3),
+    )..show(context);
   }
 
   Widget _buildLoginButton(context) {

@@ -8,49 +8,66 @@ part of 'user_database.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps, unnecessary_this
 class Profile extends DataClass implements Insertable<Profile> {
-  final String userId;
-  final String fullName;
-  final String avatar;
+  final String uid;
+  final String displayName;
   final String firstName;
   final String lastName;
+  final String phoneNumber;
+  final String picture;
   final String email;
+  final String provider;
+  final DateTime creationTime;
+  final DateTime lastSignInTime;
+  final String locale;
   Profile(
-      {@required this.userId,
-      this.fullName,
-      this.avatar,
+      {@required this.uid,
+      this.displayName,
       this.firstName,
       this.lastName,
-      this.email});
+      this.phoneNumber,
+      this.picture,
+      this.email,
+      this.provider,
+      this.creationTime,
+      this.lastSignInTime,
+      this.locale});
   factory Profile.fromData(Map<String, dynamic> data, GeneratedDatabase db,
       {String prefix}) {
     final effectivePrefix = prefix ?? '';
     final stringType = db.typeSystem.forDartType<String>();
+    final dateTimeType = db.typeSystem.forDartType<DateTime>();
     return Profile(
-      userId:
-          stringType.mapFromDatabaseResponse(data['${effectivePrefix}user_id']),
-      fullName: stringType
-          .mapFromDatabaseResponse(data['${effectivePrefix}full_name']),
-      avatar:
-          stringType.mapFromDatabaseResponse(data['${effectivePrefix}avatar']),
+      uid: stringType.mapFromDatabaseResponse(data['${effectivePrefix}uid']),
+      displayName: stringType
+          .mapFromDatabaseResponse(data['${effectivePrefix}display_name']),
       firstName: stringType
           .mapFromDatabaseResponse(data['${effectivePrefix}first_name']),
       lastName: stringType
           .mapFromDatabaseResponse(data['${effectivePrefix}last_name']),
+      phoneNumber: stringType
+          .mapFromDatabaseResponse(data['${effectivePrefix}phone_number']),
+      picture:
+          stringType.mapFromDatabaseResponse(data['${effectivePrefix}picture']),
       email:
           stringType.mapFromDatabaseResponse(data['${effectivePrefix}email']),
+      provider: stringType
+          .mapFromDatabaseResponse(data['${effectivePrefix}provider']),
+      creationTime: dateTimeType
+          .mapFromDatabaseResponse(data['${effectivePrefix}creation_time']),
+      lastSignInTime: dateTimeType
+          .mapFromDatabaseResponse(data['${effectivePrefix}last_signin_time']),
+      locale:
+          stringType.mapFromDatabaseResponse(data['${effectivePrefix}locale']),
     );
   }
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (!nullToAbsent || userId != null) {
-      map['user_id'] = Variable<String>(userId);
+    if (!nullToAbsent || uid != null) {
+      map['uid'] = Variable<String>(uid);
     }
-    if (!nullToAbsent || fullName != null) {
-      map['full_name'] = Variable<String>(fullName);
-    }
-    if (!nullToAbsent || avatar != null) {
-      map['avatar'] = Variable<String>(avatar);
+    if (!nullToAbsent || displayName != null) {
+      map['display_name'] = Variable<String>(displayName);
     }
     if (!nullToAbsent || firstName != null) {
       map['first_name'] = Variable<String>(firstName);
@@ -58,29 +75,61 @@ class Profile extends DataClass implements Insertable<Profile> {
     if (!nullToAbsent || lastName != null) {
       map['last_name'] = Variable<String>(lastName);
     }
+    if (!nullToAbsent || phoneNumber != null) {
+      map['phone_number'] = Variable<String>(phoneNumber);
+    }
+    if (!nullToAbsent || picture != null) {
+      map['picture'] = Variable<String>(picture);
+    }
     if (!nullToAbsent || email != null) {
       map['email'] = Variable<String>(email);
+    }
+    if (!nullToAbsent || provider != null) {
+      map['provider'] = Variable<String>(provider);
+    }
+    if (!nullToAbsent || creationTime != null) {
+      map['creation_time'] = Variable<DateTime>(creationTime);
+    }
+    if (!nullToAbsent || lastSignInTime != null) {
+      map['last_signin_time'] = Variable<DateTime>(lastSignInTime);
+    }
+    if (!nullToAbsent || locale != null) {
+      map['locale'] = Variable<String>(locale);
     }
     return map;
   }
 
   ProfilesCompanion toCompanion(bool nullToAbsent) {
     return ProfilesCompanion(
-      userId:
-          userId == null && nullToAbsent ? const Value.absent() : Value(userId),
-      fullName: fullName == null && nullToAbsent
+      uid: uid == null && nullToAbsent ? const Value.absent() : Value(uid),
+      displayName: displayName == null && nullToAbsent
           ? const Value.absent()
-          : Value(fullName),
-      avatar:
-          avatar == null && nullToAbsent ? const Value.absent() : Value(avatar),
+          : Value(displayName),
       firstName: firstName == null && nullToAbsent
           ? const Value.absent()
           : Value(firstName),
       lastName: lastName == null && nullToAbsent
           ? const Value.absent()
           : Value(lastName),
+      phoneNumber: phoneNumber == null && nullToAbsent
+          ? const Value.absent()
+          : Value(phoneNumber),
+      picture: picture == null && nullToAbsent
+          ? const Value.absent()
+          : Value(picture),
       email:
           email == null && nullToAbsent ? const Value.absent() : Value(email),
+      provider: provider == null && nullToAbsent
+          ? const Value.absent()
+          : Value(provider),
+      creationTime: creationTime == null && nullToAbsent
+          ? const Value.absent()
+          : Value(creationTime),
+      lastSignInTime: lastSignInTime == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lastSignInTime),
+      locale:
+          locale == null && nullToAbsent ? const Value.absent() : Value(locale),
     );
   }
 
@@ -88,145 +137,219 @@ class Profile extends DataClass implements Insertable<Profile> {
       {ValueSerializer serializer}) {
     serializer ??= moorRuntimeOptions.defaultSerializer;
     return Profile(
-      userId: serializer.fromJson<String>(json['userId']),
-      fullName: serializer.fromJson<String>(json['fullName']),
-      avatar: serializer.fromJson<String>(json['avatar']),
+      uid: serializer.fromJson<String>(json['uid']),
+      displayName: serializer.fromJson<String>(json['displayName']),
       firstName: serializer.fromJson<String>(json['firstName']),
       lastName: serializer.fromJson<String>(json['lastName']),
+      phoneNumber: serializer.fromJson<String>(json['phoneNumber']),
+      picture: serializer.fromJson<String>(json['picture']),
       email: serializer.fromJson<String>(json['email']),
+      provider: serializer.fromJson<String>(json['provider']),
+      creationTime: serializer.fromJson<DateTime>(json['creationTime']),
+      lastSignInTime: serializer.fromJson<DateTime>(json['lastSignInTime']),
+      locale: serializer.fromJson<String>(json['locale']),
     );
   }
   @override
   Map<String, dynamic> toJson({ValueSerializer serializer}) {
     serializer ??= moorRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
-      'userId': serializer.toJson<String>(userId),
-      'fullName': serializer.toJson<String>(fullName),
-      'avatar': serializer.toJson<String>(avatar),
+      'uid': serializer.toJson<String>(uid),
+      'displayName': serializer.toJson<String>(displayName),
       'firstName': serializer.toJson<String>(firstName),
       'lastName': serializer.toJson<String>(lastName),
+      'phoneNumber': serializer.toJson<String>(phoneNumber),
+      'picture': serializer.toJson<String>(picture),
       'email': serializer.toJson<String>(email),
+      'provider': serializer.toJson<String>(provider),
+      'creationTime': serializer.toJson<DateTime>(creationTime),
+      'lastSignInTime': serializer.toJson<DateTime>(lastSignInTime),
+      'locale': serializer.toJson<String>(locale),
     };
   }
 
   Profile copyWith(
-          {String userId,
-          String fullName,
-          String avatar,
+          {String uid,
+          String displayName,
           String firstName,
           String lastName,
-          String email}) =>
+          String phoneNumber,
+          String picture,
+          String email,
+          String provider,
+          DateTime creationTime,
+          DateTime lastSignInTime,
+          String locale}) =>
       Profile(
-        userId: userId ?? this.userId,
-        fullName: fullName ?? this.fullName,
-        avatar: avatar ?? this.avatar,
+        uid: uid ?? this.uid,
+        displayName: displayName ?? this.displayName,
         firstName: firstName ?? this.firstName,
         lastName: lastName ?? this.lastName,
+        phoneNumber: phoneNumber ?? this.phoneNumber,
+        picture: picture ?? this.picture,
         email: email ?? this.email,
+        provider: provider ?? this.provider,
+        creationTime: creationTime ?? this.creationTime,
+        lastSignInTime: lastSignInTime ?? this.lastSignInTime,
+        locale: locale ?? this.locale,
       );
   @override
   String toString() {
     return (StringBuffer('Profile(')
-          ..write('userId: $userId, ')
-          ..write('fullName: $fullName, ')
-          ..write('avatar: $avatar, ')
+          ..write('uid: $uid, ')
+          ..write('displayName: $displayName, ')
           ..write('firstName: $firstName, ')
           ..write('lastName: $lastName, ')
-          ..write('email: $email')
+          ..write('phoneNumber: $phoneNumber, ')
+          ..write('picture: $picture, ')
+          ..write('email: $email, ')
+          ..write('provider: $provider, ')
+          ..write('creationTime: $creationTime, ')
+          ..write('lastSignInTime: $lastSignInTime, ')
+          ..write('locale: $locale')
           ..write(')'))
         .toString();
   }
 
   @override
   int get hashCode => $mrjf($mrjc(
-      userId.hashCode,
+      uid.hashCode,
       $mrjc(
-          fullName.hashCode,
+          displayName.hashCode,
           $mrjc(
-              avatar.hashCode,
-              $mrjc(firstName.hashCode,
-                  $mrjc(lastName.hashCode, email.hashCode))))));
+              firstName.hashCode,
+              $mrjc(
+                  lastName.hashCode,
+                  $mrjc(
+                      phoneNumber.hashCode,
+                      $mrjc(
+                          picture.hashCode,
+                          $mrjc(
+                              email.hashCode,
+                              $mrjc(
+                                  provider.hashCode,
+                                  $mrjc(
+                                      creationTime.hashCode,
+                                      $mrjc(lastSignInTime.hashCode,
+                                          locale.hashCode)))))))))));
   @override
   bool operator ==(dynamic other) =>
       identical(this, other) ||
       (other is Profile &&
-          other.userId == this.userId &&
-          other.fullName == this.fullName &&
-          other.avatar == this.avatar &&
+          other.uid == this.uid &&
+          other.displayName == this.displayName &&
           other.firstName == this.firstName &&
           other.lastName == this.lastName &&
-          other.email == this.email);
+          other.phoneNumber == this.phoneNumber &&
+          other.picture == this.picture &&
+          other.email == this.email &&
+          other.provider == this.provider &&
+          other.creationTime == this.creationTime &&
+          other.lastSignInTime == this.lastSignInTime &&
+          other.locale == this.locale);
 }
 
 class ProfilesCompanion extends UpdateCompanion<Profile> {
-  final Value<String> userId;
-  final Value<String> fullName;
-  final Value<String> avatar;
+  final Value<String> uid;
+  final Value<String> displayName;
   final Value<String> firstName;
   final Value<String> lastName;
+  final Value<String> phoneNumber;
+  final Value<String> picture;
   final Value<String> email;
+  final Value<String> provider;
+  final Value<DateTime> creationTime;
+  final Value<DateTime> lastSignInTime;
+  final Value<String> locale;
   const ProfilesCompanion({
-    this.userId = const Value.absent(),
-    this.fullName = const Value.absent(),
-    this.avatar = const Value.absent(),
+    this.uid = const Value.absent(),
+    this.displayName = const Value.absent(),
     this.firstName = const Value.absent(),
     this.lastName = const Value.absent(),
+    this.phoneNumber = const Value.absent(),
+    this.picture = const Value.absent(),
     this.email = const Value.absent(),
+    this.provider = const Value.absent(),
+    this.creationTime = const Value.absent(),
+    this.lastSignInTime = const Value.absent(),
+    this.locale = const Value.absent(),
   });
   ProfilesCompanion.insert({
-    @required String userId,
-    this.fullName = const Value.absent(),
-    this.avatar = const Value.absent(),
+    @required String uid,
+    this.displayName = const Value.absent(),
     this.firstName = const Value.absent(),
     this.lastName = const Value.absent(),
+    this.phoneNumber = const Value.absent(),
+    this.picture = const Value.absent(),
     this.email = const Value.absent(),
-  }) : userId = Value(userId);
+    this.provider = const Value.absent(),
+    this.creationTime = const Value.absent(),
+    this.lastSignInTime = const Value.absent(),
+    this.locale = const Value.absent(),
+  }) : uid = Value(uid);
   static Insertable<Profile> custom({
-    Expression<String> userId,
-    Expression<String> fullName,
-    Expression<String> avatar,
+    Expression<String> uid,
+    Expression<String> displayName,
     Expression<String> firstName,
     Expression<String> lastName,
+    Expression<String> phoneNumber,
+    Expression<String> picture,
     Expression<String> email,
+    Expression<String> provider,
+    Expression<DateTime> creationTime,
+    Expression<DateTime> lastSignInTime,
+    Expression<String> locale,
   }) {
     return RawValuesInsertable({
-      if (userId != null) 'user_id': userId,
-      if (fullName != null) 'full_name': fullName,
-      if (avatar != null) 'avatar': avatar,
+      if (uid != null) 'uid': uid,
+      if (displayName != null) 'display_name': displayName,
       if (firstName != null) 'first_name': firstName,
       if (lastName != null) 'last_name': lastName,
+      if (phoneNumber != null) 'phone_number': phoneNumber,
+      if (picture != null) 'picture': picture,
       if (email != null) 'email': email,
+      if (provider != null) 'provider': provider,
+      if (creationTime != null) 'creation_time': creationTime,
+      if (lastSignInTime != null) 'last_signin_time': lastSignInTime,
+      if (locale != null) 'locale': locale,
     });
   }
 
   ProfilesCompanion copyWith(
-      {Value<String> userId,
-      Value<String> fullName,
-      Value<String> avatar,
+      {Value<String> uid,
+      Value<String> displayName,
       Value<String> firstName,
       Value<String> lastName,
-      Value<String> email}) {
+      Value<String> phoneNumber,
+      Value<String> picture,
+      Value<String> email,
+      Value<String> provider,
+      Value<DateTime> creationTime,
+      Value<DateTime> lastSignInTime,
+      Value<String> locale}) {
     return ProfilesCompanion(
-      userId: userId ?? this.userId,
-      fullName: fullName ?? this.fullName,
-      avatar: avatar ?? this.avatar,
+      uid: uid ?? this.uid,
+      displayName: displayName ?? this.displayName,
       firstName: firstName ?? this.firstName,
       lastName: lastName ?? this.lastName,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      picture: picture ?? this.picture,
       email: email ?? this.email,
+      provider: provider ?? this.provider,
+      creationTime: creationTime ?? this.creationTime,
+      lastSignInTime: lastSignInTime ?? this.lastSignInTime,
+      locale: locale ?? this.locale,
     );
   }
 
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
-    if (userId.present) {
-      map['user_id'] = Variable<String>(userId.value);
+    if (uid.present) {
+      map['uid'] = Variable<String>(uid.value);
     }
-    if (fullName.present) {
-      map['full_name'] = Variable<String>(fullName.value);
-    }
-    if (avatar.present) {
-      map['avatar'] = Variable<String>(avatar.value);
+    if (displayName.present) {
+      map['display_name'] = Variable<String>(displayName.value);
     }
     if (firstName.present) {
       map['first_name'] = Variable<String>(firstName.value);
@@ -234,8 +357,26 @@ class ProfilesCompanion extends UpdateCompanion<Profile> {
     if (lastName.present) {
       map['last_name'] = Variable<String>(lastName.value);
     }
+    if (phoneNumber.present) {
+      map['phone_number'] = Variable<String>(phoneNumber.value);
+    }
+    if (picture.present) {
+      map['picture'] = Variable<String>(picture.value);
+    }
     if (email.present) {
       map['email'] = Variable<String>(email.value);
+    }
+    if (provider.present) {
+      map['provider'] = Variable<String>(provider.value);
+    }
+    if (creationTime.present) {
+      map['creation_time'] = Variable<DateTime>(creationTime.value);
+    }
+    if (lastSignInTime.present) {
+      map['last_signin_time'] = Variable<DateTime>(lastSignInTime.value);
+    }
+    if (locale.present) {
+      map['locale'] = Variable<String>(locale.value);
     }
     return map;
   }
@@ -243,12 +384,17 @@ class ProfilesCompanion extends UpdateCompanion<Profile> {
   @override
   String toString() {
     return (StringBuffer('ProfilesCompanion(')
-          ..write('userId: $userId, ')
-          ..write('fullName: $fullName, ')
-          ..write('avatar: $avatar, ')
+          ..write('uid: $uid, ')
+          ..write('displayName: $displayName, ')
           ..write('firstName: $firstName, ')
           ..write('lastName: $lastName, ')
-          ..write('email: $email')
+          ..write('phoneNumber: $phoneNumber, ')
+          ..write('picture: $picture, ')
+          ..write('email: $email, ')
+          ..write('provider: $provider, ')
+          ..write('creationTime: $creationTime, ')
+          ..write('lastSignInTime: $lastSignInTime, ')
+          ..write('locale: $locale')
           ..write(')'))
         .toString();
   }
@@ -258,37 +404,27 @@ class $ProfilesTable extends Profiles with TableInfo<$ProfilesTable, Profile> {
   final GeneratedDatabase _db;
   final String _alias;
   $ProfilesTable(this._db, [this._alias]);
-  final VerificationMeta _userIdMeta = const VerificationMeta('userId');
-  GeneratedTextColumn _userId;
+  final VerificationMeta _uidMeta = const VerificationMeta('uid');
+  GeneratedTextColumn _uid;
   @override
-  GeneratedTextColumn get userId => _userId ??= _constructUserId();
-  GeneratedTextColumn _constructUserId() {
+  GeneratedTextColumn get uid => _uid ??= _constructUid();
+  GeneratedTextColumn _constructUid() {
     return GeneratedTextColumn(
-      'user_id',
+      'uid',
       $tableName,
       false,
     );
   }
 
-  final VerificationMeta _fullNameMeta = const VerificationMeta('fullName');
-  GeneratedTextColumn _fullName;
+  final VerificationMeta _displayNameMeta =
+      const VerificationMeta('displayName');
+  GeneratedTextColumn _displayName;
   @override
-  GeneratedTextColumn get fullName => _fullName ??= _constructFullName();
-  GeneratedTextColumn _constructFullName() {
+  GeneratedTextColumn get displayName =>
+      _displayName ??= _constructDisplayName();
+  GeneratedTextColumn _constructDisplayName() {
     return GeneratedTextColumn(
-      'full_name',
-      $tableName,
-      true,
-    );
-  }
-
-  final VerificationMeta _avatarMeta = const VerificationMeta('avatar');
-  GeneratedTextColumn _avatar;
-  @override
-  GeneratedTextColumn get avatar => _avatar ??= _constructAvatar();
-  GeneratedTextColumn _constructAvatar() {
-    return GeneratedTextColumn(
-      'avatar',
+      'display_name',
       $tableName,
       true,
     );
@@ -318,6 +454,32 @@ class $ProfilesTable extends Profiles with TableInfo<$ProfilesTable, Profile> {
     );
   }
 
+  final VerificationMeta _phoneNumberMeta =
+      const VerificationMeta('phoneNumber');
+  GeneratedTextColumn _phoneNumber;
+  @override
+  GeneratedTextColumn get phoneNumber =>
+      _phoneNumber ??= _constructPhoneNumber();
+  GeneratedTextColumn _constructPhoneNumber() {
+    return GeneratedTextColumn(
+      'phone_number',
+      $tableName,
+      true,
+    );
+  }
+
+  final VerificationMeta _pictureMeta = const VerificationMeta('picture');
+  GeneratedTextColumn _picture;
+  @override
+  GeneratedTextColumn get picture => _picture ??= _constructPicture();
+  GeneratedTextColumn _constructPicture() {
+    return GeneratedTextColumn(
+      'picture',
+      $tableName,
+      true,
+    );
+  }
+
   final VerificationMeta _emailMeta = const VerificationMeta('email');
   GeneratedTextColumn _email;
   @override
@@ -330,9 +492,72 @@ class $ProfilesTable extends Profiles with TableInfo<$ProfilesTable, Profile> {
     );
   }
 
+  final VerificationMeta _providerMeta = const VerificationMeta('provider');
+  GeneratedTextColumn _provider;
   @override
-  List<GeneratedColumn> get $columns =>
-      [userId, fullName, avatar, firstName, lastName, email];
+  GeneratedTextColumn get provider => _provider ??= _constructProvider();
+  GeneratedTextColumn _constructProvider() {
+    return GeneratedTextColumn(
+      'provider',
+      $tableName,
+      true,
+    );
+  }
+
+  final VerificationMeta _creationTimeMeta =
+      const VerificationMeta('creationTime');
+  GeneratedDateTimeColumn _creationTime;
+  @override
+  GeneratedDateTimeColumn get creationTime =>
+      _creationTime ??= _constructCreationTime();
+  GeneratedDateTimeColumn _constructCreationTime() {
+    return GeneratedDateTimeColumn(
+      'creation_time',
+      $tableName,
+      true,
+    );
+  }
+
+  final VerificationMeta _lastSignInTimeMeta =
+      const VerificationMeta('lastSignInTime');
+  GeneratedDateTimeColumn _lastSignInTime;
+  @override
+  GeneratedDateTimeColumn get lastSignInTime =>
+      _lastSignInTime ??= _constructLastSignInTime();
+  GeneratedDateTimeColumn _constructLastSignInTime() {
+    return GeneratedDateTimeColumn(
+      'last_signin_time',
+      $tableName,
+      true,
+    );
+  }
+
+  final VerificationMeta _localeMeta = const VerificationMeta('locale');
+  GeneratedTextColumn _locale;
+  @override
+  GeneratedTextColumn get locale => _locale ??= _constructLocale();
+  GeneratedTextColumn _constructLocale() {
+    return GeneratedTextColumn(
+      'locale',
+      $tableName,
+      true,
+    );
+  }
+
+  @override
+  List<GeneratedColumn> get $columns => [
+        uid,
+        displayName,
+        firstName,
+        lastName,
+        phoneNumber,
+        picture,
+        email,
+        provider,
+        creationTime,
+        lastSignInTime,
+        locale
+      ];
   @override
   $ProfilesTable get asDslTable => this;
   @override
@@ -344,19 +569,17 @@ class $ProfilesTable extends Profiles with TableInfo<$ProfilesTable, Profile> {
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
-    if (data.containsKey('user_id')) {
-      context.handle(_userIdMeta,
-          userId.isAcceptableOrUnknown(data['user_id'], _userIdMeta));
+    if (data.containsKey('uid')) {
+      context.handle(
+          _uidMeta, uid.isAcceptableOrUnknown(data['uid'], _uidMeta));
     } else if (isInserting) {
-      context.missing(_userIdMeta);
+      context.missing(_uidMeta);
     }
-    if (data.containsKey('full_name')) {
-      context.handle(_fullNameMeta,
-          fullName.isAcceptableOrUnknown(data['full_name'], _fullNameMeta));
-    }
-    if (data.containsKey('avatar')) {
-      context.handle(_avatarMeta,
-          avatar.isAcceptableOrUnknown(data['avatar'], _avatarMeta));
+    if (data.containsKey('display_name')) {
+      context.handle(
+          _displayNameMeta,
+          displayName.isAcceptableOrUnknown(
+              data['display_name'], _displayNameMeta));
     }
     if (data.containsKey('first_name')) {
       context.handle(_firstNameMeta,
@@ -366,15 +589,45 @@ class $ProfilesTable extends Profiles with TableInfo<$ProfilesTable, Profile> {
       context.handle(_lastNameMeta,
           lastName.isAcceptableOrUnknown(data['last_name'], _lastNameMeta));
     }
+    if (data.containsKey('phone_number')) {
+      context.handle(
+          _phoneNumberMeta,
+          phoneNumber.isAcceptableOrUnknown(
+              data['phone_number'], _phoneNumberMeta));
+    }
+    if (data.containsKey('picture')) {
+      context.handle(_pictureMeta,
+          picture.isAcceptableOrUnknown(data['picture'], _pictureMeta));
+    }
     if (data.containsKey('email')) {
       context.handle(
           _emailMeta, email.isAcceptableOrUnknown(data['email'], _emailMeta));
+    }
+    if (data.containsKey('provider')) {
+      context.handle(_providerMeta,
+          provider.isAcceptableOrUnknown(data['provider'], _providerMeta));
+    }
+    if (data.containsKey('creation_time')) {
+      context.handle(
+          _creationTimeMeta,
+          creationTime.isAcceptableOrUnknown(
+              data['creation_time'], _creationTimeMeta));
+    }
+    if (data.containsKey('last_signin_time')) {
+      context.handle(
+          _lastSignInTimeMeta,
+          lastSignInTime.isAcceptableOrUnknown(
+              data['last_signin_time'], _lastSignInTimeMeta));
+    }
+    if (data.containsKey('locale')) {
+      context.handle(_localeMeta,
+          locale.isAcceptableOrUnknown(data['locale'], _localeMeta));
     }
     return context;
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => {userId};
+  Set<GeneratedColumn> get $primaryKey => {uid};
   @override
   Profile map(Map<String, dynamic> data, {String tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : null;

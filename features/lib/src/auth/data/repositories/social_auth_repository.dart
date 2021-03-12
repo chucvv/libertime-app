@@ -1,15 +1,17 @@
 import 'package:dartz/dartz.dart';
-import 'package:features/src/auth/domain/entities/user_info.dart';
+import 'package:features/src/auth/domain/entities/user_entity.dart';
 import 'package:features/src/auth/domain/repositories/auth_repository.dart';
 import 'package:common/common.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'extension.dart';
 
-class DefaultAuthRepository extends AuthRepository {
+class SocialAuthRepository extends AuthRepository {
   final FacebookAuth facebookAuth;
   final GoogleSignIn googleSignIn;
-  DefaultAuthRepository(this.facebookAuth, this.googleSignIn);
+  final FirebaseAuth firebaseAuth;
+  SocialAuthRepository(this.facebookAuth, this.googleSignIn, this.firebaseAuth);
 
   @override
   Future<Either<UserEntity, Failure>> signinFacebook() async {
@@ -17,8 +19,8 @@ class DefaultAuthRepository extends AuthRepository {
       final _accessToken = await facebookAuth.login();
       final credential = FacebookAuthProvider.credential(_accessToken.token);
       final userCredential =
-          await FirebaseAuth.instance.signInWithCredential(credential);
-      return Left(UserEntity(userCredential));
+          await firebaseAuth.signInWithCredential(credential);
+      return Left(userCredential.toUserEntity());
     } on Exception catch (e) {
       return Right(Failure.serverFailure(e));
     }
@@ -38,8 +40,8 @@ class DefaultAuthRepository extends AuthRepository {
       );
       // Once signed in, return the UserCredential
       final userCredential =
-          await FirebaseAuth.instance.signInWithCredential(credential);
-      return Left(UserEntity(userCredential));
+          await firebaseAuth.signInWithCredential(credential);
+      return Left(userCredential.toUserEntity());
     } on Exception catch (e) {
       return Right(Failure.serverFailure(e));
     }

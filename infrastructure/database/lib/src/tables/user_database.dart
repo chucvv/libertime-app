@@ -3,15 +3,22 @@ part 'user_database.g.dart';
 
 @DataClassName('Profile')
 class Profiles extends Table {
-  TextColumn get userId => text().named('user_id')();
-  TextColumn get fullName => text().named('full_name').nullable()();
-  TextColumn get avatar => text().nullable()();
+  TextColumn get uid => text().named('uid')();
+  TextColumn get displayName => text().named('display_name').nullable()();
   TextColumn get firstName => text().named('first_name').nullable()();
   TextColumn get lastName => text().named('last_name').nullable()();
+  TextColumn get phoneNumber => text().named('phone_number').nullable()();
+  TextColumn get picture => text().nullable()();
   TextColumn get email => text().nullable()();
+  TextColumn get provider => text().nullable()();
+  DateTimeColumn get creationTime =>
+      dateTime().named('creation_time').nullable()();
+  DateTimeColumn get lastSignInTime =>
+      dateTime().named('last_signin_time').nullable()();
+  TextColumn get locale => text().nullable()();
 
   @override
-  Set<Column> get primaryKey => {userId};
+  Set<Column> get primaryKey => {uid};
 }
 
 @UseMoor(tables: [Profiles])
@@ -34,16 +41,31 @@ class UserDatabase extends _$UserDatabase {
         });
   }
 
-  Future<Profile> getProfile(String userId) =>
-      (select(profiles)..where((t) => t.userId.equals(userId))).getSingle();
+  Future<Profile> getProfile(String uid) =>
+      (select(profiles)..where((t) => t.uid.equals(uid))).getSingle();
 
-  Future<int> put(String userId, String fullName, String avatar,
-          String firstName, String lastName, String email) =>
+  Future<int> put(
+          String uid,
+          String displayName,
+          String firstName,
+          String lastName,
+          String phoneNumber,
+          String picture,
+          String email,
+          String provider,
+          DateTime creationTime,
+          DateTime lastSignInTime,
+          String locale) =>
       into(profiles).insertOnConflictUpdate(Profile(
-          userId: userId,
-          fullName: fullName,
-          avatar: avatar,
+          uid: uid,
+          displayName: displayName,
           firstName: firstName,
           lastName: lastName,
-          email: email));
+          picture: picture,
+          email: email,
+          phoneNumber: phoneNumber,
+          provider: provider,
+          creationTime: creationTime,
+          lastSignInTime: lastSignInTime,
+          locale: locale));
 }
