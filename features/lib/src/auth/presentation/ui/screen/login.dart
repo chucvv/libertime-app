@@ -1,39 +1,25 @@
-import 'package:features/src/auth/data/repositories/social_auth_repository.dart';
-import 'package:features/src/auth/domain/repositories/auth_repository.dart';
-import 'package:features/src/auth/domain/usecases/login_facebook.dart';
-import 'package:features/src/auth/domain/usecases/login_google.dart';
 import 'package:features/src/auth/presentation/blocs/signin/signin_bloc.dart';
 import 'package:features/src/auth/presentation/strings.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:features/src/auth/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:share_ui/awesome_external_widgets.dart';
 import 'package:share_ui/awesome_ui.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
-final authRepository = Provider<AuthRepository>((ref) => SocialAuthRepository(
-    FacebookAuth.instance, GoogleSignIn(), FirebaseAuth.instance));
-final facebookSignInUseCase =
-    Provider((ref) => FacebookSigninUseCase(ref.read(authRepository)));
-final googleSignInUseCase =
-    Provider((ref) => GoogleSigninUseCase(ref.read(authRepository)));
-final signInBloc = Provider((ref) =>
-    SigninBloc(ref.read(facebookSignInUseCase), ref.read(googleSignInUseCase)));
-
-class LoginScreen extends ConsumerWidget {
+class LoginScreen extends HookWidget {
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final FocusNode nodeOne = FocusNode();
   final FocusNode nodeTwo = FocusNode();
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    return BlocProvider(
-      create: (context) => watch(signInBloc),
+  Widget build(BuildContext context) {
+    final bloc = useProvider(signInBlocProvider);
+    return BlocProvider<SigninBloc>(
+      create: (context) => bloc,
       child: BlocConsumer<SigninBloc, SigninState>(
         builder: (context, state) {
           return ListView(
@@ -99,11 +85,12 @@ class LoginScreen extends ConsumerWidget {
           );
         },
         listener: (context, state) {
-          state.maybeWhen(
-              facebookSiginSuccess: () {
+          state.when(
+              initial: () {},
+              facebookSigninSuccess: () {
                 Navigator.popAndPushNamed(context, '/home');
               },
-              facebookSiginFailure: (error) {
+              facebookSigninFailure: (error) {
                 showError(context, 'Facebook', error);
               },
               googleSiginSuccess: () {
@@ -115,7 +102,7 @@ class LoginScreen extends ConsumerWidget {
               phoneSigninFailure: (error) {
                 showError(context, 'Google', error);
               },
-              orElse: () {});
+              phoneSigninSuccess: () {});
         },
       ),
     );
@@ -139,9 +126,6 @@ class LoginScreen extends ConsumerWidget {
           EdgeInsets.only(left: 20.0, top: 12.0, right: 20.0, bottom: 12.0),
       elevation: 3.0,
       onTap: () {
-        // Use FirebaseCrashlytics to throw an error. Use this for
-        // confirmation that errors are being correctly reported.
-        FirebaseCrashlytics.instance.crash();
         BlocProvider.of<SigninBloc>(context).add(SigninEvent.onSignInPhone(
             _phoneNumberController.text, _passwordController.text));
       },

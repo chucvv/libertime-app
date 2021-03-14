@@ -1,8 +1,10 @@
-import 'package:features/src/home/data/repositories/data.dart';
 import 'package:features/src/setting/presentation/ui/widget/profile_header.dart';
 import 'package:features/src/setting/presentation/ui/widget/profile_item.dart';
+import 'package:features/src/top_module_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:share_ui/awesome_external_widgets.dart';
 import 'package:share_ui/awesome_ui.dart';
 
@@ -19,10 +21,14 @@ class SettingScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ProfileHeader(
-              userName: 'William',
-              imageUrl: peoples[3].imageUrl,
-            ),
+            HookBuilder(builder: (context) {
+              final user = useProvider(
+                  userNotifierProvider.select((value) => value.user));
+              return ProfileHeader(
+                userName: user?.displayName ?? "",
+                imageUrl: user?.picture ?? "",
+              );
+            }),
             SizedBox(
               height: 12.0,
             ),

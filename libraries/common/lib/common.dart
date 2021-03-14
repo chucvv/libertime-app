@@ -1,6 +1,5 @@
 library share_module;
 
-export 'src/error/exception.dart';
-export 'src/error/exception.dart';
-export 'src/error/failures.dart';
 export 'src/usecase.dart';
+export 'src/result.dart';
+export 'src/error_resolver.dart';

@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:common/common.dart';
-import 'package:features/src/auth/domain/usecases/login_facebook.dart';
-import 'package:features/src/auth/domain/usecases/login_google.dart';
+import 'package:features/src/auth/domain/usecases/facebook_signin.dart';
+import 'package:features/src/auth/domain/usecases/google_signin.dart';
+import 'package:features/src/publisher/user_notifier.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logging/logging.dart';
 
@@ -14,8 +14,10 @@ part 'signin_bloc.freezed.dart';
 class SigninBloc extends Bloc<SigninEvent, SigninState> {
   final FacebookSigninUseCase _facebookSigninUseCase;
   final GoogleSigninUseCase _googleSigninUseCase;
-  SigninBloc(this._facebookSigninUseCase, this._googleSigninUseCase)
-      : super(Loading()) {
+  final UserNotifier _userNotifier;
+  SigninBloc(this._facebookSigninUseCase, this._googleSigninUseCase,
+      this._userNotifier)
+      : super(Initial()) {
     _logger.info('Constructor SigninBloc');
   }
 
@@ -33,31 +35,30 @@ class SigninBloc extends Bloc<SigninEvent, SigninState> {
 
   Stream<SigninState> _signWithPhoneNumber(
       String phoneNumber, String rawPassword) async* {
-    yield Loading();
     yield PhoneSigninFailure("Account not found");
   }
 
   Stream<SigninState> _signFacebook() async* {
-    yield Loading();
-    final signin = await _facebookSigninUseCase(NoParams());
-    yield signin.fold((user) {
+    final result = await _facebookSigninUseCase();
+    yield result.when(success: (user) {
       _logger.fine(user);
-      return FacebookSiginSuccess();
-    }, (failure) {
-      _logger.severe(failure.exception);
-      return FacebookSigninFailure(failure.exception.toString());
+      _userNotifier.user = user;
+      return FacebookSigninSuccess();
+    }, failure: (error) {
+      _logger.severe(error.toString());
+      return FacebookSigninFailure(error.message);
     });
   }
 
   Stream<SigninState> _signGoogle() async* {
-    yield Loading();
-    final signin = await _googleSigninUseCase(NoParams());
-    yield signin.fold((user) {
+    final result = await _googleSigninUseCase();
+    yield result.when(success: (user) {
       _logger.fine(user);
-      return GoogleSiginSuccess();
-    }, (failure) {
-      _logger.severe(failure.exception);
-      return GoogleSigninFailure(failure.exception.toString());
+      _userNotifier.user = user;
+      return FacebookSigninSuccess();
+    }, failure: (error) {
+      _logger.severe(error.toString());
+      return FacebookSigninFailure(error.message);
     });
   }
 }
