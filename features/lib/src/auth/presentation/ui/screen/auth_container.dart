@@ -23,13 +23,7 @@ class AuthContainer extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        final currentFocus = FocusScope.of(context);
-        if (!currentFocus.hasPrimaryFocus) {
-          currentFocus.unfocus();
-        }
-      },
+    return Unfocus(
       child: Scaffold(
         backgroundColor: Colors.white,
         body: Column(children: [

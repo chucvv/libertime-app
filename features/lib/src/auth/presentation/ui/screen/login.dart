@@ -42,7 +42,6 @@ class LoginScreen extends HookWidget {
               SizedBox(height: 10.0),
               TextField(
                 controller: _phoneNumberController,
-                autofocus: true,
                 focusNode: nodeOne,
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.next,
