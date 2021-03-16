@@ -22,7 +22,7 @@ final facebookUseCaseProvider = Provider<FacebookSigninUseCase>((ref) {
 final googleUseCaseProvider = Provider<GoogleSigninUseCase>((ref) {
   return GoogleSigninUseCase(ref.read(authRepositoryProvider));
 });
-final signInBlocProvider = Provider((ref) => SigninBloc(
+final signInBlocProvider = Provider.autoDispose((ref) => SigninBloc(
     ref.read(facebookUseCaseProvider),
     ref.read(googleUseCaseProvider),
     ref.read(userNotifierProvider)));

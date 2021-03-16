@@ -12,7 +12,7 @@ final settingRepositoryProvider = Provider<SettingRepository>((ref) {
 final userSignOutProvider = Provider<UserSignOutUseCase>((ref) {
   return UserSignOutUseCase(ref.read(settingRepositoryProvider));
 });
-final settingBlocProvider = Provider<SettingBloc>((ref) {
+final settingBlocProvider = Provider.autoDispose<SettingBloc>((ref) {
   return SettingBloc(
       ref.read(userSignOutProvider), ref.read(userNotifierProvider));
 });
