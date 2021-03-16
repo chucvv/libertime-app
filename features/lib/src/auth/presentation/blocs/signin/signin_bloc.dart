@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:features/src/auth/domain/usecases/facebook_signin.dart';
-import 'package:features/src/auth/domain/usecases/google_signin.dart';
+import 'package:features/src/auth/domain/usecase/facebook_signin.dart';
+import 'package:features/src/auth/domain/usecase/google_signin.dart';
 import 'package:features/src/publisher/user_notifier.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logging/logging.dart';

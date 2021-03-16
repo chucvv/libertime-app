@@ -1,4 +1,4 @@
-import 'package:features/src/auth/domain/entities/user_entity.dart';
+import 'package:features/src/auth/domain/entity/user_entity.dart';
 import 'package:flutter/material.dart';
 
 class UserNotifier extends ChangeNotifier {

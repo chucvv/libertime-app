@@ -1,6 +1,6 @@
-import 'package:features/src/auth/data/services/social_auth_service.dart';
-import 'package:features/src/auth/domain/entities/user_entity.dart';
-import 'package:features/src/auth/domain/repositories/auth_repository.dart';
+import 'package:features/src/auth/data/service/social_auth_service.dart';
+import 'package:features/src/auth/domain/entity/user_entity.dart';
+import 'package:features/src/auth/domain/repository/auth_repository.dart';
 import 'extension.dart';
 
 class DefaultAuthRepository extends AuthRepository {
@@ -18,10 +18,5 @@ class DefaultAuthRepository extends AuthRepository {
   Future<UserEntity> signInGoogle() async {
     final userCredential = await _authService.signInGoogle();
     return userCredential.toUserEntity();
-  }
-
-  @override
-  Future<void> signOut() {
-    return _authService.signOutFacebook();
   }
 }

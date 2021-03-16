@@ -42,8 +42,8 @@ class FirebaseAuthService extends SocialAuthService {
   }
 
   @override
-  Future<void> signOutFacebook() {
-    return _facebookAuth
+  Future<void> signOutFacebook() async {
+    return await _facebookAuth
         .logOut()
         .then((_) => _firebaseAuth.signOut())
         .catchError((error) {
