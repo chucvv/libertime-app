@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:share_ui/awesome_ui.dart';
 
-import 'strings.dart';
-
 class MainContainer extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _MainContainerState();
@@ -16,54 +14,20 @@ class _MainContainerState extends State<MainContainer> {
     HomeScreen(),
     ExploreScreen(),
     MessageScreen(),
-    SettingScreen()
+    ProfileScreen()
   ];
   final List<Widget> _tabs = [
     Tab(
-      child: Align(
-        alignment: Alignment.center,
-        child: Column(
-          children: [
-            FaIcon(FontAwesomeIcons.home),
-            Text(
-              Strings.navigatorHomeTitle,
-            ),
-          ],
-        ),
-      ),
+      child: FaIcon(FontAwesomeIcons.grinHearts),
     ),
     Tab(
-      child: Align(
-        alignment: Alignment.center,
-        child: Column(
-          children: [
-            FaIcon(FontAwesomeIcons.searchLocation),
-            Text(Strings.navigatorExploreTitle),
-          ],
-        ),
-      ),
+      child: FaIcon(FontAwesomeIcons.searchLocation),
     ),
     Tab(
-      child: Align(
-        alignment: Alignment.center,
-        child: Column(
-          children: [
-            FaIcon(FontAwesomeIcons.solidCommentDots),
-            Text(Strings.navigatorMessageTitle),
-          ],
-        ),
-      ),
+      child: FaIcon(FontAwesomeIcons.commentDots),
     ),
     Tab(
-      child: Align(
-        alignment: Alignment.center,
-        child: Column(
-          children: [
-            FaIcon(FontAwesomeIcons.userAlt),
-            Text(Strings.navigatorSettingTitle),
-          ],
-        ),
-      ),
+      child: FaIcon(FontAwesomeIcons.user),
     ),
   ];
 
@@ -76,7 +40,10 @@ class _MainContainerState extends State<MainContainer> {
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(12)),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(24),
+              topRight: Radius.circular(24),
+            ),
             boxShadow: [
               BoxShadow(
                   color: Colors.grey.shade400,
@@ -85,10 +52,9 @@ class _MainContainerState extends State<MainContainer> {
             ],
           ),
           child: TabBar(
-            labelPadding: EdgeInsetsDirectional.only(top: 12),
+            labelPadding: EdgeInsetsDirectional.only(top: 6),
             indicator:
                 CircleTabIndicator(color: kAccentColorVariant, radius: 4.0),
-            labelStyle: Theme.of(context).textTheme.bodyText1,
             labelColor: AppColors.primaryColor[900],
             unselectedLabelColor: AppColors.primaryColor[100],
             tabs: _tabs,

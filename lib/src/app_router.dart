@@ -1,6 +1,6 @@
 import 'package:features/modules.dart';
 import 'package:flutter/material.dart';
-import 'package:libertime/src/container.dart';
+import 'package:libertime/src/main_container.dart';
 
 class AppRouter {
   static const String index = '/splash';

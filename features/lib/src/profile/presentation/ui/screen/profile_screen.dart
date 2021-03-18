@@ -1,7 +1,7 @@
-import 'package:features/src/setting/presentation/ui/bloc/setting_bloc.dart';
-import 'package:features/src/setting/presentation/ui/widget/profile_header.dart';
-import 'package:features/src/setting/presentation/ui/widget/profile_item.dart';
-import 'package:features/src/setting/provider.dart';
+import 'package:features/src/profile/presentation/ui/bloc/profile_bloc.dart';
+import 'package:features/src/profile/presentation/ui/widget/profile_header.dart';
+import 'package:features/src/profile/presentation/ui/widget/profile_item.dart';
+import 'package:features/src/profile/provider.dart';
 import 'package:features/src/top_module_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,18 +11,18 @@ import 'package:logging/logging.dart';
 import 'package:share_ui/awesome_external_widgets.dart';
 import 'package:share_ui/awesome_ui.dart';
 
-class SettingScreen extends HookWidget {
-  final logger = Logger('SettingScreen');
-  SettingScreen({Key key}) : super(key: key) {
-    logger.info('Construct SettingScreen');
+class ProfileScreen extends HookWidget {
+  final logger = Logger('ProfileScreen');
+  ProfileScreen({Key key}) : super(key: key) {
+    logger.info('Construct ProfileScreen');
   }
 
   @override
   Widget build(BuildContext context) {
-    final bloc = useProvider(settingBlocProvider);
+    final bloc = useProvider(profileBlocProvider);
     return BlocProvider(
       create: (_) => bloc,
-      child: BlocConsumer<SettingBloc, SettingState>(
+      child: BlocConsumer<ProfileBloc, ProfileState>(
         builder: (context, state) {
           return SafeArea(
             child: Container(
@@ -104,8 +104,8 @@ class SettingScreen extends HookWidget {
                     children: [
                       InkWell(
                         onTap: () {
-                          BlocProvider.of<SettingBloc>(context)
-                              .add(SettingEvent.onSignOut());
+                          BlocProvider.of<ProfileBloc>(context)
+                              .add(ProfileEvent.onSignOut());
                         },
                         child: Text(
                           'Logout',

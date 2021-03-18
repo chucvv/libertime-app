@@ -1,4 +1,4 @@
-import 'package:features/src/information/presentation/model/user_info_argument.dart';
+import 'package:features/src/profile/presentation/model/user_info_argument.dart';
 import 'package:features/src/message/data/repositories/data.dart';
 import 'package:features/src/message/presentation/ui/model/room_chat_args.dart';
 import 'package:features/src/message/presentation/ui/widget/chat_composer.dart';

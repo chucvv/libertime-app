@@ -2,18 +2,18 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:features/src/publisher/user_notifier.dart';
-import 'package:features/src/setting/domain/usecase/user_sign_out_usecase.dart';
+import 'package:features/src/profile/domain/usecase/user_sign_out_usecase.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 
-part 'setting_event.dart';
-part 'setting_state.dart';
-part 'setting_bloc.freezed.dart';
+part 'profile_event.dart';
+part 'profile_state.dart';
+part 'profile_bloc.freezed.dart';
 
-class SettingBloc extends Bloc<SettingEvent, SettingState> {
+class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   final logger = Logger('SettingBloc');
-  SettingBloc(this._userSignOutUseCase, this._userNotifier) : super(Initial()) {
+  ProfileBloc(this._userSignOutUseCase, this._userNotifier) : super(Initial()) {
     logger.info('Construct SettingBloc');
   }
 
@@ -21,13 +21,13 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
   final UserNotifier _userNotifier;
 
   @override
-  Stream<SettingState> mapEventToState(
-    SettingEvent event,
+  Stream<ProfileState> mapEventToState(
+    ProfileEvent event,
   ) async* {
     yield* event.when(onSignOut: _signOut);
   }
 
-  Stream<SettingState> _signOut() async* {
+  Stream<ProfileState> _signOut() async* {
     final result = await _userSignOutUseCase(_userNotifier.user);
     yield result.when(success: (_) {
       _userNotifier.user = null;

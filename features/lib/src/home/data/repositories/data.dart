@@ -1,4 +1,4 @@
-import 'package:features/src/information/presentation/model/user_info.dart';
+import 'package:features/src/profile/presentation/model/user_info.dart';
 
 List<UserInfo> peoples = [
   UserInfo(

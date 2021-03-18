@@ -1,6 +1,6 @@
 import 'package:features/src/home/data/repositories/data.dart';
 import 'package:features/src/home/presentation/ui/widget/match_widget.dart';
-import 'package:features/src/information/presentation/model/user_info_argument.dart';
+import 'package:features/src/profile/presentation/model/user_info_argument.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

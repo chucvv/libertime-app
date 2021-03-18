@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'setting_bloc.dart';
+part of 'profile_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -10,8 +10,8 @@ part of 'setting_bloc.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$SettingEventTearOff {
-  const _$SettingEventTearOff();
+class _$ProfileEventTearOff {
+  const _$ProfileEventTearOff();
 
 // ignore: unused_element
   signOut onSignOut() {
@@ -21,10 +21,10 @@ class _$SettingEventTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $SettingEvent = _$SettingEventTearOff();
+const $ProfileEvent = _$ProfileEventTearOff();
 
 /// @nodoc
-mixin _$SettingEvent {
+mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult onSignOut(),
@@ -46,19 +46,19 @@ mixin _$SettingEvent {
 }
 
 /// @nodoc
-abstract class $SettingEventCopyWith<$Res> {
-  factory $SettingEventCopyWith(
-          SettingEvent value, $Res Function(SettingEvent) then) =
-      _$SettingEventCopyWithImpl<$Res>;
+abstract class $ProfileEventCopyWith<$Res> {
+  factory $ProfileEventCopyWith(
+          ProfileEvent value, $Res Function(ProfileEvent) then) =
+      _$ProfileEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SettingEventCopyWithImpl<$Res> implements $SettingEventCopyWith<$Res> {
-  _$SettingEventCopyWithImpl(this._value, this._then);
+class _$ProfileEventCopyWithImpl<$Res> implements $ProfileEventCopyWith<$Res> {
+  _$ProfileEventCopyWithImpl(this._value, this._then);
 
-  final SettingEvent _value;
+  final ProfileEvent _value;
   // ignore: unused_field
-  final $Res Function(SettingEvent) _then;
+  final $Res Function(ProfileEvent) _then;
 }
 
 /// @nodoc
@@ -68,7 +68,7 @@ abstract class $signOutCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$signOutCopyWithImpl<$Res> extends _$SettingEventCopyWithImpl<$Res>
+class _$signOutCopyWithImpl<$Res> extends _$ProfileEventCopyWithImpl<$Res>
     implements $signOutCopyWith<$Res> {
   _$signOutCopyWithImpl(signOut _value, $Res Function(signOut) _then)
       : super(_value, (v) => _then(v as signOut));
@@ -83,7 +83,7 @@ class _$signOut implements signOut {
 
   @override
   String toString() {
-    return 'SettingEvent.onSignOut()';
+    return 'ProfileEvent.onSignOut()';
   }
 
   @override
@@ -139,13 +139,13 @@ class _$signOut implements signOut {
   }
 }
 
-abstract class signOut implements SettingEvent {
+abstract class signOut implements ProfileEvent {
   const factory signOut() = _$signOut;
 }
 
 /// @nodoc
-class _$SettingStateTearOff {
-  const _$SettingStateTearOff();
+class _$ProfileStateTearOff {
+  const _$ProfileStateTearOff();
 
 // ignore: unused_element
   Initial initial() {
@@ -167,10 +167,10 @@ class _$SettingStateTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $SettingState = _$SettingStateTearOff();
+const $ProfileState = _$ProfileStateTearOff();
 
 /// @nodoc
-mixin _$SettingState {
+mixin _$ProfileState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
@@ -200,19 +200,19 @@ mixin _$SettingState {
 }
 
 /// @nodoc
-abstract class $SettingStateCopyWith<$Res> {
-  factory $SettingStateCopyWith(
-          SettingState value, $Res Function(SettingState) then) =
-      _$SettingStateCopyWithImpl<$Res>;
+abstract class $ProfileStateCopyWith<$Res> {
+  factory $ProfileStateCopyWith(
+          ProfileState value, $Res Function(ProfileState) then) =
+      _$ProfileStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SettingStateCopyWithImpl<$Res> implements $SettingStateCopyWith<$Res> {
-  _$SettingStateCopyWithImpl(this._value, this._then);
+class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
+  _$ProfileStateCopyWithImpl(this._value, this._then);
 
-  final SettingState _value;
+  final ProfileState _value;
   // ignore: unused_field
-  final $Res Function(SettingState) _then;
+  final $Res Function(ProfileState) _then;
 }
 
 /// @nodoc
@@ -222,7 +222,7 @@ abstract class $InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$InitialCopyWithImpl<$Res> extends _$SettingStateCopyWithImpl<$Res>
+class _$InitialCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
     implements $InitialCopyWith<$Res> {
   _$InitialCopyWithImpl(Initial _value, $Res Function(Initial) _then)
       : super(_value, (v) => _then(v as Initial));
@@ -237,7 +237,7 @@ class _$Initial implements Initial {
 
   @override
   String toString() {
-    return 'SettingState.initial()';
+    return 'ProfileState.initial()';
   }
 
   @override
@@ -305,7 +305,7 @@ class _$Initial implements Initial {
   }
 }
 
-abstract class Initial implements SettingState {
+abstract class Initial implements ProfileState {
   const factory Initial() = _$Initial;
 }
 
@@ -318,7 +318,7 @@ abstract class $SignOutSuccessCopyWith<$Res> {
 
 /// @nodoc
 class _$SignOutSuccessCopyWithImpl<$Res>
-    extends _$SettingStateCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res>
     implements $SignOutSuccessCopyWith<$Res> {
   _$SignOutSuccessCopyWithImpl(
       SignOutSuccess _value, $Res Function(SignOutSuccess) _then)
@@ -334,7 +334,7 @@ class _$SignOutSuccess implements SignOutSuccess {
 
   @override
   String toString() {
-    return 'SettingState.onSignOutSuccess()';
+    return 'ProfileState.onSignOutSuccess()';
   }
 
   @override
@@ -402,7 +402,7 @@ class _$SignOutSuccess implements SignOutSuccess {
   }
 }
 
-abstract class SignOutSuccess implements SettingState {
+abstract class SignOutSuccess implements ProfileState {
   const factory SignOutSuccess() = _$SignOutSuccess;
 }
 
@@ -416,7 +416,7 @@ abstract class $SignOutFailureCopyWith<$Res> {
 
 /// @nodoc
 class _$SignOutFailureCopyWithImpl<$Res>
-    extends _$SettingStateCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res>
     implements $SignOutFailureCopyWith<$Res> {
   _$SignOutFailureCopyWithImpl(
       SignOutFailure _value, $Res Function(SignOutFailure) _then)
@@ -444,7 +444,7 @@ class _$SignOutFailure implements SignOutFailure {
 
   @override
   String toString() {
-    return 'SettingState.onSignOutFailure(error: $error)';
+    return 'ProfileState.onSignOutFailure(error: $error)';
   }
 
   @override
@@ -521,7 +521,7 @@ class _$SignOutFailure implements SignOutFailure {
   }
 }
 
-abstract class SignOutFailure implements SettingState {
+abstract class SignOutFailure implements ProfileState {
   const factory SignOutFailure(dynamic error) = _$SignOutFailure;
 
   dynamic get error;

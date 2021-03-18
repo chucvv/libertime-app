@@ -32,6 +32,7 @@ class AuthContainer extends StatelessWidget {
               Positioned(
                 child: CurvedShape(
                   height: MediaQuery.of(context).size.height / 4,
+                  color: AppColors.primaryColor[900],
                 ),
               ),
               Positioned(
@@ -58,7 +59,7 @@ class AuthContainer extends StatelessWidget {
                     title: TabBar(
                       indicatorColor: Colors.transparent,
                       labelColor: Colors.redAccent,
-                      unselectedLabelColor: AppColors.primaryColor[300],
+                      unselectedLabelColor: AppColors.primaryColor[900],
                       tabs: _tabs,
                       labelStyle: Theme.of(context)
                           .appBarTheme

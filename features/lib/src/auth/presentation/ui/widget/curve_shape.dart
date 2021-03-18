@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:share_ui/awesome_ui.dart';
 
 class CurvedShape extends StatelessWidget {
   final double height;
+  final Color color;
 
-  const CurvedShape({Key key, this.height}) : super(key: key);
+  const CurvedShape({Key key, this.height, this.color}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       height: height,
       child: CustomPaint(
-        painter: _CurvedPainter(context),
+        painter: _CurvedPainter(context, color),
       ),
     );
   }
@@ -19,14 +19,15 @@ class CurvedShape extends StatelessWidget {
 
 class _CurvedPainter extends CustomPainter {
   final BuildContext context;
+  final Color color;
 
-  _CurvedPainter(this.context);
+  _CurvedPainter(this.context, this.color);
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
       ..style = PaintingStyle.fill
       ..isAntiAlias = true
-      ..color = kPrimaryColor;
+      ..color = color;
 
     final height = size.height;
     final width = size.width;
