@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:common/common.dart';
 import 'package:features/src/auth/domain/usecase/facebook_signin.dart';
 import 'package:features/src/auth/domain/usecase/google_signin.dart';
 import 'package:features/src/publisher/user_notifier.dart';
@@ -39,7 +40,7 @@ class SigninBloc extends Bloc<SigninEvent, SigninState> {
   }
 
   Stream<SigninState> _signFacebook() async* {
-    final result = await _facebookSigninUseCase();
+    final result = await _facebookSigninUseCase(NoParams());
     yield result.when(success: (user) {
       _logger.fine(user);
       _userNotifier.user = user;
@@ -51,7 +52,7 @@ class SigninBloc extends Bloc<SigninEvent, SigninState> {
   }
 
   Stream<SigninState> _signGoogle() async* {
-    final result = await _googleSigninUseCase();
+    final result = await _googleSigninUseCase(NoParams());
     yield result.when(success: (user) {
       _logger.fine(user);
       _userNotifier.user = user;

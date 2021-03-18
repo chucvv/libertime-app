@@ -7,6 +7,7 @@ abstract class SocialAuthService {
   Future<UserCredential> signInGoogle();
   Future<void> signOutGoogle();
   Future<void> signOutFacebook();
+  Future<bool> isUserLogged();
 }
 
 class FirebaseAuthService extends SocialAuthService {
@@ -53,11 +54,17 @@ class FirebaseAuthService extends SocialAuthService {
 
   @override
   Future<void> signOutGoogle() {
-    return GoogleSignIn()
+    return _googleSignIn
         .signOut()
         .then((_) => _firebaseAuth.signOut())
         .catchError((error) {
       throw error;
     });
+  }
+
+  @override
+  Future<bool> isUserLogged() async {
+    final user = await _firebaseAuth.currentUser;
+    return user != null;
   }
 }

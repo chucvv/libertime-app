@@ -41,31 +41,10 @@ class UserDatabase extends _$UserDatabase {
         });
   }
 
-  Future<Profile> getProfile(String uid) =>
-      (select(profiles)..where((t) => t.uid.equals(uid))).getSingle();
+  Future<Profile> getProfile() => (select(profiles)..limit(1)).getSingle();
 
-  Future<int> put(
-          String uid,
-          String displayName,
-          String firstName,
-          String lastName,
-          String phoneNumber,
-          String picture,
-          String email,
-          String provider,
-          DateTime creationTime,
-          DateTime lastSignInTime,
-          String locale) =>
-      into(profiles).insertOnConflictUpdate(Profile(
-          uid: uid,
-          displayName: displayName,
-          firstName: firstName,
-          lastName: lastName,
-          picture: picture,
-          email: email,
-          phoneNumber: phoneNumber,
-          provider: provider,
-          creationTime: creationTime,
-          lastSignInTime: lastSignInTime,
-          locale: locale));
+  Future<int> put(Profile profile) =>
+      into(profiles).insertOnConflictUpdate(profile);
+
+  Future<void> remove(Profile profile) => delete(profiles).delete(profile);
 }

@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:database/src/abstract_executor.dart';
+import 'package:moor/ffi.dart';
+import 'package:moor/moor.dart';
 // ignore: implementation_imports
 import 'package:moor/src/runtime/executor/executor.dart';
-import 'package:moor_flutter/moor_flutter.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:moor/ffi.dart';
 import 'package:path/path.dart' as p;
 
 class Executor extends AbstractExecutor {

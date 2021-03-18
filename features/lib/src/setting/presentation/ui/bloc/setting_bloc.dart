@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:features/src/publisher/user_notifier.dart';
-import 'package:features/src/setting/domain/usecase/user_sign_out.dart';
+import 'package:features/src/setting/domain/usecase/user_sign_out_usecase.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
@@ -28,7 +28,7 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
   }
 
   Stream<SettingState> _signOut() async* {
-    final result = await _userSignOutUseCase();
+    final result = await _userSignOutUseCase(_userNotifier.user);
     yield result.when(success: (_) {
       _userNotifier.user = null;
       return SignOutSuccess();

@@ -1,3 +1,5 @@
+import 'package:features/src/auth/domain/entity/auth_provider_enum.dart';
+
 class UserEntity {
   final String uid;
   final String displayName;
@@ -6,13 +8,13 @@ class UserEntity {
   final String phoneNumber;
   final String picture;
   final String email;
-  final String provider;
+  final AuthProviderEnum provider;
   final DateTime creationTime;
   final DateTime lastSignInTime;
   final String locale;
 
   UserEntity(
-      this.uid,
+      {this.uid,
       this.displayName,
       this.firstName,
       this.lastName,
@@ -22,7 +24,7 @@ class UserEntity {
       this.provider,
       this.creationTime,
       this.lastSignInTime,
-      this.locale);
+      this.locale});
 
   @override
   String toString() {

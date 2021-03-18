@@ -34,6 +34,8 @@ dependencies:
   google_sign_in:  ^4.5.9
   flutter_facebook_auth: ^2.0.2
 
+  provider: ^4.3.3
+
   common:
     path: ../libraries/common
   share_ui:

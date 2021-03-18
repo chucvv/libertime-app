@@ -1,65 +1,66 @@
 import 'dart:async';
 
+import 'package:features/src/splash/presentation/bloc/splash_bloc.dart';
+import 'package:features/src/splash/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:logging/logging.dart';
+import 'package:provider/provider.dart' as provider;
 import 'package:rive/rive.dart';
 import 'package:share_ui/awesome_ui.dart';
 
-class SplashScreen extends StatefulWidget {
-  @override
-  _SplashScreenState createState() => _SplashScreenState();
-}
+import 'rive_callback.dart';
 
-class _SplashScreenState extends State<SplashScreen> {
-  Artboard _riveArtboard;
+class SplashScreen extends HookWidget {
+  final logger = Logger('SplashScreen');
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: kBackgroudColor,
-        body: Center(
-          child: Rive(artboard: _riveArtboard),
-        ),
-      ),
+    final bloc = useProvider(splashBlocProvider);
+    return BlocProvider(
+      create: (context) => bloc,
+      child: BlocConsumer<SplashBloc, SplashState>(builder: (_, state) {
+        return Scaffold(
+          backgroundColor: kBackgroudColor,
+          body: provider.FutureProvider<Artboard>(
+            create: _loadArt,
+            child: Center(
+              child: provider.Consumer<Artboard>(
+                builder: (context, art, child) {
+                  return Rive(artboard: art);
+                },
+              ),
+            ),
+          ),
+        );
+      }, listener: (context, state) {
+        state.when(
+            initial: () {},
+            isUserLogged: () {
+              Navigator.popAndPushNamed(context, '/home');
+            },
+            isUserNotLogged: () {
+              Navigator.popAndPushNamed(context, '/login');
+            });
+      }),
     );
   }
 
-  @override
-  void initState() {
-    super.initState();
-    Timer(Duration(seconds: 3), _checkIfIsLogged);
-    // Load the animation file from the bundle, note that you could also
-    // download this. The RiveFile just expects a list of bytes.
-    rootBundle.load('assets/heart.riv').then(
-      (data) async {
-        final file = RiveFile();
-
-        // Load the RiveFile from the binary data.
-        if (file.import(data)) {
-          // The artboard is the root of the animation and gets drawn in the
-          // Rive widget.
-          final artboard = file.mainArtboard;
-          // Add a controller to play back a known animation on the main/default
-          // artboard.We store a reference to it so we can toggle playback.
-          artboard.addController(SimpleAnimation('heart'));
-          setState(() => _riveArtboard = artboard);
-        }
-      },
-    );
-  }
-
-  /// uses the facebook SDK to check if a user has an active session
-  Future<void> _checkIfIsLogged() async {
-    final accessToken = await FacebookAuth.instance.isLogged;
-    if (accessToken == null) {
-      Navigator.popAndPushNamed(context, '/login');
-      return;
+  Future<Artboard> _loadArt(context) async {
+    final data = await rootBundle.load('assets/heart.riv');
+    final file = RiveFile();
+    if (file.import(data)) {
+      final artboard = file.mainArtboard;
+      artboard.addController(
+        CallbackAnimation('heart', callback: () {
+          logger.info('on animation completed');
+          BlocProvider.of<SplashBloc>(context).add(SplashEvent.onCheckSignIn());
+        }),
+      );
+      return artboard;
     }
-    // now you can call to  FacebookAuth.instance.getUserData();
-    //final userData =
-    await FacebookAuth.instance.getUserData();
-    Navigator.popAndPushNamed(context, '/home');
+    return null;
   }
 }

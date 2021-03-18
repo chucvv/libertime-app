@@ -1,8 +1,19 @@
+import 'package:database/database.dart';
 import 'package:features/src/publisher/user_notifier.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
+final userDatabaseProvider = Provider<UserDatabase>((ref) {
+  return UserDatabase(
+      Executor(logStatements: true).provideExecutor(dbFileName: "user"));
+});
+
+final globalDatabaseProvider = Provider<GlobalDatabase>((ref) {
+  return GlobalDatabase(
+      Executor(logStatements: true).provideExecutor(dbFileName: "global"));
+});
 
 final userNotifierProvider = ChangeNotifierProvider<UserNotifier>((ref) {
   return UserNotifier();
