@@ -44,22 +44,14 @@ class FirebaseAuthService extends SocialAuthService {
 
   @override
   Future<void> signOutFacebook() async {
-    return await _facebookAuth
-        .logOut()
-        .then((_) => _firebaseAuth.signOut())
-        .catchError((error) {
-      throw error;
-    });
+    await _facebookAuth.logOut();
+    await _firebaseAuth.signOut();
   }
 
   @override
-  Future<void> signOutGoogle() {
-    return _googleSignIn
-        .signOut()
-        .then((_) => _firebaseAuth.signOut())
-        .catchError((error) {
-      throw error;
-    });
+  Future<void> signOutGoogle() async {
+    await _googleSignIn.signOut();
+    await _firebaseAuth.signOut();
   }
 
   @override

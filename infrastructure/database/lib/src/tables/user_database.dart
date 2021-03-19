@@ -46,5 +46,6 @@ class UserDatabase extends _$UserDatabase {
   Future<int> put(Profile profile) =>
       into(profiles).insertOnConflictUpdate(profile);
 
-  Future<void> remove(Profile profile) => delete(profiles).delete(profile);
+  Future<void> remove(String uid) =>
+      (delete(profiles)..where((t) => t.uid.equals(uid))).go();
 }

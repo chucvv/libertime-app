@@ -11,9 +11,9 @@ class UserSignOutUseCase extends UseCase<UserEntity, void> {
   @override
   Future<Result<void>> call(UserEntity user) => Result.guardFuture(() {
         if (user.provider == AuthProviderEnum.facebook) {
-          return _authRepository.signOutFacebook();
+          return _authRepository.signOutFacebook(user.uid);
         } else {
-          return _authRepository.signOutGoogle();
+          return _authRepository.signOutGoogle(user.uid);
         }
       });
 }

@@ -27,19 +27,24 @@ class DefaultAuthRepository extends AuthRepository {
   }
 
   @override
-  Future<UserEntity> loginUser() {
-    return _authService.isUserLogged().then((isLogged) async {
-      if (!isLogged) {
-        return null;
-      }
-      final profile = await _userDatabase.getProfile();
-      return profile?.decode() ?? null;
-    });
+  Future<UserEntity> loginUser() async =>
+      await _authService.isUserLogged().then((isLogged) async {
+        if (!isLogged) {
+          return null;
+        }
+        final profile = await _userDatabase.getProfile();
+        return profile?.decode() ?? null;
+      });
+
+  @override
+  Future<void> signOutFacebook(String uid) async {
+    await _authService.signOutFacebook();
+    await _userDatabase.remove(uid);
   }
 
   @override
-  Future<void> signOutFacebook() => _authService.signOutFacebook();
-
-  @override
-  Future<void> signOutGoogle() => _authService.signOutGoogle();
+  Future<void> signOutGoogle(String uid) async {
+    await _authService.signOutGoogle();
+    await _userDatabase.remove(uid);
+  }
 }
