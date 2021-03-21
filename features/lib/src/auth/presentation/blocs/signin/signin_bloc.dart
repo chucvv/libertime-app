@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:common/common.dart';
+import 'package:features/src/auth/domain/usecase/anonymous_signin.dart';
 import 'package:features/src/auth/domain/usecase/facebook_signin.dart';
 import 'package:features/src/auth/domain/usecase/google_signin.dart';
 import 'package:features/src/publisher/user_notifier.dart';
@@ -15,9 +16,10 @@ part 'signin_bloc.freezed.dart';
 class SigninBloc extends Bloc<SigninEvent, SigninState> {
   final FacebookSigninUseCase _facebookSigninUseCase;
   final GoogleSigninUseCase _googleSigninUseCase;
+  final AnonymousSigninUseCase _anonymousSigninUseCase;
   final UserNotifier _userNotifier;
   SigninBloc(this._facebookSigninUseCase, this._googleSigninUseCase,
-      this._userNotifier)
+      this._anonymousSigninUseCase, this._userNotifier)
       : super(Initial()) {
     _logger.info('Constructor SigninBloc');
   }
@@ -31,7 +33,20 @@ class SigninBloc extends Bloc<SigninEvent, SigninState> {
     yield* event.when(
         onSigninFacebook: _signFacebook,
         onSigninGoogle: _signGoogle,
-        onSignInPhone: _signWithPhoneNumber);
+        onSignInPhone: _signWithPhoneNumber,
+        onAnonymousSignIn: _signInWithAnonymous);
+  }
+
+  Stream<SigninState> _signInWithAnonymous() async* {
+    final result = await _anonymousSigninUseCase(NoParams());
+    yield result.when(success: (user) {
+      _logger.fine(user);
+      _userNotifier.user = user;
+      return AnonymousSigninSuccess();
+    }, failure: (error) {
+      _logger.severe(error.toString());
+      return AnonymousSigninFailure(error.message);
+    });
   }
 
   Stream<SigninState> _signWithPhoneNumber(

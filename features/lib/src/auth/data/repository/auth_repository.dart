@@ -2,6 +2,7 @@ import 'package:database/database.dart';
 import 'package:features/src/auth/data/service/social_auth_service.dart';
 import 'package:features/src/auth/domain/entity/user_entity.dart';
 import 'package:features/src/auth/domain/repository/auth_repository.dart';
+import 'package:logging/logging.dart';
 import 'extension.dart';
 
 class DefaultAuthRepository extends AuthRepository {
@@ -14,7 +15,7 @@ class DefaultAuthRepository extends AuthRepository {
   Future<UserEntity> signInFacebook() async {
     final userCredential = await _authService.signInFacebook();
     final userEntity = userCredential.decodeFacebookUser();
-    _userDatabase.put(userEntity.encode());
+    await _userDatabase.put(userEntity.encode());
     return userEntity;
   }
 
@@ -22,19 +23,28 @@ class DefaultAuthRepository extends AuthRepository {
   Future<UserEntity> signInGoogle() async {
     final userCredential = await _authService.signInGoogle();
     final userEntity = userCredential.decodeGoogleUser();
-    _userDatabase.put(userEntity.encode());
+    await _userDatabase.put(userEntity.encode());
     return userEntity;
   }
 
   @override
-  Future<UserEntity> loginUser() async =>
-      await _authService.isUserLogged().then((isLogged) async {
-        if (!isLogged) {
-          return null;
-        }
-        final profile = await _userDatabase.getProfile();
-        return profile?.decode() ?? null;
-      });
+  Future<UserEntity> signInFirebaseAnonymous() async {
+    final anonymousUser = await _authService.signInFirebaseAnonymous();
+    Logger('firebase').info(anonymousUser);
+    final userEntity = anonymousUser.decodeGoogleUser();
+    await _userDatabase.put(userEntity.encode());
+    return userEntity;
+  }
+
+  @override
+  Future<UserEntity> loginUser() async {
+    final isLogged = await _authService.isUserLogged();
+    if (!isLogged) {
+      return null;
+    }
+    final profile = await _userDatabase.getProfile();
+    return profile?.decode() ?? null;
+  }
 
   @override
   Future<void> signOutFacebook(String uid) async {

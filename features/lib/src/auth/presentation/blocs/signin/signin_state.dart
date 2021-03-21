@@ -12,4 +12,7 @@ abstract class SigninState with _$SigninState {
   const factory SigninState.phoneSigninSuccess() = PhoneSigninSuccess;
   const factory SigninState.phoneSigninFailure(String message) =
       PhoneSigninFailure;
+  const factory SigninState.anonymousSigninSuccess() = AnonymousSigninSuccess;
+  const factory SigninState.anonymousSigninFailure(String message) =
+      AnonymousSigninFailure;
 }

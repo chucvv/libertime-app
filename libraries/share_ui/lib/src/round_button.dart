@@ -38,20 +38,22 @@ class RoundedButton extends StatelessWidget {
           padding: padding,
           child: Row(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               FaIcon(
                 icon,
                 size: 25.0,
               ),
-              SizedBox(
-                width: 8.0,
+              Expanded(
+                child: Text(
+                  text,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context)
+                      .textTheme
+                      .button
+                      .apply(color: textColor),
+                ),
               ),
-              Text(
-                text,
-                style:
-                    Theme.of(context).textTheme.button.apply(color: textColor),
-              )
             ],
           ),
         ),

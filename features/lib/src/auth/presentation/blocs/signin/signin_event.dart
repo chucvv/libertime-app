@@ -6,4 +6,5 @@ abstract class SigninEvent with _$SigninEvent {
       onSigninPhone;
   const factory SigninEvent.onSigninFacebook() = onSigninFacebookEvent;
   const factory SigninEvent.onSigninGoogle() = onSigninGoogleEvent;
+  const factory SigninEvent.onAnonymousSignIn() = onAnonymousSignInEvent;
 }

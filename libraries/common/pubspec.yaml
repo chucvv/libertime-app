@@ -9,6 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   data_connection_checker: ^0.3.4
+  platform_device_id: ^0.2.0
   freezed_annotation: ^0.12.0
   intl: ^0.16.1
 

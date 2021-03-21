@@ -66,19 +66,19 @@ class _CirclePainter extends CustomPainter {
         center,
         centerRadius + 10,
         solidCirclePaint
-          ..color = Colors.white30
+          ..color = Colors.white
           ..strokeWidth = 3);
     canvas.drawCircle(
         center,
         centerRadius + 30,
         solidCirclePaint
-          ..color = Colors.white24
+          ..color = Colors.white70
           ..strokeWidth = 2);
     canvas.drawCircle(
         center,
         centerRadius + 50,
         solidCirclePaint
-          ..color = Colors.white12
+          ..color = Colors.white54
           ..strokeWidth = 1);
     /*
     for (var i = 0; i < 10; i++) {

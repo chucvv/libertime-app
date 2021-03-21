@@ -30,6 +30,11 @@ class _$SigninEventTearOff {
   onSigninGoogleEvent onSigninGoogle() {
     return const onSigninGoogleEvent();
   }
+
+// ignore: unused_element
+  onAnonymousSignInEvent onAnonymousSignIn() {
+    return const onAnonymousSignInEvent();
+  }
 }
 
 /// @nodoc
@@ -43,12 +48,14 @@ mixin _$SigninEvent {
     @required TResult onSignInPhone(String phoneNumber, String password),
     @required TResult onSigninFacebook(),
     @required TResult onSigninGoogle(),
+    @required TResult onAnonymousSignIn(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult onSignInPhone(String phoneNumber, String password),
     TResult onSigninFacebook(),
     TResult onSigninGoogle(),
+    TResult onAnonymousSignIn(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -56,12 +63,14 @@ mixin _$SigninEvent {
     @required TResult onSignInPhone(onSigninPhone value),
     @required TResult onSigninFacebook(onSigninFacebookEvent value),
     @required TResult onSigninGoogle(onSigninGoogleEvent value),
+    @required TResult onAnonymousSignIn(onAnonymousSignInEvent value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult onSignInPhone(onSigninPhone value),
     TResult onSigninFacebook(onSigninFacebookEvent value),
     TResult onSigninGoogle(onSigninGoogleEvent value),
+    TResult onAnonymousSignIn(onAnonymousSignInEvent value),
     @required TResult orElse(),
   });
 }
@@ -157,10 +166,12 @@ class _$onSigninPhone implements onSigninPhone {
     @required TResult onSignInPhone(String phoneNumber, String password),
     @required TResult onSigninFacebook(),
     @required TResult onSigninGoogle(),
+    @required TResult onAnonymousSignIn(),
   }) {
     assert(onSignInPhone != null);
     assert(onSigninFacebook != null);
     assert(onSigninGoogle != null);
+    assert(onAnonymousSignIn != null);
     return onSignInPhone(phoneNumber, password);
   }
 
@@ -170,6 +181,7 @@ class _$onSigninPhone implements onSigninPhone {
     TResult onSignInPhone(String phoneNumber, String password),
     TResult onSigninFacebook(),
     TResult onSigninGoogle(),
+    TResult onAnonymousSignIn(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -185,10 +197,12 @@ class _$onSigninPhone implements onSigninPhone {
     @required TResult onSignInPhone(onSigninPhone value),
     @required TResult onSigninFacebook(onSigninFacebookEvent value),
     @required TResult onSigninGoogle(onSigninGoogleEvent value),
+    @required TResult onAnonymousSignIn(onAnonymousSignInEvent value),
   }) {
     assert(onSignInPhone != null);
     assert(onSigninFacebook != null);
     assert(onSigninGoogle != null);
+    assert(onAnonymousSignIn != null);
     return onSignInPhone(this);
   }
 
@@ -198,6 +212,7 @@ class _$onSigninPhone implements onSigninPhone {
     TResult onSignInPhone(onSigninPhone value),
     TResult onSigninFacebook(onSigninFacebookEvent value),
     TResult onSigninGoogle(onSigninGoogleEvent value),
+    TResult onAnonymousSignIn(onAnonymousSignInEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -260,10 +275,12 @@ class _$onSigninFacebookEvent implements onSigninFacebookEvent {
     @required TResult onSignInPhone(String phoneNumber, String password),
     @required TResult onSigninFacebook(),
     @required TResult onSigninGoogle(),
+    @required TResult onAnonymousSignIn(),
   }) {
     assert(onSignInPhone != null);
     assert(onSigninFacebook != null);
     assert(onSigninGoogle != null);
+    assert(onAnonymousSignIn != null);
     return onSigninFacebook();
   }
 
@@ -273,6 +290,7 @@ class _$onSigninFacebookEvent implements onSigninFacebookEvent {
     TResult onSignInPhone(String phoneNumber, String password),
     TResult onSigninFacebook(),
     TResult onSigninGoogle(),
+    TResult onAnonymousSignIn(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -288,10 +306,12 @@ class _$onSigninFacebookEvent implements onSigninFacebookEvent {
     @required TResult onSignInPhone(onSigninPhone value),
     @required TResult onSigninFacebook(onSigninFacebookEvent value),
     @required TResult onSigninGoogle(onSigninGoogleEvent value),
+    @required TResult onAnonymousSignIn(onAnonymousSignInEvent value),
   }) {
     assert(onSignInPhone != null);
     assert(onSigninFacebook != null);
     assert(onSigninGoogle != null);
+    assert(onAnonymousSignIn != null);
     return onSigninFacebook(this);
   }
 
@@ -301,6 +321,7 @@ class _$onSigninFacebookEvent implements onSigninFacebookEvent {
     TResult onSignInPhone(onSigninPhone value),
     TResult onSigninFacebook(onSigninFacebookEvent value),
     TResult onSigninGoogle(onSigninGoogleEvent value),
+    TResult onAnonymousSignIn(onAnonymousSignInEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -357,10 +378,12 @@ class _$onSigninGoogleEvent implements onSigninGoogleEvent {
     @required TResult onSignInPhone(String phoneNumber, String password),
     @required TResult onSigninFacebook(),
     @required TResult onSigninGoogle(),
+    @required TResult onAnonymousSignIn(),
   }) {
     assert(onSignInPhone != null);
     assert(onSigninFacebook != null);
     assert(onSigninGoogle != null);
+    assert(onAnonymousSignIn != null);
     return onSigninGoogle();
   }
 
@@ -370,6 +393,7 @@ class _$onSigninGoogleEvent implements onSigninGoogleEvent {
     TResult onSignInPhone(String phoneNumber, String password),
     TResult onSigninFacebook(),
     TResult onSigninGoogle(),
+    TResult onAnonymousSignIn(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -385,10 +409,12 @@ class _$onSigninGoogleEvent implements onSigninGoogleEvent {
     @required TResult onSignInPhone(onSigninPhone value),
     @required TResult onSigninFacebook(onSigninFacebookEvent value),
     @required TResult onSigninGoogle(onSigninGoogleEvent value),
+    @required TResult onAnonymousSignIn(onAnonymousSignInEvent value),
   }) {
     assert(onSignInPhone != null);
     assert(onSigninFacebook != null);
     assert(onSigninGoogle != null);
+    assert(onAnonymousSignIn != null);
     return onSigninGoogle(this);
   }
 
@@ -398,6 +424,7 @@ class _$onSigninGoogleEvent implements onSigninGoogleEvent {
     TResult onSignInPhone(onSigninPhone value),
     TResult onSigninFacebook(onSigninFacebookEvent value),
     TResult onSigninGoogle(onSigninGoogleEvent value),
+    TResult onAnonymousSignIn(onAnonymousSignInEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -410,6 +437,109 @@ class _$onSigninGoogleEvent implements onSigninGoogleEvent {
 
 abstract class onSigninGoogleEvent implements SigninEvent {
   const factory onSigninGoogleEvent() = _$onSigninGoogleEvent;
+}
+
+/// @nodoc
+abstract class $onAnonymousSignInEventCopyWith<$Res> {
+  factory $onAnonymousSignInEventCopyWith(onAnonymousSignInEvent value,
+          $Res Function(onAnonymousSignInEvent) then) =
+      _$onAnonymousSignInEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$onAnonymousSignInEventCopyWithImpl<$Res>
+    extends _$SigninEventCopyWithImpl<$Res>
+    implements $onAnonymousSignInEventCopyWith<$Res> {
+  _$onAnonymousSignInEventCopyWithImpl(onAnonymousSignInEvent _value,
+      $Res Function(onAnonymousSignInEvent) _then)
+      : super(_value, (v) => _then(v as onAnonymousSignInEvent));
+
+  @override
+  onAnonymousSignInEvent get _value => super._value as onAnonymousSignInEvent;
+}
+
+/// @nodoc
+class _$onAnonymousSignInEvent implements onAnonymousSignInEvent {
+  const _$onAnonymousSignInEvent();
+
+  @override
+  String toString() {
+    return 'SigninEvent.onAnonymousSignIn()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is onAnonymousSignInEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult onSignInPhone(String phoneNumber, String password),
+    @required TResult onSigninFacebook(),
+    @required TResult onSigninGoogle(),
+    @required TResult onAnonymousSignIn(),
+  }) {
+    assert(onSignInPhone != null);
+    assert(onSigninFacebook != null);
+    assert(onSigninGoogle != null);
+    assert(onAnonymousSignIn != null);
+    return onAnonymousSignIn();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult onSignInPhone(String phoneNumber, String password),
+    TResult onSigninFacebook(),
+    TResult onSigninGoogle(),
+    TResult onAnonymousSignIn(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (onAnonymousSignIn != null) {
+      return onAnonymousSignIn();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult onSignInPhone(onSigninPhone value),
+    @required TResult onSigninFacebook(onSigninFacebookEvent value),
+    @required TResult onSigninGoogle(onSigninGoogleEvent value),
+    @required TResult onAnonymousSignIn(onAnonymousSignInEvent value),
+  }) {
+    assert(onSignInPhone != null);
+    assert(onSigninFacebook != null);
+    assert(onSigninGoogle != null);
+    assert(onAnonymousSignIn != null);
+    return onAnonymousSignIn(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult onSignInPhone(onSigninPhone value),
+    TResult onSigninFacebook(onSigninFacebookEvent value),
+    TResult onSigninGoogle(onSigninGoogleEvent value),
+    TResult onAnonymousSignIn(onAnonymousSignInEvent value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (onAnonymousSignIn != null) {
+      return onAnonymousSignIn(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class onAnonymousSignInEvent implements SigninEvent {
+  const factory onAnonymousSignInEvent() = _$onAnonymousSignInEvent;
 }
 
 /// @nodoc
@@ -456,6 +586,18 @@ class _$SigninStateTearOff {
       message,
     );
   }
+
+// ignore: unused_element
+  AnonymousSigninSuccess anonymousSigninSuccess() {
+    return const AnonymousSigninSuccess();
+  }
+
+// ignore: unused_element
+  AnonymousSigninFailure anonymousSigninFailure(String message) {
+    return AnonymousSigninFailure(
+      message,
+    );
+  }
 }
 
 /// @nodoc
@@ -473,6 +615,8 @@ mixin _$SigninState {
     @required TResult gooogleSiginFailure(String message),
     @required TResult phoneSigninSuccess(),
     @required TResult phoneSigninFailure(String message),
+    @required TResult anonymousSigninSuccess(),
+    @required TResult anonymousSigninFailure(String message),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
@@ -483,6 +627,8 @@ mixin _$SigninState {
     TResult gooogleSiginFailure(String message),
     TResult phoneSigninSuccess(),
     TResult phoneSigninFailure(String message),
+    TResult anonymousSigninSuccess(),
+    TResult anonymousSigninFailure(String message),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -494,6 +640,8 @@ mixin _$SigninState {
     @required TResult gooogleSiginFailure(GoogleSigninFailure value),
     @required TResult phoneSigninSuccess(PhoneSigninSuccess value),
     @required TResult phoneSigninFailure(PhoneSigninFailure value),
+    @required TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    @required TResult anonymousSigninFailure(AnonymousSigninFailure value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
@@ -504,6 +652,8 @@ mixin _$SigninState {
     TResult gooogleSiginFailure(GoogleSigninFailure value),
     TResult phoneSigninSuccess(PhoneSigninSuccess value),
     TResult phoneSigninFailure(PhoneSigninFailure value),
+    TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    TResult anonymousSigninFailure(AnonymousSigninFailure value),
     @required TResult orElse(),
   });
 }
@@ -567,6 +717,8 @@ class _$Initial implements Initial {
     @required TResult gooogleSiginFailure(String message),
     @required TResult phoneSigninSuccess(),
     @required TResult phoneSigninFailure(String message),
+    @required TResult anonymousSigninSuccess(),
+    @required TResult anonymousSigninFailure(String message),
   }) {
     assert(initial != null);
     assert(facebookSigninSuccess != null);
@@ -575,6 +727,8 @@ class _$Initial implements Initial {
     assert(gooogleSiginFailure != null);
     assert(phoneSigninSuccess != null);
     assert(phoneSigninFailure != null);
+    assert(anonymousSigninSuccess != null);
+    assert(anonymousSigninFailure != null);
     return initial();
   }
 
@@ -588,6 +742,8 @@ class _$Initial implements Initial {
     TResult gooogleSiginFailure(String message),
     TResult phoneSigninSuccess(),
     TResult phoneSigninFailure(String message),
+    TResult anonymousSigninSuccess(),
+    TResult anonymousSigninFailure(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -607,6 +763,8 @@ class _$Initial implements Initial {
     @required TResult gooogleSiginFailure(GoogleSigninFailure value),
     @required TResult phoneSigninSuccess(PhoneSigninSuccess value),
     @required TResult phoneSigninFailure(PhoneSigninFailure value),
+    @required TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    @required TResult anonymousSigninFailure(AnonymousSigninFailure value),
   }) {
     assert(initial != null);
     assert(facebookSigninSuccess != null);
@@ -615,6 +773,8 @@ class _$Initial implements Initial {
     assert(gooogleSiginFailure != null);
     assert(phoneSigninSuccess != null);
     assert(phoneSigninFailure != null);
+    assert(anonymousSigninSuccess != null);
+    assert(anonymousSigninFailure != null);
     return initial(this);
   }
 
@@ -628,6 +788,8 @@ class _$Initial implements Initial {
     TResult gooogleSiginFailure(GoogleSigninFailure value),
     TResult phoneSigninSuccess(PhoneSigninSuccess value),
     TResult phoneSigninFailure(PhoneSigninFailure value),
+    TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    TResult anonymousSigninFailure(AnonymousSigninFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -688,6 +850,8 @@ class _$FacebookSigninSuccess implements FacebookSigninSuccess {
     @required TResult gooogleSiginFailure(String message),
     @required TResult phoneSigninSuccess(),
     @required TResult phoneSigninFailure(String message),
+    @required TResult anonymousSigninSuccess(),
+    @required TResult anonymousSigninFailure(String message),
   }) {
     assert(initial != null);
     assert(facebookSigninSuccess != null);
@@ -696,6 +860,8 @@ class _$FacebookSigninSuccess implements FacebookSigninSuccess {
     assert(gooogleSiginFailure != null);
     assert(phoneSigninSuccess != null);
     assert(phoneSigninFailure != null);
+    assert(anonymousSigninSuccess != null);
+    assert(anonymousSigninFailure != null);
     return facebookSigninSuccess();
   }
 
@@ -709,6 +875,8 @@ class _$FacebookSigninSuccess implements FacebookSigninSuccess {
     TResult gooogleSiginFailure(String message),
     TResult phoneSigninSuccess(),
     TResult phoneSigninFailure(String message),
+    TResult anonymousSigninSuccess(),
+    TResult anonymousSigninFailure(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -728,6 +896,8 @@ class _$FacebookSigninSuccess implements FacebookSigninSuccess {
     @required TResult gooogleSiginFailure(GoogleSigninFailure value),
     @required TResult phoneSigninSuccess(PhoneSigninSuccess value),
     @required TResult phoneSigninFailure(PhoneSigninFailure value),
+    @required TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    @required TResult anonymousSigninFailure(AnonymousSigninFailure value),
   }) {
     assert(initial != null);
     assert(facebookSigninSuccess != null);
@@ -736,6 +906,8 @@ class _$FacebookSigninSuccess implements FacebookSigninSuccess {
     assert(gooogleSiginFailure != null);
     assert(phoneSigninSuccess != null);
     assert(phoneSigninFailure != null);
+    assert(anonymousSigninSuccess != null);
+    assert(anonymousSigninFailure != null);
     return facebookSigninSuccess(this);
   }
 
@@ -749,6 +921,8 @@ class _$FacebookSigninSuccess implements FacebookSigninSuccess {
     TResult gooogleSiginFailure(GoogleSigninFailure value),
     TResult phoneSigninSuccess(PhoneSigninSuccess value),
     TResult phoneSigninFailure(PhoneSigninFailure value),
+    TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    TResult anonymousSigninFailure(AnonymousSigninFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -832,6 +1006,8 @@ class _$FacebookSigninFailure implements FacebookSigninFailure {
     @required TResult gooogleSiginFailure(String message),
     @required TResult phoneSigninSuccess(),
     @required TResult phoneSigninFailure(String message),
+    @required TResult anonymousSigninSuccess(),
+    @required TResult anonymousSigninFailure(String message),
   }) {
     assert(initial != null);
     assert(facebookSigninSuccess != null);
@@ -840,6 +1016,8 @@ class _$FacebookSigninFailure implements FacebookSigninFailure {
     assert(gooogleSiginFailure != null);
     assert(phoneSigninSuccess != null);
     assert(phoneSigninFailure != null);
+    assert(anonymousSigninSuccess != null);
+    assert(anonymousSigninFailure != null);
     return facebookSigninFailure(message);
   }
 
@@ -853,6 +1031,8 @@ class _$FacebookSigninFailure implements FacebookSigninFailure {
     TResult gooogleSiginFailure(String message),
     TResult phoneSigninSuccess(),
     TResult phoneSigninFailure(String message),
+    TResult anonymousSigninSuccess(),
+    TResult anonymousSigninFailure(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -872,6 +1052,8 @@ class _$FacebookSigninFailure implements FacebookSigninFailure {
     @required TResult gooogleSiginFailure(GoogleSigninFailure value),
     @required TResult phoneSigninSuccess(PhoneSigninSuccess value),
     @required TResult phoneSigninFailure(PhoneSigninFailure value),
+    @required TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    @required TResult anonymousSigninFailure(AnonymousSigninFailure value),
   }) {
     assert(initial != null);
     assert(facebookSigninSuccess != null);
@@ -880,6 +1062,8 @@ class _$FacebookSigninFailure implements FacebookSigninFailure {
     assert(gooogleSiginFailure != null);
     assert(phoneSigninSuccess != null);
     assert(phoneSigninFailure != null);
+    assert(anonymousSigninSuccess != null);
+    assert(anonymousSigninFailure != null);
     return facebookSigninFailure(this);
   }
 
@@ -893,6 +1077,8 @@ class _$FacebookSigninFailure implements FacebookSigninFailure {
     TResult gooogleSiginFailure(GoogleSigninFailure value),
     TResult phoneSigninSuccess(PhoneSigninSuccess value),
     TResult phoneSigninFailure(PhoneSigninFailure value),
+    TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    TResult anonymousSigninFailure(AnonymousSigninFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -957,6 +1143,8 @@ class _$GoogleSiginSuccess implements GoogleSiginSuccess {
     @required TResult gooogleSiginFailure(String message),
     @required TResult phoneSigninSuccess(),
     @required TResult phoneSigninFailure(String message),
+    @required TResult anonymousSigninSuccess(),
+    @required TResult anonymousSigninFailure(String message),
   }) {
     assert(initial != null);
     assert(facebookSigninSuccess != null);
@@ -965,6 +1153,8 @@ class _$GoogleSiginSuccess implements GoogleSiginSuccess {
     assert(gooogleSiginFailure != null);
     assert(phoneSigninSuccess != null);
     assert(phoneSigninFailure != null);
+    assert(anonymousSigninSuccess != null);
+    assert(anonymousSigninFailure != null);
     return googleSiginSuccess();
   }
 
@@ -978,6 +1168,8 @@ class _$GoogleSiginSuccess implements GoogleSiginSuccess {
     TResult gooogleSiginFailure(String message),
     TResult phoneSigninSuccess(),
     TResult phoneSigninFailure(String message),
+    TResult anonymousSigninSuccess(),
+    TResult anonymousSigninFailure(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -997,6 +1189,8 @@ class _$GoogleSiginSuccess implements GoogleSiginSuccess {
     @required TResult gooogleSiginFailure(GoogleSigninFailure value),
     @required TResult phoneSigninSuccess(PhoneSigninSuccess value),
     @required TResult phoneSigninFailure(PhoneSigninFailure value),
+    @required TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    @required TResult anonymousSigninFailure(AnonymousSigninFailure value),
   }) {
     assert(initial != null);
     assert(facebookSigninSuccess != null);
@@ -1005,6 +1199,8 @@ class _$GoogleSiginSuccess implements GoogleSiginSuccess {
     assert(gooogleSiginFailure != null);
     assert(phoneSigninSuccess != null);
     assert(phoneSigninFailure != null);
+    assert(anonymousSigninSuccess != null);
+    assert(anonymousSigninFailure != null);
     return googleSiginSuccess(this);
   }
 
@@ -1018,6 +1214,8 @@ class _$GoogleSiginSuccess implements GoogleSiginSuccess {
     TResult gooogleSiginFailure(GoogleSigninFailure value),
     TResult phoneSigninSuccess(PhoneSigninSuccess value),
     TResult phoneSigninFailure(PhoneSigninFailure value),
+    TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    TResult anonymousSigninFailure(AnonymousSigninFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1100,6 +1298,8 @@ class _$GoogleSigninFailure implements GoogleSigninFailure {
     @required TResult gooogleSiginFailure(String message),
     @required TResult phoneSigninSuccess(),
     @required TResult phoneSigninFailure(String message),
+    @required TResult anonymousSigninSuccess(),
+    @required TResult anonymousSigninFailure(String message),
   }) {
     assert(initial != null);
     assert(facebookSigninSuccess != null);
@@ -1108,6 +1308,8 @@ class _$GoogleSigninFailure implements GoogleSigninFailure {
     assert(gooogleSiginFailure != null);
     assert(phoneSigninSuccess != null);
     assert(phoneSigninFailure != null);
+    assert(anonymousSigninSuccess != null);
+    assert(anonymousSigninFailure != null);
     return gooogleSiginFailure(message);
   }
 
@@ -1121,6 +1323,8 @@ class _$GoogleSigninFailure implements GoogleSigninFailure {
     TResult gooogleSiginFailure(String message),
     TResult phoneSigninSuccess(),
     TResult phoneSigninFailure(String message),
+    TResult anonymousSigninSuccess(),
+    TResult anonymousSigninFailure(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1140,6 +1344,8 @@ class _$GoogleSigninFailure implements GoogleSigninFailure {
     @required TResult gooogleSiginFailure(GoogleSigninFailure value),
     @required TResult phoneSigninSuccess(PhoneSigninSuccess value),
     @required TResult phoneSigninFailure(PhoneSigninFailure value),
+    @required TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    @required TResult anonymousSigninFailure(AnonymousSigninFailure value),
   }) {
     assert(initial != null);
     assert(facebookSigninSuccess != null);
@@ -1148,6 +1354,8 @@ class _$GoogleSigninFailure implements GoogleSigninFailure {
     assert(gooogleSiginFailure != null);
     assert(phoneSigninSuccess != null);
     assert(phoneSigninFailure != null);
+    assert(anonymousSigninSuccess != null);
+    assert(anonymousSigninFailure != null);
     return gooogleSiginFailure(this);
   }
 
@@ -1161,6 +1369,8 @@ class _$GoogleSigninFailure implements GoogleSigninFailure {
     TResult gooogleSiginFailure(GoogleSigninFailure value),
     TResult phoneSigninSuccess(PhoneSigninSuccess value),
     TResult phoneSigninFailure(PhoneSigninFailure value),
+    TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    TResult anonymousSigninFailure(AnonymousSigninFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1225,6 +1435,8 @@ class _$PhoneSigninSuccess implements PhoneSigninSuccess {
     @required TResult gooogleSiginFailure(String message),
     @required TResult phoneSigninSuccess(),
     @required TResult phoneSigninFailure(String message),
+    @required TResult anonymousSigninSuccess(),
+    @required TResult anonymousSigninFailure(String message),
   }) {
     assert(initial != null);
     assert(facebookSigninSuccess != null);
@@ -1233,6 +1445,8 @@ class _$PhoneSigninSuccess implements PhoneSigninSuccess {
     assert(gooogleSiginFailure != null);
     assert(phoneSigninSuccess != null);
     assert(phoneSigninFailure != null);
+    assert(anonymousSigninSuccess != null);
+    assert(anonymousSigninFailure != null);
     return phoneSigninSuccess();
   }
 
@@ -1246,6 +1460,8 @@ class _$PhoneSigninSuccess implements PhoneSigninSuccess {
     TResult gooogleSiginFailure(String message),
     TResult phoneSigninSuccess(),
     TResult phoneSigninFailure(String message),
+    TResult anonymousSigninSuccess(),
+    TResult anonymousSigninFailure(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1265,6 +1481,8 @@ class _$PhoneSigninSuccess implements PhoneSigninSuccess {
     @required TResult gooogleSiginFailure(GoogleSigninFailure value),
     @required TResult phoneSigninSuccess(PhoneSigninSuccess value),
     @required TResult phoneSigninFailure(PhoneSigninFailure value),
+    @required TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    @required TResult anonymousSigninFailure(AnonymousSigninFailure value),
   }) {
     assert(initial != null);
     assert(facebookSigninSuccess != null);
@@ -1273,6 +1491,8 @@ class _$PhoneSigninSuccess implements PhoneSigninSuccess {
     assert(gooogleSiginFailure != null);
     assert(phoneSigninSuccess != null);
     assert(phoneSigninFailure != null);
+    assert(anonymousSigninSuccess != null);
+    assert(anonymousSigninFailure != null);
     return phoneSigninSuccess(this);
   }
 
@@ -1286,6 +1506,8 @@ class _$PhoneSigninSuccess implements PhoneSigninSuccess {
     TResult gooogleSiginFailure(GoogleSigninFailure value),
     TResult phoneSigninSuccess(PhoneSigninSuccess value),
     TResult phoneSigninFailure(PhoneSigninFailure value),
+    TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    TResult anonymousSigninFailure(AnonymousSigninFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1368,6 +1590,8 @@ class _$PhoneSigninFailure implements PhoneSigninFailure {
     @required TResult gooogleSiginFailure(String message),
     @required TResult phoneSigninSuccess(),
     @required TResult phoneSigninFailure(String message),
+    @required TResult anonymousSigninSuccess(),
+    @required TResult anonymousSigninFailure(String message),
   }) {
     assert(initial != null);
     assert(facebookSigninSuccess != null);
@@ -1376,6 +1600,8 @@ class _$PhoneSigninFailure implements PhoneSigninFailure {
     assert(gooogleSiginFailure != null);
     assert(phoneSigninSuccess != null);
     assert(phoneSigninFailure != null);
+    assert(anonymousSigninSuccess != null);
+    assert(anonymousSigninFailure != null);
     return phoneSigninFailure(message);
   }
 
@@ -1389,6 +1615,8 @@ class _$PhoneSigninFailure implements PhoneSigninFailure {
     TResult gooogleSiginFailure(String message),
     TResult phoneSigninSuccess(),
     TResult phoneSigninFailure(String message),
+    TResult anonymousSigninSuccess(),
+    TResult anonymousSigninFailure(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1408,6 +1636,8 @@ class _$PhoneSigninFailure implements PhoneSigninFailure {
     @required TResult gooogleSiginFailure(GoogleSigninFailure value),
     @required TResult phoneSigninSuccess(PhoneSigninSuccess value),
     @required TResult phoneSigninFailure(PhoneSigninFailure value),
+    @required TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    @required TResult anonymousSigninFailure(AnonymousSigninFailure value),
   }) {
     assert(initial != null);
     assert(facebookSigninSuccess != null);
@@ -1416,6 +1646,8 @@ class _$PhoneSigninFailure implements PhoneSigninFailure {
     assert(gooogleSiginFailure != null);
     assert(phoneSigninSuccess != null);
     assert(phoneSigninFailure != null);
+    assert(anonymousSigninSuccess != null);
+    assert(anonymousSigninFailure != null);
     return phoneSigninFailure(this);
   }
 
@@ -1429,6 +1661,8 @@ class _$PhoneSigninFailure implements PhoneSigninFailure {
     TResult gooogleSiginFailure(GoogleSigninFailure value),
     TResult phoneSigninSuccess(PhoneSigninSuccess value),
     TResult phoneSigninFailure(PhoneSigninFailure value),
+    TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    TResult anonymousSigninFailure(AnonymousSigninFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1445,4 +1679,298 @@ abstract class PhoneSigninFailure implements SigninState {
   String get message;
   @JsonKey(ignore: true)
   $PhoneSigninFailureCopyWith<PhoneSigninFailure> get copyWith;
+}
+
+/// @nodoc
+abstract class $AnonymousSigninSuccessCopyWith<$Res> {
+  factory $AnonymousSigninSuccessCopyWith(AnonymousSigninSuccess value,
+          $Res Function(AnonymousSigninSuccess) then) =
+      _$AnonymousSigninSuccessCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$AnonymousSigninSuccessCopyWithImpl<$Res>
+    extends _$SigninStateCopyWithImpl<$Res>
+    implements $AnonymousSigninSuccessCopyWith<$Res> {
+  _$AnonymousSigninSuccessCopyWithImpl(AnonymousSigninSuccess _value,
+      $Res Function(AnonymousSigninSuccess) _then)
+      : super(_value, (v) => _then(v as AnonymousSigninSuccess));
+
+  @override
+  AnonymousSigninSuccess get _value => super._value as AnonymousSigninSuccess;
+}
+
+/// @nodoc
+class _$AnonymousSigninSuccess implements AnonymousSigninSuccess {
+  const _$AnonymousSigninSuccess();
+
+  @override
+  String toString() {
+    return 'SigninState.anonymousSigninSuccess()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is AnonymousSigninSuccess);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult facebookSigninSuccess(),
+    @required TResult facebookSigninFailure(String message),
+    @required TResult googleSiginSuccess(),
+    @required TResult gooogleSiginFailure(String message),
+    @required TResult phoneSigninSuccess(),
+    @required TResult phoneSigninFailure(String message),
+    @required TResult anonymousSigninSuccess(),
+    @required TResult anonymousSigninFailure(String message),
+  }) {
+    assert(initial != null);
+    assert(facebookSigninSuccess != null);
+    assert(facebookSigninFailure != null);
+    assert(googleSiginSuccess != null);
+    assert(gooogleSiginFailure != null);
+    assert(phoneSigninSuccess != null);
+    assert(phoneSigninFailure != null);
+    assert(anonymousSigninSuccess != null);
+    assert(anonymousSigninFailure != null);
+    return anonymousSigninSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult facebookSigninSuccess(),
+    TResult facebookSigninFailure(String message),
+    TResult googleSiginSuccess(),
+    TResult gooogleSiginFailure(String message),
+    TResult phoneSigninSuccess(),
+    TResult phoneSigninFailure(String message),
+    TResult anonymousSigninSuccess(),
+    TResult anonymousSigninFailure(String message),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (anonymousSigninSuccess != null) {
+      return anonymousSigninSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(Initial value),
+    @required TResult facebookSigninSuccess(FacebookSigninSuccess value),
+    @required TResult facebookSigninFailure(FacebookSigninFailure value),
+    @required TResult googleSiginSuccess(GoogleSiginSuccess value),
+    @required TResult gooogleSiginFailure(GoogleSigninFailure value),
+    @required TResult phoneSigninSuccess(PhoneSigninSuccess value),
+    @required TResult phoneSigninFailure(PhoneSigninFailure value),
+    @required TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    @required TResult anonymousSigninFailure(AnonymousSigninFailure value),
+  }) {
+    assert(initial != null);
+    assert(facebookSigninSuccess != null);
+    assert(facebookSigninFailure != null);
+    assert(googleSiginSuccess != null);
+    assert(gooogleSiginFailure != null);
+    assert(phoneSigninSuccess != null);
+    assert(phoneSigninFailure != null);
+    assert(anonymousSigninSuccess != null);
+    assert(anonymousSigninFailure != null);
+    return anonymousSigninSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(Initial value),
+    TResult facebookSigninSuccess(FacebookSigninSuccess value),
+    TResult facebookSigninFailure(FacebookSigninFailure value),
+    TResult googleSiginSuccess(GoogleSiginSuccess value),
+    TResult gooogleSiginFailure(GoogleSigninFailure value),
+    TResult phoneSigninSuccess(PhoneSigninSuccess value),
+    TResult phoneSigninFailure(PhoneSigninFailure value),
+    TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    TResult anonymousSigninFailure(AnonymousSigninFailure value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (anonymousSigninSuccess != null) {
+      return anonymousSigninSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AnonymousSigninSuccess implements SigninState {
+  const factory AnonymousSigninSuccess() = _$AnonymousSigninSuccess;
+}
+
+/// @nodoc
+abstract class $AnonymousSigninFailureCopyWith<$Res> {
+  factory $AnonymousSigninFailureCopyWith(AnonymousSigninFailure value,
+          $Res Function(AnonymousSigninFailure) then) =
+      _$AnonymousSigninFailureCopyWithImpl<$Res>;
+  $Res call({String message});
+}
+
+/// @nodoc
+class _$AnonymousSigninFailureCopyWithImpl<$Res>
+    extends _$SigninStateCopyWithImpl<$Res>
+    implements $AnonymousSigninFailureCopyWith<$Res> {
+  _$AnonymousSigninFailureCopyWithImpl(AnonymousSigninFailure _value,
+      $Res Function(AnonymousSigninFailure) _then)
+      : super(_value, (v) => _then(v as AnonymousSigninFailure));
+
+  @override
+  AnonymousSigninFailure get _value => super._value as AnonymousSigninFailure;
+
+  @override
+  $Res call({
+    Object message = freezed,
+  }) {
+    return _then(AnonymousSigninFailure(
+      message == freezed ? _value.message : message as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$AnonymousSigninFailure implements AnonymousSigninFailure {
+  const _$AnonymousSigninFailure(this.message) : assert(message != null);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'SigninState.anonymousSigninFailure(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is AnonymousSigninFailure &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(other.message, message)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
+
+  @JsonKey(ignore: true)
+  @override
+  $AnonymousSigninFailureCopyWith<AnonymousSigninFailure> get copyWith =>
+      _$AnonymousSigninFailureCopyWithImpl<AnonymousSigninFailure>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult facebookSigninSuccess(),
+    @required TResult facebookSigninFailure(String message),
+    @required TResult googleSiginSuccess(),
+    @required TResult gooogleSiginFailure(String message),
+    @required TResult phoneSigninSuccess(),
+    @required TResult phoneSigninFailure(String message),
+    @required TResult anonymousSigninSuccess(),
+    @required TResult anonymousSigninFailure(String message),
+  }) {
+    assert(initial != null);
+    assert(facebookSigninSuccess != null);
+    assert(facebookSigninFailure != null);
+    assert(googleSiginSuccess != null);
+    assert(gooogleSiginFailure != null);
+    assert(phoneSigninSuccess != null);
+    assert(phoneSigninFailure != null);
+    assert(anonymousSigninSuccess != null);
+    assert(anonymousSigninFailure != null);
+    return anonymousSigninFailure(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult facebookSigninSuccess(),
+    TResult facebookSigninFailure(String message),
+    TResult googleSiginSuccess(),
+    TResult gooogleSiginFailure(String message),
+    TResult phoneSigninSuccess(),
+    TResult phoneSigninFailure(String message),
+    TResult anonymousSigninSuccess(),
+    TResult anonymousSigninFailure(String message),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (anonymousSigninFailure != null) {
+      return anonymousSigninFailure(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(Initial value),
+    @required TResult facebookSigninSuccess(FacebookSigninSuccess value),
+    @required TResult facebookSigninFailure(FacebookSigninFailure value),
+    @required TResult googleSiginSuccess(GoogleSiginSuccess value),
+    @required TResult gooogleSiginFailure(GoogleSigninFailure value),
+    @required TResult phoneSigninSuccess(PhoneSigninSuccess value),
+    @required TResult phoneSigninFailure(PhoneSigninFailure value),
+    @required TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    @required TResult anonymousSigninFailure(AnonymousSigninFailure value),
+  }) {
+    assert(initial != null);
+    assert(facebookSigninSuccess != null);
+    assert(facebookSigninFailure != null);
+    assert(googleSiginSuccess != null);
+    assert(gooogleSiginFailure != null);
+    assert(phoneSigninSuccess != null);
+    assert(phoneSigninFailure != null);
+    assert(anonymousSigninSuccess != null);
+    assert(anonymousSigninFailure != null);
+    return anonymousSigninFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(Initial value),
+    TResult facebookSigninSuccess(FacebookSigninSuccess value),
+    TResult facebookSigninFailure(FacebookSigninFailure value),
+    TResult googleSiginSuccess(GoogleSiginSuccess value),
+    TResult gooogleSiginFailure(GoogleSigninFailure value),
+    TResult phoneSigninSuccess(PhoneSigninSuccess value),
+    TResult phoneSigninFailure(PhoneSigninFailure value),
+    TResult anonymousSigninSuccess(AnonymousSigninSuccess value),
+    TResult anonymousSigninFailure(AnonymousSigninFailure value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (anonymousSigninFailure != null) {
+      return anonymousSigninFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AnonymousSigninFailure implements SigninState {
+  const factory AnonymousSigninFailure(String message) =
+      _$AnonymousSigninFailure;
+
+  String get message;
+  @JsonKey(ignore: true)
+  $AnonymousSigninFailureCopyWith<AnonymousSigninFailure> get copyWith;
 }

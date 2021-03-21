@@ -1,5 +1,6 @@
 import 'package:features/src/auth/data/repository/auth_repository.dart';
 import 'package:features/src/auth/domain/repository/auth_repository.dart';
+import 'package:features/src/auth/domain/usecase/anonymous_signin.dart';
 import 'package:features/src/auth/domain/usecase/facebook_signin.dart';
 import 'package:features/src/auth/domain/usecase/google_signin.dart';
 import 'package:features/src/top_module_provider.dart';
@@ -23,7 +24,12 @@ final facebookUseCaseProvider = Provider<FacebookSigninUseCase>((ref) {
 final googleUseCaseProvider = Provider<GoogleSigninUseCase>((ref) {
   return GoogleSigninUseCase(ref.read(authRepositoryProvider));
 });
+final anonymousUseCaseProvider = Provider<AnonymousSigninUseCase>((ref) {
+  return AnonymousSigninUseCase(ref.read(authRepositoryProvider));
+});
 final signInBlocProvider = Provider.autoDispose((ref) => SigninBloc(
-    ref.read(facebookUseCaseProvider),
-    ref.read(googleUseCaseProvider),
-    ref.read(userNotifierProvider)));
+      ref.read(facebookUseCaseProvider),
+      ref.read(googleUseCaseProvider),
+      ref.read(anonymousUseCaseProvider),
+      ref.read(userNotifierProvider),
+    ));

@@ -5,6 +5,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 abstract class SocialAuthService {
   Future<UserCredential> signInFacebook();
   Future<UserCredential> signInGoogle();
+  Future<UserCredential> signInFirebaseAnonymous();
   Future<void> signOutGoogle();
   Future<void> signOutFacebook();
   Future<bool> isUserLogged();
@@ -41,6 +42,10 @@ class FirebaseAuthService extends SocialAuthService {
     );
     return await _firebaseAuth.signInWithCredential(credential);
   }
+
+  @override
+  Future<UserCredential> signInFirebaseAnonymous() async =>
+      await _firebaseAuth.signInAnonymously();
 
   @override
   Future<void> signOutFacebook() async {

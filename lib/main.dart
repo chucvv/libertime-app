@@ -19,12 +19,12 @@ Future<void> main() async {
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     systemNavigationBarColor:
-        AppColors.primaryColor[900], // navigation bar color
+        AppColors.primaryColor[500], // navigation bar color
     statusBarColor: Colors.transparent, // status bar color
     statusBarBrightness: Brightness.light, //status bar brigtness
     statusBarIconBrightness: Brightness.light, //status barIcon Brightness
     systemNavigationBarDividerColor:
-        AppColors.primaryColor[900], //Navigation bar divider color
+        AppColors.primaryColor[500], //Navigation bar divider color
     systemNavigationBarIconBrightness: Brightness.light, //navigation bar icon
   ));
   _setupLogging();
