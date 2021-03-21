@@ -10,16 +10,16 @@ import 'strings.dart';
 class LiberMeApp extends StatelessWidget {
   Future<void> _initializeFlutterFire() async {
     // Firebase
-    //await Firebase.initializeApp();
+    await Firebase.initializeApp();
     // Crashlytics
-    //await FirebaseCrashlytics.instance
-    //  .setCrashlyticsCollectionEnabled(!kIsWeb && !kReleaseMode);
+    await FirebaseCrashlytics.instance
+        .setCrashlyticsCollectionEnabled(!kIsWeb && !kReleaseMode);
 
-    //Function originalOnError = FlutterError.onError;
-    //FlutterError.onError = (errorDetails) async {
-    //await FirebaseCrashlytics.instance.recordFlutterError(errorDetails);
-    //originalOnError(errorDetails);
-    //};
+    Function originalOnError = FlutterError.onError;
+    FlutterError.onError = (errorDetails) async {
+      await FirebaseCrashlytics.instance.recordFlutterError(errorDetails);
+      originalOnError(errorDetails);
+    };
   }
 
   @override

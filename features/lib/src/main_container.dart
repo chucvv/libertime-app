@@ -1,8 +1,12 @@
-import 'package:features/modules.dart';
+import 'package:features/src/profile/presentation/ui/screen/profile_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:share_ui/awesome_ui.dart';
+
+import 'explore/presentation/ui/screen/tab_container.dart';
+import 'home/presentation/ui/screen/home_screen.dart';
+import 'message/presentation/ui/screen/tab_container.dart';
 
 class MainContainer extends StatefulWidget {
   @override
