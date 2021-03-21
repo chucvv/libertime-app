@@ -1,4 +1,4 @@
-enum AuthProviderEnum { facebook, google, phone }
+enum AuthProviderEnum { anonymous, facebook, google, phone }
 
 class EnumUtil {
   static T fromStringEnum<T>(Iterable<T> values, String stringType) {

@@ -2,7 +2,6 @@ import 'package:database/database.dart';
 import 'package:features/src/auth/data/service/social_auth_service.dart';
 import 'package:features/src/auth/domain/entity/user_entity.dart';
 import 'package:features/src/auth/domain/repository/auth_repository.dart';
-import 'package:logging/logging.dart';
 import 'extension.dart';
 
 class DefaultAuthRepository extends AuthRepository {
@@ -30,8 +29,7 @@ class DefaultAuthRepository extends AuthRepository {
   @override
   Future<UserEntity> signInFirebaseAnonymous() async {
     final anonymousUser = await _authService.signInFirebaseAnonymous();
-    Logger('firebase').info(anonymousUser);
-    final userEntity = anonymousUser.decodeGoogleUser();
+    final userEntity = anonymousUser.decodeAnonymous();
     await _userDatabase.put(userEntity.encode());
     return userEntity;
   }

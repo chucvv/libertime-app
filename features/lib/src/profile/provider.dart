@@ -1,6 +1,6 @@
 import 'package:features/src/auth/provider.dart';
 import 'package:features/src/profile/domain/usecase/user_sign_out_usecase.dart';
-import 'package:features/src/profile/presentation/ui/bloc/profile_bloc.dart';
+import 'package:features/src/profile/presentation/bloc/profile_bloc.dart';
 import 'package:features/src/top_module_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

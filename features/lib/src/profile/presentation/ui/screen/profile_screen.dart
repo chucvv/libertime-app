@@ -1,4 +1,4 @@
-import 'package:features/src/profile/presentation/ui/bloc/profile_bloc.dart';
+import 'package:features/src/profile/presentation/bloc/profile_bloc.dart';
 import 'package:features/src/profile/presentation/ui/widget/profile_header.dart';
 import 'package:features/src/profile/presentation/ui/widget/profile_item.dart';
 import 'package:features/src/profile/provider.dart';
