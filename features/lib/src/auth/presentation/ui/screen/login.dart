@@ -26,7 +26,7 @@ class LoginScreen extends HookWidget {
                     style: Theme.of(context).textTheme.headline1,
                   ),
                   Text(
-                    'Login to connect your friends',
+                    'Connect your friends',
                     style: Theme.of(context).textTheme.subtitle2,
                   ),
                 ],

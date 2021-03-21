@@ -49,7 +49,7 @@ class SplashScreen extends HookWidget {
   }
 
   Future<Artboard> _loadArt(context) async {
-    final data = await rootBundle.load('assets/heart.riv');
+    final data = await rootBundle.load(Assets.heart);
     final file = RiveFile();
     if (file.import(data)) {
       final artboard = file.mainArtboard;

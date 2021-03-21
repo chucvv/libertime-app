@@ -35,9 +35,23 @@ dev_dependencies:
   # flutter packages pub run flutter_launcher_icons:main
   flutter_launcher_icons: ^0.7.4
   build_runner:
+  flutter_gen_runner:
   # flutter packages pub run build_runner watch (--delete-conflicting-outputs)
   # flutter pub upgrade
   # flutter packages pub run build_runner build (--delete-conflicting-outputs)
+  
+flutter_gen: #fluttergen
+  output: libraries/share_ui/lib/gen/ 
+  line_length: 80
+  null_safety: false
+  assets:
+    enabled: true
+  fonts:
+    enabled: false
+  colors:
+    enabled: false
+    inputs:
+      - assets/color/colors.xml
 
 flutter_icons:
   image_path: "assets/launcher/ic_launcher.png"
@@ -47,6 +61,7 @@ flutter_icons:
 flutter:
   uses-material-design: true
   assets:
+    - assets/images/
     - assets/launcher/
     - assets/heart.riv
   fonts:

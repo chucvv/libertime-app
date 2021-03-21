@@ -33,11 +33,11 @@ Future<void> main() async {
     debugPrint = (message, {wrapWidth}) {};
   }
 
-  runZonedGuarded(() {
-    runApp(ProviderScope(observers: [ProviderLogger()], child: LiberMeApp()));
-  }, (error, stackTrace) {
-    FirebaseCrashlytics.instance.recordError(error, stackTrace);
-  });
+  //runZonedGuarded(() {
+  runApp(ProviderScope(observers: [ProviderLogger()], child: LiberMeApp()));
+  //}, (error, stackTrace) {
+  //FirebaseCrashlytics.instance.recordError(error, stackTrace);
+  //});
 }
 
 void _setupLogging() {

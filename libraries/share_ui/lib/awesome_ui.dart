@@ -1,5 +1,6 @@
 library common_ui;
 
+export 'gen/assets.gen.dart';
 export 'src/animation/rotation_fade_transition.dart';
 export 'src/animation/zoom_slideup_transition.dart';
 export 'src/appbar.dart';
