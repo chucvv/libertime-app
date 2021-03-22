@@ -7,7 +7,8 @@ part of 'user_database.dart';
 // **************************************************************************
 
 // ignore_for_file: unnecessary_brace_in_string_interps, unnecessary_this
-class Profile extends DataClass implements Insertable<Profile> {
+class UserInfo extends DataClass implements Insertable<UserInfo> {
+  final String socialUid;
   final String uid;
   final String displayName;
   final String firstName;
@@ -19,8 +20,9 @@ class Profile extends DataClass implements Insertable<Profile> {
   final DateTime creationTime;
   final DateTime lastSignInTime;
   final String locale;
-  Profile(
-      {@required this.uid,
+  UserInfo(
+      {@required this.socialUid,
+      @required this.uid,
       this.displayName,
       this.firstName,
       this.lastName,
@@ -31,12 +33,14 @@ class Profile extends DataClass implements Insertable<Profile> {
       this.creationTime,
       this.lastSignInTime,
       this.locale});
-  factory Profile.fromData(Map<String, dynamic> data, GeneratedDatabase db,
+  factory UserInfo.fromData(Map<String, dynamic> data, GeneratedDatabase db,
       {String prefix}) {
     final effectivePrefix = prefix ?? '';
     final stringType = db.typeSystem.forDartType<String>();
     final dateTimeType = db.typeSystem.forDartType<DateTime>();
-    return Profile(
+    return UserInfo(
+      socialUid: stringType
+          .mapFromDatabaseResponse(data['${effectivePrefix}social_uid']),
       uid: stringType.mapFromDatabaseResponse(data['${effectivePrefix}uid']),
       displayName: stringType
           .mapFromDatabaseResponse(data['${effectivePrefix}display_name']),
@@ -63,6 +67,9 @@ class Profile extends DataClass implements Insertable<Profile> {
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
+    if (!nullToAbsent || socialUid != null) {
+      map['social_uid'] = Variable<String>(socialUid);
+    }
     if (!nullToAbsent || uid != null) {
       map['uid'] = Variable<String>(uid);
     }
@@ -99,8 +106,11 @@ class Profile extends DataClass implements Insertable<Profile> {
     return map;
   }
 
-  ProfilesCompanion toCompanion(bool nullToAbsent) {
-    return ProfilesCompanion(
+  UserInfosCompanion toCompanion(bool nullToAbsent) {
+    return UserInfosCompanion(
+      socialUid: socialUid == null && nullToAbsent
+          ? const Value.absent()
+          : Value(socialUid),
       uid: uid == null && nullToAbsent ? const Value.absent() : Value(uid),
       displayName: displayName == null && nullToAbsent
           ? const Value.absent()
@@ -133,10 +143,11 @@ class Profile extends DataClass implements Insertable<Profile> {
     );
   }
 
-  factory Profile.fromJson(Map<String, dynamic> json,
+  factory UserInfo.fromJson(Map<String, dynamic> json,
       {ValueSerializer serializer}) {
     serializer ??= moorRuntimeOptions.defaultSerializer;
-    return Profile(
+    return UserInfo(
+      socialUid: serializer.fromJson<String>(json['socialUid']),
       uid: serializer.fromJson<String>(json['uid']),
       displayName: serializer.fromJson<String>(json['displayName']),
       firstName: serializer.fromJson<String>(json['firstName']),
@@ -154,6 +165,7 @@ class Profile extends DataClass implements Insertable<Profile> {
   Map<String, dynamic> toJson({ValueSerializer serializer}) {
     serializer ??= moorRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
+      'socialUid': serializer.toJson<String>(socialUid),
       'uid': serializer.toJson<String>(uid),
       'displayName': serializer.toJson<String>(displayName),
       'firstName': serializer.toJson<String>(firstName),
@@ -168,8 +180,9 @@ class Profile extends DataClass implements Insertable<Profile> {
     };
   }
 
-  Profile copyWith(
-          {String uid,
+  UserInfo copyWith(
+          {String socialUid,
+          String uid,
           String displayName,
           String firstName,
           String lastName,
@@ -180,7 +193,8 @@ class Profile extends DataClass implements Insertable<Profile> {
           DateTime creationTime,
           DateTime lastSignInTime,
           String locale}) =>
-      Profile(
+      UserInfo(
+        socialUid: socialUid ?? this.socialUid,
         uid: uid ?? this.uid,
         displayName: displayName ?? this.displayName,
         firstName: firstName ?? this.firstName,
@@ -195,7 +209,8 @@ class Profile extends DataClass implements Insertable<Profile> {
       );
   @override
   String toString() {
-    return (StringBuffer('Profile(')
+    return (StringBuffer('UserInfo(')
+          ..write('socialUid: $socialUid, ')
           ..write('uid: $uid, ')
           ..write('displayName: $displayName, ')
           ..write('firstName: $firstName, ')
@@ -213,29 +228,32 @@ class Profile extends DataClass implements Insertable<Profile> {
 
   @override
   int get hashCode => $mrjf($mrjc(
-      uid.hashCode,
+      socialUid.hashCode,
       $mrjc(
-          displayName.hashCode,
+          uid.hashCode,
           $mrjc(
-              firstName.hashCode,
+              displayName.hashCode,
               $mrjc(
-                  lastName.hashCode,
+                  firstName.hashCode,
                   $mrjc(
-                      phoneNumber.hashCode,
+                      lastName.hashCode,
                       $mrjc(
-                          picture.hashCode,
+                          phoneNumber.hashCode,
                           $mrjc(
-                              email.hashCode,
+                              picture.hashCode,
                               $mrjc(
-                                  provider.hashCode,
+                                  email.hashCode,
                                   $mrjc(
-                                      creationTime.hashCode,
-                                      $mrjc(lastSignInTime.hashCode,
-                                          locale.hashCode)))))))))));
+                                      provider.hashCode,
+                                      $mrjc(
+                                          creationTime.hashCode,
+                                          $mrjc(lastSignInTime.hashCode,
+                                              locale.hashCode))))))))))));
   @override
   bool operator ==(dynamic other) =>
       identical(this, other) ||
-      (other is Profile &&
+      (other is UserInfo &&
+          other.socialUid == this.socialUid &&
           other.uid == this.uid &&
           other.displayName == this.displayName &&
           other.firstName == this.firstName &&
@@ -249,7 +267,8 @@ class Profile extends DataClass implements Insertable<Profile> {
           other.locale == this.locale);
 }
 
-class ProfilesCompanion extends UpdateCompanion<Profile> {
+class UserInfosCompanion extends UpdateCompanion<UserInfo> {
+  final Value<String> socialUid;
   final Value<String> uid;
   final Value<String> displayName;
   final Value<String> firstName;
@@ -261,7 +280,8 @@ class ProfilesCompanion extends UpdateCompanion<Profile> {
   final Value<DateTime> creationTime;
   final Value<DateTime> lastSignInTime;
   final Value<String> locale;
-  const ProfilesCompanion({
+  const UserInfosCompanion({
+    this.socialUid = const Value.absent(),
     this.uid = const Value.absent(),
     this.displayName = const Value.absent(),
     this.firstName = const Value.absent(),
@@ -274,7 +294,8 @@ class ProfilesCompanion extends UpdateCompanion<Profile> {
     this.lastSignInTime = const Value.absent(),
     this.locale = const Value.absent(),
   });
-  ProfilesCompanion.insert({
+  UserInfosCompanion.insert({
+    @required String socialUid,
     @required String uid,
     this.displayName = const Value.absent(),
     this.firstName = const Value.absent(),
@@ -286,8 +307,10 @@ class ProfilesCompanion extends UpdateCompanion<Profile> {
     this.creationTime = const Value.absent(),
     this.lastSignInTime = const Value.absent(),
     this.locale = const Value.absent(),
-  }) : uid = Value(uid);
-  static Insertable<Profile> custom({
+  })  : socialUid = Value(socialUid),
+        uid = Value(uid);
+  static Insertable<UserInfo> custom({
+    Expression<String> socialUid,
     Expression<String> uid,
     Expression<String> displayName,
     Expression<String> firstName,
@@ -301,6 +324,7 @@ class ProfilesCompanion extends UpdateCompanion<Profile> {
     Expression<String> locale,
   }) {
     return RawValuesInsertable({
+      if (socialUid != null) 'social_uid': socialUid,
       if (uid != null) 'uid': uid,
       if (displayName != null) 'display_name': displayName,
       if (firstName != null) 'first_name': firstName,
@@ -315,8 +339,9 @@ class ProfilesCompanion extends UpdateCompanion<Profile> {
     });
   }
 
-  ProfilesCompanion copyWith(
-      {Value<String> uid,
+  UserInfosCompanion copyWith(
+      {Value<String> socialUid,
+      Value<String> uid,
       Value<String> displayName,
       Value<String> firstName,
       Value<String> lastName,
@@ -327,7 +352,8 @@ class ProfilesCompanion extends UpdateCompanion<Profile> {
       Value<DateTime> creationTime,
       Value<DateTime> lastSignInTime,
       Value<String> locale}) {
-    return ProfilesCompanion(
+    return UserInfosCompanion(
+      socialUid: socialUid ?? this.socialUid,
       uid: uid ?? this.uid,
       displayName: displayName ?? this.displayName,
       firstName: firstName ?? this.firstName,
@@ -345,6 +371,9 @@ class ProfilesCompanion extends UpdateCompanion<Profile> {
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
+    if (socialUid.present) {
+      map['social_uid'] = Variable<String>(socialUid.value);
+    }
     if (uid.present) {
       map['uid'] = Variable<String>(uid.value);
     }
@@ -383,7 +412,8 @@ class ProfilesCompanion extends UpdateCompanion<Profile> {
 
   @override
   String toString() {
-    return (StringBuffer('ProfilesCompanion(')
+    return (StringBuffer('UserInfosCompanion(')
+          ..write('socialUid: $socialUid, ')
           ..write('uid: $uid, ')
           ..write('displayName: $displayName, ')
           ..write('firstName: $firstName, ')
@@ -400,10 +430,23 @@ class ProfilesCompanion extends UpdateCompanion<Profile> {
   }
 }
 
-class $ProfilesTable extends Profiles with TableInfo<$ProfilesTable, Profile> {
+class $UserInfosTable extends UserInfos
+    with TableInfo<$UserInfosTable, UserInfo> {
   final GeneratedDatabase _db;
   final String _alias;
-  $ProfilesTable(this._db, [this._alias]);
+  $UserInfosTable(this._db, [this._alias]);
+  final VerificationMeta _socialUidMeta = const VerificationMeta('socialUid');
+  GeneratedTextColumn _socialUid;
+  @override
+  GeneratedTextColumn get socialUid => _socialUid ??= _constructSocialUid();
+  GeneratedTextColumn _constructSocialUid() {
+    return GeneratedTextColumn(
+      'social_uid',
+      $tableName,
+      false,
+    );
+  }
+
   final VerificationMeta _uidMeta = const VerificationMeta('uid');
   GeneratedTextColumn _uid;
   @override
@@ -546,6 +589,7 @@ class $ProfilesTable extends Profiles with TableInfo<$ProfilesTable, Profile> {
 
   @override
   List<GeneratedColumn> get $columns => [
+        socialUid,
         uid,
         displayName,
         firstName,
@@ -559,16 +603,22 @@ class $ProfilesTable extends Profiles with TableInfo<$ProfilesTable, Profile> {
         locale
       ];
   @override
-  $ProfilesTable get asDslTable => this;
+  $UserInfosTable get asDslTable => this;
   @override
-  String get $tableName => _alias ?? 'profiles';
+  String get $tableName => _alias ?? 'user_infos';
   @override
-  final String actualTableName = 'profiles';
+  final String actualTableName = 'user_infos';
   @override
-  VerificationContext validateIntegrity(Insertable<Profile> instance,
+  VerificationContext validateIntegrity(Insertable<UserInfo> instance,
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
+    if (data.containsKey('social_uid')) {
+      context.handle(_socialUidMeta,
+          socialUid.isAcceptableOrUnknown(data['social_uid'], _socialUidMeta));
+    } else if (isInserting) {
+      context.missing(_socialUidMeta);
+    }
     if (data.containsKey('uid')) {
       context.handle(
           _uidMeta, uid.isAcceptableOrUnknown(data['uid'], _uidMeta));
@@ -629,23 +679,23 @@ class $ProfilesTable extends Profiles with TableInfo<$ProfilesTable, Profile> {
   @override
   Set<GeneratedColumn> get $primaryKey => {uid};
   @override
-  Profile map(Map<String, dynamic> data, {String tablePrefix}) {
+  UserInfo map(Map<String, dynamic> data, {String tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : null;
-    return Profile.fromData(data, _db, prefix: effectivePrefix);
+    return UserInfo.fromData(data, _db, prefix: effectivePrefix);
   }
 
   @override
-  $ProfilesTable createAlias(String alias) {
-    return $ProfilesTable(_db, alias);
+  $UserInfosTable createAlias(String alias) {
+    return $UserInfosTable(_db, alias);
   }
 }
 
 abstract class _$UserDatabase extends GeneratedDatabase {
   _$UserDatabase(QueryExecutor e) : super(SqlTypeSystem.defaultInstance, e);
-  $ProfilesTable _profiles;
-  $ProfilesTable get profiles => _profiles ??= $ProfilesTable(this);
+  $UserInfosTable _userInfos;
+  $UserInfosTable get userInfos => _userInfos ??= $UserInfosTable(this);
   @override
   Iterable<TableInfo> get allTables => allSchemaEntities.whereType<TableInfo>();
   @override
-  List<DatabaseSchemaEntity> get allSchemaEntities => [profiles];
+  List<DatabaseSchemaEntity> get allSchemaEntities => [userInfos];
 }

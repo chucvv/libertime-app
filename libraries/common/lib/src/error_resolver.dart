@@ -5,7 +5,7 @@ class ErrorResolver {
   ErrorResolver._(this.message, this.type);
 
   factory ErrorResolver(Exception error) {
-    return ErrorResolver._(error.toString(), AppErrorType.unauthorized);
+    return ErrorResolver._(error.toString(), AppErrorType.unknown);
   }
 
   @override

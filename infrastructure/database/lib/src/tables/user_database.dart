@@ -1,9 +1,9 @@
 import 'package:moor/moor.dart';
 
-import 'user_table.dart';
+import 'user_info_table.dart';
 part 'user_database.g.dart';
 
-@UseMoor(tables: [Profiles])
+@UseMoor(tables: [UserInfos])
 class UserDatabase extends _$UserDatabase {
   UserDatabase(QueryExecutor e) : super(e);
 
@@ -23,11 +23,11 @@ class UserDatabase extends _$UserDatabase {
         });
   }
 
-  Future<Profile> getProfile() => (select(profiles)..limit(1)).getSingle();
+  Future<UserInfo> getUserInfo() => (select(userInfos)..limit(1)).getSingle();
 
-  Future<int> put(Profile profile) =>
-      into(profiles).insertOnConflictUpdate(profile);
+  Future<int> putUserInfo(UserInfo userInfo) =>
+      into(userInfos).insertOnConflictUpdate(userInfo);
 
-  Future<void> remove(String uid) =>
-      (delete(profiles)..where((t) => t.uid.equals(uid))).go();
+  Future<void> removeUserInfo(String uid) =>
+      (delete(userInfos)..where((t) => t.uid.equals(uid))).go();
 }

@@ -1,7 +1,8 @@
 import 'package:moor/moor.dart';
 
-@DataClassName('Profile')
-class Profiles extends Table {
+@DataClassName('UserInfo')
+class UserInfos extends Table {
+  TextColumn get socialUid => text().named('social_uid')();
   TextColumn get uid => text().named('uid')();
   TextColumn get displayName => text().named('display_name').nullable()();
   TextColumn get firstName => text().named('first_name').nullable()();

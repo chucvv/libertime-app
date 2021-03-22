@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:database/database.dart';
 import 'package:features/src/auth/data/service/social_auth_service.dart';
 import 'package:features/src/auth/domain/entity/user_entity.dart';
@@ -7,14 +8,17 @@ import 'extension.dart';
 class DefaultAuthRepository extends AuthRepository {
   final SocialAuthService _authService;
   final UserDatabase _userDatabase;
+  final FirebaseFirestore _firebaseFirestore;
+  final String collectionName = 'users';
 
-  DefaultAuthRepository(this._authService, this._userDatabase);
+  DefaultAuthRepository(
+      this._authService, this._firebaseFirestore, this._userDatabase);
 
   @override
   Future<UserEntity> signInFacebook() async {
     final userCredential = await _authService.signInFacebook();
     final userEntity = userCredential.decodeFacebookUser();
-    await _userDatabase.put(userEntity.encode());
+    _saveUser(userEntity);
     return userEntity;
   }
 
@@ -22,7 +26,7 @@ class DefaultAuthRepository extends AuthRepository {
   Future<UserEntity> signInGoogle() async {
     final userCredential = await _authService.signInGoogle();
     final userEntity = userCredential.decodeGoogleUser();
-    await _userDatabase.put(userEntity.encode());
+    _saveUser(userEntity);
     return userEntity;
   }
 
@@ -30,8 +34,19 @@ class DefaultAuthRepository extends AuthRepository {
   Future<UserEntity> signInFirebaseAnonymous() async {
     final anonymousUser = await _authService.signInFirebaseAnonymous();
     final userEntity = anonymousUser.decodeAnonymous();
-    await _userDatabase.put(userEntity.encode());
+    _saveUser(userEntity);
     return userEntity;
+  }
+
+  Future<void> _saveUser(UserEntity userEntity) async {
+    final userModel = userEntity.encode();
+    return Future.wait([
+      _userDatabase.putUserInfo(userModel),
+      _firebaseFirestore
+          .collection(collectionName)
+          .doc(userModel.uid)
+          .set(userModel.toJson())
+    ]);
   }
 
   @override
@@ -40,19 +55,19 @@ class DefaultAuthRepository extends AuthRepository {
     if (!isLogged) {
       return null;
     }
-    final profile = await _userDatabase.getProfile();
+    final profile = await _userDatabase.getUserInfo();
     return profile?.decode() ?? null;
   }
 
   @override
   Future<void> signOutFacebook(String uid) async {
-    await _authService.signOutFacebook();
-    await _userDatabase.remove(uid);
+    return Future.wait(
+        [_authService.signOutFacebook(), _userDatabase.removeUserInfo(uid)]);
   }
 
   @override
   Future<void> signOutGoogle(String uid) async {
-    await _authService.signOutGoogle();
-    await _userDatabase.remove(uid);
+    return Future.wait(
+        [_authService.signOutGoogle(), _userDatabase.removeUserInfo(uid)]);
   }
 }

@@ -24,6 +24,8 @@ dependencies:
   flutter_hooks: ^0.15.0
   hooks_riverpod: ^0.12.2
 
+  json_annotation: ^3.1.1
+
   firebase_core: ^0.7.0
   firebase_auth: ^0.20.1
   firebase_analytics: ^7.0.1
@@ -51,5 +53,6 @@ dev_dependencies:
     sdk: flutter
   build_runner:
   freezed: ^0.12.7
+  json_serializable: ^3.1.1
 
 flutter:

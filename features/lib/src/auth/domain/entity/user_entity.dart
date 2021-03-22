@@ -1,6 +1,7 @@
 import 'package:features/src/auth/domain/entity/auth_provider_enum.dart';
 
 class UserEntity {
+  final String socialUid;
   final String uid;
   final String displayName;
   final String firstName;
@@ -14,7 +15,8 @@ class UserEntity {
   final String locale;
 
   UserEntity(
-      {this.uid,
+      {this.socialUid,
+      this.uid,
       this.displayName,
       this.firstName,
       this.lastName,
@@ -25,14 +27,4 @@ class UserEntity {
       this.creationTime,
       this.lastSignInTime,
       this.locale});
-
-  @override
-  String toString() {
-    return """{uid:$uid} {displayName:$displayName} 
-    {firstName:$firstName} {lastName:$lastName} 
-    {phoneNumber:$phoneNumber} {picture: $picture} 
-    {email:$email} {provider:$provider} 
-    {creationTime:$creationTime} {lastSignInTime:$lastSignInTime} 
-    {locale:$locale}""";
-  }
 }

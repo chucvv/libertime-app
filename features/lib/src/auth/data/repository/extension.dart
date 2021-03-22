@@ -1,4 +1,4 @@
-import 'package:database/database.dart';
+import 'package:database/database.dart' as db;
 import 'package:features/src/auth/domain/entity/auth_provider_enum.dart';
 import 'package:features/src/auth/domain/entity/user_entity.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -17,6 +17,7 @@ extension UserCredentialDecoder on UserCredential {
       case AuthProviderEnum.google:
         final userInfo = user.providerData[0];
         userEntity = UserEntity(
+            socialUid: userInfo.uid ?? user.uid,
             uid: userInfo.uid ?? user.uid,
             displayName: user.displayName ?? userInfo.displayName,
             firstName: additionalUserInfo.profile['first_name'] ??
@@ -37,14 +38,15 @@ extension UserCredentialDecoder on UserCredential {
         userEntity = UserEntity();
         break;
       case AuthProviderEnum.anonymous:
-        userEntity = UserEntity(uid: user.uid);
+        userEntity = UserEntity(socialUid: user.uid, uid: user.uid);
     }
     return userEntity;
   }
 }
 
 extension UserEntityDecoder on UserEntity {
-  Profile encode() => Profile(
+  db.UserInfo encode() => db.UserInfo(
+        socialUid: socialUid,
         uid: uid,
         displayName: displayName,
         firstName: firstName,
@@ -59,8 +61,9 @@ extension UserEntityDecoder on UserEntity {
       );
 }
 
-extension ProfileDecoder on Profile {
+extension ProfileDecoder on db.UserInfo {
   UserEntity decode() => UserEntity(
+        socialUid: socialUid,
         uid: uid,
         displayName: displayName,
         firstName: firstName,

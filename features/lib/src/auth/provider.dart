@@ -15,8 +15,8 @@ final authServiceProvider = Provider<SocialAuthService>((ref) {
       ref.read(googleAuthProvider), ref.read(firebaseAuthProvider));
 });
 final authRepositoryProvider = Provider<AuthRepository>((ref) {
-  return DefaultAuthRepository(
-      ref.read(authServiceProvider), ref.read(userDatabaseProvider));
+  return DefaultAuthRepository(ref.read(authServiceProvider),
+      ref.read(fireStoreProvider), ref.read(userDatabaseProvider));
 });
 final facebookUseCaseProvider = Provider<FacebookSigninUseCase>((ref) {
   return FacebookSigninUseCase(ref.read(authRepositoryProvider));
