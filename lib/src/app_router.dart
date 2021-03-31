@@ -13,7 +13,7 @@ class AppRouter {
   static const String appointment = '/appointment';
 
   static Route<dynamic> generateRoutes(RouteSettings settings) {
-    switch (settings.name) {
+    switch(settings.name) {
       case notification:
         return MaterialPageRoute(builder: (_) => NotificationScreen());
       case profileEdit:

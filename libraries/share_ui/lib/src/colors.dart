@@ -39,3 +39,4 @@ const kYellowColor = Color(0xFFEECD9B);
 const kDarkYellowColor = Color(0xFFB88A58);
 const kPurpleColor = Color(0xFFB291C0);
 const kGreyColor = Color(0xFFE0E3E8);
+const ktextColorSecondary = Color(0xFFAAB3AC);

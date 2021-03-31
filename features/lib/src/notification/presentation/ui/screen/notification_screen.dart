@@ -28,7 +28,7 @@ class PhotoHero extends StatelessWidget {
     );
   }
 }
-
+       
 class NotificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
