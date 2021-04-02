@@ -1,4 +1,4 @@
-import 'package:features/src/auth/presentation/blocs/signin/signin_bloc.dart';
+import 'package:features/src/auth/presentation/cubit/signin_cubit.dart';
 import 'package:features/src/auth/presentation/strings.dart';
 import 'package:features/src/auth/provider.dart';
 import 'package:flutter/material.dart';
@@ -12,9 +12,9 @@ class LoginScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = useProvider(signInBlocProvider);
-    return BlocProvider<SigninBloc>(
+    return BlocProvider<SigninCubit>(
       create: (context) => bloc,
-      child: BlocConsumer<SigninBloc, SigninState>(
+      child: BlocConsumer<SigninCubit, SigninState>(
         builder: (context, state) {
           return Column(
             children: [
@@ -92,8 +92,7 @@ class LoginScreen extends HookWidget {
           EdgeInsets.only(left: 20.0, top: 12.0, right: 20.0, bottom: 12.0),
       elevation: 6.0,
       onTap: () {
-        BlocProvider.of<SigninBloc>(context)
-            .add(SigninEvent.onAnonymousSignIn());
+        BlocProvider.of<SigninCubit>(context).signInWithAnonymous();
       },
     );
   }
@@ -108,7 +107,7 @@ class LoginScreen extends HookWidget {
           EdgeInsets.only(left: 20.0, top: 12.0, right: 20.0, bottom: 12.0),
       elevation: 6.0,
       onTap: () {
-        BlocProvider.of<SigninBloc>(context).add(SigninEvent.onSigninGoogle());
+        BlocProvider.of<SigninCubit>(context).signGoogle();
       },
     );
   }
@@ -123,8 +122,7 @@ class LoginScreen extends HookWidget {
           EdgeInsets.only(left: 20.0, top: 12.0, right: 20.0, bottom: 12.0),
       elevation: 6.0,
       onTap: () {
-        BlocProvider.of<SigninBloc>(context)
-            .add(SigninEvent.onSigninFacebook());
+        BlocProvider.of<SigninCubit>(context).signFacebook();
       },
     );
   }

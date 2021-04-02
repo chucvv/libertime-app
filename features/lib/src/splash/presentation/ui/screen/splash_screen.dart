@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:features/src/splash/presentation/bloc/splash_bloc.dart';
+import 'package:features/src/splash/presentation/cubit/splash_cubit.dart';
 import 'package:features/src/splash/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,7 +21,7 @@ class SplashScreen extends HookWidget {
     final bloc = useProvider(splashBlocProvider);
     return BlocProvider(
       create: (context) => bloc,
-      child: BlocConsumer<SplashBloc, SplashState>(builder: (_, state) {
+      child: BlocConsumer<SplashCubit, SplashState>(builder: (_, state) {
         return Scaffold(
           backgroundColor: kBackgroudColor,
           body: provider.FutureProvider<Artboard>(
@@ -56,7 +56,7 @@ class SplashScreen extends HookWidget {
       artboard.addController(
         CallbackAnimation('heart', callback: () {
           logger.info('on animation completed');
-          BlocProvider.of<SplashBloc>(context).add(SplashEvent.onCheckSignIn());
+          BlocProvider.of<SplashCubit>(context).isSignIn();
         }),
       );
       return artboard;

@@ -1,4 +1,4 @@
-import 'package:features/src/profile/presentation/bloc/profile_bloc.dart';
+import 'package:features/src/profile/presentation/cubit/profile_cubit.dart';
 import 'package:features/src/profile/presentation/ui/widget/profile_header.dart';
 import 'package:features/src/profile/presentation/ui/widget/profile_item.dart';
 import 'package:features/src/profile/provider.dart';
@@ -22,7 +22,7 @@ class ProfileScreen extends HookWidget {
     final bloc = useProvider(profileBlocProvider);
     return BlocProvider(
       create: (_) => bloc,
-      child: BlocConsumer<ProfileBloc, ProfileState>(
+      child: BlocConsumer<ProfileCubit, ProfileState>(
         builder: (context, state) {
           return SafeArea(
             child: Container(
@@ -104,8 +104,7 @@ class ProfileScreen extends HookWidget {
                     children: [
                       InkWell(
                         onTap: () {
-                          BlocProvider.of<ProfileBloc>(context)
-                              .add(ProfileEvent.onSignOut());
+                          BlocProvider.of<ProfileCubit>(context).signOut();
                         },
                         child: Text(
                           'Logout',

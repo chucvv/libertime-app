@@ -3,12 +3,12 @@ import 'package:features/src/auth/domain/repository/auth_repository.dart';
 import 'package:features/src/auth/domain/usecase/anonymous_signin.dart';
 import 'package:features/src/auth/domain/usecase/facebook_signin.dart';
 import 'package:features/src/auth/domain/usecase/google_signin.dart';
+import 'package:features/src/auth/presentation/cubit/signin_cubit.dart';
 import 'package:features/src/top_module_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'data/service/social_auth_service.dart';
-import 'presentation/blocs/signin/signin_bloc.dart';
 
 final authServiceProvider = Provider<SocialAuthService>((ref) {
   return FirebaseAuthService(ref.read(facebookAuthProvider),
@@ -27,7 +27,7 @@ final googleUseCaseProvider = Provider<GoogleSigninUseCase>((ref) {
 final anonymousUseCaseProvider = Provider<AnonymousSigninUseCase>((ref) {
   return AnonymousSigninUseCase(ref.read(authRepositoryProvider));
 });
-final signInBlocProvider = Provider.autoDispose((ref) => SigninBloc(
+final signInBlocProvider = Provider.autoDispose((ref) => SigninCubit(
       ref.read(facebookUseCaseProvider),
       ref.read(googleUseCaseProvider),
       ref.read(anonymousUseCaseProvider),

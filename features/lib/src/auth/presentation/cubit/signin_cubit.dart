@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:common/common.dart';
 import 'package:features/src/auth/domain/usecase/anonymous_signin.dart';
@@ -8,73 +6,62 @@ import 'package:features/src/auth/domain/usecase/google_signin.dart';
 import 'package:features/src/publisher/user_notifier.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logging/logging.dart';
+import 'package:meta/meta.dart';
 
-part 'signin_event.dart';
 part 'signin_state.dart';
-part 'signin_bloc.freezed.dart';
+part 'signin_cubit.freezed.dart';
 
-class SigninBloc extends Bloc<SigninEvent, SigninState> {
+class SigninCubit extends Cubit<SigninState> {
   final FacebookSigninUseCase _facebookSigninUseCase;
   final GoogleSigninUseCase _googleSigninUseCase;
   final AnonymousSigninUseCase _anonymousSigninUseCase;
   final UserNotifier _userNotifier;
-  SigninBloc(this._facebookSigninUseCase, this._googleSigninUseCase,
-      this._anonymousSigninUseCase, this._userNotifier)
-      : super(Initial()) {
-    _logger.info('Constructor SigninBloc');
-  }
 
   final _logger = Logger('SigninBloc');
 
-  @override
-  Stream<SigninState> mapEventToState(
-    SigninEvent event,
-  ) async* {
-    yield* event.when(
-        onSigninFacebook: _signFacebook,
-        onSigninGoogle: _signGoogle,
-        onSignInPhone: _signWithPhoneNumber,
-        onAnonymousSignIn: _signInWithAnonymous);
+  SigninCubit(this._facebookSigninUseCase, this._googleSigninUseCase,
+      this._anonymousSigninUseCase, this._userNotifier)
+      : super(SigninState.initial()) {
+    _logger.info('Constructor SigninBloc');
   }
 
-  Stream<SigninState> _signInWithAnonymous() async* {
+  void signInWithAnonymous() async {
     final result = await _anonymousSigninUseCase(NoParams());
-    yield result.when(success: (user) {
+    result.when(success: (user) {
       _logger.fine(user);
       _userNotifier.user = user;
-      return AnonymousSigninSuccess();
+      emit(SigninState.anonymousSigninSuccess());
     }, failure: (error) {
       _logger.severe(error.toString());
-      return AnonymousSigninFailure(error.message);
+      emit(SigninState.anonymousSigninFailure(error.message));
     });
   }
 
-  Stream<SigninState> _signWithPhoneNumber(
-      String phoneNumber, String rawPassword) async* {
-    yield PhoneSigninFailure("Account not found");
+  void signWithPhoneNumber(String phoneNumber, String rawPassword) async {
+    emit(SigninState.phoneSigninFailure("Account not found"));
   }
 
-  Stream<SigninState> _signFacebook() async* {
+  void signFacebook() async {
     final result = await _facebookSigninUseCase(NoParams());
-    yield result.when(success: (user) {
+    result.when(success: (user) {
       _logger.fine(user);
       _userNotifier.user = user;
-      return FacebookSigninSuccess();
+      emit(SigninState.facebookSigninSuccess());
     }, failure: (error) {
       _logger.severe(error.toString());
-      return FacebookSigninFailure(error.message);
+      emit(SigninState.facebookSigninFailure(error.message));
     });
   }
 
-  Stream<SigninState> _signGoogle() async* {
+  void signGoogle() async {
     final result = await _googleSigninUseCase(NoParams());
-    yield result.when(success: (user) {
+    result.when(success: (user) {
       _logger.fine(user);
       _userNotifier.user = user;
-      return FacebookSigninSuccess();
+      emit(SigninState.googleSiginSuccess());
     }, failure: (error) {
       _logger.severe(error.toString());
-      return FacebookSigninFailure(error.message);
+      emit(SigninState.gooogleSiginFailure(error.message));
     });
   }
 }

@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:common/common.dart';
 import 'package:features/src/publisher/user_notifier.dart';
@@ -8,32 +6,27 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 
-part 'splash_event.dart';
 part 'splash_state.dart';
-part 'splash_bloc.freezed.dart';
+part 'splash_cubit.freezed.dart';
 
-class SplashBloc extends Bloc<SplashEvent, SplashState> {
-  SplashBloc(this._loginUseCase, this._userNotifier) : super(Initial());
+class SplashCubit extends Cubit<SplashState> {
+  SplashCubit(this._loginUseCase, this._userNotifier)
+      : super(SplashState.initial());
 
   final LoginUseCase _loginUseCase;
   final UserNotifier _userNotifier;
   final _logger = Logger('SplashBloc');
 
-  @override
-  Stream<SplashState> mapEventToState(
-    SplashEvent event,
-  ) async* {
-    yield* event.when(onCheckSignIn: _isSignIn);
-  }
-
-  Stream<SplashState> _isSignIn() async* {
+  void isSignIn() async {
     final result = await _loginUseCase(NoParams());
-    yield result.when(success: (userEntity) {
+    result.when(success: (userEntity) {
       _userNotifier.user = userEntity;
       _logger.fine(userEntity);
-      return userEntity != null ? UserLogged() : UserNotLogged();
+      emit(userEntity != null
+          ? SplashState.isUserLogged()
+          : SplashState.isUserNotLogged());
     }, failure: (error) {
-      return UserNotLogged();
+      emit(SplashState.isUserNotLogged());
     });
   }
 }
