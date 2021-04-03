@@ -24,7 +24,7 @@ class HistoryItem extends StatelessWidget {
             Positioned.fill(
               child: StyledCacheImage(
                 url: item['imgUrl'],
-                defaultIcon: Icon(
+                defaultWidget: Icon(
                   IconFonts.bleeding_hearts,
                   color: kAccentColor,
                 ),

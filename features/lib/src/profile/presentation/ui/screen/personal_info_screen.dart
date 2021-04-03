@@ -28,14 +28,16 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            AutoSizeText(
-              person.name,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6
-                  .copyWith(color: kBlueColor),
+            Expanded(
+              child: AutoSizeText(
+                person.name,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline3
+                    .copyWith(color: kBlueColor),
+              ),
             ),
             SizedBox(
               width: ScreenUtil().setWidth(10.0),
@@ -46,11 +48,15 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
             ),
           ],
         ),
+        SizedBox(
+          height: ScreenUtil().setWidth(10.0),
+        ),
         Row(
           children: [
             Icon(
               IconFonts.suitcase,
               color: Colors.grey,
+              size: ScreenUtil().setWidth(16.0),
             ),
             SizedBox(
               width: ScreenUtil().setWidth(5.0),
@@ -63,11 +69,15 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
             ),
           ],
         ),
+        SizedBox(
+          height: ScreenUtil().setWidth(5.0),
+        ),
         Row(
           children: [
             Icon(
               IconFonts.direction_1,
               color: Colors.grey,
+              size: ScreenUtil().setWidth(16.0),
             ),
             SizedBox(
               width: ScreenUtil().setWidth(5.0),

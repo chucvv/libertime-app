@@ -1,11 +1,11 @@
 import 'package:features/src/profile/presentation/cubit/profile_cubit.dart';
-import 'package:features/src/profile/presentation/ui/widget/profile_header.dart';
 import 'package:features/src/profile/presentation/ui/widget/profile_item.dart';
 import 'package:features/src/profile/provider.dart';
 import 'package:features/src/top_module_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logging/logging.dart';
 import 'package:share_ui/awesome_external_widgets.dart';
@@ -13,6 +13,7 @@ import 'package:share_ui/awesome_ui.dart';
 
 class ProfileScreen extends HookWidget {
   final logger = Logger('ProfileScreen');
+  final avatarSize = 120.0;
   ProfileScreen({Key key}) : super(key: key) {
     logger.info('Construct ProfileScreen');
   }
@@ -35,9 +36,59 @@ class ProfileScreen extends HookWidget {
                   HookBuilder(builder: (context) {
                     final user = useProvider(
                         userNotifierProvider.select((value) => value.user));
-                    return ProfileHeader(
-                      userName: user?.displayName ?? "",
-                      imageUrl: user?.picture ?? "",
+                    return Column(
+                      children: [
+                        Container(
+                          width: ScreenUtil().setWidth(avatarSize),
+                          child: Stack(
+                            children: [
+                              Align(
+                                alignment: Alignment.topCenter,
+                                child:
+                                    buildAvatar(context, user?.picture ?? ""),
+                              ),
+                              Align(
+                                alignment: Alignment.topRight,
+                                child: InkWell(
+                                  child: Container(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: FaIcon(
+                                      FontAwesomeIcons.pencilAlt,
+                                      size: 16.0,
+                                      color: kPrimaryColor,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Colors.grey.withOpacity(.3),
+                                            offset: Offset(0, 2),
+                                            blurRadius: 5)
+                                      ],
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    Navigator.of(context)
+                                        .pushNamed('/profile_edit');
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 6.0,
+                        ),
+                        AutoSizeText(
+                          user?.displayName ?? "",
+                          maxLines: 2,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline3
+                              .apply(color: kBlueColor),
+                        )
+                      ],
                     );
                   }),
                   SizedBox(
@@ -147,6 +198,47 @@ class ProfileScreen extends HookWidget {
               onSignOutFailure: (error) {});
         },
       ),
+    );
+  }
+
+  Widget buildAvatar(BuildContext context, String imageUrl) {
+    return StyledCacheImage(
+      width: ScreenUtil().setWidth(avatarSize),
+      height: ScreenUtil().setHeight(avatarSize),
+      url: imageUrl,
+      isRound: true,
+      defaultWidget: Container(
+        width: ScreenUtil().setWidth(avatarSize),
+        height: ScreenUtil().setHeight(avatarSize),
+        child: Icon(
+          IconFonts.bleeding_hearts,
+          color: Colors.redAccent,
+          size: ScreenUtil().setWidth(60.0),
+        ),
+        decoration: BoxDecoration(
+          color: kBackgroudColor,
+          shape: BoxShape.circle,
+          border: Border.all(
+              width: 2.0, color: kAccentColorVariant.withOpacity(0.9)),
+          boxShadow: [
+            BoxShadow(
+                color: Colors.grey.withOpacity(.3),
+                offset: Offset(0, 2),
+                blurRadius: 5)
+          ],
+        ),
+      ),
+      boxBorder:
+          Border.all(width: 2.0, color: kAccentColorVariant.withOpacity(0.9)),
+      boxShadow: [
+        BoxShadow(
+            color: Colors.grey.withOpacity(.3),
+            offset: Offset(0, 2),
+            blurRadius: 5)
+      ],
+      onTap: () {
+        Navigator.of(context).pushNamed('/profile_edit');
+      },
     );
   }
 }

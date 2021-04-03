@@ -65,7 +65,7 @@ class _RoomChatScreenState extends State<RoomChatScreen> {
               height: ScreenUtil().setHeight(50.0),
               url: widget.roomChatArgument.imageUrl,
               isRound: true,
-              defaultIcon: Icon(
+              defaultWidget: Icon(
                 IconFonts.bleeding_hearts,
                 color: kAccentColor,
               ),

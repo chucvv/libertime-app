@@ -7,6 +7,7 @@ class AppRouter {
   static const String home = '/home';
   static const String chat = '/room_chat';
   static const String personInfo = '/person_info';
+  static const String profileEdit = '/profile_edit';
   static const String notification = '/notification';
   static const String filterSettings = '/filter_settings';
   static const String appointment = '/appointment';
@@ -15,6 +16,8 @@ class AppRouter {
     switch (settings.name) {
       case notification:
         return MaterialPageRoute(builder: (_) => NotificationScreen());
+      case profileEdit:
+        return MaterialPageRoute(builder: (_) => ProfileEditScreen());
       case personInfo:
         return MaterialPageRoute(
             builder: (_) => PersonalInfoScreen(

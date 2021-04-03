@@ -24,7 +24,7 @@ class ReceivedMessageItem extends StatelessWidget {
                 height: ScreenUtil().setHeight(40.0),
                 url: message['contactImgUrl'],
                 isRound: true,
-                defaultIcon: Icon(
+                defaultWidget: Icon(
                   IconFonts.bleeding_hearts,
                   color: kAccentColor,
                 ),
