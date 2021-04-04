@@ -8,6 +8,7 @@ export 'src/argon_buttons_flutter.dart';
 export 'src/circle_button.dart';
 export 'src/circle_tab_indicator.dart';
 export 'src/colors.dart';
+export 'src/dimension.dart';
 export 'src/extension/gradient.dart';
 export 'src/extension/top_rounded.dart';
 export 'src/firework_button.dart';

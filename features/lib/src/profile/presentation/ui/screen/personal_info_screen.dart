@@ -110,8 +110,8 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                     child: CircleButton(
                       icon: FontAwesomeIcons.chevronLeft,
                       iconSize: 18,
-                      width: ScreenUtil().setWidth(30.0),
-                      height: ScreenUtil().setHeight(30.0),
+                      width: ScreenUtil().setWidth(Dimens.smallIconSize),
+                      height: ScreenUtil().setHeight(Dimens.smallIconSize),
                       onTap: () {
                         Navigator.of(context).pop();
                       },
